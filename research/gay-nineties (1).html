@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Gay Nineties Inn / Yale House at 2360–2366 Route 6, Brewster — 240 years of ownership history, traced from 2022 back to the 1782 Revolutionary War forfeiture sale. Primary-source local research from Brewster History.">
+<title>The Gay Nineties Inn / Yale House — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.narrative-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.narrative-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                     text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.narrative-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.9rem);
+                   font-weight: 400; line-height: 1.1; color: var(--ink);
+                   margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.narrative-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                      font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.narrative-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+                  text-transform: uppercase; color: var(--ink-muted);
+                  padding-bottom: 1.75rem; margin-bottom: 0;
+                  border-bottom: 1px solid var(--border); line-height: 1.8; }
+.narrative-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.narrative-cover { margin: 0 0 2rem; }
+.narrative-cover img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.narrative-cover figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                              line-height: 1.65; margin-top: 0.7rem; padding: 0 0.4rem;
+                              font-style: italic; }
+
+.narrative-body { margin-top: 2rem; }
+.narrative-body p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                    line-height: 1.9; margin-bottom: 1.25rem; }
+.narrative-body p em, .narrative-body em { color: var(--ink); font-style: italic; }
+.narrative-body p strong { color: var(--ink); font-weight: 600; }
+.narrative-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+                     color: var(--ink); margin: 3rem 0 0.85rem;
+                     padding-top: 2rem; border-top: 1px solid var(--border);
+                     letter-spacing: -0.005em; }
+.narrative-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.narrative-body h2 .h2-years { display: block; font-family: var(--mono); font-size: 11px;
+                               letter-spacing: 0.14em; text-transform: uppercase;
+                               color: var(--gold); font-style: normal; font-weight: 500;
+                               margin-bottom: 0.4rem; }
+.narrative-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+                     color: var(--ink); margin: 1.75rem 0 0.6rem; }
+
+.narrative-body figure { margin: 2rem 0; }
+.narrative-body figure img { border: 1px solid var(--border); border-radius: 3px; }
+.narrative-body figure.figure-small { max-width: 360px; }
+.narrative-body figure.figure-portrait { max-width: 280px; margin-left: auto; margin-right: auto; }
+.narrative-body figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                             letter-spacing: 0.02em; line-height: 1.65;
+                             margin-top: 0.65rem; padding: 0 0.5rem; font-style: italic; }
+
+.narrative-body blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                             padding: 0.4rem 0 0.4rem 1.35rem; }
+.narrative-body blockquote p { color: var(--ink); font-style: italic; }
+.narrative-body blockquote cite { font-family: var(--mono); font-size: 11px;
+                                  letter-spacing: 0.04em; color: var(--ink-muted);
+                                  font-style: normal; display: block; margin-top: 0.6rem; }
+
+.narrative-body .deed-ref { font-family: var(--mono); font-size: 12px; color: var(--ink-muted);
+                            background: var(--warm-white); padding: 1px 5px; border-radius: 2px;
+                            white-space: nowrap; border: 1px solid var(--border); }
+.narrative-body .source-note { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                               letter-spacing: 0.04em; line-height: 1.65;
+                               margin-top: -0.5rem; margin-bottom: 1.25rem; }
+
+.narrative-body .summary-block { background: var(--warm-white);
+                                 border: 1px solid var(--border-strong);
+                                 border-left: 3px solid var(--gold);
+                                 padding: 1rem 1.2rem; margin: 1.5rem 0;
+                                 border-radius: 3px; }
+.narrative-body .summary-block-label { font-family: var(--mono); font-size: 10px;
+                                       letter-spacing: 0.14em; text-transform: uppercase;
+                                       color: var(--gold); font-weight: 600;
+                                       margin-bottom: 0.4rem; }
+.narrative-body .summary-block p { font-family: var(--body); font-size: 0.95rem;
+                                   color: var(--ink-light); margin: 0; line-height: 1.7; }
+
+.deed-table-wrap { margin: 2rem -1.5rem; overflow-x: auto; }
+.deed-table { width: 100%; min-width: 640px; border-collapse: collapse;
+              font-family: var(--body); font-size: 13px;
+              background: var(--warm-white); }
+.deed-table th { background: var(--ink); color: var(--cream);
+                 font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+                 text-transform: uppercase; font-weight: 500;
+                 padding: 0.7rem 0.8rem; text-align: left;
+                 border-bottom: 1px solid rgba(255,255,255,0.1); }
+.deed-table td { padding: 0.6rem 0.8rem; vertical-align: top;
+                 border-bottom: 1px solid var(--border); color: var(--ink-light);
+                 line-height: 1.55; }
+.deed-table tr:last-child td { border-bottom: none; }
+.deed-table tr:hover td { background: rgba(201,168,76,0.05); }
+.deed-table td.dt-date { font-family: var(--mono); font-size: 11px;
+                         color: var(--ink); white-space: nowrap; }
+.deed-table td.dt-ref { font-family: var(--mono); font-size: 11px;
+                        color: var(--ink-muted); white-space: nowrap; }
+.deed-table td.dt-parties strong { color: var(--ink); }
+.deed-table td.dt-notes { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+@media (max-width: 700px) {
+  .deed-table-wrap { margin: 2rem -1rem; }
+}
+
+.sources-block { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 1rem; }
+.sources-block .src-cat { margin-bottom: 1.5rem; }
+.sources-block .src-cat-label { font-family: var(--mono); font-size: 10px;
+                                letter-spacing: 0.12em; text-transform: uppercase;
+                                color: var(--ink-muted); font-weight: 500;
+                                margin-bottom: 0.5rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.7; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.35rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block li .src-ref { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
+
+.open-research { background: var(--warm-white); border: 1px solid var(--border-strong);
+                 border-left: 3px solid var(--rust); padding: 1.2rem 1.4rem;
+                 margin: 2.5rem 0; border-radius: 3px; }
+.open-research-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+                       text-transform: uppercase; color: var(--rust); font-weight: 600;
+                       margin-bottom: 0.6rem; }
+.open-research h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600;
+                    color: var(--ink); margin: 1rem 0 0.4rem; }
+.open-research h4:first-of-type { margin-top: 0.3rem; }
+.open-research p { font-family: var(--body); font-size: 0.92rem;
+                   color: var(--ink-light); line-height: 1.7; margin: 0; }
+.open-research ol { list-style: decimal; padding-left: 1.25rem; margin-top: 0.4rem; }
+.open-research ol li { font-family: var(--body); font-size: 0.92rem;
+                       color: var(--ink-light); line-height: 1.7; margin-bottom: 0.45rem; }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Research</strong> &nbsp;·&nbsp; Shakedown Productions</div>
+</header>
+
+<article class="narrative-wrap">
+
+  <figure class="narrative-cover">
+    <img src="../images/gay-nineties/postcard-entrance.png" alt="The Gay Nineties Inn, Brewster, N.Y. — hand-tinted postcard showing the entrance gateway and the inn beyond, with the Middle Branch Reservoir visible at left.">
+    <figcaption>The Gay Nineties Inn at 2360 Route 6 &mdash; hand-tinted postcard view of the entrance gateway, with the inn building visible through the trees and the Middle Branch Reservoir at left.</figcaption>
+  </figure>
+
+  <div class="narrative-eyebrow">2360&ndash;2366 Route 6, Brewster, New York</div>
+  <h1 class="narrative-title">The Gay Nineties Inn <em>&amp;</em> The Yale House</h1>
+  <p class="narrative-subtitle">240 years of Putnam County ownership, traced from 2022 back to 1782.</p>
+  <p class="narrative-meta">
+    <span>Town of Southeast</span><span>Tax Map 56-1-14</span><span>Deed chain &mdash; 240 years</span>
+  </p>
+
+  <div class="narrative-body">
+
+    <p>Just west of Brewster village along Route 6, on a parcel that today overlooks the Middle Branch Reservoir, stands a French Second Empire house with a mansard roof and a wraparound porch. It has, in different lifetimes, been a working farm, an Assembly politician&rsquo;s estate, a 1930s roadside inn, and the wartime headquarters of two Brooklyn investors. The deed chain that defines it runs unbroken from a Revolutionary War forfeiture sale in 1782 down to its current owner&rsquo;s purchase from the Town of Southeast in 2022 &mdash; 240 years across the same eight or so acres.</p>
+
+    <p>What follows is a record of that chain.</p>
+
+    <h2>
+      <span class="h2-years">Before the Republic &nbsp;·&nbsp; pre-1782</span>
+      Colonial Origins and Revolutionary Forfeiture
+    </h2>
+
+    <p>The land on which this property stands was almost certainly part of a colonial-era land grant or patent in what was then Dutchess County, New York &mdash; Putnam County was not created until <strong>June 12, 1812</strong>, carved out of the southern portion of Dutchess. The Southeast area sat within the broader sphere of the large colonial grants that defined land ownership in this part of the Hudson Valley through the eighteenth century.</p>
+
+    <p>During the Revolutionary War, Putnam County was bitterly contested terrain. The county sits just north of the Neutral Ground between British-held New York City and Patriot-held territory, and loyalties were sharply divided. After American independence, New York State moved aggressively to confiscate and sell lands owned by Loyalists who had supported the Crown. The Commissioners of Forfeiture were established by state law to manage these sales, and their transactions form some of the oldest deed records in Putnam County.</p>
+
+    <p>In 1782, the Commissioners of Forfeiture &mdash; S. Dodge and others &mdash; conveyed this land to <strong>Herman King</strong> of the Town of Southeast (<span class="deed-ref">Book 8, Page 139</span>). This deed has not yet been physically examined; its existence in the index confirms that the property chain begins with a post-Revolutionary War forfeiture sale. The land was literally born into American hands through the dispossession of its Loyalist owner. The identity of that original Loyalist landowner remains to be established.</p>
+
+    <figure class="figure-small">
+      <img src="../images/gay-nineties/deed-index-1782.jpg" alt="Index of Deeds, Dutchess County, N.Y. — Grantees, showing the 1782 entry for grantee Herman King, grantor S. Dodge & ors. Com's., Book 8 Page 139.">
+      <figcaption>Dutchess County <em>Index of Deeds &mdash; Grantees</em>, showing the 1782 entry: grantee <strong>Herman King</strong>, grantor &ldquo;S. Dodge &amp; ors. Com&rsquo;s.&rdquo; (Commissioners of Forfeiture), <span class="deed-ref">Liber 8, p.&nbsp;139</span>.</figcaption>
+    </figure>
+
+    <h2>
+      <span class="h2-years">1782&ndash;1830</span>
+      The King Family Farm
+    </h2>
+
+    <p><strong>Herman King</strong> and his wife <strong>Susanna</strong> held this land for over thirty years following the 1782 acquisition. In May 1815, Herman King sold approximately 60 acres to his neighbor <strong>George Beal</strong> for $1,200 &mdash; a substantial sum representing a genuine arm&rsquo;s-length transaction. The deed, witnessed by Jonathan Morehouse and Belden Crane and acknowledged before William Brown, a Master in Chancery, was not recorded until June 21, 1824 &mdash; a nine-year delay entirely typical of rural Putnam County practice. (Note: the spelling throughout the deed records is <em>Beal</em>, not Beale.)</p>
+
+    <p>The boundaries of the 1815 King-to-Beal deed establish the same landscape that would define this property for the next two centuries: the lands of Zebulon Phillips to the southeast, the highway (Route 6) to the northwest, Major Fowler&rsquo;s land to the west, and Ezra Barnum&rsquo;s land to the north. These family names &mdash; Phillips, Fowler, Barnum, Cole &mdash; echo through every deed in this chain for the next hundred years.</p>
+
+    <p>In 1824, <strong>Stephen King</strong> of Fishkill, Dutchess County &mdash; likely Herman&rsquo;s brother or relative &mdash; executed a quitclaim deed to Beal for the nominal sum of $10, releasing any residual King family claim on the property. This title clearance deed was recorded the same day as the original King deed, August 21, 1824, suggesting Beal was finally tidying up his title in preparation for a sale.</p>
+
+    <h2>
+      <span class="h2-years">1815&ndash;1830</span>
+      George Beal and the Assembly
+    </h2>
+
+    <p><strong>George Beal</strong> of Southeast held the King parcel for roughly fifteen years, during which time he assembled additional adjacent acreage. When he sold to Tilly Foster on April 1, 1830, the parcel had grown from 60 acres to approximately 128 acres &mdash; a plat map was attached to the deed, indicating a formal survey had been done. The sale price was $3,598, reflecting the expanded holding.</p>
+
+    <h2>
+      <span class="h2-years">1830&ndash;c.1842</span>
+      Tilly Foster &mdash; The Connecticut Investor and the Iron Mine
+    </h2>
+
+    <p>The 1830 deed reveals a surprising fact: <strong>Tilly Foster</strong> was not a local Southeast man at all. He was a resident of the Town of Washington, Litchfield County, Connecticut &mdash; a Connecticut investor who paid $3,598 for 128 acres in Putnam County. He appears never to have lived on the property himself.</p>
+
+    <p>Foster was an active land acquirer in Southeast during the 1830s and 1840s, assembling multiple parcels under separate deeds. The land that would become the Tilly Foster Mine and the land that is today the Tilly Foster Farm were almost certainly acquired by Foster under different deeds, and passed through entirely separate chains of title after his death. What connects them is simply the man&rsquo;s name &mdash; attached permanently to this corner of Southeast through the iron mine that bears it.</p>
+
+    <figure>
+      <img src="../images/gay-nineties/aerial-tilly-foster.jpg" alt="Modern aerial photograph showing the Tilly Foster Farm to the north, the flooded Old Mine pit at left, and the property parcel outlined to the lower right.">
+      <figcaption>Modern aerial view of the surrounding landscape: the <strong>Tilly Foster Farm</strong> to the north, the water-filled <strong>Old Mine</strong> pit at left (flooded after the 1895 collapse), and the property parcel at lower right along the Middle Branch Reservoir.</figcaption>
+    </figure>
+
+    <p>The Tilly Foster Mine &mdash; located approximately two miles west of Brewster village along Route 6 &mdash; did not open until 1853, a decade after Foster&rsquo;s death. At its peak in the 1870s it employed hundreds of miners producing 7,000 tons of ore per month. From 1887 to 1889 it operated as an open pit &mdash; at that time the largest open-pit mine in the world. A catastrophic collapse in 1895 killed 13 miners, and the pit subsequently flooded. Today it is the water-filled depression visible on aerial photographs just north of the Middle Branch Reservoir, its surface still visited by the occasional scuba diver.</p>
+
+    <p>The farm portion of Foster&rsquo;s holding lay to the south. Foster died <em>circa</em> 1842. His widow Mary Foster and his executors &mdash; Jesse Kelly and Samuel Kelly of Southeast &mdash; administered his Putnam County estate. An 1841 mortgage from Foster to Polly Fowler ($3,000, <span class="deed-ref">Liber L of Mortgages, p.&nbsp;130</span>) was presumably satisfied as part of the settlement.</p>
+
+    <h2>
+      <span class="h2-years">1844&ndash;1882</span>
+      Isaac Kelley and the Assembled Estate
+    </h2>
+
+    <p><strong>Isaac Kelley</strong> of Southeast, almost certainly a relative of the Kelly family executors, purchased Tilly Foster&rsquo;s entire ~192-acre holding for $7,400 on April 15, 1844. He then methodically expanded his holdings: acquiring an additional ~20 acres from Benjamin Fowler and wife Mary Ann in 1845 for $850; ~41 acres along the Croton River from the Crosby family executors in 1846 for $200; and a further parcel from William Clausen around 1849.</p>
+
+    <p>Of Kelley&rsquo;s assembled estate, the ~67-acre parcel he eventually conveyed to Peter Kirkham became 2360 Route 6. The larger residue &mdash; roughly 199 acres &mdash; is almost certainly what is today the <strong>Tilly Foster Farm</strong>, confirming that these two neighboring properties were once a single holding under Isaac Kelley, divided when he carved off the Kirkham parcel in 1882.</p>
+
+    <p>The Kelley-to-Kirkham deed was signed on April 26, 1882, but not recorded until April 3, 1890 &mdash; another eight-year delay. The recording was almost certainly prompted by the 1891 conveyance from Peter to Henrietta Kirkham, which required a clean recorded chain of title.</p>
+
+    <h2>
+      <span class="h2-years">1882&ndash;1916</span>
+      The Kirkham Farm
+    </h2>
+
+    <p><strong>Peter G. Kirkham</strong> and his wife Henrietta held the farm during the period in which the house that still stands was almost certainly built or substantially improved. The French Second Empire style of the structure &mdash; with its distinctive mansard roof, dormers, wraparound porch, and bay window &mdash; dates architecturally to the 1860s&ndash;1880s, placing its construction squarely in this era. In April 1891, Peter conveyed the property to Henrietta for a nominal dollar, a standard estate planning move acknowledged by A.&nbsp;J. Miller &mdash; the same notary who had handled the 1882 Kelley deed.</p>
+
+    <p>By 1916 the property had passed to <strong>Nellie F. Kirkham</strong>, likely their daughter or daughter-in-law, then living in the Town of Kent. On July 28, 1916, Nellie sold the farm to two Southeast men: John R. Yale and Edward D. Stannard, for $100 plus a $6,000 mortgage. The Kirkham family&rsquo;s connection to the land was over.</p>
+
+    <div class="summary-block">
+      <div class="summary-block-label">Context &mdash; the watershed era begins</div>
+      <p>By the time the Kirkhams held this farm, the entire western boundary &mdash; labeled &ldquo;City of New York&rdquo; in the 1882 deed &mdash; reflected a transformation already underway. The Middle Branch Reservoir, visible today immediately west of the property along Route 6, had been created in <strong>1878</strong> by damming the Middle Branch of the Croton River as part of New York City&rsquo;s expanding water supply system. Between 1878 and 1911, multiple tributaries of the Croton were dammed, covering more than 1,400 acres of Southeast&rsquo;s landscape. The Kirkham family farmed on the eastern edge of what was becoming New York City&rsquo;s watershed &mdash; a boundary that has defined the western horizon of this property ever since.</p>
+    </div>
+
+    <h2>
+      <span class="h2-years">1916&ndash;1925</span>
+      John R. Yale &mdash; The Politician&rsquo;s Estate
+    </h2>
+
+    <figure class="figure-portrait">
+      <img src="../images/gay-nineties/john-r-yale.jpg" alt="Portrait photograph of John Reed Yale (1855–1925) in oval frame, white-haired with full mustache, formal dark suit.">
+      <figcaption>John Reed Yale (1855&ndash;1925), New York State Assemblyman, President of Brewster Water Works.</figcaption>
+    </figure>
+
+    <p><strong>John Reed Yale</strong> (May 8, 1855 &ndash; July 17, 1925) was the most prominent political figure in Putnam County. Born in Patterson, the son of <em>Belden</em> Yale (1821&ndash;1910) and Margaret Glennen, he was a real estate expert, assessor, and businessman who built the Brewster water supply system and served as President of Brewster Water Works.</p>
+
+    <p>Yale served in the New York State Assembly representing Putnam County nearly continuously from 1902 through 1925 &mdash; in 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, and again in 1921, 1922, 1923, 1924, and 1925 &mdash; making him one of the longest-serving members of the Assembly at his death. He chaired the Committee on Electricity, Gas and Water Supply (1908&ndash;1910, 1912) and the Committee on Railroads (1922). He was a delegate to the 1904 Republican National Convention that nominated Theodore Roosevelt, and a member of the Masonic Fraternity, the Odd Fellows, and the Elks. Yale was also Vice Chairman of the New York State Commission for the Panama&ndash;Pacific International Exposition in 1915.</p>
+
+    <h3>Family</h3>
+
+    <p>Yale married <strong>Alice Penny</strong> on May 8, 1880, in Patterson, Putnam County. They had five daughters: Beatrice M. (1882&ndash;1963), Anna M. (1884&ndash;deceased), Daisy L. (1886&ndash;1970), Edna A. (1887&ndash;1889, died in infancy), and Florence Louise (1890&ndash;1933). Alice Penny Yale died in 1921, four years before her husband.</p>
+
+    <p>His daughter <strong>Florence Louise Yale</strong> married Captain <strong>Philip D. Hoyt</strong>, New York City&rsquo;s First Deputy Police Commissioner and the father of modern traffic control in New York, a Princeton graduate. Philip&rsquo;s father, <strong>Morgan Howes Hoyt</strong>, was Putnam County Democratic chairman who launched Franklin D. Roosevelt&rsquo;s political career during his first New York State Senate campaign in 1910 &mdash; FDR remained a lifelong correspondent, referring to him as &ldquo;Morgan Hoyt has been introducing me for 100 years.&rdquo; James Forrestal, the first United States Secretary of Defense, was a close friend of Philip Hoyt&rsquo;s at Princeton.</p>
+
+    <h3>Why this property</h3>
+
+    <p>The Yale family&rsquo;s roots in Southeast ran deep, and specifically in the neighborhood along Sodom Road and Brewster Hill Road &mdash; the area just south of where the City of New York was simultaneously flooding land to create the reservoir system from 1878 onward. Deed research in that neighborhood shows <strong>Enos C. Yale</strong> &mdash; a cousin of John R.&rsquo;s, both descending from the Yale family patriarch Benjamin Yale (1714&ndash;1761) though through different branches &mdash; as a boundary neighbor across multiple lots in that area. By 1890, John R. Yale himself bounded one parcel on three sides, and the property assessor&rsquo;s card for that lot carries the tab &ldquo;Yale House&rdquo; &mdash; a geographic reference reflecting that Yale&rsquo;s land surrounded the parcel on three sides, confirmed by complete deed index research <em>not</em> to reflect actual Yale ownership of that lot. Significantly, the Penny family &mdash; William A. and Mary Penny &mdash; owned adjacent lots on the same road, and Yale married Alice Penny in 1880. The Pennys were almost certainly the neighboring family from whom he took his wife.</p>
+
+    <p>Against this background, the 1916 acquisition of the Route 6 property reads as a deliberate statement. Yale was 61 years old, with a successful Assembly career, and his wife&rsquo;s family neighborhood was being steadily absorbed by the City of New York watershed. The grander Second Empire house on the main highway &mdash; visible, prominent, on 67 acres &mdash; was the estate of a man who had arrived. The Sodom Road neighborhood was where the Yale family came from; 2360 Route 6 was where John R. Yale chose to end.</p>
+
+    <h3>The end</h3>
+
+    <p>As Yale&rsquo;s health declined in spring 1925 &mdash; he was dying of cancer &mdash; careful estate planning was underway. His wife Alice had been dead four years. On April 27, 1925, he conveyed the Route 6 property to his eldest daughter <strong>Beatrice M. Yale</strong> (except a small parcel to Ruth J. Kemble). Eighty-one days later, on July 2, 1925, Beatrice sold to Business Adjustment, Inc. of Mount Kisco. Yale died fifteen days after that, on <strong>July 17, 1925</strong>, at Albany Hospital, after a cancer operation. He was buried at Milltown Cemetery in Brewster &mdash; a short distance from this property.</p>
+
+    <h2>
+      <span class="h2-years">1926&ndash;1937</span>
+      Dollie Smith and the Assembled Estate
+    </h2>
+
+    <p><strong>Mary A. Smith</strong>, known as Dollie Smith, of Lake Mahopac, acquired the ~66-acre property in 1926 subject to a $13,000 mortgage, having already been assembling adjacent parcels via Lake Mahopac Realty since 1914. She carved out portions to Gifford (1928) and Murello (1929), and executed a railroad water pipe agreement with the NY Central in 1928. Her Last Will with codicil dated November 15, 1930 disposed of the residuary estate among five beneficiaries. She died before June 1935.</p>
+
+    <p>The Surrogate&rsquo;s Decree of May 13, 1935 distributed the estate to five heirs. By October 1937, all six heirs (including heirs of the deceased Susan E. Crisp) conveyed the entire property by warranty deed to <strong>The Gay Nineties Inn, Incorporated</strong> &mdash; subject to a $13,900 mortgage and anchored by the controlling Tuthill survey of September 21, 1937.</p>
+
+    <h2>
+      <span class="h2-years">1937&ndash;1945</span>
+      The Gay Nineties Inn, Incorporated
+    </h2>
+
+    <p>Under President <strong>Mary C. Hoffmann</strong> and Secretary <strong>Helen A. Fowler</strong>, The Gay Nineties Inn operated from its principal office on Carmel Road, Brewster. The inn became well enough known that a postcard was published by Hope&rsquo;s Drug Store, Brewster, showing the white Victorian facade with the three-digit telephone number <em>303</em>.</p>
+
+    <figure>
+      <img src="../images/gay-nineties/inn-postcard-1937.jpg" alt="Vintage postcard, black-and-white, showing the Gay Nineties Inn building behind a stone wall and gate posts, large tree shading the front. Caption reads &quot;THE GAY NINETIES INN, BREWSTER, N.Y. PHONE 303.&quot;">
+      <figcaption>Postcard published by Hope&rsquo;s Drug Store, Brewster, showing the inn&rsquo;s entrance and three-digit telephone number 303 &mdash; circa late 1930s.</figcaption>
+    </figure>
+
+    <p>A note on one surviving postcard reads simply: &ldquo;Stopping here for delicious lunch.&rdquo; The name evoked nostalgic warmth for the 1890s &mdash; a popular theme during the Depression and wartime years.</p>
+
+    <p>The wartime years proved difficult, and on August 30, 1945 &mdash; weeks after V&ndash;J Day &mdash; the Gay Nineties Inn, Inc. conveyed the property to Brooklyn investors <strong>Louis A. Held</strong> (3/4) and <strong>Paul M. Frappollo</strong> (1/4), with Brooklyn attorney Aaron Goody handling the transaction.</p>
+
+    <h2>
+      <span class="h2-years">1945&ndash;1979</span>
+      The Brooklyn Years, Three Springs Inc., and Emma Williams
+    </h2>
+
+    <p>Held and Frappollo quickly reconveyed to The Three Springs, Inc., also through Aaron Goody&rsquo;s Brooklyn office. After the corporation wound down in May 1949, Held sold to local Brewster resident <strong>Emma W. Williams</strong> for a $14,000 mortgage &mdash; a caretaker was in the main house at the time of sale.</p>
+
+    <p>Emma W. Williams held the property for approximately thirty years &mdash; the longest single ownership in the modern chain. By 1979 her address had shifted to Route 52, R.F.D. #5, Carmel. The use of the property during this era has not been fully documented from primary sources.</p>
+
+    <h2>
+      <span class="h2-years">1979&ndash;2013</span>
+      The Kirson-Morini Partnership
+    </h2>
+
+    <p>On September 7, 1979, Williams sold to three men as tenants in common: <strong>Steven J. Kirson</strong> (Mahopac), <strong>Robert P. Morini</strong> (173 Main Street, Brewster), and <strong>Paul B. Liles</strong> (Queens). In March 1987, Liles quitclaimed to Stuart Lichter and Barry Lang of Covington Capital, Larchmont &mdash; business partners who received 50% each of Liles&rsquo; share. Kirson and Morini held their original interests for 34 years.</p>
+
+    <p>Robert Morini was an active Brewster-area real estate figure and investor. In September 2000 he purchased the <strong>Cameo Theater</strong> at 63 Main Street, Brewster &mdash; Putnam County&rsquo;s first movie house, opened 1939, closed 1997 &mdash; for $195,000 from Southeast resident Denise Quinn, operating it through Cameo Brewster LLC. He pursued but was ultimately unable to complete a full restoration, which was estimated to cost between $750,000 and $1 million.</p>
+
+    <p>In December 2013, all four partners &mdash; Lang (Los Angeles), Lichter (Downey CA), Kirson (Bluffton SC), and Morini (Carmel NY) &mdash; conveyed their interests to the Town of Southeast in a coordinated negotiated sale handled by New York Title Research (Title No. NYT16845), all recorded simultaneously on February 11, 2014.</p>
+
+    <h2>
+      <span class="h2-years">2013&ndash;2022</span>
+      The Town of Southeast and the Surplus Sale
+    </h2>
+
+    <p>The Town of Southeast held the property for approximately nine years. In November 2021 it was declared surplus. On June 10, 2022, the Town &mdash; represented by Supervisor Tony Hay &mdash; sold to Preke Radoina, handled by CATIC Title Insurance (Title No. CAT21-4651-P) with a new survey by Howard W. Weeden, P.L.S., P.C. of Walden, NY.</p>
+
+    <h2>
+      <span class="h2-years">2022&ndash;present</span>
+      Restoration and Revival
+    </h2>
+
+    <p><strong>Preke Radoina</strong> of New York acquired the property on June 10, 2022. The Weeden survey established current acreage at 5.424 acres (Parcel I) and 2.727 acres (Parcel II), totaling 8.151 acres. The former NY Central Railroad Putnam Division &mdash; which for over a century physically divided the two parcels &mdash; is now the Putnam Trail bike path.</p>
+
+    <p>The property is currently under active renovation &mdash; new porch decking, fresh white paint. The French Second Empire bones are intact after 140+ years.</p>
+
+    <figure>
+      <img src="../images/gay-nineties/house-2024-restoration.jpg" alt="The house under restoration in spring 2024, seen from across the Middle Branch Reservoir — white clapboard French Second Empire structure with mansard roof, three chimneys, surrounded by bare-branched trees.">
+      <figcaption>The Gay Nineties Inn / Yale House under restoration, spring 2024 &mdash; view from across the Middle Branch Reservoir.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/gay-nineties/house-porch-restoration.jpg" alt="Close-up of the house porch and front facade under restoration, showing fresh white paint, removed door, scaffolding and lumber on the porch deck.">
+      <figcaption>Front porch and entrance under active restoration, 2024 &mdash; fresh paint, original Second Empire detailing intact.</figcaption>
+    </figure>
+
+    <blockquote>
+      <p>&ldquo;I regret to inform you that the house won&rsquo;t be a restaurant. Despite our desire and enthusiasm for you to dine there, the numerous rules and regulations make it impossible. Our goal is to gradually restore the house to its former glory and enjoy it with our family, friends, and everyone who shares our love for this place.&rdquo;</p>
+      <cite>&mdash; Preke Radoina, Facebook, 2024</cite>
+    </blockquote>
+
+    <p>From a post-Revolutionary War forfeiture sale in 1782, through a Connecticut investor who owned the land above a future iron mine, a family farm, a politician&rsquo;s estate, and a beloved roadside inn &mdash; this house on Route 6 carries 240+ years of Putnam County history in its walls.</p>
+
+    <h2>Complete Deed Chain</h2>
+
+    <p class="source-note">All deeds recorded in the Putnam County Clerk&rsquo;s Office, Carmel, New York. Chain traced from 2022 back to 1782.</p>
+
+    <div class="deed-table-wrap">
+      <table class="deed-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Grantor &rarr; Grantee</th>
+            <th>Reference</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="dt-date">pre-1782</td><td class="dt-parties">Unknown Loyalist landowner</td><td class="dt-ref">&mdash;</td><td class="dt-notes">Pre-Revolutionary era; colonial patent in what was then Dutchess County.</td></tr>
+          <tr><td class="dt-date">1782</td><td class="dt-parties">S. Dodge &amp; ors., Commissioners of Forfeiture &rarr; <strong>Herman King</strong></td><td class="dt-ref">Bk.&nbsp;8, p.&nbsp;139</td><td class="dt-notes">Post-Revolutionary War forfeiture sale. Deed not yet examined &mdash; archives request required.</td></tr>
+          <tr><td class="dt-date">May 1815<br><span style="color:var(--ink-muted);font-size:10px">rec. Jun 21, 1824</span></td><td class="dt-parties">Herman King &amp; Susanna &rarr; <strong>George Beal</strong></td><td class="dt-ref">Bk.&nbsp;B, p.&nbsp;191</td><td class="dt-notes">~60 acres; $1,200; 9-year recording delay.</td></tr>
+          <tr><td class="dt-date">Jun 8, 1824</td><td class="dt-parties">Stephen King (Fishkill) &rarr; George Beal</td><td class="dt-ref">Bk.&nbsp;B, p.&nbsp;215</td><td class="dt-notes">Quitclaim; $10 nominal; releases residual King family claim.</td></tr>
+          <tr><td class="dt-date">Apr 1, 1830</td><td class="dt-parties">George Beal &rarr; <strong>Tilly Foster</strong> (Litchfield Co., CT)</td><td class="dt-ref">Bk.&nbsp;A[F], p.&nbsp;232</td><td class="dt-notes">~128 acres; $3,598; plat map attached. Connecticut investor.</td></tr>
+          <tr><td class="dt-date">Apr 15, 1844</td><td class="dt-parties">Foster Executors + Mary Foster &rarr; <strong>Isaac Kelley</strong></td><td class="dt-ref">Bk.&nbsp;R, p.&nbsp;206</td><td class="dt-notes">~192 acres; $7,400. Subject to 1841 mortgage to Polly Fowler.</td></tr>
+          <tr><td class="dt-date">Apr 2, 1845</td><td class="dt-parties">Benjamin &amp; Mary Ann Fowler &rarr; Isaac Kelley</td><td class="dt-ref">Bk.&nbsp;S, p.&nbsp;80</td><td class="dt-notes">~20 acres; $850.</td></tr>
+          <tr><td class="dt-date">Mar 14, 1846</td><td class="dt-parties">Crosby Executors &rarr; Isaac Kelley</td><td class="dt-ref">Bk.&nbsp;S, p.&nbsp;391</td><td class="dt-notes">~41 acres along Croton River; $200.</td></tr>
+          <tr><td class="dt-date">c.1849</td><td class="dt-parties">William Clausen &rarr; Isaac Kelley</td><td class="dt-ref">Bk.&nbsp;V, p.&nbsp;193</td><td class="dt-notes">Deed not yet pulled; completes Kelley&rsquo;s assembly.</td></tr>
+          <tr><td class="dt-date">Apr 26, 1882<br><span style="color:var(--ink-muted);font-size:10px">rec. Apr 3, 1890</span></td><td class="dt-parties">Isaac &amp; Antoinette Kelley &rarr; <strong>Peter G. Kirkham</strong></td><td class="dt-ref">Bk.&nbsp;65, p.&nbsp;573</td><td class="dt-notes">~67 acres; $1 nominal; 8-year recording delay. W boundary: City of New York.</td></tr>
+          <tr><td class="dt-date">Apr 16, 1891</td><td class="dt-parties">Peter G. Kirkham &rarr; Henrietta Kirkham (his wife)</td><td class="dt-ref">Bk.&nbsp;70, p.&nbsp;155</td><td class="dt-notes">$1 nominal; estate planning.</td></tr>
+          <tr><td class="dt-date">Jul 28, 1916</td><td class="dt-parties">Nellie F. Kirkham &rarr; <strong>John R. Yale</strong> &amp; Edward D. Stannard</td><td class="dt-ref">L.&nbsp;112, p.&nbsp;141</td><td class="dt-notes">~67 acres; $100 + $4 stamps; mortgage $6,000.</td></tr>
+          <tr><td class="dt-date">Apr 27, 1925</td><td class="dt-parties">John R. Yale &rarr; Beatrice M. Yale (his daughter)</td><td class="dt-ref">liber/page not yet pulled</td><td class="dt-notes">Deathbed estate planning; 81 days before Yale&rsquo;s death.</td></tr>
+          <tr><td class="dt-date">Jul 2, 1925</td><td class="dt-parties">Beatrice M. Yale &rarr; Business Adjustment, Inc.</td><td class="dt-ref">L.&nbsp;132, p.&nbsp;292</td><td class="dt-notes">$100 + $26 stamps; Yale died 15 days later.</td></tr>
+          <tr><td class="dt-date">Aug 5, 1926</td><td class="dt-parties">Business Adjustment, Inc. &rarr; <strong>Dollie A. Smith</strong></td><td class="dt-ref">L.&nbsp;137, p.&nbsp;17</td><td class="dt-notes">$2 nominal; mortgage $13,000; ~66 acres.</td></tr>
+          <tr><td class="dt-date">Oct 26, 1937</td><td class="dt-parties">Smith Heirs &rarr; <strong>The Gay Nineties Inn, Inc.</strong></td><td class="dt-ref">L.&nbsp;229, p.&nbsp;480</td><td class="dt-notes">Warranty deed; mortgage $13,900; Tuthill survey controlling.</td></tr>
+          <tr><td class="dt-date">Aug 30, 1945</td><td class="dt-parties">Gay Nineties Inn, Inc. &rarr; Louis A. Held (3/4) &amp; Paul M. Frappollo (1/4)</td><td class="dt-ref">L.&nbsp;298, p.&nbsp;122</td><td class="dt-notes">Inn dissolves; WWII era.</td></tr>
+          <tr><td class="dt-date">Oct 11, 1945</td><td class="dt-parties">Held &amp; Frappollo &rarr; The Three Springs, Inc.</td><td class="dt-ref">L.&nbsp;300, p.&nbsp;162</td><td class="dt-notes">Same principals reconvey to new corporation.</td></tr>
+          <tr><td class="dt-date">May 20, 1949</td><td class="dt-parties">The Three Springs, Inc. &rarr; Louis A. Held</td><td class="dt-ref">L.&nbsp;362, p.&nbsp;360</td><td class="dt-notes">Corporate wind-down.</td></tr>
+          <tr><td class="dt-date">Jul 5, 1949</td><td class="dt-parties">Louis A. Held &rarr; <strong>Emma W. Williams</strong></td><td class="dt-ref">L.&nbsp;364, p.&nbsp;571</td><td class="dt-notes">$14,000 mortgage; caretaker in house at sale.</td></tr>
+          <tr><td class="dt-date">Sep 7, 1979</td><td class="dt-parties">Emma W. Williams &rarr; Kirson, Morini, Liles (tenants in common)</td><td class="dt-ref">L.&nbsp;764, p.&nbsp;303</td><td class="dt-notes">Bargain &amp; Sale; $10 nominal.</td></tr>
+          <tr><td class="dt-date">Mar 25, 1987</td><td class="dt-parties">Paul B. Liles &rarr; Stuart Lichter &amp; Barry Lang</td><td class="dt-ref">L.&nbsp;1021, p.&nbsp;0005</td><td class="dt-notes">Quitclaim; 16-month recording delay.</td></tr>
+          <tr><td class="dt-date">Dec 30&ndash;31, 2013</td><td class="dt-parties">All four partners &rarr; Town of Southeast</td><td class="dt-ref">L.&nbsp;1943/1944</td><td class="dt-notes">Four-deed coordinated sale; Title No. NYT16845.</td></tr>
+          <tr><td class="dt-date">Jun 10, 2022</td><td class="dt-parties">Town of Southeast &rarr; <strong>Preke Radoina</strong></td><td class="dt-ref">L.&nbsp;2228, p.&nbsp;157</td><td class="dt-notes">Title No. CAT21-4651-P; Weeden survey Jun 1, 2022.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="open-research">
+      <div class="open-research-label">Open research questions</div>
+
+      <h4>Deeds still to pull, in priority order</h4>
+      <ol>
+        <li><strong>Bk.&nbsp;8, p.&nbsp;139</strong> (1782) &mdash; Commissioners of Forfeiture to Herman King. Must be requested from Putnam County archives. Would establish the Revolutionary War forfeiture context and potentially identify the original Loyalist owner.</li>
+        <li><strong>Bk.&nbsp;V, p.&nbsp;193</strong> (c.1849) &mdash; William Clausen to Isaac Kelley.</li>
+        <li>Yale to Beatrice M. Yale, April 27, 1925 &mdash; liber/page not yet confirmed.</li>
+        <li>Yale buyout of Stannard, 1916&ndash;1925 &mdash; not yet located.</li>
+        <li>Lake Mahopac Realty to Dollie Smith, 1914 / 1918 / 1920 &mdash; index entries confirmed; deeds not pulled.</li>
+        <li>Liber 510, p.&nbsp;314 &mdash; Notice of Appropriation; timing and extent unknown.</li>
+      </ol>
+
+      <h4>Historical questions</h4>
+      <ol>
+        <li>Who was the Loyalist landowner whose property was forfeited in 1782? What colonial patent or grant did the land originate from?</li>
+        <li>Was Tilly Foster directly involved with the iron mine rights, or did he simply own the surface land above the deposit?</li>
+        <li>What was Dollie Smith&rsquo;s background, and what drew her to assemble a 66-acre estate in Southeast?</li>
+        <li>What was the property used for during the Williams era (1949&ndash;1979)?</li>
+        <li>What is the precise construction date of the house? French Second Empire style suggests 1860s&ndash;1880s &mdash; the Kirkham era.</li>
+        <li>Who was Edward D. Stannard, and how was his interest in the Yale co-ownership resolved?</li>
+      </ol>
+    </div>
+
+    <div class="sources-block">
+      <h3>Sources Consulted</h3>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Putnam County Deed Records (physically examined)</div>
+        <ul>
+          <li><span class="src-ref">Bk.&nbsp;B, p.&nbsp;191&ndash;192</span> &mdash; Herman King &amp; Susanna to George Beal (1815/1824)</li>
+          <li><span class="src-ref">Bk.&nbsp;B, p.&nbsp;215&ndash;216</span> &mdash; Stephen King to George Beal, quitclaim (1824)</li>
+          <li><span class="src-ref">Bk.&nbsp;A[F], p.&nbsp;232&ndash;234</span> &mdash; George Beal to Tilly Foster, with plat map (1830)</li>
+          <li><span class="src-ref">Bk.&nbsp;R, p.&nbsp;206&ndash;208</span> &mdash; Foster executors + Mary Foster to Isaac Kelley (1844)</li>
+          <li><span class="src-ref">Bk.&nbsp;S, p.&nbsp;80</span> &mdash; Benjamin Fowler &amp; Mary Ann to Isaac Kelley (1845)</li>
+          <li><span class="src-ref">Bk.&nbsp;S, p.&nbsp;391&ndash;392</span> &mdash; Crosby executors to Isaac Kelley (1846)</li>
+          <li><span class="src-ref">Bk.&nbsp;65, p.&nbsp;573&ndash;574</span> &mdash; Isaac Kelley &amp; Antoinette to Peter G. Kirkham (1882/1890)</li>
+          <li><span class="src-ref">Bk.&nbsp;70, p.&nbsp;155&ndash;156</span> &mdash; Peter G. Kirkham to Henrietta Kirkham (1891)</li>
+          <li><span class="src-ref">L.&nbsp;112, p.&nbsp;141</span> &mdash; Nellie Kirkham to Yale &amp; Stannard (1916)</li>
+          <li><span class="src-ref">L.&nbsp;132, p.&nbsp;292</span> &mdash; Beatrice M. Yale to Business Adjustment Inc. (1925)</li>
+          <li><span class="src-ref">L.&nbsp;137, p.&nbsp;17</span> &mdash; Business Adjustment Inc. to Dollie Smith (1926)</li>
+          <li><span class="src-ref">Bk.&nbsp;205, p.&nbsp;280</span> &mdash; Smith Executors to five heirs (1935)</li>
+          <li><span class="src-ref">L.&nbsp;215, p.&nbsp;392</span> &mdash; Smith et al. to Brady &amp; Wittenberg (1936)</li>
+          <li><span class="src-ref">L.&nbsp;229, p.&nbsp;480</span> &mdash; Heirs to Gay Nineties Inn Inc., with Tuthill survey (1937)</li>
+          <li><span class="src-ref">L.&nbsp;298, p.&nbsp;122</span> &mdash; Gay Nineties Inn Inc. to Held &amp; Frappollo (1945)</li>
+          <li><span class="src-ref">L.&nbsp;300, p.&nbsp;162</span> &mdash; Held &amp; Frappollo to Three Springs Inc. (1945)</li>
+          <li><span class="src-ref">L.&nbsp;362, p.&nbsp;360</span> &mdash; Three Springs Inc. to Held (1949)</li>
+          <li><span class="src-ref">L.&nbsp;364, p.&nbsp;571</span> &mdash; Held to Williams (1949)</li>
+          <li><span class="src-ref">L.&nbsp;764, p.&nbsp;303&ndash;304</span> &mdash; Williams to Kirson, Morini, Liles (1979)</li>
+          <li><span class="src-ref">L.&nbsp;1021, p.&nbsp;0005&ndash;0007</span> &mdash; Liles to Lichter &amp; Lang (1987)</li>
+          <li><span class="src-ref">L.&nbsp;1943, p.&nbsp;495&ndash;501</span> &mdash; Lang and Lichter to Town of Southeast (2013)</li>
+          <li><span class="src-ref">L.&nbsp;1944, p.&nbsp;1&ndash;5</span> &mdash; Kirson and Morini to Town of Southeast (2013)</li>
+          <li><span class="src-ref">L.&nbsp;2228, p.&nbsp;157</span> &mdash; Town of Southeast to Radoina, with Weeden Survey (2022)</li>
+          <li>Putnam County Index to Deeds &mdash; Grantee volumes (multiple pages)</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Not yet examined</div>
+        <ul>
+          <li><span class="src-ref">Bk.&nbsp;8, p.&nbsp;139</span> (1782) &mdash; Commissioners of Forfeiture to Herman King [archives request required]</li>
+          <li><span class="src-ref">Bk.&nbsp;V, p.&nbsp;193</span> (c.1849) &mdash; Clausen to Kelley</li>
+          <li>Yale to Beatrice M. Yale (Apr 27, 1925) &mdash; liber/page not yet confirmed</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Secondary sources</div>
+        <ul>
+          <li>Wikipedia &mdash; <em>John R. Yale</em>, <em>Tilly Foster Mine</em>, <em>Middle Branch Reservoir</em></li>
+          <li>Cinema Treasures &mdash; Cameo Theater, Brewster NY</li>
+          <li>Putnam County Legislature presentation, &ldquo;Tilly Foster Farm Overview,&rdquo; August 25, 2022</li>
+          <li>Southeast NY Historian Facebook page, May 2, 2024 (renovation photographs)</li>
+          <li>Preke Radoina, Facebook post regarding the restaurant question</li>
+          <li>HamletHub &mdash; Southeast Town Board Meeting Agenda, November 4, 2021 (surplus declaration)</li>
+          <li>PropertyShark &mdash; 2360&ndash;2366 Route 6, Brewster NY 10509</li>
+          <li>Gay Nineties Inn postcard, CardCow.com collection</li>
+          <li>Town of Southeast Tax Map, Section 56, Block 1, Lot 14</li>
+          <li>Ancestry.com &mdash; Yale family tree (confirmed Belden Yale as father; Enos C. Yale as extended family)</li>
+          <li>New York Almanack &mdash; <em>East Branch Reservoir History</em>, December 2025</li>
+          <li>Southeast Centre neighborhood deed research (companion site)</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="source-note" style="margin-top:2.5rem;text-align:center">Research by Rob G. &nbsp;&middot;&nbsp; Draft 1, Version 5 &nbsp;&middot;&nbsp; March 2026 &nbsp;&middot;&nbsp; 240 years of ownership history</p>
+
+  </div>
+
+</article>
+
+<div class="page-copyright" style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="../assets/js/shared.js"></script>
+
+</body>
+</html>
