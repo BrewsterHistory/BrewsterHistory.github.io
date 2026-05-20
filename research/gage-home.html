@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Gage House at 483 Milltown Road, Town of Southeast, Putnam County, New York. Built c.1719 — likely the oldest house in Putnam County. A property history from a 1783 Revolutionary attainder sale through the present.">
+<title>The Gage House — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.narrative-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.narrative-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                     text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.narrative-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.9rem);
+                   font-weight: 400; line-height: 1.1; color: var(--ink);
+                   margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.narrative-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                      font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.narrative-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+                  text-transform: uppercase; color: var(--ink-muted);
+                  padding-bottom: 1.75rem; margin-bottom: 0;
+                  border-bottom: 1px solid var(--border); line-height: 1.8; }
+.narrative-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.narrative-cover { margin: 0 0 2rem; }
+.narrative-cover img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.narrative-cover figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                              line-height: 1.65; margin-top: 0.7rem; padding: 0 0.4rem;
+                              font-style: italic; }
+
+.narrative-body { margin-top: 2rem; }
+.narrative-body p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                    line-height: 1.9; margin-bottom: 1.25rem; }
+.narrative-body p em, .narrative-body em { color: var(--ink); font-style: italic; }
+.narrative-body p strong { color: var(--ink); font-weight: 600; }
+.narrative-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+                     color: var(--ink); margin: 3rem 0 0.85rem;
+                     padding-top: 2rem; border-top: 1px solid var(--border);
+                     letter-spacing: -0.005em; }
+.narrative-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.narrative-body h2 .h2-roman { display: block; font-family: var(--mono); font-size: 11px;
+                               letter-spacing: 0.14em; text-transform: uppercase;
+                               color: var(--gold); font-style: normal; font-weight: 500;
+                               margin-bottom: 0.4rem; }
+.narrative-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+                     color: var(--ink); margin: 1.75rem 0 0.6rem; }
+
+.narrative-body figure { margin: 2rem 0; }
+.narrative-body figure img { border: 1px solid var(--border); border-radius: 3px; }
+.narrative-body figure.figure-small { max-width: 420px; }
+.narrative-body figure.figure-portrait { max-width: 320px; margin-left: auto; margin-right: auto; }
+.narrative-body figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                             letter-spacing: 0.02em; line-height: 1.65;
+                             margin-top: 0.65rem; padding: 0 0.5rem; font-style: italic; }
+
+/* Two-image pair side-by-side */
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+.figure-pair figure { margin: 0; }
+@media (max-width: 600px) {
+  .figure-pair { grid-template-columns: 1fr; }
+}
+
+.narrative-body blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                             padding: 0.4rem 0 0.4rem 1.35rem; }
+.narrative-body blockquote p { color: var(--ink); font-style: italic; }
+.narrative-body blockquote cite { font-family: var(--mono); font-size: 11px;
+                                  letter-spacing: 0.04em; color: var(--ink-muted);
+                                  font-style: normal; display: block; margin-top: 0.6rem; }
+
+.narrative-body .deed-ref { font-family: var(--mono); font-size: 12px; color: var(--ink-muted);
+                            background: var(--warm-white); padding: 1px 5px; border-radius: 2px;
+                            white-space: nowrap; border: 1px solid var(--border); }
+.narrative-body .source-note { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                               letter-spacing: 0.04em; line-height: 1.65;
+                               margin-top: -0.5rem; margin-bottom: 1.25rem; }
+
+.narrative-body .summary-block { background: var(--warm-white);
+                                 border: 1px solid var(--border-strong);
+                                 border-left: 3px solid var(--gold);
+                                 padding: 1rem 1.2rem; margin: 1.5rem 0;
+                                 border-radius: 3px; }
+.narrative-body .summary-block-label { font-family: var(--mono); font-size: 10px;
+                                       letter-spacing: 0.14em; text-transform: uppercase;
+                                       color: var(--gold); font-weight: 600;
+                                       margin-bottom: 0.4rem; }
+.narrative-body .summary-block p { font-family: var(--body); font-size: 0.95rem;
+                                   color: var(--ink-light); margin: 0; line-height: 1.7; }
+
+.deed-table-wrap { margin: 2rem -1.5rem; overflow-x: auto; }
+.deed-table { width: 100%; min-width: 720px; border-collapse: collapse;
+              font-family: var(--body); font-size: 13px;
+              background: var(--warm-white); }
+.deed-table th { background: var(--ink); color: var(--cream);
+                 font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+                 text-transform: uppercase; font-weight: 500;
+                 padding: 0.7rem 0.8rem; text-align: left;
+                 border-bottom: 1px solid rgba(255,255,255,0.1); }
+.deed-table td { padding: 0.6rem 0.8rem; vertical-align: top;
+                 border-bottom: 1px solid var(--border); color: var(--ink-light);
+                 line-height: 1.55; }
+.deed-table tr:last-child td { border-bottom: none; }
+.deed-table tr:hover td { background: rgba(201,168,76,0.05); }
+.deed-table td.dt-date { font-family: var(--mono); font-size: 11px;
+                         color: var(--ink); white-space: nowrap; }
+.deed-table td.dt-ref { font-family: var(--mono); font-size: 11px;
+                        color: var(--ink-muted); white-space: nowrap; }
+.deed-table td.dt-parties strong { color: var(--ink); }
+.deed-table td.dt-notes { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+@media (max-width: 700px) {
+  .deed-table-wrap { margin: 2rem -1rem; }
+}
+
+.sources-block { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 1rem; }
+.sources-block .src-cat { margin-bottom: 1.5rem; }
+.sources-block .src-cat-label { font-family: var(--mono); font-size: 10px;
+                                letter-spacing: 0.12em; text-transform: uppercase;
+                                color: var(--ink-muted); font-weight: 500;
+                                margin-bottom: 0.5rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.7; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.55rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block li .src-ref { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
+
+.open-research { background: var(--warm-white); border: 1px solid var(--border-strong);
+                 border-left: 3px solid var(--rust); padding: 1.2rem 1.4rem;
+                 margin: 2.5rem 0; border-radius: 3px; }
+.open-research-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+                       text-transform: uppercase; color: var(--rust); font-weight: 600;
+                       margin-bottom: 0.6rem; }
+.open-research ul { list-style: none; padding-left: 0; margin-top: 0.5rem; }
+.open-research li { font-family: var(--body); font-size: 0.92rem;
+                    color: var(--ink-light); line-height: 1.7; padding-left: 1.1rem;
+                    position: relative; margin-bottom: 0.55rem; }
+.open-research li::before { content: '◇'; color: var(--rust); position: absolute;
+                            left: 0; font-size: 10px; top: 4px; }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Research</strong> &nbsp;·&nbsp; Shakedown Productions</div>
+</header>
+
+<article class="narrative-wrap">
+
+  <figure class="narrative-cover">
+    <img src="../images/gage-home/postcard-oldest-house.png" alt="Sepia-toned historic postcard showing the Gage House, a saltbox-form farmhouse with steep roof, surrounded by trees, rail fences, and a stone wall. Inscription at bottom: THE OLDEST HOUSE IN THE COUNTY OF PUTNAM. ERECTED IN 1719. 5 MILES FROM BREWSTER NORTHEAST.">
+    <figcaption>Historic postcard, date unknown. The inscription reads &ldquo;The Oldest House in the County of Putnam. Erected in 1719. 5 Miles from Brewster Northeast.&rdquo;</figcaption>
+  </figure>
+
+  <div class="narrative-eyebrow">483 Milltown Road &nbsp;·&nbsp; Town of Southeast, New York</div>
+  <h1 class="narrative-title">The Gage <em>House</em></h1>
+  <p class="narrative-subtitle">Built c.&thinsp;1719 &mdash; likely the oldest house in Putnam County.</p>
+  <p class="narrative-meta">
+    <span>Putnam County, NY</span><span>From a 1783 attainder sale</span><span>To present-day owners</span>
+  </p>
+
+  <div class="narrative-body">
+
+    <!-- ── I. THE HOUSE ────────────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">I.</span>
+      The House and Its Significance
+    </h2>
+
+    <p>The Gage House at 483 Milltown Road was built around 1719 &mdash; more than fifty years before the American Revolution, and more than ninety years before Putnam County was formed. The 1997 Milltown Association tour guide <em>Houses of the Oblong</em> describes it as &ldquo;probably the oldest building in the area&rdquo; and states it &ldquo;is believed to date from 1719.&rdquo; The historic postcard above, which appears to predate the tour guide by several decades, independently attests the same date and calls it &ldquo;the oldest house in the county of Putnam.&rdquo;</p>
+
+    <p>No building contract or estate inventory has been located to confirm the construction date from primary sources. The 1719 date rests on tradition and consistent secondary sources. The 1878 deed &mdash; the earliest Putnam County instrument in the direct chain of title &mdash; conveys the property &ldquo;with the buildings thereon,&rdquo; confirming the structure&rsquo;s existence well before the modern record begins.</p>
+
+    <figure class="figure-small">
+      <img src="../images/gage-home/tour-guide-1997.png" alt="Photograph of a page from the 1997 Milltown Association &quot;Houses of the Oblong&quot; tour guide, showing the heading &quot;Area 6: The Gage House&quot; with a pen-and-ink sketch of a saltbox-style house, and a text paragraph beginning &quot;The Gages were also among the families mentioned in the earliest records of the Oblong.&quot;">
+      <figcaption>Area 6 from the 1997 Milltown Association &ldquo;Houses of the Oblong&rdquo; fall tour guide &mdash; the primary secondary source for the Gage House narrative.</figcaption>
+    </figure>
+
+    <p>The house is a <strong>saltbox-form farmhouse</strong> &mdash; one of the most distinctive forms of 18th-century New England domestic architecture. Its steeply pitched roof extending low over a rear lean-to addition is consistent with construction in the first decades of the 18th century and connects the house architecturally to the Cape Cod origins of the Gage family.</p>
+
+    <div class="figure-pair">
+      <figure>
+        <img src="../images/gage-home/house-modern.png" alt="The Gage House today: a red-painted clapboard saltbox farmhouse with a steep wood-shingled roof, white-trimmed windows, and an open front lawn shaded by mature trees in fall foliage.">
+        <figcaption>The Gage House today. The saltbox roofline is unchanged across three centuries.</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/gage-home/house-sketch.png" alt="Black-and-white pen-and-ink architectural sketch of the Gage House, captioned &quot;The Gage House,&quot; showing the saltbox form with chimney, multiple windows, and a picket fence in front.">
+        <figcaption>Period sketch from the 1997 &ldquo;Houses of the Oblong&rdquo; tour guide.</figcaption>
+      </figure>
+    </div>
+
+    <!-- ── II. THE GAGE FAMILY ─────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">II.</span>
+      The Gage Family
+    </h2>
+
+    <h3>Origins</h3>
+
+    <p>The Gages came from <strong>Cape Cod, Massachusetts</strong>. Thomas Gage (1700&ndash;1790) and his wife Rebeckah Thankful Rider (1706&ndash;1759) were married on October 13, 1726 in Yarmouth, Barnstable County, Massachusetts. The family removed to Southeast, Dutchess County, New York sometime between 1741 and 1758, per Clyde V. Gage&rsquo;s compiled genealogy <em>Thomas Gage of Yarmouth, Mass. and His Descendants</em> (c.&thinsp;1943).</p>
+
+    <p>Thomas and Rebeckah had at least seven sons, six of whom are directly relevant to this property&rsquo;s history: <strong>Elihu</strong> (1727), <strong>Anthony</strong> (1729), <strong>Moses</strong> (1732), <strong>Ebenezer</strong> (1734), <strong>George</strong> (1740), and <strong>Mark</strong> (born after the family&rsquo;s removal to Southeast). By 1767 a map prepared for the Clinton estate shows five of these brothers &mdash; Elihu, Moses, Thomas, Ebenezer, and Anthony &mdash; as tenant farmers on the land. They had been working this land as tenants for decades before they owned it.</p>
+
+    <figure>
+      <img src="../images/gage-home/familysearch-tree.png" alt="Screenshot of the FamilySearch family tree page for Elihu Gage, showing two columns: spouses and children of Elihu (left, six children) and parents and siblings (right, Thomas and Rebeckah Gage with seven children including Elihu).">
+      <figcaption>FamilySearch family tree for Elihu Gage, showing his six children (left) and his parents and siblings (right). Confirms the five Gage brothers who purchased attainder-sale parcels in 1783 were sons of Thomas Gage of Yarmouth, Massachusetts.</figcaption>
+    </figure>
+
+    <h3>Elihu Gage (February 27, 1727 &ndash; August 14, 1802)</h3>
+
+    <p><strong>Elihu Gage</strong> was born on February 27, 1727 in Yarmouth, Barnstable County, Massachusetts, the eldest son of Thomas Gage and Rebeckah Rider. He married Grace Pickett (1736&ndash;1814) around 1758 in Southeast, Dutchess County. He farmed the land that would become the Gage House property for decades as a tenant before purchasing it outright in 1783, and died on the farm on August 14, 1802 at the age of 75.</p>
+
+    <p class="source-note"><strong>Source note:</strong> The 1997 tour guide gives Elihu&rsquo;s birth year as &ldquo;1716&rdquo; and states he was &ldquo;farming from 1716.&rdquo; Primary and genealogical sources &mdash; the Gage genealogy, Find A Grave, and FamilySearch &mdash; consistently give 1727. The <em>Historical and Genealogical Record of Dutchess and Putnam Counties</em> (1912) states he &ldquo;died in 1802, aged 78 years,&rdquo; which is consistent with 1727. The tour guide&rsquo;s &ldquo;1716&rdquo; appears to be erroneous.</p>
+
+    <p>Elihu served in the American Revolution as a private in Col. William Humphrey&rsquo;s 4th Regiment and Col. John Field&rsquo;s 3rd Regiment, Dutchess County Militia. He was, in other words, a Patriot soldier farming land owned by the British Commander-in-Chief &mdash; and at war&rsquo;s end, he purchased that same land from the new American government at an attainder sale.</p>
+
+    <div class="figure-pair">
+      <figure>
+        <img src="../images/gage-home/gravestone-elihu.png" alt="Photograph of a worn slate gravestone in tall grass, partly legible, paired with a printed SAR/DAR record card identifying Elihu Gage, ca. 1726 – 14 Aug 1802, spouse Grace Pickett, Dutchess County Militia, Rank: Private.">
+        <figcaption>Elihu Gage&rsquo;s gravestone. SAR/DAR record confirms: ca.&thinsp;1726&ndash;1802, spouse Grace Pickett, Dutchess County Militia.</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/gage-home/gravestone-sylvanus.png" alt="Photograph of a double-arch gravestone in a cemetery, paired with a printed SAR/DAR record card identifying Sylvanus Gage and Elizabeth, 10 Jan 1752 – 13 Mar 1814, spouse Elizabeth Darling, Patriotic Service (Paid Oct 1779 Supply Tax), Col. John Field&apos;s 3rd Regt., Dutchess County Militia, Rank: Sergeant.">
+        <figcaption>Sylvanus Gage (1752&ndash;1814) and wife Elizabeth Darling. Sylvanus was Anthony&rsquo;s son &mdash; Elihu&rsquo;s nephew, not son.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Elihu&rsquo;s Children and the Inheritance</h3>
+
+    <p>Elihu and Grace Pickett had six children: <strong>Thomas, Sarah</strong> (married Young), <strong>Elihu Jr.</strong> (1774&ndash;1834), <strong>Selah</strong> (1775&ndash;1846), <strong>Grace</strong> (married Abijah Knapp), and <strong>Ephraim</strong> (1780&ndash;1860). In his will dated June 7, 1802, Elihu left the residue of his real and personal estate &mdash; including the farm &mdash; to three sons in equal thirds: Elihu Jr., Selah, and Ephraim. Thomas received a $20 cash bequest, and daughters Sarah Young and Grace Knapp each received modest cash sums, suggesting they had already received their shares during Elihu&rsquo;s lifetime.</p>
+
+    <p>Ephraim, one of the two executors named in the will, died in Danbury, Connecticut in 1860. Selah&rsquo;s son Selah Jr. (1818&ndash;1863) died in Ridgefield, Connecticut. These two Connecticut connections &mdash; Ephraim in Danbury and Selah&rsquo;s branch in Ridgefield &mdash; almost certainly explain why the 1878 sale was executed by 17 Connecticut-based heirs. The farm passed by inheritance through Elihu&rsquo;s three sons and their descendants, without any deed ever recorded, until the Connecticut heirs finally sold in 1878.</p>
+
+    <h3>Sylvanus Gage &mdash; Neighbor and Witness, Not Heir</h3>
+
+    <p>Elihu&rsquo;s 1783 deed explicitly references &ldquo;Sylvanus Gages South West Corner&rdquo; and &ldquo;a heap of stones the South Side of the road near to the said Sylvanus Gages house&rdquo; as boundary monuments. For years this raised the question of who Sylvanus was and whether he was part of the inheritance chain.</p>
+
+    <p>The Gage genealogy resolves this: <strong>Sylvanus Gage</strong> (1/10/1752&ndash;3/13/1814) was the son of <em>Anthony</em> Gage &mdash; Elihu&rsquo;s brother, not Elihu&rsquo;s son. He was Elihu&rsquo;s nephew. He married Elizabeth Darling and had children including Alden S., Samuel D., and others. He served in the Revolution as a Sergeant in Col. John Field&rsquo;s 3rd Regiment. His appearance in Elihu&rsquo;s 1802 will is as a <em>witness</em>, not an heir &mdash; consistent with a trusted family member of a different branch. He died in 1814, just two years after Putnam County was formed, which is why he never appears in the post-1812 Putnam County deed indexes.</p>
+
+    <!-- ── III. THE ATTAINDER SALE OF 1783 ──────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">III.</span>
+      The Attainder Sale of 1783
+    </h2>
+
+    <p>The Gage family&rsquo;s transition from tenants to owners was a direct consequence of the American Revolution. Sir Henry Clinton, the British Commander-in-Chief in North America, owned the land the Gages farmed. New York State seized and sold the estates of Loyalists under the <strong>Act for the Forfeiture of Estates (1779)</strong>. A board of Commissioners of Forfeiture &mdash; led by Samuel Dodge and others &mdash; conducted the sales.</p>
+
+    <p>On October 30 &ndash; November 24, 1783, in a series of transactions, four Gage brothers purchased their respective parcels from the Commissioners. All five deeds have been physically reviewed from Dutchess County records:</p>
+
+    <div class="summary-block">
+      <div class="summary-block-label">The Gage brothers&rsquo; purchases, October&ndash;November 1783</div>
+      <p>
+        <strong>Elihu Gage</strong> &mdash; 125&frac12; acres (two parcels: 53&frac34; + 71&frac34;), &pound;94.2.6, October 30, 1783 (<span class="deed-ref">DC Liber 8/425</span>)<br>
+        <strong>Mark Gage</strong> &mdash; 79 acres, &pound;27.13.0, October 30, 1783 (<span class="deed-ref">DC Liber 8/423</span>)<br>
+        <strong>Ebenezer Gage</strong> &mdash; 32&frac34; acres, &pound;8.3.9, October 31, 1783 (<span class="deed-ref">DC Liber 8/426</span>)<br>
+        <strong>Anthony Gage</strong> &mdash; 112&frac34; acres (including lands occupied by Sylvanus Gage, his son), &pound;45.2.0, November 24, 1783 (<span class="deed-ref">DC Liber 8/442</span>)
+      </p>
+    </div>
+
+    <p>Together the Gage brothers acquired approximately <strong>350 acres in six weeks</strong> &mdash; land they and their father had been farming for decades. The total purchase price was approximately &pound;175, paid to the new American state.</p>
+
+    <p>The deeds are notable for their cross-references: Mark&rsquo;s deed begins &ldquo;at Elihu Gages South East corner&rdquo;; Anthony&rsquo;s deed references &ldquo;Elihu Gages line&rdquo; twice; the William Clinton deed in the same series references both &ldquo;Elihu Gages Southerly Corner&rdquo; and &ldquo;Elihu Gages North West corner.&rdquo; Elihu&rsquo;s parcel is the geographic center of the family&rsquo;s collective holding.</p>
+
+    <figure>
+      <img src="../images/gage-home/deed-1783-elihu.jpg" alt="Photograph of a page of a typewritten transcription deed book showing the body of Elihu Gage&apos;s 1783 deed, with margin annotation &quot;425&quot; in yellow highlight at top, parties &quot;Sir Harry Clinton&quot; and &quot;Elihu Gage&quot; with annotation &quot;£94.2.6 October 30th 1783&quot; in the right margin.">
+      <figcaption>Dutchess County Liber 8, page 425 &mdash; Elihu Gage&rsquo;s deed from Sir Harry Clinton via the Commissioners of Forfeiture, October 30, 1783. Margin annotation: &pound;94.2.6, October 30th 1783.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../images/gage-home/grantee-index-1783.jpg" alt="Photograph of a page of the Dutchess County Index of Deeds — Grantees, showing entries for Gage family members from 1771 through 1874, including the 1782–1783 attainder-sale entries with grantor &quot;S. Dodge &amp; ors. Coms.&quot; for Moses, Nathaniel, Mark, Elihu, Ebenezer, and Anthony Gage.">
+      <figcaption>Dutchess County grantee deed index showing the Gage family purchases from &ldquo;S. Dodge &amp; ors. Coms.&rdquo; (Commissioners of Forfeiture), 1782&ndash;1783. Elihu&rsquo;s entry appears at Liber 8, page 425.</figcaption>
+    </figure>
+
+    <!-- ── IV. ELIHU'S WILL ─────────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">IV.</span>
+      Elihu&rsquo;s Will and the Inheritance Gap
+    </h2>
+
+    <p>Elihu Gage wrote his will on June 7, 1802 at his residence in Southeast. It was proved before Gilbert Livingston, Surrogate of Dutchess County, on October 28, 1802. The original will was delivered to executor Ephraim Gage on May 26, 1803.</p>
+
+    <div class="figure-pair">
+      <figure>
+        <img src="../images/gage-home/will-elihu-1802-page1.jpg" alt="Photograph of an open Dutchess County Surrogate&apos;s Court will book at pages 340 and 341. The right-hand page begins Elihu Gage&apos;s will, in 19th-century handwriting: &quot;In the name of God amen I Elihu Gage of the town of South east in the county of Dutchess...&quot;">
+        <figcaption>Dutchess County Surrogate&rsquo;s Court &mdash; pages 340&ndash;341 of the will book. Elihu&rsquo;s will begins at the right-hand column of page 341.</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/gage-home/will-elihu-1802-page2.jpg" alt="Photograph of an open Dutchess County Surrogate&apos;s Court will book at pages 342 and 343, in 19th-century handwriting, showing the residuary clause of Elihu Gage&apos;s will and the proof of probate dated October 4, 1802.">
+        <figcaption>Pages 342&ndash;343. The residuary clause (left column) conveys all real and personal estate to sons Elihu Jr., Selah, and Ephraim in equal thirds. Proved October 4, 1802.</figcaption>
+      </figure>
+    </div>
+
+    <p>The will&rsquo;s key provisions:</p>
+
+    <div class="summary-block">
+      <div class="summary-block-label">Provisions of Elihu Gage&rsquo;s will, June 7, 1802</div>
+      <p>
+        <strong>Wife Grace</strong> &mdash; life use of all household goods and furniture, plus one riding horse and one cow, plus one-third of all real and personal estate during her natural life<br>
+        <strong>Son Thomas</strong> &mdash; $20 cash (above any prior gifts)<br>
+        <strong>Daughter Sarah Young</strong> &mdash; $50 cash<br>
+        <strong>Daughter Grace Knapp</strong> &mdash; $45 cash<br>
+        <strong>Residue</strong> &mdash; to sons Elihu Jr., Selah, and Ephraim in equal thirds<br>
+        <strong>Executors:</strong> sons Selah and Ephraim<br>
+        <strong>Witnesses:</strong> Joseph Crane, Sylvanus Gage, Charles Gage
+      </p>
+    </div>
+
+    <p>Grace Pickett Gage survived her husband by twelve years, dying on February 24, 1814.</p>
+
+    <h3>The 1822 Quit Claim: Selah to Ephraim</h3>
+
+    <p>On April 1, 1822, Selah Gage and his wife Esther executed a <strong>quit claim deed</strong> conveying three parcels of land in Southeast totaling 51 acres to his brother Ephraim Gage for $1,000. This is the critical instrument that begins to close the inheritance gap. Selah was conveying his one-third inherited share of the Elihu Gage farm to Ephraim &mdash; one brother buying out another&rsquo;s share twenty years after their father&rsquo;s death.</p>
+
+    <p>The deed was signed April 1, 1822, acknowledged April 3, 1822 before Commissioner Elijah Barnum, but not recorded until <strong>October 22, 1845</strong> &mdash; twenty-three years after execution. The late recording almost certainly reflects Selah&rsquo;s death in January 1846; the deed was recorded to clear title just before or just after his death.</p>
+
+    <p>The boundary descriptions are rich with family history. The first parcel begins at the colony line &ldquo;near where Reuben Solomons old house formerly stood&rdquo; and runs along &ldquo;the lands of Elihu Gage&rdquo; &mdash; the father&rsquo;s land still anchoring the boundaries two decades after his death. The second parcel runs along &ldquo;lands formerly of Mark Gage dec.&rdquo; The third parcel references &ldquo;the lands of Mark and Sylvanus Gage dec.&rdquo; &mdash; confirming both Mark and Sylvanus were deceased by 1822. The witnesses are <strong>William Holmes and Elihu Gage</strong> &mdash; Elihu Jr. himself witnessing his brothers&rsquo; transaction.</p>
+
+    <p>After this deed, Ephraim held at minimum two-thirds of the inherited farm. He died in Danbury, Connecticut on December 11, 1860. His share &mdash; along with whatever portion of Elihu Jr.&rsquo;s third eventually reached him or his heirs &mdash; passed to the Connecticut heir group who sold to Peter Foster in 1878.</p>
+
+    <div class="figure-pair">
+      <figure>
+        <img src="../images/gage-home/deed-1822-selah-to-ephraim.png" alt="Photograph of page 1 of the handwritten Selah Gage to Ephraim Gage quit claim deed, April 1, 1822, in 19th-century cursive: &quot;Know all men by these presents that I Selah Gage of the town of Southeast Putnam county and state of New York...&quot;">
+        <figcaption>Page 1 of the Selah Gage to Ephraim Gage quit claim, April 1, 1822 (Putnam County <span class="deed-ref">Liber S/261</span>).</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/gage-home/deed-1822-quitclaim-page2.png" alt="Photograph of page 2 of the same 1822 quit claim deed, showing boundary descriptions and the signature block with marks for Selah Gage (L.S.) and Esther Gage (L.S.), witnesses William Holmes and Elihu Gage, and the recording note Oct. 22, 1845.">
+        <figcaption>Page 2: boundaries, closing, signatures of Selah Gage (L.S.) and Esther Gage (L.S.), witnesses William Holmes and Elihu Gage. Recorded Oct.&nbsp;22, 1845.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Ephraim&rsquo;s Branch: Consolidated Two-Thirds</h3>
+
+    <p>In 1822 Selah Gage and his wife Esther executed the quit claim above, conveying three parcels totaling 51 acres to brother Ephraim for $1,000 &mdash; Selah&rsquo;s inherited one-third passing to Ephraim. After this Ephraim held at minimum two-thirds of the farm. He died in Danbury, Connecticut on December 11, 1860, and his consolidated holding passed to his Connecticut heirs &mdash; the group who sold to Peter Foster in 1878.</p>
+
+    <p>Pelletreau&rsquo;s 1886 <em>History of Putnam County</em> independently confirms this connection in plain narrative terms, stating that Elihu Gage &ldquo;took a farm on the Oblong, at the place where Peter Foster now lives&rdquo; &mdash; directly tying the Gage settler&rsquo;s farm to the documented 1878 Foster conveyance.</p>
+
+    <h3>Elihu Jr.&rsquo;s Branch: The Roswell Consolidation</h3>
+
+    <p>Elihu Jr. (1774&ndash;1834) held the remaining one-third of the farm. After his death his estate was divided among his children, who systematically sold their fractional shares to their brother Roswell Gage between 1830 and 1832:</p>
+
+    <ul style="list-style:none;padding-left:0;margin:1.25rem 0;">
+      <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><strong>November 6, 1830:</strong> Harvey Gage &amp; Densy his wife &rarr; Roswell Gage; $67.50; explicitly one-eighth share of ~60 acres &ldquo;being the property of Elihu Gage late of Southeast deceased&rdquo; (<span class="deed-ref">PC G/100</span>)</li>
+      <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><strong>January 14, 1832:</strong> Coles Gage &rarr; Roswell Gage; $60; ~60 acres of &ldquo;the estate of Elihu Gage late of Southeast deceased&rdquo; (<span class="deed-ref">PC G/382</span>)</li>
+      <li style="padding:0.5rem 0;"><strong>February 16, 1832:</strong> Elias P. Gage &amp; Mary his wife &rarr; Roswell Gage; $28; ~38 acres of &ldquo;the farm of land lately owned and of which Elihu Gage died seized&rdquo;; bounded north by Roswell, south and east by Ephraim Gage (<span class="deed-ref">PC G/493</span>)</li>
+    </ul>
+
+    <p>Three siblings sold their shares to Roswell within sixteen months of each other. All three deeds use identical language referencing Elihu Gage as the title source. The boundaries in Elias&rsquo;s deed show Ephraim&rsquo;s large consolidated holding bordering on two sides &mdash; the two branches sitting adjacent. Roswell&rsquo;s subsequent disposition of this consolidated parcel has not been documented by recorded deed; his heirs most likely joined the 1878 Connecticut heir group.</p>
+
+    <div class="figure-pair">
+      <figure>
+        <img src="../images/gage-home/deed-1830-harvey-to-roswell.png" alt="Photograph of a handwritten 1830 quit claim deed from Harvey Gage and Densy his wife to Roswell Gage, dated November 6, 1830, with the words &quot;quit claim&quot; in the upper left corner and the recording note &quot;recorded March 7th 1831&quot; near the bottom.">
+        <figcaption>Harvey Gage &amp; Densy to Roswell Gage (<span class="deed-ref">PC G/100</span>, Nov.&nbsp;6, 1830). &ldquo;The one equal eighth part of the within described lot of land is meant to be quit claimed unto the said Roswell Gage.&rdquo;</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/gage-home/deed-1832-eli-to-roswell.png" alt="Photograph of a handwritten 1832 deed from Eli P. Gage of Southeast and Mary his wife to Roswell Gage, dated February 16, 1832, in 19th-century cursive.">
+        <figcaption>Elias P. Gage &amp; Mary to Roswell Gage (<span class="deed-ref">PC G/493</span>, Feb.&nbsp;16, 1832). &ldquo;The farm of land lately owned and of which Elihu Gage died seized,&rdquo; bounded south and east by Ephraim Gage.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Selah&rsquo;s Branch: Estate Settlement (1849)</h3>
+
+    <p>Selah Sr. died January 16, 1846. His estate was settled among his children in 1849 through two simultaneous quit claims on the same day &mdash; June 7, 1849. Esther (widow), Selah Jr., and Lorany quit claimed 40 acres to Levi (<span class="deed-ref">PC V/388</span>); Levi and Emily then quit claimed 61 acres to Thomas (of Racine, Wisconsin) and Selah Jr. (of Southeast) the same day (<span class="deed-ref">PC W/320</span>), including Levi&rsquo;s right in his mother Esther&rsquo;s dower. This branch&rsquo;s land, bounded on the east by the Connecticut state line and the south by Ephraim Gage, was adjacent to but separate from the house parcel.</p>
+
+    <h3>The Full Timeline</h3>
+
+    <div class="summary-block">
+      <div class="summary-block-label">From Elihu&rsquo;s death (1802) to the 1878 sale</div>
+      <p>
+        <strong>1802</strong> &mdash; Elihu&rsquo;s will divides farm to Elihu Jr., Selah, and Ephraim in equal thirds<br>
+        <strong>1822</strong> &mdash; Selah quit claims his third to Ephraim &mdash; Ephraim now holds two-thirds<br>
+        <strong>1830&ndash;1832</strong> &mdash; Elihu Jr.&rsquo;s children (Harvey, Coles, Elias) sell their fractional shares to Roswell<br>
+        <strong>1846</strong> &mdash; Selah Sr. dies; his estate settled among children in 1849<br>
+        <strong>1860</strong> &mdash; Ephraim dies in Danbury CT; his two-thirds passes to Connecticut heirs<br>
+        <strong>1878</strong> &mdash; 17 Connecticut grantors sell collectively to Peter Foster for $1,500
+      </p>
+    </div>
+
+    <p class="source-note"><strong>Source note:</strong> The Putnam County Land Trust website states that &ldquo;the oldest grave [in the burial ground behind the house] belongs to Selah Gage, Elihu&rsquo;s grandson.&rdquo; The primary evidence &mdash; the 1802 will and the Gage genealogy &mdash; confirms Selah (1775&ndash;1846) as Elihu&rsquo;s <em>son</em>, not grandson. The Land Trust&rsquo;s description appears to be an error.</p>
+
+    <!-- ── V. PUTNAM COUNTY CHAIN ──────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">V.</span>
+      The Putnam County Chain of Title (1878 to Present)
+    </h2>
+
+    <p>From 1878 forward, the chain of title is complete and unbroken. Every instrument has been physically reviewed from the Putnam County Clerk&rsquo;s Office.</p>
+
+    <h3>Peter Foster (1878&ndash;1920)</h3>
+
+    <p>On June 24, 1878, <strong>Aaron Pearce</strong> of Danbury and sixteen other Connecticut residents &mdash; all heirs of the Gage family estate &mdash; sold the farm to <strong>Peter Foster</strong> for $1,500. The deed (recorded August 5, 1879) conveys the farm &ldquo;with the buildings thereon,&rdquo; explicitly confirming the house&rsquo;s continued existence. Peter Foster held the property until his death, after which his widow Mary E. Foster conveyed it to Grace Leigh Duncan in 1920.</p>
+
+    <h3>The Duncan&ndash;Macgowan Division</h3>
+
+    <p>Grace Leigh Duncan, of Pleasantville, Westchester County, conveyed the property in two separate instruments: Parcel I to Edna Behre Macgowan in June 1923, and Parcel II in October 1927. A boundary line agreement (<span class="deed-ref">Liber 142/258</span>) established the formal Parcel I/II division, surveyed by Tuthill. Duncan retained approximately 12.5 acres at the time of the first conveyance; the ultimate disposition of her retained parcel has not been traced.</p>
+
+    <h3>The Ross Carve-Out and the Preserve</h3>
+
+    <p>In 1954, Kenneth and Edna Macgowan conveyed 0.993 acres to <strong>Dr.&nbsp;Henry Ross</strong> and <strong>Glenda Farrell Ross</strong>. Dr.&nbsp;Ross was a West Point and Harvard Medical School graduate who served on General Eisenhower&rsquo;s staff during World War II and was among the first medical officers to enter the Nazi concentration camps at the war&rsquo;s end. <strong>Glenda Farrell</strong> was a film actress who appeared in over 100 films between 1928 and 1968, including <em>Little Caesar</em> and the <em>Torchy Blane</em> series; she has a star on the Hollywood Walk of Fame. She died of lung cancer in 1971. In 1977 Dr.&nbsp;Ross donated the preserve to the Putnam County Land Trust in her memory. He died in 1991.</p>
+
+    <p>The <strong>Glenda Farrell&ndash;Henry Ross Preserve</strong> now encompasses approximately 36 acres along Milltown Road, immediately north of the Gage House lot (Lot 13). The preserve&rsquo;s history page notes that &ldquo;this preserve was part of the Gage family farm&rdquo; &mdash; the deed chain confirms this directly.</p>
+
+    <figure>
+      <img src="../images/gage-home/gis-map-gage-lot.png" alt="Aerial tax-map image showing parcel boundaries overlaid on satellite imagery. Lot 14 (35.67 acres, Putnam County Land Trust, 501 Milltown Road) is outlined in cyan; an adjacent lot to the south labeled &quot;Gage Lot&quot; (Lot 13, 11 acres) is also visible.">
+      <figcaption>Aerial tax map showing Lot 13 (the Gage House, 11 acres) and Lot 14 (Putnam County Land Trust, 35.67 acres, 501 Milltown Road) as adjacent parcels on Milltown Road. Both lots trace to the same Gage family farm.</figcaption>
+    </figure>
+
+    <h3>Kennedy to Present</h3>
+
+    <p>Rodman and Carolyn Clark acquired the property from the Macgowans in 1956. In 1966 the deed from Carolyn Wiedemann (Clark) to <strong>Allan and Grethe Kennedy</strong> still described the road as &ldquo;Gage Street&rdquo; &mdash; confirming the Gage name persisted on the local road nearly two centuries after the family&rsquo;s ownership. The Kennedys held the property until 2005, when they conveyed it to the current owners, <strong>Robert Diotte and Ren&eacute;e Fischer</strong>.</p>
+
+    <!-- ── VI. COMPLETE CHAIN OF TITLE ─────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">VI.</span>
+      Complete Chain of Title
+    </h2>
+
+    <p class="source-note">PC = Putnam County Clerk&rsquo;s Office. DC = Dutchess County Clerk&rsquo;s Office. All Putnam County deeds have been physically reviewed. Dutchess County deed images at DC 8/423, 425, 426, and 442 have been reviewed and transcribed.</p>
+
+    <div class="deed-table-wrap">
+      <table class="deed-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Grantor &rarr; Grantee</th>
+            <th>Liber/Page</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="dt-date">Oct.&nbsp;30, 1783</td><td class="dt-parties">Sir Harry Clinton (Commissioners of Forfeiture) &rarr; <strong>Elihu Gage</strong></td><td class="dt-ref">DC 8/425</td><td class="dt-notes">53&frac34; + 71&frac34; acres = 125&frac12;; &pound;94.2.6.</td></tr>
+          <tr><td class="dt-date">Oct.&nbsp;30, 1783</td><td class="dt-parties">Henry Clinton (Commissioners) &rarr; Mark Gage</td><td class="dt-ref">DC 8/423</td><td class="dt-notes">79 acres; begins at Elihu Gage&rsquo;s SE corner.</td></tr>
+          <tr><td class="dt-date">Oct.&nbsp;31, 1783</td><td class="dt-parties">Henry Clinton (Commissioners) &rarr; Ebenezer Gage</td><td class="dt-ref">DC 8/426</td><td class="dt-notes">32&frac34; acres; &pound;8.3.9.</td></tr>
+          <tr><td class="dt-date">Nov.&nbsp;24, 1783</td><td class="dt-parties">Henry Clinton (Commissioners) &rarr; Anthony Gage</td><td class="dt-ref">DC 8/442</td><td class="dt-notes">112&frac34; acres (incl. lands of Sylvanus, Anthony&rsquo;s son).</td></tr>
+          <tr><td class="dt-date">Jun.&nbsp;7, 1802</td><td class="dt-parties">Elihu Gage (will) &rarr; Elihu Jr., Selah &amp; Ephraim Gage</td><td class="dt-ref">DC Probate</td><td class="dt-notes">Farm to three sons in equal thirds; will proved Oct.&nbsp;28, 1802.</td></tr>
+          <tr><td class="dt-date">Apr.&nbsp;1, 1822<br><span style="color:var(--ink-muted);font-size:10px">rec. Oct.&nbsp;22, 1845</span></td><td class="dt-parties">Selah Gage &amp; Esther &rarr; <strong>Ephraim Gage</strong></td><td class="dt-ref">PC S/261</td><td class="dt-notes">Quit claim; $1,000; 51 acres in three parcels.</td></tr>
+          <tr><td class="dt-date">Nov.&nbsp;6, 1830</td><td class="dt-parties">Harvey Gage &amp; Densy (Patterson) &rarr; Roswell Gage</td><td class="dt-ref">PC G/100</td><td class="dt-notes">Quit claim; $67.50; 1/8 share of ~60 acres &ldquo;property of Elihu Gage&hellip; deceased.&rdquo;</td></tr>
+          <tr><td class="dt-date">Jan.&nbsp;14, 1832</td><td class="dt-parties">Coles Gage &rarr; Roswell Gage</td><td class="dt-ref">PC G/382</td><td class="dt-notes">Quit claim; $60; ~60 acres.</td></tr>
+          <tr><td class="dt-date">Feb.&nbsp;16, 1832</td><td class="dt-parties">Elias P. Gage &amp; Mary &rarr; Roswell Gage</td><td class="dt-ref">PC G/493</td><td class="dt-notes">Quit claim; $28; ~38 acres; bounded by Roswell &amp; Ephraim Gage.</td></tr>
+          <tr><td class="dt-date">Jun.&nbsp;7, 1849</td><td class="dt-parties">Esther Gage, Selah Jr. &amp; Lorany &rarr; Levi Gage (Green Co. NY)</td><td class="dt-ref">PC V/388</td><td class="dt-notes">Quit claim; $100; 40 acres; settles Selah Sr.&rsquo;s estate.</td></tr>
+          <tr><td class="dt-date">Jun.&nbsp;7, 1849</td><td class="dt-parties">Levi Gage &amp; Emily &rarr; Thomas Gage (Racine, WI) &amp; Selah Gage</td><td class="dt-ref">PC W/320</td><td class="dt-notes">Quit claim; $100; 61 acres; east by CT state line.</td></tr>
+          <tr><td class="dt-date">by 1860</td><td class="dt-parties">Ephraim Gage (d. Danbury CT) &rarr; his CT heirs</td><td class="dt-ref">[none rec.]</td><td class="dt-notes">By inheritance, no recorded deed.</td></tr>
+          <tr><td class="dt-date">Jun.&nbsp;24, 1878</td><td class="dt-parties">Aaron Pearce + 16 CT heirs &rarr; <strong>Peter Foster</strong></td><td class="dt-ref">PC 57/243</td><td class="dt-notes">$1,500; 17 grantors all CT residents; ~19 + 1.5 acres.</td></tr>
+          <tr><td class="dt-date">Apr.&nbsp;27, 1920</td><td class="dt-parties">Mary E. Foster (widow) &rarr; Grace Leigh Duncan</td><td class="dt-ref">PC 118/14</td><td class="dt-notes">~19 + 1.5 acres.</td></tr>
+          <tr><td class="dt-date">Jun.&nbsp;8, 1923</td><td class="dt-parties">Grace Leigh Duncan &rarr; Edna Behre Macgowan</td><td class="dt-ref">PC 126/32</td><td class="dt-notes">Parcel I.</td></tr>
+          <tr><td class="dt-date">Oct.&nbsp;10, 1927</td><td class="dt-parties">Grace Leigh Duncan &rarr; Edna Behre Macgowan</td><td class="dt-ref">PC 142/258</td><td class="dt-notes">Parcel II; Tuthill survey.</td></tr>
+          <tr><td class="dt-date">May&nbsp;13, 1954</td><td class="dt-parties">Kenneth &amp; Edna Macgowan &rarr; Henry &amp; Glenda F. Ross</td><td class="dt-ref">PC 444/413</td><td class="dt-notes">0.993 acres; now Glenda Farrell&ndash;Henry Ross Preserve (donated 1977).</td></tr>
+          <tr><td class="dt-date">Apr.&nbsp;16, 1956</td><td class="dt-parties">Kenneth &amp; Edna Macgowan &rarr; Rodman &amp; Carolyn Clark</td><td class="dt-ref">PC 474/181</td><td class="dt-notes">Ross parcel excepted.</td></tr>
+          <tr><td class="dt-date">Jan.&nbsp;13, 1966</td><td class="dt-parties">Carolyn C. Wiedemann (Clark) &rarr; Allan &amp; Grethe Kennedy</td><td class="dt-ref">PC 623/204</td><td class="dt-notes">Road described as &ldquo;Gage Street.&rdquo;</td></tr>
+          <tr><td class="dt-date">Jun.&nbsp;20, 2005</td><td class="dt-parties">Allan &amp; Grethe Kennedy &rarr; <strong>Robert Diotte &amp; Ren&eacute;e Fischer</strong></td><td class="dt-ref">PC 1708/333</td><td class="dt-notes">Current owners.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── VII. WHICH CLINTON? ─────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">VII.</span>
+      An Open Question: Which Clinton?
+    </h2>
+
+    <p>The 1997 tour guide attributes the 1767 tenant map to &ldquo;Admiral George Clinton.&rdquo; The primary deed evidence names the grantor in the 1783 attainder sales as &ldquo;Sir Harry Clinton&rdquo; &mdash; <strong>Sir Henry Clinton</strong>, the British Commander-in-Chief, whose estates were subject to forfeiture under the 1779 Act.</p>
+
+    <p>Admiral Sir George Clinton (1686&ndash;1761) died six years before the map would have been prepared. Revolutionary War Governor George Clinton was an American patriot whose land would not have been subject to attainder. The deed record points consistently to Sir Henry Clinton. The tour guide&rsquo;s &ldquo;Admiral George Clinton&rdquo; attribution appears to be an error &mdash; most likely a conflation of Clinton family members.</p>
+
+    <p class="source-note">This question is flagged as unresolved, not a settled conclusion. Confirming the correct Clinton requires locating the 1767 map itself. Likely repositories: New York State Archives (Albany), New-York Historical Society, or Dutchess County Historical Society.</p>
+
+    <!-- ── OPEN RESEARCH ───────────────────────────────────────────────── -->
+    <div class="open-research">
+      <div class="open-research-label">Open research questions</div>
+      <ul>
+        <li><strong>Roswell Gage&rsquo;s consolidated holding</strong> &mdash; he acquired Harvey&rsquo;s, Coles&rsquo;s, and Elias&rsquo;s shares of Elihu Jr.&rsquo;s estate by 1832; his subsequent disposition has not been documented by recorded deed. Confirming how his holding reached the 1878 Connecticut heir group would close the Elihu Jr. branch of the inheritance.</li>
+        <li><strong>Metes-and-bounds georeferencing</strong> &mdash; plotting Elihu&rsquo;s 1783 deed boundary against modern GIS maps to confirm the house parcel falls within the described 125&frac12;-acre holding.</li>
+        <li><strong>The 1767 Clinton tenant map</strong> &mdash; identify the correct Clinton (Sir Henry, not &ldquo;Admiral George&rdquo; as stated in the tour guide). Likely held by NYSA, N-YHS, or Dutchess County Historical Society.</li>
+        <li><strong>Grace Leigh Duncan&rsquo;s retained ~12.5 acres</strong> &mdash; disposition after the 1923 Parcel I conveyance not yet traced.</li>
+        <li><strong>Acreage of Parcel II</strong> &mdash; never stated in any deed; calculated at ~5.5 acres by subtraction from the confirmed 11-acre GIS total.</li>
+      </ul>
+    </div>
+
+    <!-- ── SOURCES ─────────────────────────────────────────────────────── -->
+    <div class="sources-block">
+      <h3>Sources Consulted</h3>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Deeds, Dutchess County</div>
+        <ul>
+          <li><span class="src-ref">DC 8/425</span> &mdash; Commissioners of Forfeiture to Elihu Gage, Oct.&nbsp;30, 1783. Two parcels totaling 125&frac12; acres; &pound;94.2.6. Root deed for the Gage House farm.</li>
+          <li><span class="src-ref">DC 8/423</span> &mdash; Commissioners of Forfeiture to Mark Gage, Oct.&nbsp;30, 1783. 79 acres; &pound;27.13.0.</li>
+          <li><span class="src-ref">DC 8/426</span> &mdash; Commissioners of Forfeiture to Ebenezer Gage, Oct.&nbsp;31, 1783. 32&frac34; acres; &pound;8.3.9.</li>
+          <li><span class="src-ref">DC 8/442</span> &mdash; Commissioners of Forfeiture to Anthony Gage, Nov.&nbsp;24, 1783. 112&frac34; acres; &pound;45.2.0.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Probate, Dutchess County</div>
+        <ul>
+          <li>Will of Elihu Gage, dated June&nbsp;7, 1802; proved Oct.&nbsp;28, 1802 before Gilbert Livingston, Surrogate of Dutchess County. Dutchess County Surrogate&rsquo;s Court will book, pages 341&ndash;342. Witnesses Joseph Crane, Sylvanus Gage, Charles Gage.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Deeds, Putnam County</div>
+        <ul>
+          <li><span class="src-ref">PC S/261</span> &mdash; Selah Gage &amp; Esther to Ephraim Gage, Apr.&nbsp;1, 1822 (rec. Oct.&nbsp;22, 1845). Quit claim; $1,000; 51 acres.</li>
+          <li><span class="src-ref">PC G/100</span> &mdash; Harvey Gage &amp; Densy to Roswell Gage, Nov.&nbsp;6, 1830. Quit claim; $67.50; 1/8 share of ~60 acres.</li>
+          <li><span class="src-ref">PC G/382</span> &mdash; Coles Gage to Roswell Gage, Jan.&nbsp;14, 1832. Quit claim; $60; ~60 acres.</li>
+          <li><span class="src-ref">PC G/493</span> &mdash; Elias P. Gage &amp; Mary to Roswell Gage, Feb.&nbsp;16, 1832. Quit claim; $28; ~38 acres.</li>
+          <li><span class="src-ref">PC V/388</span> &mdash; Esther, Selah Jr. &amp; Lorany to Levi Gage, Jun.&nbsp;7, 1849. Quit claim; $100; 40 acres.</li>
+          <li><span class="src-ref">PC W/320</span> &mdash; Levi &amp; Emily to Thomas &amp; Selah Gage, Jun.&nbsp;7, 1849. Quit claim; $100; 61 acres.</li>
+          <li><span class="src-ref">PC 57/243</span> &mdash; Aaron Pearce + 16 others to Peter Foster, Jun.&nbsp;24, 1878. $1,500; ~19 + 1.5 acres.</li>
+          <li><span class="src-ref">PC 118/14</span> &mdash; Mary E. Foster to Grace Leigh Duncan, Apr.&nbsp;27, 1920.</li>
+          <li><span class="src-ref">PC 126/32</span> &mdash; Duncan to Macgowan, Parcel I, Jun.&nbsp;8, 1923.</li>
+          <li><span class="src-ref">PC 142/258</span> &mdash; Duncan to Macgowan, Parcel II, Oct.&nbsp;10, 1927.</li>
+          <li><span class="src-ref">PC 444/413</span> &mdash; Macgowan to Ross, May&nbsp;13, 1954.</li>
+          <li><span class="src-ref">PC 474/181</span> &mdash; Macgowan to Clark, Apr.&nbsp;16, 1956.</li>
+          <li><span class="src-ref">PC 623/204</span> &mdash; Wiedemann (Clark) to Kennedy, Jan.&nbsp;13, 1966.</li>
+          <li><span class="src-ref">PC 1708/333</span> &mdash; Kennedy to Diotte &amp; Fischer, Jun.&nbsp;20, 2005.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Secondary &amp; genealogical</div>
+        <ul>
+          <li>The Milltown Association. <em>Houses of the Oblong.</em> 1997 Fall Tour Guide. Primary secondary source for the Gage House; gives 1719 construction date. (Erroneous on Elihu&rsquo;s birth year, purchase date, and Clinton attribution &mdash; corrected throughout this narrative.)</li>
+          <li>Pelletreau, William S. <em>History of Putnam County, New York.</em> Philadelphia: W.&nbsp;W. Preston &amp; Co., 1886. States Elihu Gage &ldquo;took a farm on the Oblong, at the place where Peter Foster now lives.&rdquo;</li>
+          <li>Gage, Clyde V. <em>Thomas Gage of Yarmouth, Mass. and His Descendants.</em> Compiled c.&thinsp;1943. Digitized by Internet Archive.</li>
+          <li><em>Historical and Genealogical Record of Dutchess and Putnam Counties, New York.</em> A.&nbsp;V. Haight Co., 1912 (Chapter XII). States Elihu &ldquo;died in 1802, aged 78 years.&rdquo;</li>
+          <li>Find A Grave, Memorial ID 16829607. Elihu Gage (27 Feb 1727 &ndash; 14 Aug 1802). Old Southeast Church Cemetery, Brewster Hill.</li>
+          <li>Putnam County Land Trust. &ldquo;Glenda Farrell&ndash;Henry Ross Preserve.&rdquo;</li>
+          <li>Dutchess County Deed Indexes &mdash; Grantees and Grantors. Reviewed for Gage family entries, 1771&ndash;1874.</li>
+          <li>Putnam County Deed Indexes &mdash; Grantees and Grantors. Reviewed exhaustively for Gage, Pearce, Horton, and related names, 1812&ndash;1878.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="source-note" style="margin-top:2.5rem;text-align:center">Research by Rob G. &nbsp;&middot;&nbsp; May 2026 &nbsp;&middot;&nbsp; A Property History</p>
+
+  </div>
+
+</article>
+
+<div class="page-copyright" style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="../assets/js/shared.js"></script>
+
+</body>
+</html>
