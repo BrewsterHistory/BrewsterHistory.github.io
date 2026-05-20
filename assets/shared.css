@@ -1,0 +1,257 @@
+/* ============================================================================
+   BREWSTER HISTORY — SHARED VISUAL IDENTITY
+   ============================================================================
+   Single source of truth for the typography, palette, and base elements used
+   across the landing page and all standalone research narratives.
+
+   Inherited from the Southeast Centre study so the family resemblance is
+   immediate. Any change to the look-and-feel of the broader site happens
+   here, in one place.
+   ============================================================================ */
+
+:root {
+  /* Palette — ink/gold/cream archival */
+  --cream: #F5F0E8;
+  --warm-white: #FAF8F3;
+  --ink: #1C1A14;
+  --ink-light: #4A4538;
+  --ink-muted: #8C8070;
+  --gold: #8B6914;
+  --gold-light: #C9A84C;
+  --rust: #8B3A1E;
+  --slate: #3A4A5C;
+  --green: #2A4A30;
+  --border: rgba(28,26,20,0.12);
+  --border-strong: rgba(28,26,20,0.25);
+
+  /* Typography */
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── BACKGROUND TEXTURE ───────────────────────────────────────────────────
+   Barely-visible paper grain. Subtle enough that you only notice it if you
+   look for it; absent enough that it never competes with the content. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 2px,
+      rgba(28,26,20,0.012) 2px, rgba(28,26,20,0.012) 3px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 3px,
+      rgba(28,26,20,0.008) 3px, rgba(28,26,20,0.008) 4px);
+}
+body > * { position: relative; z-index: 1; }
+
+/* ── HEADER BAR (back-to-landing on narrative pages) ─────────────────────── */
+.bh-header {
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border-strong);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.bh-back {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+/* ── NARRATIVE PAGE LAYOUT ─────────────────────────────────────────────── */
+.narrative-wrap {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+.narrative-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.narrative-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.narrative-subtitle {
+  font-family: var(--body);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Body prose — matches Southeast Centre lot-detail styling */
+.narrative-body p {
+  font-family: var(--body);
+  font-size: 16px;
+  color: var(--ink-light);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+.narrative-body p:last-child { margin-bottom: 0; }
+.narrative-body p em, .narrative-body em { color: var(--ink); font-style: italic; }
+.narrative-body p strong { color: var(--ink); font-weight: 600; }
+.narrative-body h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 2.5rem 0 0.85rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  letter-spacing: -0.005em;
+}
+.narrative-body h2:first-child {
+  margin-top: 0; padding-top: 0; border-top: none;
+}
+.narrative-body h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1.75rem 0 0.6rem;
+}
+.narrative-body blockquote {
+  border-left: 3px solid var(--gold);
+  margin: 1.4rem 0;
+  padding: 0.35rem 0 0.35rem 1.35rem;
+}
+.narrative-body blockquote p {
+  color: var(--ink);
+  font-style: italic;
+}
+.narrative-body figure {
+  margin: 2rem 0;
+}
+.narrative-body figure img {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+.narrative-body figcaption {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin-top: 0.65rem;
+  padding: 0 0.5rem;
+  font-style: italic;
+}
+.narrative-body .source-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.65;
+  margin-top: -0.5rem;
+  margin-bottom: 1.25rem;
+}
+.narrative-body .deed-ref {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  background: var(--warm-white);
+  padding: 1px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+  border: 1px solid var(--border);
+}
+.narrative-body sup {
+  font-size: 0.7em;
+  color: var(--gold);
+  font-weight: 600;
+  margin-left: 1px;
+}
+
+/* Draft banner — used on placeholder pieces */
+.draft-banner {
+  background: var(--warm-white);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--rust);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 2rem;
+  border-radius: 3px;
+}
+.draft-banner-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.draft-banner-text {
+  font-family: var(--body);
+  font-size: 0.92rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── SITE FOOTER ──────────────────────────────────────────────────────────
+   The site uses a simple single-line copyright footer (the .page-copyright
+   pattern from Southeast Centre) — its styling is applied inline at the
+   markup site, matching the existing convention. No shared rules needed.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* Reduced motion: respect the user's preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
