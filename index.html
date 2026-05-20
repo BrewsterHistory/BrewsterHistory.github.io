@@ -526,9 +526,9 @@ img { max-width: 100%; height: auto; display: block; }
 var researchPieces = [
   {
     slug: 'brewster-heights',
-    title: 'Old Brewster Heights',
-    desc: 'A research piece on the neighborhood; in preparation.',
-    image: 'images/brewster-heights/cover.jpg',
+    title: 'Brewster Heights',
+    desc: 'The early 20th-century residential neighborhood at the edge of Brewster village &mdash; in research.',
+    image: 'images/brewster-heights/postcard-brewster-heights.jpg',
     isDraft: true
   },
   {
@@ -565,7 +565,7 @@ function renderResearchTiles() {
   var html = '';
   researchPieces.forEach(function(p) {
     var draftTag = p.isDraft
-      ? '<span class="tile-draft-tag">Draft</span>'
+      ? '<span class="tile-draft-tag">Coming Soon</span>'
       : '';
     // Image: real <img> with onerror that swaps in the styled placeholder.
     var imageHtml =
