@@ -205,19 +205,34 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--ink);
   min-height: 320px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-/* Clean composed panel — solid ink with subtle paper-grain lines. */
+/* The image fills the panel, sized to cover. Slight desaturation pulls
+   the high-contrast line drawing toward the warm ink/cream palette. */
 .featured-img-bg {
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent 0px, transparent 39px,
-    rgba(255,255,255,0.020) 39px, rgba(255,255,255,0.020) 40px
+  background-image: url('images/index/index_01.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.2) sepia(0.12) contrast(0.96) brightness(0.96);
+  transition: transform 0.6s ease;
+}
+.featured:hover .featured-img-bg {
+  transform: scale(1.03);
+}
+/* A soft dark wash at the right edge so the image transitions cleanly
+   into the cream-colored card body next to it, instead of butting hard. */
+.featured-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 75%,
+    rgba(28,26,20,0.18) 100%
   );
+  pointer-events: none;
 }
 .featured-img-tag {
   position: absolute;
