@@ -546,6 +546,15 @@ var researchPieces = [
     isDraft: false
   },
   {
+    slug: 'markers',
+    title: 'Historic Markers of Putnam County',
+    desc: 'A reference catalog of roadside historic markers throughout the Brewster area &mdash; photos, marker text, locations, and context.',
+    image: 'images/markers/cover.jpg',
+    href: 'markers/',
+    eyebrow: 'Reference catalog',
+    isDraft: true
+  },
+  {
     slug: 'losee-family',
     title: 'The Losee Homestead',
     desc: '110&ndash;114 Oak Street &mdash; the Brewster boyhood home of William A. Losee, a 7th Cavalry trooper killed at the Little Bighorn in 1876.',
@@ -571,14 +580,17 @@ function renderResearchTiles() {
     var imageHtml =
       '<img src="' + p.image + '" alt="" class="tile-img" loading="lazy" ' +
       'onerror="this.onerror=null;this.replaceWith(makeTilePlaceholder())">';
+    // Per-tile href and eyebrow (defaults for backward compatibility)
+    var href = p.href || ('research/' + p.slug + '.html');
+    var eyebrow = p.eyebrow || 'Research piece';
     html +=
-      '<a class="tile" href="research/' + p.slug + '.html">' +
+      '<a class="tile" href="' + href + '">' +
         '<div class="tile-img-wrap">' +
           draftTag +
           imageHtml +
         '</div>' +
         '<div class="tile-body">' +
-          '<div class="tile-eyebrow">Research piece</div>' +
+          '<div class="tile-eyebrow">' + eyebrow + '</div>' +
           '<div class="tile-title">' + p.title + '</div>' +
           '<div class="tile-desc">' + p.desc + '</div>' +
         '</div>' +
