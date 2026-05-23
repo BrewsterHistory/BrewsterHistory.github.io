@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A reference catalog of historic markers throughout Putnam County, New York — locations, marker text, and brief historical context, drawn from publicly available sources and on-site visits.">
-<title>Historic Markers — Brewster History</title>
+<meta name="description" content="Primary-source historical research on Brewster and the Town of Southeast, Putnam County, New York. Independent work by Shakedown Productions.">
+<title>Brewster History — Primary-Source Local Research</title>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
@@ -16,417 +16,599 @@
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/shared.css">
-
-<!-- Leaflet (free OpenStreetMap-based mapping; no API key required) -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/css/shared.css">
 
 <style>
+/* ─────────────────────────────────────────────────────────────────────────
+   INLINED BASE TOKENS
+   Duplicated from assets/css/shared.css so this page renders correctly even
+   when previewed standalone (e.g., double-clicked locally without the
+   assets/ folder beside it). When deployed, shared.css loads first and
+   these definitions are simply redundant — no conflict.
+   ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
-  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
-  --gold-light: #C9A84C; --rust: #8B3A1E;
-  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --cream: #F5F0E8;
+  --warm-white: #FAF8F3;
+  --ink: #1C1A14;
+  --ink-light: #4A4538;
+  --ink-muted: #8C8070;
+  --gold: #8B6914;
+  --gold-light: #C9A84C;
+  --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12);
+  --border-strong: rgba(28,26,20,0.25);
   --serif: 'Playfair Display', Georgia, serif;
   --body: 'Source Serif 4', Georgia, serif;
   --mono: 'DM Mono', monospace;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--body); background: var(--cream); color: var(--ink);
-       min-height: 100vh; font-size: 16px; line-height: 1.7;
-       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--body);
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 img { max-width: 100%; height: auto; display: block; }
 
-.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
-             padding: 0.9rem 1.5rem; display: flex; align-items: center;
-             justify-content: space-between; gap: 1rem;
-             position: sticky; top: 0; z-index: 100; }
-.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
-           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
-           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
-.bh-back:hover { color: var(--gold); }
-.bh-back::before { content: '←'; font-size: 14px; }
-.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
-                  text-transform: uppercase; color: var(--ink-muted); }
-.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+/* ── HERO ─────────────────────────────────────────────────────────────────
+   Simple dark title page. No background image. Just confident typography
+   on a solid ink field. */
+.hero {
+  position: relative;
+  background: var(--ink);
+  color: var(--warm-white);
+  padding: clamp(5rem, 11vw, 8rem) 1.5rem clamp(4rem, 8vw, 6rem);
+  overflow: hidden;
+  text-align: center;
+}
+/* Subtle vertical ruled "page" lines, very faint, evokes letterpress paper */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 39px,
+    rgba(255,255,255,0.020) 39px, rgba(255,255,255,0.020) 40px
+  );
+  pointer-events: none;
+}
+/* Hairline gold rule, glowing softly at the bottom */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translateX(-50%);
+  width: clamp(120px, 25vw, 220px);
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent, rgba(201,168,76,0.45), transparent);
+}
 
-.page-wrap { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: heroFade 1.2s ease-out 0.15s forwards;
+}
+@keyframes heroFade {
+  to { opacity: 1; transform: translateY(0); }
+}
 
-.page-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
-                text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-.page-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.9rem);
-              font-weight: 400; line-height: 1.1; color: var(--ink);
-              margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-.page-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
-                 font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem;
-                 max-width: 640px; }
-.page-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
-             text-transform: uppercase; color: var(--ink-muted);
-             padding-bottom: 1.75rem; margin-bottom: 0;
-             border-bottom: 1px solid var(--border); line-height: 1.8; }
-.page-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+.hero-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.6rem;
+  color: var(--warm-white);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 400;
+}
 
-.intro-text { margin: 2rem 0 2.5rem; max-width: 720px; }
-.intro-text p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
-                line-height: 1.85; margin-bottom: 1rem; }
+/* Tiny ornamental rule between title and subtitle */
+.hero-divider {
+  width: 36px;
+  height: 1px;
+  background: rgba(201,168,76,0.5);
+  margin: 0 auto 1.6rem;
+}
 
-/* ── MAP ─────────────────────────────────────────────────────────── */
-.map-wrap { margin: 0 0 3rem; }
-.map-section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
-                     text-transform: uppercase; color: var(--gold);
-                     margin-bottom: 0.75rem; font-weight: 500; }
-#markers-map { width: 100%; height: 460px; border: 1px solid var(--border-strong);
-               border-radius: 3px; background: var(--warm-white); }
-.map-note { font-family: var(--mono); font-size: 10px; color: var(--ink-muted);
-            margin-top: 0.7rem; letter-spacing: 0.04em; font-style: italic; }
+.hero-sub {
+  font-family: var(--body);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.02rem, 1.7vw, 1.18rem);
+  line-height: 1.7;
+  color: rgba(245,240,232,0.72);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
 
-/* Custom gold map pins */
-.gold-pin { background: var(--gold); border: 2px solid var(--warm-white);
-            border-radius: 50% 50% 50% 0; width: 26px; height: 26px;
-            transform: rotate(-45deg); display: flex; align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-.gold-pin span { transform: rotate(45deg); color: var(--warm-white);
-                 font-family: var(--mono); font-size: 12px; font-weight: 600; }
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+  margin-top: 2rem;
+}
+.hero-meta span {
+  display: inline-block;
+  padding: 0 0.75rem;
+}
+.hero-meta span + span {
+  border-left: 1px solid rgba(245,240,232,0.18);
+}
 
-/* Leaflet popup styling override */
-.leaflet-popup-content-wrapper { background: var(--warm-white); border-radius: 3px; }
-.leaflet-popup-content { margin: 0.85rem 1rem; font-family: var(--body); color: var(--ink); }
-.leaflet-popup-content .popup-thumb { width: 100%; max-width: 200px; height: 110px;
-                                      object-fit: cover; border: 1px solid var(--border);
-                                      border-radius: 2px; margin-bottom: 0.6rem; }
-.leaflet-popup-content .popup-name { font-family: var(--serif); font-size: 15px;
-                                     font-weight: 600; color: var(--ink); margin-bottom: 0.3rem;
-                                     line-height: 1.3; }
-.leaflet-popup-content .popup-town { font-family: var(--mono); font-size: 10px;
-                                     letter-spacing: 0.1em; text-transform: uppercase;
-                                     color: var(--ink-muted); margin-bottom: 0.5rem; }
-.leaflet-popup-content .popup-link { font-family: var(--mono); font-size: 11px;
-                                     letter-spacing: 0.08em; color: var(--gold);
-                                     text-decoration: none; font-weight: 500;
-                                     text-transform: uppercase; }
-.leaflet-popup-content .popup-link:hover { color: var(--rust); text-decoration: underline; }
-.leaflet-popup-tip { background: var(--warm-white); }
 
-/* ── MARKER GRID ─────────────────────────────────────────────────── */
-.markers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 1.5rem; margin-top: 1rem; }
+/* ── MAIN CONTENT ─────────────────────────────────────────────────────── */
+.main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2rem;
+}
 
-.marker-card { display: flex; flex-direction: column;
-               background: var(--warm-white); border: 1px solid var(--border-strong);
-               border-radius: 3px; overflow: hidden; text-decoration: none;
-               transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-               position: relative; }
-.marker-card:hover { transform: translateY(-2px); border-color: var(--gold);
-                     box-shadow: 0 4px 12px rgba(28,26,20,0.08); }
-.marker-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover;
-                   background: var(--cream); display: block; }
-.marker-card-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--cream);
-                               display: flex; align-items: center; justify-content: center;
-                               border-bottom: 1px solid var(--border); }
-.marker-card-img-placeholder span { font-family: var(--mono); font-size: 10px;
-                                    letter-spacing: 0.12em; text-transform: uppercase;
-                                    color: var(--ink-muted); background: var(--warm-white);
-                                    padding: 0.4rem 0.7rem; border: 1px solid var(--border); }
-.marker-card-num { position: absolute; top: 0.65rem; left: 0.65rem;
-                   background: var(--ink); color: var(--cream);
-                   font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em;
-                   font-weight: 500; padding: 0.25rem 0.5rem; border-radius: 2px;
-                   z-index: 2; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
-.marker-card-body { padding: 1rem 1.1rem 1.15rem; }
-.marker-card-town { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
-                    text-transform: uppercase; color: var(--gold);
-                    margin-bottom: 0.4rem; font-weight: 500; }
-.marker-card-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
-                    color: var(--ink); margin-bottom: 0.45rem; line-height: 1.25; }
-.marker-card-tease { font-family: var(--body); font-size: 13.5px;
-                     color: var(--ink-light); line-height: 1.6; }
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem 0 1.5rem;
+}
+.section-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-strong);
+}
+.section-tag:first-of-type { margin-top: 0; }
 
-.coming-soon-tag { position: absolute; top: 0.65rem; right: 0.65rem;
-                   font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em;
-                   text-transform: uppercase; color: var(--rust);
-                   background: var(--warm-white); padding: 0.3rem 0.55rem;
-                   border-radius: 2px; border: 1px solid rgba(139,58,30,0.3);
-                   font-weight: 600; z-index: 2; }
+/* ── FEATURED CARD (Southeast Centre) ───────────────────────────────────── */
+.featured {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 0;
+  background: var(--warm-white);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+.featured:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(28,26,20,0.12);
+  border-color: var(--gold);
+}
+.featured-img {
+  position: relative;
+  background: var(--ink);
+  min-height: 320px;
+  overflow: hidden;
+}
+/* The image fills the panel, sized to cover. Slight desaturation pulls
+   the high-contrast line drawing toward the warm ink/cream palette. */
+.featured-img-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/index/index_01.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.2) sepia(0.12) contrast(0.96) brightness(0.96);
+  transition: transform 0.6s ease;
+}
+.featured:hover .featured-img-bg {
+  transform: scale(1.03);
+}
+/* A soft dark wash at the right edge so the image transitions cleanly
+   into the cream-colored card body next to it, instead of butting hard. */
+.featured-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 75%,
+    rgba(28,26,20,0.18) 100%
+  );
+  pointer-events: none;
+}
+.featured-img-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold-light);
+  padding: 0.4rem 0.7rem;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.featured-body {
+  padding: 2.25rem 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.featured-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+.featured-title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.featured-subtitle {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.2rem;
+}
+.featured-desc {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+.featured-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.featured-meta-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.featured-meta-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.featured-arrow {
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+.featured:hover .featured-arrow { transform: translateX(4px); }
 
-/* ── COPYRIGHT FOOTER ─────────────────────────────────────────────── */
-.page-copyright { max-width: 1080px; margin: 3rem auto 2rem; padding: 1.5rem;
-                  border-top: 1px solid var(--border); font-family: var(--mono);
-                  font-size: 10px; color: var(--ink-muted); line-height: 1.8;
-                  letter-spacing: 0.04em; text-align: center; }
-.page-copyright p { margin: 0; }
+@media (max-width: 720px) {
+  .featured { grid-template-columns: 1fr; }
+  .featured-img { min-height: 220px; }
+  .featured-body { padding: 1.75rem 1.5rem 1.5rem; }
+}
+
+/* ── RESEARCH TILES (museum-card style, 2x2) ───────────────────────────── */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.tile {
+  background: var(--warm-white);
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(28,26,20,0.10);
+  border-color: var(--gold);
+}
+.tile-img-wrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: var(--cream);
+  overflow: hidden;
+}
+.tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.tile:hover .tile-img { transform: scale(1.03); }
+.tile-img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--cream) 0px, var(--cream) 12px,
+      var(--warm-white) 12px, var(--warm-white) 24px);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.tile-img-placeholder span {
+  background: var(--warm-white);
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border);
+}
+.tile-draft-tag {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  background: var(--warm-white);
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+  border: 1px solid rgba(139,58,30,0.3);
+  font-weight: 600;
+}
+.tile-body {
+  padding: 1.2rem 1.3rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tile-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.45rem;
+}
+.tile-title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.005em;
+}
+.tile-desc {
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ── ABOUT BLOCK ─────────────────────────────────────────────────────── */
+.about {
+  max-width: 720px;
+  margin: 4.5rem auto 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+.about-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+.about-text {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+}
+.about-text:last-child { margin-bottom: 0; }
+.about-text strong { color: var(--ink); font-weight: 500; }
 </style>
 </head>
 <body>
 
-<header class="bh-header">
-  <a class="bh-back" href="../">Brewster History</a>
-  <div class="bh-header-mark"><strong>Historic Markers</strong> &nbsp;·&nbsp; Putnam County, NY</div>
-</header>
+<!-- ════ HERO ════════════════════════════════════════════════════════════ -->
+<section class="hero" aria-label="Site introduction">
+  <div class="hero-inner">
+    <h1 class="hero-title">Brewster <em>History</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Primary-source historical research on Brewster and the Town of Southeast, Putnam County, New York. Independent work, grounded in deed records, period newspapers, and the things that can still be physically held.</p>
+    <div class="hero-meta">
+      <span>Putnam County</span><span>New York</span><span>Est. 2025</span>
+    </div>
+  </div>
+</section>
 
-<main class="page-wrap">
+<!-- ════ MAIN ════════════════════════════════════════════════════════════ -->
+<main class="main">
 
-  <div class="page-eyebrow">A Reference Catalog</div>
-  <h1 class="page-title">Historic Markers <em>of</em> Putnam County</h1>
-  <p class="page-subtitle">Roadside historic markers, commemorative plaques, and monuments throughout the Brewster area &mdash; with brief context drawn from public sources and on-site visits.</p>
-  <p class="page-meta">
-    <span>Putnam County, NY</span><span>15 markers</span><span>5 complete &middot; 10 in progress</span>
-  </p>
+  <!-- Featured: Southeast Centre -->
+  <div class="section-tag">The Featured Project</div>
 
-  <div class="intro-text">
-    <p>This is a working directory of historic markers throughout Putnam County, with photos, transcribed marker text, brief historical context, and locations. Most markers were erected by the State of New York, the William G. Pomeroy Foundation, local historical societies, or municipalities; the catalog draws on publicly available sources from the NYS Historic Markers program, the Putnam County Historian&rsquo;s office, and on-site visits.</p>
-    <p>Unlike the property narratives elsewhere on this site &mdash; which trace every claim to physically reviewed primary sources &mdash; the markers section is a reference catalog. Where a marker connects to deeper research published here, links to the relevant narrative are included on the marker&rsquo;s page.</p>
+  <a class="featured" href="southeast-centre/">
+    <div class="featured-img">
+      <div class="featured-img-bg" aria-hidden="true"></div>
+      <div class="featured-img-tag">Featured</div>
+    </div>
+    <div class="featured-body">
+      <div class="featured-eyebrow">Multi-section research site</div>
+      <h2 class="featured-title">Southeast Centre</h2>
+      <div class="featured-subtitle">A Village That (Almost) Disappeared</div>
+      <p class="featured-desc">A primary-source study of Southeast Centre — also known as Sodom or Sodom Corners — the Putnam County neighborhood largely obliterated by New York City's late nineteenth-century East Branch Reservoir watershed acquisition. Documents the deed chains, family histories, and displacement of eleven surviving lots and numerous lost properties.</p>
+      <div class="featured-meta">
+        <span class="featured-meta-status">Active research · 2025&ndash;2026</span>
+        <span class="featured-arrow">Enter →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Additional Research tiles -->
+  <div class="section-tag">Additional Research</div>
+
+  <div class="tiles" id="research-tiles">
+    <!-- Tiles rendered by JS, alphabetical, with graceful image fallback -->
   </div>
 
-  <!-- ── OVERVIEW MAP ────────────────────────────────────────────── -->
-  <section class="map-wrap">
-    <div class="map-section-label">Overview Map</div>
-    <div id="markers-map"></div>
-    <p class="map-note">Click any pin for the marker&rsquo;s name and a link to its detail page. Map tiles &copy; OpenStreetMap contributors.</p>
-  </section>
-
-  <!-- ── MARKER GRID ─────────────────────────────────────────────── -->
-  <section>
-    <div class="map-section-label">All Markers</div>
-    <div class="markers-grid" id="markers-grid"></div>
-  </section>
+  <!-- About -->
+  <div class="about">
+    <div class="about-eyebrow">About this work</div>
+    <p class="about-text"><strong>Brewster History</strong> is an independent local-history research effort by Shakedown Productions. The work is built on physically reviewed primary sources &mdash; Putnam County deed records, the Brewster Standard newspaper archive, period atlases (especially the 1867 Beers), reservoir condemnation records, and the secondary literature that sits closest to the original documents.</p>
+    <p class="about-text">Every claim is traced to a source. Confirmed, corroborated, and inferred findings are distinguished clearly. Where the record runs out, the site says so. This is slow work, and it is meant to be read slowly.</p>
+  </div>
 
 </main>
 
-<div class="page-copyright">
-  <p>&copy; 2026 Shakedown Productions. All rights reserved.</p>
+<!-- ════ FOOTER ══════════════════════════════════════════════════════════
+     Matches the Southeast Centre site's single-line copyright footer. -->
+<div class="page-copyright" style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
 </div>
 
-<!-- Leaflet -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
+<script src="assets/js/shared.js"></script>
 <script>
-// ─────────────────────────────────────────────────────────────────
-// MARKER DATA
-// ─────────────────────────────────────────────────────────────────
-// Each marker entry needs: slug (URL), name, town, tease (1-line desc),
-// lat, lng, image (path or null for placeholder), comingSoon (bool).
-//
-// Coordinates marked "approx" need to be replaced with exact marker GPS.
-// ─────────────────────────────────────────────────────────────────
-const markers = [
+// ── RESEARCH TILES ────────────────────────────────────────────────────────
+// Single source of truth for what appears under "Additional Research."
+// Add a new piece: one object here + one HTML file in research/ + an image
+// in images/{slug}/. Order is alphabetical by title, automatically.
+var researchPieces = [
   {
-    slug: 'bordens-bridge',
-    name: 'Borden\u2019s Bridge',
-    town: 'Village of Brewster',
-    tease: 'The bridge at the junction of Routes 6 and 22 in Brewster village.',
-    lat: 41.3937, lng: -73.6173,  // approx
-    image: 'images/markers/bordens-bridge.jpg',
-    comingSoon: true
+    slug: 'brewster-heights',
+    title: 'Old Brewster Heights',
+    desc: 'The early 20th-century residential neighborhood at the edge of Brewster village &mdash; in research.',
+    image: 'images/brewster-heights/postcard-brewster-heights.jpg',
+    isDraft: true
   },
   {
-    slug: 'chancellor-kent',
-    name: 'Chancellor Kent',
-    town: 'Town of Southeast',
-    tease: 'James Kent, first state Attorney General of New York, born nearby on the Old Southeast Church property.',
-    lat: 41.4080, lng: -73.6020,  // approx
-    image: 'images/markers/chancellor-kent.jpg',
-    comingSoon: true
+    slug: 'gage-home',
+    title: 'The Gage House',
+    desc: '483 Milltown Road &mdash; built c.&thinsp;1719, likely the oldest house in Putnam County. From a 1783 Revolutionary attainder sale through the present.',
+    image: 'images/gage-home/postcard-oldest-house.png',
+    isDraft: false
   },
   {
-    slug: 'dag-hammarskjold',
-    name: 'Dag Hammarskj\u00f6ld',
-    town: 'Town of Southeast',
-    tease: 'The U.N. Secretary-General\u2019s Brewster retreat, where he sought seclusion until his death in 1961.',
-    lat: 41.4020, lng: -73.6100,  // approx
-    image: 'images/markers/dag-hammarskjold.jpg',
-    comingSoon: true
+    slug: 'gay-nineties',
+    title: 'The Gay Nineties Inn',
+    desc: '2360 Route 6 &mdash; 240 years of ownership, from a 1782 Revolutionary forfeiture sale to a politician&rsquo;s estate, a 1930s roadside inn, and today.',
+    image: 'images/gay-nineties/postcard-entrance.png',
+    isDraft: false
   },
   {
-    slug: 'darius-couch',
-    name: 'Darius M. Couch Birthplace',
-    town: 'Town of Southeast',
-    tease: 'Civil War Major General, born one mile NE of Brewster on NYS Route 22.',
-    lat: 41.4045, lng: -73.5965,  // approx
-    image: 'images/markers/darius-couch.jpg',
-    comingSoon: true
+    slug: 'markers',
+    title: 'Historic Markers of Putnam County',
+    desc: 'A reference catalog of roadside historic markers throughout the Brewster area &mdash; photos, marker text, locations, and context.',
+    image: 'images/markers/cover.jpg',
+    href: 'markers/',
+    eyebrow: 'Reference catalog',
+    isDraft: true
   },
   {
-    slug: 'deforest-corners',
-    name: 'DeForest Corners',
-    town: 'Town of Southeast',
-    tease: 'Where Col. Ludington turned east to repel the British at the burning of Danbury, 1777.',
-    lat: 41.4150, lng: -73.5840,  // approx
-    image: 'images/markers/deforest-corners.jpg',
-    comingSoon: true
-  },
-  {
-    slug: 'east-branch-reservoir',
-    name: 'East Branch Reservoir',
-    town: 'Town of Southeast',
-    tease: 'The NYC watershed reservoir created in 1891, on Old Milltown Road.',
-    lat: 41.41011053496553, lng: -73.56245773037058,
-    image: 'images/markers/east-branch-reservoir.jpg',
-    comingSoon: false
-  },
-  {
-    slug: 'enoch-crosby',
-    name: 'Enoch Crosby \u2014 Patriot Spy',
-    town: 'Town of Southeast',
-    tease: 'Revolutionary War spy of the Neutral Ground; marker on Route 6 across from the Middle Branch Reservoir.',
-    lat: 41.4290, lng: -73.6280,  // approx
-    image: 'images/markers/enoch-crosby.jpg',
-    comingSoon: true
-  },
-  {
-    slug: 'fanny-crosby',
-    name: 'Fanny Crosby',
-    town: 'Town of Southeast',
-    tease: 'Foggintown Road \u2014 poet and prolific composer of more than 8,000 hymns.',
-    lat: 41.4408100659583, lng: -73.60649666772441,
-    image: 'images/markers/fanny-crosby.jpg',
-    comingSoon: false
-  },
-  {
-    slug: 'fowler-house',
-    name: 'Fowler House',
-    town: 'Town of Southeast',
-    tease: 'Built c.\u20091740 by Moses Fowler; visited by Washington on his way from West Point to Connecticut.',
-    lat: 41.4290, lng: -73.6250,  // approx
-    image: 'images/markers/fowler-house.jpg',
-    comingSoon: true
-  },
-  {
-    slug: 'kishawana-country-club',
-    name: 'Kishawana Country Club',
-    town: 'Town of Southeast',
-    tease: '9-hole golf links and hilltop clubhouse on NYS Route 22; hub of town social events, 1900\u20131942.',
-    lat: 41.403384206180334, lng: -73.58380466615662,
-    image: 'images/markers/kishawana-country-club.jpg',
-    comingSoon: false
-  },
-  {
-    slug: 'ludingtons-march',
-    name: 'Col. Ludington\u2019s March',
-    town: 'Town of Southeast',
-    tease: 'Commemorates Col. Henry Ludington\u2019s 1777 ride to repel British raiders in Danbury.',
-    lat: 41.4180, lng: -73.5750,  // approx
-    image: 'images/markers/ludingtons-march.jpg',
-    comingSoon: true
-  },
-  {
-    slug: 'sears-burying-ground',
-    name: 'Sears Burying Ground',
-    town: 'Town of Southeast',
-    tease: 'a.k.a. Old Southeast Church Cemetery \u2014 Putnam County\u2019s oldest marked grave, dating to 1751.',
-    lat: 41.4070, lng: -73.6010,  // approx
-    image: 'images/markers/sears-burying-ground.jpg',
-    comingSoon: true
-  },
-  {
-    slug: 'southeast-centre',
-    name: 'Southeast Centre',
-    town: 'Town of Southeast',
-    tease: 'Marks the early colonial settlement on the Philipse Patent at Sodom Road and Brewster Hill Road.',
-    lat: 41.401881581455754, lng: -73.59136548797312,
-    image: 'images/markers/southeast-centre.jpg',
-    comingSoon: false
-  },
-  {
-    slug: 'tilly-foster-mine',
-    name: 'Tilly Foster Mine',
-    town: 'Town of Southeast',
-    tease: 'The iron mine that operated 1810\u20131897, and from 1887\u20131889 was the largest open-pit mine in the world.',
-    lat: 41.4280, lng: -73.6275,  // approx
-    image: 'images/markers/tilly-foster-mine.jpg',
-    comingSoon: false
-  },
-  {
-    slug: 'tones-pond',
-    name: 'Tone\u2019s Pond',
-    town: 'Town of Southeast',
-    tease: 'Now Tonetta Lake \u2014 named for Tone, a formerly enslaved Black Revolutionary War veteran, and his wife Etta.',
-    lat: 41.4000, lng: -73.6050,  // approx
-    image: 'images/markers/tones-pond.jpg',
-    comingSoon: true
+    slug: 'losee-family',
+    title: 'The Losee Homestead',
+    desc: '110&ndash;114 Oak Street &mdash; the Brewster boyhood home of William A. Losee, a 7th Cavalry trooper killed at the Little Bighorn in 1876.',
+    image: 'images/losee-family/brewster-boy-headline.png',
+    isDraft: false
   }
 ];
 
-// ─────────────────────────────────────────────────────────────────
-// RENDER GRID
-// ─────────────────────────────────────────────────────────────────
-const grid = document.getElementById('markers-grid');
-const sortedMarkers = [...markers].sort((a, b) => a.name.localeCompare(b.name));
-
-sortedMarkers.forEach((m, idx) => {
-  const card = document.createElement('a');
-  card.className = 'marker-card';
-  card.href = m.slug + '.html';
-
-  const imgHTML = m.image
-    ? `<img class="marker-card-img" src="../${m.image}" alt="${m.name}">`
-    : `<div class="marker-card-img-placeholder"><span>Image forthcoming</span></div>`;
-
-  const comingSoonHTML = m.comingSoon
-    ? `<span class="coming-soon-tag">Coming Soon</span>`
-    : '';
-
-  card.innerHTML = `
-    <span class="marker-card-num">${markers.indexOf(m) + 1}</span>
-    ${comingSoonHTML}
-    ${imgHTML}
-    <div class="marker-card-body">
-      <div class="marker-card-town">${m.town}</div>
-      <div class="marker-card-name">${m.name}</div>
-      <div class="marker-card-tease">${m.tease}</div>
-    </div>
-  `;
-  grid.appendChild(card);
+// Sort alphabetically by title (case-insensitive, locale-aware)
+researchPieces.sort(function(a, b) {
+  return a.title.localeCompare(b.title);
 });
 
-// ─────────────────────────────────────────────────────────────────
-// RENDER MAP
-// ─────────────────────────────────────────────────────────────────
-const map = L.map('markers-map', { scrollWheelZoom: true });
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors',
-  maxZoom: 19
-}).addTo(map);
-
-// Custom numbered gold pin
-function makeGoldPin(num) {
-  return L.divIcon({
-    className: '',
-    html: `<div class="gold-pin"><span>${num}</span></div>`,
-    iconSize: [26, 26],
-    iconAnchor: [13, 26]
+function renderResearchTiles() {
+  var container = document.getElementById('research-tiles');
+  if (!container) return;
+  var html = '';
+  researchPieces.forEach(function(p) {
+    var draftTag = p.isDraft
+      ? '<span class="tile-draft-tag">Coming Soon</span>'
+      : '';
+    // Image: real <img> with onerror that swaps in the styled placeholder.
+    var imageHtml =
+      '<img src="' + p.image + '" alt="" class="tile-img" loading="lazy" ' +
+      'onerror="this.onerror=null;this.replaceWith(makeTilePlaceholder())">';
+    // Per-tile href and eyebrow (defaults for backward compatibility)
+    var href = p.href || ('research/' + p.slug + '.html');
+    var eyebrow = p.eyebrow || 'Research piece';
+    html +=
+      '<a class="tile" href="' + href + '">' +
+        '<div class="tile-img-wrap">' +
+          draftTag +
+          imageHtml +
+        '</div>' +
+        '<div class="tile-body">' +
+          '<div class="tile-eyebrow">' + eyebrow + '</div>' +
+          '<div class="tile-title">' + p.title + '</div>' +
+          '<div class="tile-desc">' + p.desc + '</div>' +
+        '</div>' +
+      '</a>';
   });
+  container.innerHTML = html;
 }
 
-// Plot all markers
-const markerLayers = [];
-markers.forEach((m, idx) => {
-  const num = idx + 1;
-  const marker = L.marker([m.lat, m.lng], { icon: makeGoldPin(num) }).addTo(map);
-
-  const popupImg = m.image
-    ? `<img class="popup-thumb" src="../${m.image}" alt="${m.name}">`
-    : '';
-
-  marker.bindPopup(`
-    ${popupImg}
-    <div class="popup-name">${m.name}</div>
-    <div class="popup-town">${m.town}</div>
-    <a class="popup-link" href="${m.slug}.html">Read more &rarr;</a>
-  `, { maxWidth: 240 });
-
-  markerLayers.push(marker);
-});
-
-// Fit bounds to all markers, with a little padding
-if (markerLayers.length > 0) {
-  const group = L.featureGroup(markerLayers);
-  map.fitBounds(group.getBounds(), { padding: [40, 40] });
-} else {
-  // Fallback: center on Brewster
-  map.setView([41.395, -73.617], 12);
+function makeTilePlaceholder() {
+  var ph = document.createElement('div');
+  ph.className = 'tile-img-placeholder';
+  var span = document.createElement('span');
+  span.textContent = 'Image forthcoming';
+  ph.appendChild(span);
+  return ph;
 }
+
+document.addEventListener('DOMContentLoaded', renderResearchTiles);
 </script>
 
 </body>
