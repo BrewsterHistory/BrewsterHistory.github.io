@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Tilly Foster Mine historic marker — U.S. Route 6 at Tilly Foster, Town of Southeast, Putnam County, New York. Marker text, location, and brief history of the 19th-century iron mine that operated 1810–1897.">
-<title>Tilly Foster Mine — Historic Markers — Brewster History</title>
+<meta name="description" content="Fanny Crosby historic marker — Foggintown Road, Town of Southeast, Putnam County, New York. Birthplace of Frances Jane Crosby (1820–1915), one of the most prolific hymn writers in American history.">
+<title>Fanny Crosby — Historic Markers — Brewster History</title>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
@@ -102,6 +102,38 @@ img { max-width: 100%; height: auto; display: block; }
 .detail-narrative p em, .detail-narrative em { color: var(--ink); font-style: italic; }
 .detail-narrative p strong { color: var(--ink); font-weight: 600; }
 
+.detail-narrative figure { margin: 2rem 0; }
+.detail-narrative figure img { border: 1px solid var(--border); border-radius: 3px; }
+.detail-narrative figcaption { font-family: var(--mono); font-size: 11px;
+                               color: var(--ink-muted); line-height: 1.65;
+                               margin-top: 0.65rem; padding: 0 0.5rem; font-style: italic; }
+
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+.figure-pair figure { margin: 0; }
+@media (max-width: 600px) {
+  .figure-pair { grid-template-columns: 1fr; }
+}
+
+.hymn-block { background: var(--warm-white);
+              border: 1px solid var(--border-strong);
+              border-left: 3px solid var(--gold);
+              padding: 1.3rem 1.6rem; margin: 2rem 0;
+              border-radius: 3px;
+              font-family: var(--serif); font-style: italic;
+              color: var(--ink); }
+.hymn-block-label { font-family: var(--mono); font-size: 10px;
+                    letter-spacing: 0.16em; text-transform: uppercase;
+                    color: var(--gold); font-weight: 600; font-style: normal;
+                    margin-bottom: 0.85rem; padding-bottom: 0.65rem;
+                    border-bottom: 1px solid var(--border); }
+.hymn-block p { margin-bottom: 0.65rem; line-height: 1.75; }
+.hymn-block p:last-child { margin-bottom: 0; }
+.hymn-block-attribution { font-family: var(--mono); font-size: 10px;
+                          letter-spacing: 0.08em; color: var(--ink-muted);
+                          margin-top: 0.85rem; padding-top: 0.6rem;
+                          border-top: 1px solid var(--border);
+                          font-style: normal; text-align: right; }
+
 .location-section { background: var(--warm-white); border: 1px solid var(--border-strong);
                     padding: 1.5rem; margin: 2rem 0; border-radius: 3px; }
 .location-label { font-family: var(--mono); font-size: 10px;
@@ -116,7 +148,6 @@ img { max-width: 100%; height: auto; display: block; }
 .location-field-value { font-family: var(--body); font-size: 14.5px;
                         color: var(--ink); line-height: 1.5; }
 .location-field-value.mono { font-family: var(--mono); font-size: 12px; }
-.coords-pending { color: var(--rust); font-style: italic; }
 
 #detail-map { width: 100%; height: 280px; border: 1px solid var(--border);
               border-radius: 3px; margin-bottom: 0.8rem; background: var(--cream); }
@@ -154,6 +185,9 @@ img { max-width: 100%; height: auto; display: block; }
                     margin-bottom: 0.45rem; }
 .sources-block li::before { content: '·'; color: var(--gold); position: absolute;
                             left: 0; font-weight: 700; }
+.sources-block a { color: var(--gold); text-decoration: none;
+                   border-bottom: 1px solid var(--border-strong); }
+.sources-block a:hover { color: var(--rust); border-color: var(--rust); }
 
 .back-link { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 .back-link a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
@@ -173,41 +207,68 @@ img { max-width: 100%; height: auto; display: block; }
 <article class="detail-wrap">
 
   <div class="detail-eyebrow">Town of Southeast &nbsp;·&nbsp; Putnam County</div>
-  <h1 class="detail-title">Tilly Foster Mine</h1>
-  <p class="detail-subtitle">U.S. Route 6 at Tilly Foster.</p>
+  <h1 class="detail-title">Fanny Crosby</h1>
+  <p class="detail-subtitle">Foggintown Road &mdash; birthplace of one of the most prolific hymn writers in American history.</p>
   <p class="detail-meta">
-    <span>NYS Education Department</span><span>Erected 1935</span>
+    <span>Putnam County Historian&rsquo;s Office</span><span>Erected 2020</span>
   </p>
 
   <!-- ── MARKER PHOTO ────────────────────────────────────────────────── -->
   <figure class="marker-photo">
-    <img src="../images/markers/tilly-foster-mine.jpg" alt="Blue and yellow New York State historic marker mounted on a large rock outcrop, reading TILLY FOSTER MINE, OPENED BY JAMES TOWNSEND, 1810; LARGE PRODUCER, 1864–1897; NAMED FOR FORMER OWNER, WHOSE FAMILY CAME FROM HARWICH, MASS., 1749. STATE EDUCATION DEPARTMENT 1935.">
-    <figcaption>NYS Education Department marker (1935) at the Tilly Foster Mine site, mounted on a rock outcrop along U.S. Route 6.</figcaption>
+    <img src="../images/markers/fanny-crosby.jpg" alt="Blue and yellow New York State-style historic marker reading FANNY CROSBY: Frances Jane Crosby, born at Foggintown, March 24, 1820, blinded in infancy. Became a famous poet and hymn writer. Best known for 'Blessed Assurance.' Erected by the Putnam County Historian's Office in 2020.">
+    <figcaption>The Fanny Crosby marker on Foggintown Road, erected by the Putnam County Historian&rsquo;s Office in 2020 on the bicentennial of her birth.</figcaption>
   </figure>
 
   <!-- ── MARKER INSCRIPTION ──────────────────────────────────────────── -->
   <div class="inscription">
     <div class="inscription-label">Marker Inscription</div>
     <div class="inscription-text">
-      <p><strong>TILLY FOSTER MINE</strong></p>
-      <p>Opened by James Townsend,<br>
-      1810; large producer, 1864&ndash;<br>
-      1897; named for former<br>
-      owner, whose family came<br>
-      from Harwich, Mass., 1749.</p>
+      <p><strong>FANNY CROSBY</strong></p>
+      <p>Frances Jane Crosby, born at Foggintown,<br>
+      March 24, 1820, blinded in infancy. Became<br>
+      a famous poet and hymn writer. Best<br>
+      known for &ldquo;Blessed Assurance.&rdquo;</p>
     </div>
-    <div class="inscription-attribution">State Education Department, 1935</div>
+    <div class="inscription-attribution">Putnam County Historian&rsquo;s Office, 2020</div>
   </div>
 
   <!-- ── NARRATIVE ───────────────────────────────────────────────────── -->
   <div class="detail-narrative">
     <h2>About this Marker</h2>
 
-    <p>The Tilly Foster Iron Mine, located approximately two miles west of Brewster village along Route 6, was for a time one of the most productive iron-ore operations in the Hudson Valley. The mine did not open until 1853 &mdash; a decade after Foster&rsquo;s death &mdash; but at its peak in the 1870s it employed hundreds of miners producing 7,000 tons of ore per month, and from 1887 to 1889 it operated as an open pit that was, at that time, the largest open-pit mine in the world.</p>
+    <p><strong>Frances Jane Crosby</strong> was born on March 24, 1820, in the small hamlet of <strong>Foggintown</strong> within the Town of Southeast. She lost her sight as an infant &mdash; the standard account attributes the blindness to improper medical treatment of an eye inflammation at roughly six weeks of age, though sources vary on the exact circumstances. Her father died when she was less than a year old, and she was raised by her mother and grandmother in modest circumstances, first in Southeast and later in Connecticut.</p>
 
-    <p>The marker reflects a longstanding local belief, but the actual chain of title tells a more specific story. <strong>Tilly Foster</strong> was not a local Southeast man at all. He was a resident of the Town of Washington, Litchfield County, Connecticut &mdash; a Connecticut investor who in 1830 paid $3,598 for 128 acres of farmland in Southeast, and who appears never to have lived on the property himself. Foster died <em>circa</em> 1842. The mine that bears his name did not begin commercial operations until 1853, a decade after his death. Foster&rsquo;s namesake mine and the farm that is today the Tilly Foster Farm passed through entirely separate chains of title after his death; what connects them is simply the man&rsquo;s name &mdash; attached permanently to this corner of Southeast through the iron mine.</p>
+    <p>At fifteen she was admitted to the <strong>New York Institution for the Blind</strong> in Manhattan, where her gift for poetry quickly distinguished her. She completed her studies and stayed on as a teacher for more than a decade, teaching grammar, rhetoric, and history. During her years at the Institution she recited her poetry before Congress and met multiple American presidents, including James K. Polk, Zachary Taylor, Millard Fillmore, and Grover Cleveland &mdash; the last of whom worked at the Institution as a young secretary, copying out Crosby&rsquo;s poems while she dictated them.</p>
 
-    <p>A catastrophic collapse in 1895 killed 13 miners and effectively ended large-scale operations; the pit subsequently flooded. Today it is the water-filled depression visible on aerial photographs just north of the Middle Branch Reservoir along U.S. Route 6 &mdash; its surface still visited by the occasional scuba diver.</p>
+    <p>After leaving the Institution she devoted herself to writing and mission work in New York City&rsquo;s slums, particularly at the Bowery Mission. Over a writing career that spanned more than sixty years she produced an extraordinary body of work &mdash; estimates of her total output range from 8,000 to 9,000 hymns, written so prolifically that her publishers required her to use pen names (over 200 of them) to disguise the proportion of any one hymnal that was her work. Her best-known hymns &mdash; &ldquo;Blessed Assurance,&rdquo; &ldquo;Pass Me Not, O Gentle Savior,&rdquo; &ldquo;To God Be the Glory,&rdquo; &ldquo;Rescue the Perishing,&rdquo; &ldquo;Praise Him! Praise Him!&rdquo;, &ldquo;All the Way My Savior Leads Me,&rdquo; and many others &mdash; remain in continuous use in Christian worship more than a century after her death.</p>
+
+    <p>She died on February 12, 1915, in Bridgeport, Connecticut, at the age of 94. The marker on Foggintown Road was erected by the Putnam County Historian&rsquo;s Office in 2020, on the bicentennial of her birth.</p>
+  </div>
+
+  <!-- ── PORTRAITS ───────────────────────────────────────────────────── -->
+  <div class="detail-narrative" style="border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 2rem;">
+    <h2 style="border-top: none; padding-top: 0; margin-top: 0;">Portraits</h2>
+
+    <div class="figure-pair">
+      <figure>
+        <img src="../images/markers/fanny-crosby-portrait-mid.png" alt="Black-and-white photograph of Fanny Crosby in middle age, seated, wearing a dark Victorian dress with a high white lace collar, ribbon trim, and a small ornate hat. Her dark glasses are visible; her expression is composed.">
+        <figcaption>Fanny Crosby in middle age. Restored from a period original using AI image processing.</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/markers/fanny-crosby-portrait-elderly.png" alt="Sepia-toned photograph of Fanny Crosby in old age, standing beside a wicker table, wearing a dark dress with elaborate lace trim, an ornate feathered hat, and her characteristic dark glasses. She holds a small book — most likely a hymnal or Bible — in her left hand.">
+        <figcaption>Fanny Crosby in old age, beside a wicker table, holding what is most likely a hymnal. Restored from a period original using AI image processing.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ── HYMN VERSE ──────────────────────────────────────────────────── -->
+  <div class="hymn-block">
+    <div class="hymn-block-label">Blessed Assurance &mdash; First Verse</div>
+    <p>Blessed assurance, Jesus is mine!<br>
+    O what a foretaste of glory divine!<br>
+    Heir of salvation, purchase of God,<br>
+    Born of His Spirit, washed in His blood.</p>
+    <div class="hymn-block-attribution">Words: Fanny J. Crosby, 1873. Music: Phoebe P. Knapp.</div>
   </div>
 
   <!-- ── LOCATION ────────────────────────────────────────────────────── -->
@@ -217,28 +278,31 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="location-grid">
       <div>
         <div class="location-field-label">Address</div>
-        <div class="location-field-value">U.S. Route 6 at Tilly Foster<br>Town of Southeast, NY</div>
+        <div class="location-field-value">Foggintown Road<br>Town of Southeast, NY</div>
       </div>
       <div>
         <div class="location-field-label">GPS Coordinates</div>
-        <div class="location-field-value mono coords-pending">[awaiting coordinates]</div>
+        <div class="location-field-value mono">41.440810&deg; N, 73.606497&deg; W</div>
       </div>
     </div>
 
     <div id="detail-map"></div>
 
     <a class="google-maps-link"
-       href="https://www.google.com/maps/search/?api=1&query=Tilly+Foster+Mine+Brewster+NY"
+       href="https://www.google.com/maps/search/?api=1&query=41.4408100659583,-73.60649666772441"
        target="_blank" rel="noopener">
       View on Google Maps &nearr;
     </a>
   </div>
 
-  <!-- ── RELATED RESEARCH ────────────────────────────────────────────── -->
+  <!-- ── RELATED ─────────────────────────────────────────────────────── -->
   <div class="related-section">
-    <div class="related-label">Related Research on This Site</div>
+    <div class="related-label">Further Reading</div>
     <ul class="related-list">
-      <li><a href="../research/gay-nineties.html">The Gay Nineties Inn &amp; Yale House</a> &mdash; a separate Foster parcel just south of the mine site, traced from the 1830 Foster acquisition through the modern property at 2360 Route 6.</li>
+      <li><a href="https://putnamcountyny.gov/component/zoo/item/sremembering-fanny-crosby?Itemid=101" target="_blank" rel="noopener">Remembering Fanny Crosby</a> &mdash; Putnam County, NY official tribute page.</li>
+      <li><a href="https://www.hmdb.org/m.asp?m=157029" target="_blank" rel="noopener">Historical Marker Database</a> &mdash; entry for the New York Institution for the Blind marker, the school where Crosby studied and taught.</li>
+      <li><a href="https://christianheritage.info/places/united-states/new-york/new-york/monument-outdoor/fanny-crosby-new-york-institution-for-the-blind/" target="_blank" rel="noopener">Our Christian Heritage</a> &mdash; profile of Crosby&rsquo;s years at the New York Institution for the Blind.</li>
+      <li><a href="https://youtu.be/kIOIPaMsoWw" target="_blank" rel="noopener">Remembering Fanny Crosby</a> &mdash; video tribute (YouTube).</li>
     </ul>
   </div>
 
@@ -246,10 +310,11 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="sources-block">
     <h3>Sources</h3>
     <ul>
-      <li>On-site photograph of the New York State Education Department marker (1935).</li>
-      <li>Gay Nineties Inn / Yale House research project on this site &mdash; documents the 1830 Foster acquisition deed (Bk.&nbsp;A[F], p.&nbsp;232&ndash;234, physically reviewed at the Putnam County Clerk&rsquo;s Office), the 1853 mine opening, the 1887&ndash;1889 open-pit era, and the 1895 collapse.</li>
-      <li>Wikipedia &mdash; <em>Tilly Foster Mine</em>.</li>
-      <li>Putnam County Legislature presentation &mdash; &ldquo;Tilly Foster Farm Overview,&rdquo; August 25, 2022.</li>
+      <li>On-site photograph of the Putnam County Historian&rsquo;s Office marker (2020).</li>
+      <li>Putnam County, NY &mdash; &ldquo;Remembering Fanny Crosby&rdquo; (official county tribute page).</li>
+      <li>Christian Heritage Project &mdash; profile of Crosby and the New York Institution for the Blind.</li>
+      <li>Historical Marker Database (HMDB) &mdash; New York Institution for the Blind marker entry.</li>
+      <li>Portraits: period photographs restored from originals using AI image processing.</li>
     </ul>
   </div>
 
@@ -265,10 +330,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-// Placeholder coordinates — approximate location of Tilly Foster Mine area, US Route 6.
-// REPLACE with exact marker coordinates when available.
-const lat = 41.4280, lng = -73.6275;
-const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 14);
+// Fanny Crosby marker — exact GPS at Foggintown Road birthplace.
+const lat = 41.4408100659583, lng = -73.60649666772441;
+const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 17);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
   maxZoom: 19
