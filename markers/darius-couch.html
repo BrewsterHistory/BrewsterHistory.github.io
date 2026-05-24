@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Darius Couch historic marker — NYS Route 22, Town of Southeast, Putnam County, New York. Directional marker pointing two miles east to the birthplace of Civil War Major General Darius Nash Couch (1822–1897).">
+<title>Darius Couch — Historic Markers — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.detail-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+.detail-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.detail-title { font-family: var(--serif); font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+                font-weight: 400; line-height: 1.15; color: var(--ink);
+                margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.detail-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                   font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.detail-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+               text-transform: uppercase; color: var(--ink-muted);
+               padding-bottom: 1.75rem; margin-bottom: 0;
+               border-bottom: 1px solid var(--border); line-height: 1.8; }
+.detail-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.marker-photo { margin: 2rem 0 0.5rem; }
+.marker-photo img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.marker-photo figcaption { font-family: var(--mono); font-size: 11px;
+                           color: var(--ink-muted); line-height: 1.65; margin-top: 0.7rem;
+                           padding: 0 0.4rem; font-style: italic; }
+
+.portrait-section { margin: 2.5rem 0 1rem; padding-top: 2rem;
+                    border-top: 1px solid var(--border); }
+.portrait-label { font-family: var(--mono); font-size: 10px;
+                  letter-spacing: 0.18em; text-transform: uppercase;
+                  color: var(--gold); margin-bottom: 1.25rem; font-weight: 500; }
+.portrait-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+                 margin-bottom: 1rem; }
+@media (max-width: 600px) { .portrait-grid { grid-template-columns: 1fr; } }
+.portrait-grid figure { margin: 0; }
+.portrait-grid img { width: 100%; border: 1px solid var(--border-strong);
+                     border-radius: 3px; background: var(--warm-white); }
+.portrait-grid figcaption { font-family: var(--mono); font-size: 10.5px;
+                            color: var(--ink-muted); line-height: 1.6;
+                            margin-top: 0.55rem; padding: 0 0.2rem;
+                            font-style: italic; letter-spacing: 0.02em; }
+
+.inscription { background: var(--warm-white);
+               border: 1px solid var(--border-strong);
+               border-left: 3px solid var(--gold);
+               padding: 1.3rem 1.6rem; margin: 2rem 0;
+               border-radius: 3px; }
+.inscription-label { font-family: var(--mono); font-size: 10px;
+                     letter-spacing: 0.16em; text-transform: uppercase;
+                     color: var(--gold); font-weight: 600;
+                     margin-bottom: 0.85rem; padding-bottom: 0.65rem;
+                     border-bottom: 1px solid var(--border); }
+.inscription-text { font-family: var(--serif); font-size: 1rem;
+                    color: var(--ink); line-height: 1.85;
+                    text-align: center; letter-spacing: 0.005em; }
+.inscription-text p { margin-bottom: 0.7rem; }
+.inscription-text p:last-child { margin-bottom: 0; }
+.inscription-text strong { font-weight: 600; letter-spacing: 0.04em; }
+.inscription-attribution { font-family: var(--mono); font-size: 10px;
+                           letter-spacing: 0.08em; color: var(--ink-muted);
+                           text-align: center; margin-top: 1rem;
+                           padding-top: 0.7rem; border-top: 1px solid var(--border);
+                           font-style: italic; }
+
+.detail-narrative { margin: 2.5rem 0; }
+.detail-narrative h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+                       color: var(--ink); margin: 2rem 0 0.75rem;
+                       padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.detail-narrative h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.detail-narrative p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                      line-height: 1.9; margin-bottom: 1.25rem; }
+.detail-narrative p em, .detail-narrative em { color: var(--ink); font-style: italic; }
+.detail-narrative p strong { color: var(--ink); font-weight: 600; }
+
+.detail-narrative blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                               padding: 0.4rem 0 0.4rem 1.35rem; }
+.detail-narrative blockquote p { color: var(--ink); font-style: italic; }
+.detail-narrative blockquote cite { font-family: var(--mono); font-size: 11px;
+                                    letter-spacing: 0.04em; color: var(--ink-muted);
+                                    font-style: normal; display: block; margin-top: 0.6rem; }
+
+.location-section { background: var(--warm-white); border: 1px solid var(--border-strong);
+                    padding: 1.5rem; margin: 2rem 0; border-radius: 3px; }
+.location-label { font-family: var(--mono); font-size: 10px;
+                  letter-spacing: 0.16em; text-transform: uppercase;
+                  color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+                 margin-bottom: 1rem; }
+@media (max-width: 600px) { .location-grid { grid-template-columns: 1fr; } }
+.location-field-label { font-family: var(--mono); font-size: 9.5px;
+                        letter-spacing: 0.14em; text-transform: uppercase;
+                        color: var(--ink-muted); margin-bottom: 0.25rem; }
+.location-field-value { font-family: var(--body); font-size: 14.5px;
+                        color: var(--ink); line-height: 1.5; }
+.location-field-value.mono { font-family: var(--mono); font-size: 12px; }
+
+#detail-map { width: 100%; height: 280px; border: 1px solid var(--border);
+              border-radius: 3px; margin-bottom: 0.8rem; background: var(--cream); }
+
+.google-maps-link { display: inline-flex; align-items: center; gap: 0.4rem;
+                    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+                    text-transform: uppercase; color: var(--gold); text-decoration: none;
+                    padding: 0.5rem 0.85rem; border: 1px solid var(--gold);
+                    border-radius: 2px; font-weight: 500;
+                    transition: background 0.15s, color 0.15s; }
+.google-maps-link:hover { background: var(--gold); color: var(--warm-white); }
+
+.related-section { margin: 2.5rem 0; padding-top: 2rem;
+                   border-top: 1px solid var(--border); }
+.related-label { font-family: var(--mono); font-size: 10px;
+                 letter-spacing: 0.18em; text-transform: uppercase;
+                 color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+.related-list { list-style: none; padding-left: 0; }
+.related-list li { padding-left: 1rem; position: relative; margin-bottom: 0.5rem; }
+.related-list li::before { content: '·'; color: var(--gold); position: absolute;
+                           left: 0; font-weight: 700; }
+.related-list a { font-family: var(--body); font-size: 14.5px; color: var(--ink);
+                  text-decoration: none; border-bottom: 1px solid var(--border-strong);
+                  transition: color 0.15s, border-color 0.15s; }
+.related-list a:hover { color: var(--gold); border-color: var(--gold); }
+
+.sources-block { margin-top: 2.5rem; padding-top: 1.5rem;
+                 border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 0.8rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.65; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.45rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block a { color: var(--gold); text-decoration: none;
+                   border-bottom: 1px solid var(--border-strong); }
+.sources-block a:hover { color: var(--rust); border-color: var(--rust); }
+
+.back-link { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.back-link a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+               text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+               display: inline-flex; align-items: center; gap: 0.4rem; }
+.back-link a::before { content: '←'; }
+.back-link a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Historic Marker</strong> &nbsp;·&nbsp; Putnam County, NY</div>
+</header>
+
+<article class="detail-wrap">
+
+  <div class="detail-eyebrow">Town of Southeast &nbsp;·&nbsp; Putnam County</div>
+  <h1 class="detail-title">Darius Couch</h1>
+  <p class="detail-subtitle">A directional marker pointing toward the birthplace of a Civil War Major General.</p>
+  <p class="detail-meta">
+    <span>NYS Education Department</span>
+  </p>
+
+  <!-- ── MARKER PHOTO ────────────────────────────────────────────────── -->
+  <figure class="marker-photo">
+    <img src="../images/markers/darius-couch.jpg" alt="Blue and yellow New York State historic marker mounted on a large boulder reading TWO MILES EAST: Birthplace of Darius M. Couch, Major General U.S.A., Commander 2D Corps Army of Potomac, at Fredericksburg and Chancellorsville, 1862-63. State Education Department. A small American flag has been planted at the base of the marker.">
+    <figcaption>The Darius Couch marker stands along NYS Route 22, pointing two miles east to the farm where Couch was born in 1822. An American flag at the base of the boulder marks recent observance.</figcaption>
+  </figure>
+
+  <!-- ── MARKER INSCRIPTION ──────────────────────────────────────────── -->
+  <div class="inscription">
+    <div class="inscription-label">Marker Inscription</div>
+    <div class="inscription-text">
+      <p><strong>TWO MILES EAST</strong></p>
+      <p>Birthplace of<br>
+      <strong>DARIUS M. COUCH</strong><br>
+      Major General, U.S.A.<br>
+      Commander 2d Corps, Army of<br>
+      Potomac, at Fredericksburg<br>
+      and Chancellorsville, 1862&ndash;63</p>
+    </div>
+    <div class="inscription-attribution">State Education Department</div>
+  </div>
+
+  <!-- ── PORTRAIT ────────────────────────────────────────────────────── -->
+  <section class="portrait-section">
+    <div class="portrait-label">Portrait</div>
+    <div class="portrait-grid">
+      <figure>
+        <img src="../images/markers/darius-couch-portrait-seated.png"
+             alt="Half-length seated photograph of Major General Darius Nash Couch in Union uniform, showing the two-star shoulder strap of a major general. He has a full beard, receding hairline, and looks slightly to his right against a plain studio backdrop.">
+        <figcaption>Major General Darius Nash Couch. Mathew Brady studio photograph, c.&nbsp;1862&ndash;65. Brady-Handy Photograph Collection, Library of Congress.</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/markers/darius-couch-portrait-standing.png"
+             alt="Full-length standing photograph of Major General Darius Nash Couch in his Union frock coat with the two-star shoulder strap of a major general. The original glass plate shows characteristic dust and scratch marks of an unrestored period negative.">
+        <figcaption>A second pose from the same period, showing characteristic plate-spotting of an unrestored Brady-Handy negative. Library of Congress.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── NARRATIVE ───────────────────────────────────────────────────── -->
+  <div class="detail-narrative">
+    <h2>About this Marker</h2>
+
+    <p><strong>Darius Nash Couch</strong> (1822&ndash;1897) was born on July 23, 1822, on a farm in the village of Southeast in Putnam County, the son of <strong>Jonathan Couch and Elizabeth Hall</strong>. His paternal grandfather, Thomas Couch, had served in the American Revolution as a Sergeant and Quartermaster in Connecticut &mdash; the basis on which Couch would later, in 1890, join the Sons of the American Revolution. He was educated at the local Southeast schools, entered the United States Military Academy at West Point in 1842, and graduated four years later, 13th out of 59 cadets. His West Point classmates included <strong>George B. McClellan, Thomas &ldquo;Stonewall&rdquo; Jackson, George Pickett, George Stoneman, and Jesse Reno</strong> &mdash; the Class of 1846 would produce some of the most prominent generals on both sides of the coming war. (The marker gives his middle initial as &ldquo;M.,&rdquo; but his name was Darius <em>Nash</em> Couch; the most authoritative sources, including Couch&rsquo;s own biographers and his family, use the &ldquo;N.&rdquo; or &ldquo;Nash.&rdquo;)</p>
+
+    <p>Couch saw action in the Mexican&ndash;American War, distinguishing himself at the Battle of Buena Vista in February 1847, and was brevetted first lieutenant for &ldquo;gallant and meritorious conduct.&rdquo; In 1853 he took a one-year leave of absence from the army to conduct a <strong>scientific expedition to northern Mexico</strong> on behalf of the Smithsonian Institution &mdash; a mission that resulted in his discovery of two species that bear his name: <em>Couch&rsquo;s kingbird</em> (a flycatcher) and <em>Couch&rsquo;s spadefoot toad</em>. Three reptile species and a fish would later be named for him as well. On August 31, 1854 he married <strong>Mary Caroline Crocker</strong> of Taunton, Massachusetts, daughter of Hon. Samuel L. Crocker, a Taunton congressman and businessman. Couch resigned from the army in 1855 and was working in his wife&rsquo;s family copper-fabricating business in Taunton when the Civil War began.</p>
+
+    <p>Recommissioned in June 1861 as colonel of the 7th Massachusetts Infantry, Couch rose rapidly: brigadier general (August 1861), major general (July 1862), and on <strong>November 14, 1862, command of the II Corps of the Army of the Potomac</strong>. He led the II Corps during the disastrous Union assault at Fredericksburg the following month. Couch vehemently opposed the attack on Marye&rsquo;s Heights, warning his superiors that it would be repulsed with heavy losses; Major General Ambrose Burnside insisted that II Corps move forward anyway. From an elevated vantage in the town &mdash; remembered in some accounts as the cupola of the courthouse, in others as a church steeple &mdash; Couch watched wave after wave of his men cut down attempting to take the wall. According to a contemporary account, he said as he watched: &ldquo;Oh, great God! See how our men, our poor fellows, are falling.&rdquo; At one point in the action, in a gesture recorded in A.&nbsp;M.&nbsp;Gambone&rsquo;s biography <em>Enigmatic Valor</em>, Couch rode forward to within roughly fifty yards of the Confederate position and then turned his horse to ride parallel to the line &mdash; an act of conspicuous valor that, on a field where every Union officer in range was a target, somehow drew no fire. His prediction proved exactly accurate: the II Corps sustained over 4,000 casualties in the campaign.</p>
+
+    <p>At <strong>Chancellorsville</strong> the following May, Couch was the senior corps commander and Joseph Hooker&rsquo;s second-in-command. On May 3, 1863, a Confederate cannonball struck the pillar of the Chancellor House that Hooker was leaning against, knocking him unconscious and almost certainly leaving him concussed. With the Union army still holding favorable ground, Couch&rsquo;s fellow corps commanders &mdash; including Hancock, Sykes, and Warren &mdash; urged him to assume command from the incapacitated Hooker, and even to disobey Hooker&rsquo;s order to withdraw. Couch, unconvinced that Hooker was medically unfit, declined to wrest authority from his commander, and the retreat went forward. After the defeat, Couch sent Lincoln a letter asking to be relieved of duty under Hooker and travelled to Washington to speak with the president in person. Lincoln offered Couch command of the Army of the Potomac itself; Couch declined, citing poor health, and recommended George Gordon Meade &mdash; the man who, just days later, would assume command on the eve of Gettysburg.</p>
+
+    <p>Couch took command of the newly created Department of the Susquehanna on June 9, 1863, and quickly organized largely emergency militia units to oppose Lee&rsquo;s invasion of Pennsylvania. He directed fortifications around Harrisburg and dispatched men to slow the Confederate advance &mdash; <strong>skirmishing with Lt. Gen. Richard Ewell&rsquo;s forces at Sporting Hill and with Maj. Gen. J.E.B. Stuart&rsquo;s cavalry at Carlisle</strong>. During the rapid Confederate advance into southern Pennsylvania in late June, Stuart&rsquo;s ride around the Union army had severed most lines of communication between the federal forces and Washington; the timely intelligence on Confederate troop movements that Lincoln and Stanton received in those critical days came largely from Couch&rsquo;s headquarters. Lee, by contrast, was operating blind. Couch&rsquo;s men helped ensure that Confederate forces stayed on the west bank of the Susquehanna in the days before Gettysburg, and joined the pursuit of Lee&rsquo;s army back into Maryland after the battle. Fort Couch, in what is now Lemoyne, Pennsylvania, was built under his direction and named for him.</p>
+
+    <p>On <strong>November 18, 1863</strong>, Couch was at the Gettysburg train station to greet President Lincoln on his arrival for the dedication of the Soldiers&rsquo; National Cemetery. The next day he was seated on the speakers&rsquo; platform near the president for the delivery of the Gettysburg Address. In December 1864 Couch returned to front-line command, leading a division in Maj. Gen. John Schofield&rsquo;s XXIII Corps attached to Maj. Gen. George H. Thomas&rsquo;s Army of the Cumberland. He fought at the <strong>Battle of Nashville</strong> on December 15&ndash;16, 1864, where his men helped shatter the Confederate left flank, and saw the war out through the Carolinas campaign.</p>
+
+    <p>After the war Couch returned to Taunton, ran unsuccessfully for Governor of Massachusetts (1865) on the Democratic ticket, and was named Collector of Customs for the Port of Boston in 1866 &mdash; though the Senate declined to confirm his appointment and he held the post only briefly. In 1867 he became president of the (West) Virginia Mining and Manufacturing Company. He later relocated to Connecticut, where he served as Quartermaster General and then Adjutant General of the state militia from 1871 until 1884. He died in Norwalk, Connecticut on February 12, 1897, and is buried at Mount Pleasant Cemetery in Taunton, Massachusetts.</p>
+
+    <h2>Where, exactly, the marker points</h2>
+
+    <p>The marker stands at NYS Route 22 and directs the visitor &ldquo;two miles east&rdquo; &mdash; an approximation, and one that under-reports the slightly northeasterly bearing of the farm. In a 2013 guest column for the local site <em>Adventures Around Putnam</em>, Carmel resident Robert Bredow identified the birthplace as the farm shown on the 1854 map of Putnam County as the holding of <strong>C.&nbsp;H. Couch</strong> &mdash; the general&rsquo;s brother, to whom Darius sold his half of the property in 1850. Bredow places the site &ldquo;about a half mile east of the Red Rooster on Rte. 22.&rdquo; Bredow drew his account from A.&nbsp;M.&nbsp;Gambone&rsquo;s biography <em>Enigmatic Valor</em> and from an interview with one of Couch&rsquo;s great-granddaughters. We have not independently verified the 1854 map identification with primary sources, but the family-geography Bredow describes is consistent with the wider record: Couch&rsquo;s uncle Hezekiah lived on what is still called Couch Road in Patterson, the family attended a private prep school at what is now the North Salem Town Hall, and a Couch family plot remains in the Milltown Cemetery in Brewster. The next time you pass the marker, picture a boy in the 1830s playing along the banks of the Croton River, a half mile east through the trees &mdash; and consider what an unlikely path it was from there to a chair beside Lincoln at Gettysburg.</p>
+  </div>
+
+  <!-- ── LOCATION ────────────────────────────────────────────────────── -->
+  <div class="location-section">
+    <div class="location-label">Location</div>
+
+    <div class="location-grid">
+      <div>
+        <div class="location-field-label">Address</div>
+        <div class="location-field-value">NYS Route 22<br>(birthplace farm is two miles east)<br>Town of Southeast, NY</div>
+      </div>
+      <div>
+        <div class="location-field-label">GPS Coordinates</div>
+        <div class="location-field-value mono">41&deg;24.133&prime; N, 73&deg;35.175&prime; W<br>(41.402217&deg;, &minus;73.586250&deg;)</div>
+      </div>
+    </div>
+
+    <div id="detail-map"></div>
+
+    <a class="google-maps-link"
+       href="https://www.google.com/maps/search/?api=1&query=41.402217,-73.586250"
+       target="_blank" rel="noopener">
+      View on Google Maps &nearr;
+    </a>
+  </div>
+
+  <!-- ── RELATED ─────────────────────────────────────────────────────── -->
+  <div class="related-section">
+    <div class="related-label">Further Reading</div>
+    <ul class="related-list">
+      <li><a href="https://www.adventuresaroundputnam.com/2013/11/07/major-general-darius-couch-of-southeast-have-we-forgotten/" target="_blank" rel="noopener">&ldquo;Major General Darius Couch of Southeast &mdash; Have We Forgotten?&rdquo;</a> &mdash; Robert Bredow, guest column at <em>Adventures Around Putnam</em>, November 7, 2013. The closest thing to a local biographical sketch of Couch, drawing on Gambone&rsquo;s book and on a personal interview with one of Couch&rsquo;s great-granddaughters; primary source for the birthplace identification at the 1854-map C.&nbsp;H. Couch farm.</li>
+      <li><a href="https://en.wikipedia.org/wiki/Darius_N._Couch" target="_blank" rel="noopener">Darius N. Couch &mdash; Wikipedia</a></li>
+      <li><a href="https://www.thoughtco.com/major-general-darius-n-couch-4028761" target="_blank" rel="noopener">Major General Darius N. Couch</a> &mdash; Kennedy Hickman, ThoughtCo: a comprehensive biographical overview.</li>
+      <li><a href="https://www.tauntongazette.com/story/news/2012/03/07/who-lies-here-major-general/41035092007/" target="_blank" rel="noopener">&ldquo;Who Lies Here? A Major General&rdquo;</a> &mdash; Taunton Gazette (Massachusetts), March 7, 2012, on Couch&rsquo;s burial at Mount Pleasant Cemetery and his family connections to Taunton.</li>
+      <li><a href="http://www.aztecclub.com/bios/couch.htm" target="_blank" rel="noopener">Couch biography</a> &mdash; Aztec Club of 1847 (the veterans&rsquo; society of the Mexican War officer corps, which Couch joined in 1888).</li>
+    </ul>
+  </div>
+
+  <!-- ── SOURCES ─────────────────────────────────────────────────────── -->
+  <div class="sources-block">
+    <h3>Sources</h3>
+    <ul>
+      <li>On-site photograph of the New York State Education Department marker.</li>
+      <li>Portrait photographs: Mathew Brady studio, c.&nbsp;1862&ndash;65, from the <em>Brady-Handy Photograph Collection</em>, Library of Congress (public domain). Two poses, presented unrestored.</li>
+      <li>Robert Bredow, &ldquo;Major General Darius Couch of Southeast &mdash; Have We Forgotten?,&rdquo; guest column at <em>Adventures Around Putnam</em> (Steven Mattson, ed.), November 7, 2013 &mdash; primary source for the birthplace identification at the C.&nbsp;H. Couch farm shown on the 1854 map of Putnam County, the Fredericksburg ride parallel to the Confederate line, the Chancellor House pillar / Hooker concussion detail, the recommendation of Meade, the Department of the Susquehanna intelligence role during the Gettysburg campaign, and Couch&rsquo;s November 18, 1863 greeting of Lincoln at the Gettysburg train station. Bredow credits A.&nbsp;M.&nbsp;Gambone&rsquo;s <em>Major-General Darius Nash Couch: Enigmatic Valor</em> (Butternut and Blue, 2000) and a personal interview with one of Couch&rsquo;s great-granddaughters.</li>
+      <li><em>Darius N. Couch</em> &mdash; Wikipedia article (consolidating standard Civil War biographical sources including Eicher&rsquo;s <em>The Longest Night</em>, Warner&rsquo;s <em>Generals in Blue</em>, Gambone&rsquo;s <em>Major-General Darius Nash Couch: Enigmatic Valor</em>, and the Heidlers&rsquo; <em>Encyclopedia of the American Civil War</em>).</li>
+      <li>Kennedy Hickman, &ldquo;American Civil War: Major General Darius N. Couch,&rdquo; ThoughtCo &mdash; primary source for the West Point Class of 1846 classmates, Couch&rsquo;s opposition to Burnside&rsquo;s order at Fredericksburg, the Carlisle skirmish with J.E.B. Stuart, and the Senate&rsquo;s non-confirmation of his Boston Customs appointment.</li>
+      <li>Aztec Club of 1847 biographical sketch of Couch.</li>
+      <li><em>Taunton Daily Gazette</em>, &ldquo;Who Lies Here: Major General Darius Nash Couch&rdquo; (March 6, 2012) &mdash; primary source for family details: parents Jonathan Couch and Elizabeth Hall; marriage to Mary Caroline Crocker (August 31, 1854); grandfather Thomas Couch&rsquo;s Revolutionary War service that established Couch&rsquo;s SAR membership.</li>
+    </ul>
+  </div>
+
+  <div class="back-link">
+    <a href="./">All Historic Markers</a>
+  </div>
+
+</article>
+
+<div style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Darius Couch marker — exact GPS at NYS Route 22.
+// 41° 24.133′ N, 73° 35.175′ W → 41.402217, -73.586250
+const lat = 41.402217, lng = -73.586250;
+const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 17);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
+const pinIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#8B6914;border:2px solid #FAF8F3;border-radius:50% 50% 50% 0;width:26px;height:26px;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
+  iconSize: [26, 26],
+  iconAnchor: [13, 26]
+});
+
+L.marker([lat, lng], { icon: pinIcon }).addTo(map);
+</script>
+
+</body>
+</html>

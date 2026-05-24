@@ -194,6 +194,12 @@ img { max-width: 100%; height: auto; display: block; }
     <figcaption>The Fowler House marker, erected by New York State in 1974. The house sits off Old North Road (today&rsquo;s Root Avenue area, near Simpson Road and US Route 6) in the Town of Southeast.</figcaption>
   </figure>
 
+  <!-- ── HOUSE PHOTO ─────────────────────────────────────────────────── -->
+  <figure class="marker-photo">
+    <img src="../images/markers/fowler-house-photo.png" alt="The Fowler House in summer: a long pale-yellow clapboard farmhouse with a full-width covered front porch, two American flags hanging from the porch posts, two brick chimneys rising from a steeply pitched roof, and a later two-story side wing extending to the right. A large granite outcrop is visible at the far right. The house sits behind a deep lawn at the end of a paved driveway, framed by mature shade trees.">
+    <figcaption>The Fowler House today. The original 18th-century block stands at left, behind the front porch; the long two-story side wing at right is a later addition. The granite outcrop at the right edge of the photograph is one of the most striking features of the site.</figcaption>
+  </figure>
+
   <!-- ── MARKER INSCRIPTION ──────────────────────────────────────────── -->
   <div class="inscription">
     <div class="inscription-label">Marker Inscription</div>
@@ -241,14 +247,14 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div>
         <div class="location-field-label">GPS Coordinates</div>
-        <div class="location-field-value mono">41.419119&deg; N, 73.648993&deg; W</div>
+        <div class="location-field-value mono">41.418972&deg; N, 73.649247&deg; W</div>
       </div>
     </div>
 
     <div id="detail-map"></div>
 
     <a class="google-maps-link"
-       href="https://www.google.com/maps/search/?api=1&query=41.41911910753223,-73.64899303252132"
+       href="https://www.google.com/maps/search/?api=1&query=41.41897163773088,-73.64924694751922"
        target="_blank" rel="noopener">
       View on Google Maps &nearr;
     </a>
@@ -286,7 +292,7 @@ img { max-width: 100%; height: auto; display: block; }
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // Fowler House marker — exact GPS at Old North Road / Root Avenue area.
-const lat = 41.41911910753223, lng = -73.64899303252132;
+const lat = 41.41897163773088, lng = -73.64924694751922;
 const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 17);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
