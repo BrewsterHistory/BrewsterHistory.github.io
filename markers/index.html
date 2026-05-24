@@ -120,6 +120,19 @@ img { max-width: 100%; height: auto; display: block; }
                position: relative; }
 .marker-card:hover { transform: translateY(-2px); border-color: var(--gold);
                      box-shadow: 0 4px 12px rgba(28,26,20,0.08); }
+
+/* Coming Soon cards: non-clickable, visually muted, no hover lift */
+.marker-card.marker-card-coming { cursor: default; opacity: 0.7; }
+.marker-card.marker-card-coming:hover { transform: none;
+                                         border-color: var(--border-strong);
+                                         box-shadow: none; }
+.marker-card.marker-card-coming .marker-card-img,
+.marker-card.marker-card-coming .marker-card-img-placeholder { filter: grayscale(0.4); }
+
+.leaflet-popup-content .popup-link-disabled { font-family: var(--mono); font-size: 11px;
+                                              letter-spacing: 0.08em; color: var(--rust);
+                                              font-weight: 600; text-transform: uppercase;
+                                              opacity: 0.7; }
 .marker-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover;
                    background: var(--cream); display: block; }
 .marker-card-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--cream);
@@ -171,7 +184,7 @@ img { max-width: 100%; height: auto; display: block; }
   <h1 class="page-title">Historic Markers <em>of</em> Putnam County</h1>
   <p class="page-subtitle">Roadside historic markers, commemorative plaques, and monuments throughout the Brewster area &mdash; with brief context drawn from public sources and on-site visits.</p>
   <p class="page-meta">
-    <span>Putnam County, NY</span><span>15 markers</span><span>1 complete &middot; 14 in progress</span>
+    <span>Putnam County, NY</span><span>15 markers</span><span>5 complete &middot; 10 in progress</span>
   </p>
 
   <div class="intro-text">
@@ -261,9 +274,9 @@ const markers = [
     name: 'East Branch Reservoir',
     town: 'Town of Southeast',
     tease: 'The NYC watershed reservoir created in 1891, on Old Milltown Road.',
-    lat: 41.4250, lng: -73.5970,  // approx
+    lat: 41.41011053496553, lng: -73.56245773037058,
     image: 'images/markers/east-branch-reservoir.jpg',
-    comingSoon: true
+    comingSoon: false
   },
   {
     slug: 'enoch-crosby',
@@ -279,9 +292,9 @@ const markers = [
     name: 'Fanny Crosby',
     town: 'Town of Southeast',
     tease: 'Foggintown Road \u2014 poet and prolific composer of more than 8,000 hymns.',
-    lat: 41.4100, lng: -73.6400,  // approx
+    lat: 41.4408100659583, lng: -73.60649666772441,
     image: 'images/markers/fanny-crosby.jpg',
-    comingSoon: true
+    comingSoon: false
   },
   {
     slug: 'fowler-house',
@@ -297,9 +310,9 @@ const markers = [
     name: 'Kishawana Country Club',
     town: 'Town of Southeast',
     tease: '9-hole golf links and hilltop clubhouse on NYS Route 22; hub of town social events, 1900\u20131942.',
-    lat: 41.4200, lng: -73.5900,  // approx
+    lat: 41.403384206180334, lng: -73.58380466615662,
     image: 'images/markers/kishawana-country-club.jpg',
-    comingSoon: true
+    comingSoon: false
   },
   {
     slug: 'ludingtons-march',
@@ -324,9 +337,9 @@ const markers = [
     name: 'Southeast Centre',
     town: 'Town of Southeast',
     tease: 'Marks the early colonial settlement on the Philipse Patent at Sodom Road and Brewster Hill Road.',
-    lat: 41.4019, lng: -73.6065,  // approx
+    lat: 41.401881581455754, lng: -73.59136548797312,
     image: 'images/markers/southeast-centre.jpg',
-    comingSoon: true
+    comingSoon: false
   },
   {
     slug: 'tilly-foster-mine',
@@ -355,9 +368,12 @@ const grid = document.getElementById('markers-grid');
 const sortedMarkers = [...markers].sort((a, b) => a.name.localeCompare(b.name));
 
 sortedMarkers.forEach((m, idx) => {
-  const card = document.createElement('a');
-  card.className = 'marker-card';
-  card.href = m.slug + '.html';
+  // Completed markers are clickable <a>; Coming Soon are non-clickable <div>
+  const card = document.createElement(m.comingSoon ? 'div' : 'a');
+  card.className = 'marker-card' + (m.comingSoon ? ' marker-card-coming' : '');
+  if (!m.comingSoon) {
+    card.href = m.slug + '.html';
+  }
 
   const imgHTML = m.image
     ? `<img class="marker-card-img" src="../${m.image}" alt="${m.name}">`
@@ -383,10 +399,10 @@ sortedMarkers.forEach((m, idx) => {
 // ─────────────────────────────────────────────────────────────────
 // RENDER MAP
 // ─────────────────────────────────────────────────────────────────
-const map = L.map('markers-map', { scrollWheelZoom: false });
+const map = L.map('markers-map', { scrollWheelZoom: true });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
-  maxZoom: 18
+  maxZoom: 19
 }).addTo(map);
 
 // Custom numbered gold pin
@@ -409,11 +425,15 @@ markers.forEach((m, idx) => {
     ? `<img class="popup-thumb" src="../${m.image}" alt="${m.name}">`
     : '';
 
+  const popupLink = m.comingSoon
+    ? `<span class="popup-link popup-link-disabled">Coming Soon</span>`
+    : `<a class="popup-link" href="${m.slug}.html">Read more &rarr;</a>`;
+
   marker.bindPopup(`
     ${popupImg}
     <div class="popup-name">${m.name}</div>
     <div class="popup-town">${m.town}</div>
-    <a class="popup-link" href="${m.slug}.html">Read more &rarr;</a>
+    ${popupLink}
   `, { maxWidth: 240 });
 
   markerLayers.push(marker);
