@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Sears Burying Ground — Old Southeast Church Cemetery — on Route 22 in the Brewster Hill section of Southeast, NY. Putnam County's oldest cemetery, with its earliest marked grave dating to 1751. Site of the 2024 Town of Southeast Historic Sites Commission marker and the 1970 Southeast Museum Association plaque.">
+<title>Sears Burying Ground — Historic Markers — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.detail-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+.detail-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.detail-title { font-family: var(--serif); font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+                font-weight: 400; line-height: 1.15; color: var(--ink);
+                margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.detail-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                   font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.detail-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+               text-transform: uppercase; color: var(--ink-muted);
+               padding-bottom: 1.75rem; margin-bottom: 0;
+               border-bottom: 1px solid var(--border); line-height: 1.8; }
+.detail-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.marker-photo { margin: 2rem 0 0.5rem; }
+.marker-photo img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.marker-photo figcaption { font-family: var(--mono); font-size: 11px;
+                           color: var(--ink-muted); line-height: 1.65; margin-top: 0.7rem;
+                           padding: 0 0.4rem; font-style: italic; }
+
+.inscription { background: var(--warm-white);
+               border: 1px solid var(--border-strong);
+               border-left: 3px solid var(--gold);
+               padding: 1.3rem 1.6rem; margin: 2rem 0;
+               border-radius: 3px; }
+.inscription-label { font-family: var(--mono); font-size: 10px;
+                     letter-spacing: 0.16em; text-transform: uppercase;
+                     color: var(--gold); font-weight: 600;
+                     margin-bottom: 0.85rem; padding-bottom: 0.65rem;
+                     border-bottom: 1px solid var(--border); }
+.inscription-text { font-family: var(--serif); font-size: 1rem;
+                    color: var(--ink); line-height: 1.85;
+                    text-align: center; letter-spacing: 0.005em; }
+.inscription-text p { margin-bottom: 0.7rem; }
+.inscription-text p:last-child { margin-bottom: 0; }
+.inscription-text strong { font-weight: 600; letter-spacing: 0.04em; }
+.inscription-attribution { font-family: var(--mono); font-size: 10px;
+                           letter-spacing: 0.08em; color: var(--ink-muted);
+                           text-align: center; margin-top: 1rem;
+                           padding-top: 0.7rem; border-top: 1px solid var(--border);
+                           font-style: italic; }
+
+.detail-narrative { margin: 2.5rem 0; }
+.detail-narrative h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+                       color: var(--ink); margin: 2rem 0 0.75rem;
+                       padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.detail-narrative h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.detail-narrative p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                      line-height: 1.9; margin-bottom: 1.25rem; }
+.detail-narrative p em, .detail-narrative em { color: var(--ink); font-style: italic; }
+.detail-narrative p strong { color: var(--ink); font-weight: 600; }
+
+.detail-narrative blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                               padding: 0.4rem 0 0.4rem 1.35rem; }
+.detail-narrative blockquote p { color: var(--ink); font-style: italic; }
+.detail-narrative blockquote cite { font-family: var(--mono); font-size: 11px;
+                                    letter-spacing: 0.04em; color: var(--ink-muted);
+                                    font-style: normal; display: block; margin-top: 0.6rem; }
+
+.location-section { background: var(--warm-white); border: 1px solid var(--border-strong);
+                    padding: 1.5rem; margin: 2rem 0; border-radius: 3px; }
+.location-label { font-family: var(--mono); font-size: 10px;
+                  letter-spacing: 0.16em; text-transform: uppercase;
+                  color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+                 margin-bottom: 1rem; }
+@media (max-width: 600px) { .location-grid { grid-template-columns: 1fr; } }
+.location-field-label { font-family: var(--mono); font-size: 9.5px;
+                        letter-spacing: 0.14em; text-transform: uppercase;
+                        color: var(--ink-muted); margin-bottom: 0.25rem; }
+.location-field-value { font-family: var(--body); font-size: 14.5px;
+                        color: var(--ink); line-height: 1.5; }
+.location-field-value.mono { font-family: var(--mono); font-size: 12px; }
+
+#detail-map { width: 100%; height: 280px; border: 1px solid var(--border);
+              border-radius: 3px; margin-bottom: 0.8rem; background: var(--cream); }
+
+.google-maps-link { display: inline-flex; align-items: center; gap: 0.4rem;
+                    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+                    text-transform: uppercase; color: var(--gold); text-decoration: none;
+                    padding: 0.5rem 0.85rem; border: 1px solid var(--gold);
+                    border-radius: 2px; font-weight: 500;
+                    transition: background 0.15s, color 0.15s; }
+.google-maps-link:hover { background: var(--gold); color: var(--warm-white); }
+
+.related-section { margin: 2.5rem 0; padding-top: 2rem;
+                   border-top: 1px solid var(--border); }
+.related-label { font-family: var(--mono); font-size: 10px;
+                 letter-spacing: 0.18em; text-transform: uppercase;
+                 color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+.related-list { list-style: none; padding-left: 0; }
+.related-list li { padding-left: 1rem; position: relative; margin-bottom: 0.5rem; }
+.related-list li::before { content: '·'; color: var(--gold); position: absolute;
+                           left: 0; font-weight: 700; }
+.related-list a { font-family: var(--body); font-size: 14.5px; color: var(--ink);
+                  text-decoration: none; border-bottom: 1px solid var(--border-strong);
+                  transition: color 0.15s, border-color 0.15s; }
+.related-list a:hover { color: var(--gold); border-color: var(--gold); }
+
+.sources-block { margin-top: 2.5rem; padding-top: 1.5rem;
+                 border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 0.8rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.65; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.45rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block a { color: var(--gold); text-decoration: none;
+                   border-bottom: 1px solid var(--border-strong); }
+.sources-block a:hover { color: var(--rust); border-color: var(--rust); }
+
+.back-link { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.back-link a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+               text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+               display: inline-flex; align-items: center; gap: 0.4rem; }
+.back-link a::before { content: '←'; }
+.back-link a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Historic Marker</strong> &nbsp;·&nbsp; Putnam County, NY</div>
+</header>
+
+<article class="detail-wrap">
+
+  <div class="detail-eyebrow">Town of Southeast &nbsp;·&nbsp; Brewster Hill</div>
+  <h1 class="detail-title">Sears Burying Ground</h1>
+  <p class="detail-subtitle">Also called the Old Southeast Church Cemetery, the Doansburg Burying Ground, or simply Doanes Cemetery &mdash; Putnam County&rsquo;s oldest cemetery, anchored to a 1751 grave and to the first congregation of the Old Southeast Church.</p>
+  <p class="detail-meta">
+    <span>Town of Southeast Historic Sites Commission, 2024</span>
+    <span>Southeast Museum Association, 1970</span>
+  </p>
+
+  <!-- ── MARKER PHOTO ────────────────────────────────────────────────── -->
+  <figure class="marker-photo">
+    <img src="../images/markers/sears-burying-ground.jpg" alt="Blue and yellow New York State-style historic marker reading SEARS BURYING GROUND, aka Old Southeast Church Cemetery. Putnam County's oldest cemetery, earliest grave dates back to 1751. Revolutionary and Civil War soldiers buried here. Town of Southeast Historic Sites Commission.">
+    <figcaption>The 2024 marker, erected by the Town of Southeast Historic Sites Commission and unveiled on April 27, 2024 in the standard New York State blue-and-yellow style.</figcaption>
+  </figure>
+
+  <!-- ── PLAQUE PHOTO ────────────────────────────────────────────────── -->
+  <figure class="marker-photo">
+    <img src="../images/markers/sears-burying-ground-plaque.jpg" alt="Cast metal plaque mounted on a rough stone pillar at the cemetery entrance, reading HISTORICAL LANDMARK at top. Below: OLD SOUTHEAST CEMETERY — HERE REST OUR EARLY SETTLERS AND SIX PASTORS OF SOUTHEAST CHURCH. At lower left: Oldest Stone — 1751. At center: a small relief image of a small church building with arched windows. At lower right: Dedicated June, 1970. Across the bottom: SOUTHEAST MUSEUM ASSOCIATION, BREWSTER, N.Y.">
+    <figcaption>The earlier 1970 plaque, mounted on a stone pillar at the cemetery entrance. The Southeast Museum Association dedicated it in June 1970, calling the cemetery a &ldquo;Historical Landmark&rdquo; and figuring it with a small relief of what is presumably the Old Southeast Church meeting house at the center.</figcaption>
+  </figure>
+
+  <!-- ── MARKER INSCRIPTION ──────────────────────────────────────────── -->
+  <div class="inscription">
+    <div class="inscription-label">Marker Inscription</div>
+    <div class="inscription-text">
+      <p><strong>SEARS BURYING GROUND</strong></p>
+      <p>Aka Old Southeast Church Cemetery. Putnam County&rsquo;s oldest cemetery, earliest grave dates back to 1751. Revolutionary and Civil War soldiers buried here.</p>
+    </div>
+    <div class="inscription-attribution">Town of Southeast Historic Sites Commission, 2024</div>
+  </div>
+
+  <!-- ── PLAQUE INSCRIPTION ──────────────────────────────────────────── -->
+  <div class="inscription">
+    <div class="inscription-label">Plaque Inscription</div>
+    <div class="inscription-text">
+      <p><strong>HISTORICAL LANDMARK</strong></p>
+      <p><strong>OLD SOUTHEAST CEMETERY</strong><br>
+      Here rest our early settlers<br>
+      and six pastors of Southeast Church</p>
+      <p>Oldest Stone &mdash; 1751<br>
+      Dedicated June, 1970</p>
+    </div>
+    <div class="inscription-attribution">Southeast Museum Association, Brewster, N.Y.</div>
+  </div>
+
+  <!-- ── NARRATIVE ───────────────────────────────────────────────────── -->
+  <div class="detail-narrative">
+    <h2>About this Marker</h2>
+
+    <p>This small burying ground on the west side of Route 22 in the Brewster Hill section of the Town of Southeast holds the oldest marked grave in Putnam County. It has been known by at least four names over the course of its long life: <strong>Sears Burying Ground</strong> (after the family whose land it sat on), <strong>Old Southeast Church Cemetery</strong> (after the congregation that buried its dead here), <strong>Doansburg Burying Ground</strong> (after the hamlet of Doansburg, which surrounded it in the eighteenth century), and simply <strong>Doanes Cemetery</strong>. Two markers stand at its entrance today. The newer one &mdash; the standard New York State blue-and-yellow roadside design &mdash; was erected by the Town of Southeast Historic Sites Commission and unveiled on April 27, 2024. The older one &mdash; a cast metal plaque mounted on a rough stone pillar &mdash; was placed by the Southeast Museum Association in June 1970.</p>
+
+    <h2>The 1751 grave: Abigail Moss Kent</h2>
+
+    <p>The earliest marked stone here belongs to <strong>Abigail Moss Kent</strong>, who died in January 1751 at the age of thirty-three. Her husband, the Rev. <strong>Elisha Kent</strong>, was the founding pastor of the Southeast Presbyterian Church &mdash; the congregation that gave the cemetery its alternate name. Kent had come to the Philipse Patent in the 1740s as a missionary preacher and would minister here until his death in 1776, at the start of the Revolution. Abigail&rsquo;s grave, dating to the very first decade of organized European settlement in this part of Dutchess County (Putnam was not split off as a separate county until 1812), is the anchor that lets the Town of Southeast call this Putnam County&rsquo;s oldest cemetery. The plaque&rsquo;s memorial to &ldquo;six pastors of Southeast Church&rdquo; suggests that Elisha Kent and five of his successors are buried somewhere on these grounds, though we have not yet matched all six names to surviving stones.</p>
+
+    <h2>Early settler family names</h2>
+
+    <p>The cemetery&rsquo;s monuments carry many of the names of the families who settled this corner of the Philipse Patent in the mid-eighteenth century: <strong>Barnum, Crane, Crosby, Kent</strong>, and the Sears who gave the ground its everyday name. Several of these surnames recur throughout the project&rsquo;s wider research record &mdash; the Crosby family lines connect (variously by collateral relation or by neighborhood) to <a href="enoch-crosby.html">Enoch Crosby</a>, the Revolutionary War spy who lived just east of here and is buried at Gilead Cemetery in Carmel, and the Crane and Barnum names appear repeatedly in the deeds and census records of Southeast Centre and the adjoining hamlets.</p>
+
+    <p>Among the Revolutionary War veterans interred here, the press coverage of the 2024 marker unveiling singled out Capt. <strong>Jedidiah Wood</strong>, who is remembered in local tradition for helping carry wounded American soldiers along a trail through what is now Brewster village to a field hospital in Danbury during one of the British raids on the Hudson Valley in 1777. Recent work by the cemetery&rsquo;s caretakers has reunited the long-separated headstones of Captain Wood and his wife, Abigail, on the cemetery grounds.</p>
+
+    <h2>The hamlet of Doansburg</h2>
+
+    <p>The names &ldquo;Doansburg Burying Ground&rdquo; and &ldquo;Doanes Cemetery&rdquo; preserve a piece of Southeast geography that has nearly disappeared from everyday speech. <strong>Doansburg</strong> was the eighteenth- and early-nineteenth-century name for the cluster of farms and crossroads on Route 22 in this section of Southeast &mdash; surrounding what is now Brewster Hill. The name occasionally still surfaces on old deeds, in nineteenth-century newspaper accounts, and on the New York State historic marker (number 28 on the Putnam County list) commemorating Chancellor James Kent &mdash; one of Elisha Kent&rsquo;s descendants, the Chief Justice of New York and author of the canonical four-volume <em>Commentaries on American Law</em> &mdash; whose marker stands &ldquo;on NYS 22 at Doansburg.&rdquo;</p>
+
+    <h2>The two markers</h2>
+
+    <p>The 1970 plaque is the older of the two memorials and the more lapidary &mdash; a single cast metal panel mounted to a stone pillar, naming the cemetery, identifying its oldest stone, and dating its own dedication. The Southeast Museum Association placed it as part of a wider effort in that period to identify and preserve the founding sites of the Town of Southeast. Among the plaque&rsquo;s details is a small relief image of what is almost certainly the Old Southeast Church meeting house: a simple two-story building with a gabled roof and arched windows, an architectural shorthand for the congregation whose burials these are.</p>
+
+    <p>The 2024 New York State-style marker is the newer addition and serves a different purpose: it places the cemetery in the catalog of roadside historic markers that anyone driving Route 22 can recognize and stop at. The unveiling ceremony on April 27, 2024 was organized jointly by the Town of Southeast and its Historic Sites Commission. With its placement, the Sears Burying Ground joined the small but growing roster of officially marked Southeast sites &mdash; the Chancellor Kent marker at Doansburg, the Fowler House marker on Old North Road, the Southeast Centre marker on Doansburg Road, and others &mdash; that together constitute Southeast&rsquo;s catalog of public memory.</p>
+  </div>
+
+  <!-- ── LOCATION ────────────────────────────────────────────────────── -->
+  <div class="location-section">
+    <div class="location-label">Location</div>
+
+    <div class="location-grid">
+      <div>
+        <div class="location-field-label">Address</div>
+        <div class="location-field-value">1601 Route 22<br>Brewster Hill section,<br>Town of Southeast, NY</div>
+      </div>
+      <div>
+        <div class="location-field-label">GPS Coordinates</div>
+        <div class="location-field-value mono">41.426808&deg; N,<br>&minus;73.577998&deg; W</div>
+      </div>
+    </div>
+
+    <div id="detail-map"></div>
+
+    <a class="google-maps-link"
+       href="https://www.google.com/maps/search/?api=1&query=41.426808,-73.577998"
+       target="_blank" rel="noopener">
+      View on Google Maps &nearr;
+    </a>
+  </div>
+
+  <!-- ── RELATED ─────────────────────────────────────────────────────── -->
+  <div class="related-section">
+    <div class="related-label">Related &amp; Further Reading</div>
+    <ul class="related-list">
+      <li><a href="enoch-crosby.html">Enoch Crosby &mdash; Patriot Spy</a> &mdash; the Carmel courthouse marker for the Revolutionary War spy whose family name appears among the stones at Sears.</li>
+      <li><a href="https://www.putnampresstimes.com/post/sears-burying-ground-to-get-historic-marker" target="_blank" rel="noopener">&ldquo;Sears Burying Ground to Get Historic Marker&rdquo;</a> &mdash; <em>Putnam Press Times</em>, April 17, 2024 (announcement of the new marker and unveiling ceremony).</li>
+      <li><a href="https://www.findagrave.com/cemetery/2198375/old-southeast-church-cemetery" target="_blank" rel="noopener">Old Southeast Church Cemetery</a> &mdash; Find a Grave listing, including a roster of identified burials.</li>
+      <li><a href="http://www.putnamgraveyards.com/southeast/sears/index.html" target="_blank" rel="noopener">Sears Burying Ground</a> &mdash; PutnamGraveyards.com.</li>
+      <li><a href="https://en.wikipedia.org/wiki/List_of_New_York_State_Historic_Markers_in_Putnam_County,_New_York" target="_blank" rel="noopener">List of New York State Historic Markers in Putnam County, New York</a> &mdash; Wikipedia, including the Chancellor Kent marker at Doansburg.</li>
+    </ul>
+  </div>
+
+  <!-- ── SOURCES ─────────────────────────────────────────────────────── -->
+  <div class="sources-block">
+    <h3>Sources</h3>
+    <ul>
+      <li>On-site photographs of the 2024 Town of Southeast Historic Sites Commission marker and the 1970 Southeast Museum Association plaque.</li>
+      <li>&ldquo;Sears Burying Ground to Get Historic Marker,&rdquo; <em>Putnam Press Times</em>, April 17, 2024 &mdash; primary source for the April 27, 2024 unveiling ceremony, the sponsor identification (Town of Southeast and its Historic Sites Commission), the 1751 grave of Abigail Moss Kent, the roster of family names interred at the cemetery (Barnum, Crane, Crosby, Kent), and the local tradition of Capt. Jedidiah Wood&rsquo;s wartime service.</li>
+      <li>Old Southeast Church Cemetery, Find a Grave memorial #2198375 &mdash; identification of the cemetery&rsquo;s alternate names (Sears Burying Ground, Doanesburg Burying Ground) and confirmation of the 1601 Route 22 address.</li>
+      <li>&ldquo;Sears Burying Ground,&rdquo; PutnamGraveyards.com (Southeast Historic Cemeteries series) &mdash; secondary catalog of the cemetery&rsquo;s alternate names (Old Southeast Cemetery, Doanes Cemetery) and its status as a privately maintained burial ground.</li>
+      <li><em>List of New York State Historic Markers in Putnam County, New York</em> &mdash; Wikipedia, for the placement of the Chancellor Kent marker at Doansburg and the broader catalog of Town of Southeast historic markers.</li>
+      <li>Historiography of the Rev. Elisha Kent and the Southeast Presbyterian Church congregation, drawing on the general nineteenth- and twentieth-century accounts of the Philipse Patent settlement (Pelletreau 1886, Blake 1849, Zimm 1946); specific stones and pastoral identifications have not been individually verified for this page.</li>
+    </ul>
+  </div>
+
+  <div class="back-link">
+    <a href="./">All Historic Markers</a>
+  </div>
+
+</article>
+
+<div style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Sears Burying Ground — exact GPS from user's in-person reading.
+// 1601 Route 22, Brewster Hill section of the Town of Southeast.
+const lat = 41.426808, lng = -73.577998;
+const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 17);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
+const pinIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#8B6914;border:2px solid #FAF8F3;border-radius:50% 50% 50% 0;width:26px;height:26px;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
+  iconSize: [26, 26],
+  iconAnchor: [13, 26]
+});
+
+L.marker([lat, lng], { icon: pinIcon }).addTo(map);
+</script>
+
+</body>
+</html>

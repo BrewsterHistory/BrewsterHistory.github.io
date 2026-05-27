@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Enoch Crosby historic marker in Carmel, New York. Patriot spy of the American Revolution, recruited by John Jay, longtime resident of Southeast and Carmel, and the man widely held to be the basis for Harvey Birch in James Fenimore Cooper's 1821 novel The Spy.">
+<title>Enoch Crosby — Historic Markers — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.detail-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+.detail-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.detail-title { font-family: var(--serif); font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+                font-weight: 400; line-height: 1.15; color: var(--ink);
+                margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.detail-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                   font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.detail-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+               text-transform: uppercase; color: var(--ink-muted);
+               padding-bottom: 1.75rem; margin-bottom: 0;
+               border-bottom: 1px solid var(--border); line-height: 1.8; }
+.detail-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.marker-photo { margin: 2rem 0 0.5rem; }
+.marker-photo img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.marker-photo figcaption { font-family: var(--mono); font-size: 11px;
+                           color: var(--ink-muted); line-height: 1.65; margin-top: 0.7rem;
+                           padding: 0 0.4rem; font-style: italic; }
+
+.portrait-section { margin: 2.5rem 0 1rem; padding-top: 2rem;
+                    border-top: 1px solid var(--border); }
+.portrait-label { font-family: var(--mono); font-size: 10px;
+                  letter-spacing: 0.18em; text-transform: uppercase;
+                  color: var(--gold); margin-bottom: 1.25rem; font-weight: 500; }
+.portrait-figure { margin: 0; }
+.portrait-figure img { width: 100%; max-width: 480px; margin: 0 auto;
+                       border: 1px solid var(--border-strong);
+                       border-radius: 3px; background: var(--warm-white); }
+.portrait-figure figcaption { font-family: var(--mono); font-size: 10.5px;
+                              color: var(--ink-muted); line-height: 1.6;
+                              margin-top: 0.7rem; padding: 0 0.2rem;
+                              font-style: italic; letter-spacing: 0.02em;
+                              text-align: center; }
+
+.inscription { background: var(--warm-white);
+               border: 1px solid var(--border-strong);
+               border-left: 3px solid var(--gold);
+               padding: 1.3rem 1.6rem; margin: 2rem 0;
+               border-radius: 3px; }
+.inscription-label { font-family: var(--mono); font-size: 10px;
+                     letter-spacing: 0.16em; text-transform: uppercase;
+                     color: var(--gold); font-weight: 600;
+                     margin-bottom: 0.85rem; padding-bottom: 0.65rem;
+                     border-bottom: 1px solid var(--border); }
+.inscription-text { font-family: var(--serif); font-size: 1rem;
+                    color: var(--ink); line-height: 1.85;
+                    text-align: center; letter-spacing: 0.005em; }
+.inscription-text p { margin-bottom: 0.7rem; }
+.inscription-text p:last-child { margin-bottom: 0; }
+.inscription-text strong { font-weight: 600; letter-spacing: 0.04em; }
+.inscription-attribution { font-family: var(--mono); font-size: 10px;
+                           letter-spacing: 0.08em; color: var(--ink-muted);
+                           text-align: center; margin-top: 1rem;
+                           padding-top: 0.7rem; border-top: 1px solid var(--border);
+                           font-style: italic; }
+
+.detail-narrative { margin: 2.5rem 0; }
+.detail-narrative h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+                       color: var(--ink); margin: 2rem 0 0.75rem;
+                       padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.detail-narrative h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.detail-narrative p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                      line-height: 1.9; margin-bottom: 1.25rem; }
+.detail-narrative p em, .detail-narrative em { color: var(--ink); font-style: italic; }
+.detail-narrative p strong { color: var(--ink); font-weight: 600; }
+
+.detail-narrative blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                               padding: 0.4rem 0 0.4rem 1.35rem; }
+.detail-narrative blockquote p { color: var(--ink); font-style: italic; }
+.detail-narrative blockquote cite { font-family: var(--mono); font-size: 11px;
+                                    letter-spacing: 0.04em; color: var(--ink-muted);
+                                    font-style: normal; display: block; margin-top: 0.6rem; }
+
+.location-section { background: var(--warm-white); border: 1px solid var(--border-strong);
+                    padding: 1.5rem; margin: 2rem 0; border-radius: 3px; }
+.location-label { font-family: var(--mono); font-size: 10px;
+                  letter-spacing: 0.16em; text-transform: uppercase;
+                  color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+                 margin-bottom: 1rem; }
+@media (max-width: 600px) { .location-grid { grid-template-columns: 1fr; } }
+.location-field-label { font-family: var(--mono); font-size: 9.5px;
+                        letter-spacing: 0.14em; text-transform: uppercase;
+                        color: var(--ink-muted); margin-bottom: 0.25rem; }
+.location-field-value { font-family: var(--body); font-size: 14.5px;
+                        color: var(--ink); line-height: 1.5; }
+.location-field-value.mono { font-family: var(--mono); font-size: 12px; }
+
+#detail-map { width: 100%; height: 280px; border: 1px solid var(--border);
+              border-radius: 3px; margin-bottom: 0.8rem; background: var(--cream); }
+
+.google-maps-link { display: inline-flex; align-items: center; gap: 0.4rem;
+                    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+                    text-transform: uppercase; color: var(--gold); text-decoration: none;
+                    padding: 0.5rem 0.85rem; border: 1px solid var(--gold);
+                    border-radius: 2px; font-weight: 500;
+                    transition: background 0.15s, color 0.15s; }
+.google-maps-link:hover { background: var(--gold); color: var(--warm-white); }
+
+.related-section { margin: 2.5rem 0; padding-top: 2rem;
+                   border-top: 1px solid var(--border); }
+.related-label { font-family: var(--mono); font-size: 10px;
+                 letter-spacing: 0.18em; text-transform: uppercase;
+                 color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+.related-list { list-style: none; padding-left: 0; }
+.related-list li { padding-left: 1rem; position: relative; margin-bottom: 0.5rem; }
+.related-list li::before { content: '·'; color: var(--gold); position: absolute;
+                           left: 0; font-weight: 700; }
+.related-list a { font-family: var(--body); font-size: 14.5px; color: var(--ink);
+                  text-decoration: none; border-bottom: 1px solid var(--border-strong);
+                  transition: color 0.15s, border-color 0.15s; }
+.related-list a:hover { color: var(--gold); border-color: var(--gold); }
+
+.sources-block { margin-top: 2.5rem; padding-top: 1.5rem;
+                 border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 0.8rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.65; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.45rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block a { color: var(--gold); text-decoration: none;
+                   border-bottom: 1px solid var(--border-strong); }
+.sources-block a:hover { color: var(--rust); border-color: var(--rust); }
+
+.back-link { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.back-link a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+               text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+               display: inline-flex; align-items: center; gap: 0.4rem; }
+.back-link a::before { content: '←'; }
+.back-link a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Historic Marker</strong> &nbsp;·&nbsp; Putnam County, NY</div>
+</header>
+
+<article class="detail-wrap">
+
+  <div class="detail-eyebrow">Town of Carmel &nbsp;·&nbsp; Putnam County</div>
+  <h1 class="detail-title">Enoch Crosby</h1>
+  <p class="detail-subtitle">Patriot spy of the American Revolution. Apprentice shoemaker, infantry private, double agent for John Jay&rsquo;s committee on Loyalist conspiracies, postwar farmer and Southeast town supervisor &mdash; and the man whom popular tradition has long held to be the model for Harvey Birch in James Fenimore Cooper&rsquo;s 1821 novel <em>The Spy</em>.</p>
+  <p class="detail-meta">
+    <span>NYS Education Department, 1932</span>
+    <span>Putnam County Courthouse, Carmel</span>
+  </p>
+
+  <!-- ── MARKER PHOTO ────────────────────────────────────────────────── -->
+  <figure class="marker-photo">
+    <img src="../images/markers/enoch-crosby.jpg" alt="Blue and yellow New York State historic marker reading ENOCH CROSBY. Patriot spy of the American Revolution. Was associated with Carmel. His farm was nearby and he is buried at Gilead. One mile from here. State Education Department 1932.">
+    <figcaption>The 1932 New York State Education Department marker for Enoch Crosby, in front of the historic Putnam County Courthouse on Gleneida Avenue (NY Route 52) in downtown Carmel. The Hopkins memorial monument of 1914 stands a few feet away.</figcaption>
+  </figure>
+
+  <!-- ── PORTRAIT ────────────────────────────────────────────────────── -->
+  <section class="portrait-section">
+    <div class="portrait-label">Portrait</div>
+    <figure class="portrait-figure">
+      <img src="../images/markers/enoch-crosby-portrait.jpg" alt="Oil portrait of Enoch Crosby as an elderly man, painted in 1830. White-haired, clean-shaven, wearing a dark coat and a high white stock and cravat against a warm brown background. The expression is direct, weathered, and watchful.">
+      <figcaption>Enoch Crosby in 1830, painted from life at age eighty by William Jewett (1792&ndash;1874), partner in the New York portrait firm Waldo &amp; Jewett. Oil on wood. National Portrait Gallery, Smithsonian Institution, accession NPG.77.23. Public domain.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ── MARKER INSCRIPTION ──────────────────────────────────────────── -->
+  <div class="inscription">
+    <div class="inscription-label">Marker Inscription</div>
+    <div class="inscription-text">
+      <p><strong>ENOCH CROSBY</strong></p>
+      <p>Patriot Spy of the American Revolution. Was associated with Carmel. His farm was nearby and he is buried at Gilead. One mile from here.</p>
+    </div>
+    <div class="inscription-attribution">State Education Department, 1932</div>
+  </div>
+
+  <!-- ── NARRATIVE ───────────────────────────────────────────────────── -->
+  <div class="detail-narrative">
+    <h2>About this Marker</h2>
+
+    <p><strong>Enoch Crosby</strong> (January 4, 1750 &ndash; June 26, 1835) was born at Harwich on Cape Cod, the son of Thomas and Elizabeth Crosby. The family moved to the southern frontier of Dutchess County &mdash; the territory that would later become Putnam County &mdash; when Enoch was still an infant, and settled in what is now the Town of Southeast. The Crosbys were poor; at sixteen, Enoch left home to apprentice with a shoemaker in <strong>Kent, New York</strong>, a few miles to the west, where he learned his trade. The apprenticeship ran from 1766 until his twenty-first birthday in 1771. By the spring of 1775, when news of Lexington and Concord reached the Hudson Valley, he was at work as a journeyman shoemaker in Danbury, Connecticut.</p>
+
+    <p>Crosby enlisted in the Continental cause within days of the Lexington alarm. Under Col. David Waterbury, he marched north as part of the American invasion of Canada in 1775, witnessing the surrender of British forces at Fort St. Jean on the Richelieu River and the fall of Montreal in November. With his enlistment expiring before the Battle of Quebec in December, he turned south, was discharged at Albany after eight months in arms, and returned to making shoes.</p>
+
+    <h2>The Committee for Detecting and Defeating Conspiracies</h2>
+
+    <p>In late August 1776 Crosby left his bench again and set out south for the army&rsquo;s encampment at White Plains in Westchester County. The road was thick with rumor of British movement and Loyalist organizing. Somewhere on the way &mdash; the surviving accounts differ on the exact crossroads &mdash; Crosby was mistaken for a Loyalist sympathizer by a stranger who confidentially invited him to a clandestine meeting of like-minded men. Crosby played along, took down the names of the gathering, and reported what he had learned to a member of the local Committee of Safety. That night the Loyalists were arrested.</p>
+
+    <p>The episode caught the attention of <strong>John Jay</strong>, then chairman of the <strong>Committee for Detecting and Defeating Conspiracies</strong>, the New York body responsible for identifying and disrupting Loyalist networks across the lower Hudson Valley. Jay saw in Crosby&rsquo;s casual encounter a useful pattern, and recruited him for full-time work in what the early historian Louis S. Patrick later called the &ldquo;secret service&rdquo; of the Revolution. Popular accounts of the recruitment (preserved in nineteenth-century retellings rather than in any 1776 document) report Jay telling Crosby that &ldquo;our greatest danger lies in our secret enemies&rdquo; and that &ldquo;a man of your special abilities is entitled to greater credit than a regular soldier.&rdquo; According to the same tradition, Crosby took the work on one condition: that if he were killed, his name would be cleared with his family, who could not be told what he was doing. From August 1776 until the spring of 1777 he moved through Dutchess, Putnam, and Westchester counties under cover of his trade, posing as a Loyalist craftsman seeking to join the British cause and reporting on the men he met and the schemes they laid. He used several aliases &mdash; John Brown, John Smith, Levi Foster, Jacob Brown &mdash; and was repeatedly captured by Patriot militia who took him at face value as a Tory, only to be released, sometimes melodramatically, by prior arrangement with Jay&rsquo;s committee. His own narrative records escapes from a Patriot detention at the Old Dutch Church in Fishkill and from other tight corners across the Neutral Ground.</p>
+
+    <p>Crosby&rsquo;s work overlapped directly with that of Col. <a href="ludingtons-march.html"><strong>Henry Ludington</strong></a> of the Fredericksburgh Precinct, whose regiment patrolled the same territory and whose own intelligence network fed Jay&rsquo;s committee. The two men knew each other; the early biographies of both place them in the same wartime correspondence and the same circle of Patriot operatives running from the Hudson east to the Connecticut line.</p>
+
+    <h2>After the war: farmer, judge, town supervisor</h2>
+
+    <p>Crosby returned to civilian life after 1780. He and his brother Benjamin bought 276 acres of farmland near Brewster from the New York Commission of Forfeiture &mdash; the state body that confiscated Loyalist estates and resold them to Patriots after the war &mdash; on the strength of Crosby&rsquo;s wartime service. He married <strong>Sarah Kniffen</strong> in 1785; after her death in 1811 he married <strong>Margaret Green</strong>, who died in 1825. The 1932 marker that bears his name stands today in front of the Putnam County Courthouse in Carmel &mdash; about a mile, the marker accurately notes, from his burial place at the Gilead Cemetery, where he lies next to Sarah among at least two dozen Revolutionary War veterans interred there. He served as a justice of the peace, then as associate judge of the Putnam County court, and in 1812&ndash;13 as <strong>town supervisor of Southeast</strong>, taking office just in time to administer the town&rsquo;s war effort during the War of 1812. He lived long enough to be lionized in his old age, and to sit for his portrait in 1830 (above) at the hand of <strong>William Jewett</strong>, partner in the New York portrait firm of Waldo &amp; Jewett. The painting hangs today in the National Portrait Gallery in Washington.</p>
+
+    <p>On October 15, 1832, at age eighty-two, Crosby walked into the Putnam County Court of Oyer and Terminer and dictated a twelve-page deposition recounting his Revolutionary services. The 1832 federal pension act required veterans to provide sworn accounts of their service in order to claim a pension; the deposition Crosby gave that day is the most authoritative surviving primary source for what he actually did during the war. (The deposition was published in full in 1966 by James H. Pickering in the <em>New-York Historical Society Quarterly</em>.) Near the end of his life Crosby wrote, in a letter, &ldquo;having been spared to enjoy these blessings &mdash; independence and prosperity &mdash; for half a century and see them still continued, I can lay down my weary and worn out limbs in peace and happiness.&rdquo; He died on June 26, 1835. The Putnam County chapter of the Daughters of the American Revolution carries his name today.</p>
+
+    <h2>Cooper, Harvey Birch, and the popular Crosby</h2>
+
+    <p>Crosby&rsquo;s name attached itself to a particular kind of literary fame thanks to <strong>James Fenimore Cooper&rsquo;s</strong> 1821 novel <em><a href="https://en.wikipedia.org/wiki/The_Spy_(Cooper_novel)" target="_blank" rel="noopener">The Spy: A Tale of the Neutral Ground</a></em>, which made the bestseller of its decade out of a Westchester peddler named Harvey Birch &mdash; a self-effacing, often-misunderstood Patriot operative who runs intelligence across the same lower Hudson Valley terrain Crosby knew. Cooper later said he had heard the underlying anecdote from John Jay himself; Crosby may have been the basis for the character of Birch, though Cooper, until his death in 1851, declined to confirm any specific identification.</p>
+
+    <p>In 1828, seven years after Cooper&rsquo;s novel appeared, the New York publisher H.&nbsp;L.&nbsp;Barnum brought out a slender book under the elaborate title <em>The Spy Unmasked; or, Memoirs of Enoch Crosby, alias Harvey Birch, the Hero of Mr. Cooper&rsquo;s Tale of the Neutral Ground &mdash; Being an Authentic Account of the Secret Services Which He Rendered His Country During the Revolutionary War. (Taken from His Own Lips, in Short-Hand.)</em> Barnum&rsquo;s book has been the principal source of the popular Crosby legend ever since &mdash; embellished, dramatized, and not always accurate, but rooted in conversations Barnum reports having had directly with the elderly Crosby. It went through multiple editions and was reprinted with additional illustrations in 1886 by the <em>Fishkill Weekly Times</em>. The full 1886 reprint is freely available online (linked below).</p>
+
+    <h2>The marker</h2>
+
+    <p>The marker that bears Crosby&rsquo;s name was erected in <strong>1932</strong> by the <strong>New York State Education Department</strong>, part of the same statewide roadside-marker program that produced the Col. Ludington and DeForest Corners markers in Patterson and hundreds of similar signs across New York. The 1932 marker is not the only memorial to Crosby at this site: a few feet away stands the <strong>1914 Ferdinand Hopkins monument</strong>, a granite memorial with a much longer inscription that explicitly identifies Crosby as &ldquo;(Harvey Birch)&rdquo; and quotes the rhetoric of early-twentieth-century veneration: &ldquo;He braved danger and death that this land might be free &hellip; without hope of reward.&rdquo; A third marker at the same intersection, erected by the Town of Carmel in 2000 for the town&rsquo;s sesquicentennial, also names him. Together the three markers form a small constellation of Putnam County&rsquo;s memorialization of its most famous spy.</p>
+  </div>
+
+  <!-- ── LOCATION ────────────────────────────────────────────────────── -->
+  <div class="location-section">
+    <div class="location-label">Location</div>
+
+    <div class="location-grid">
+      <div>
+        <div class="location-field-label">Address</div>
+        <div class="location-field-value">Putnam County Courthouse<br>40 Gleneida Avenue (NY 52)<br>Carmel, NY 10512</div>
+      </div>
+      <div>
+        <div class="location-field-label">GPS Coordinates</div>
+        <div class="location-field-value mono">41&deg;25.569&prime; N, 73&deg;40.729&prime; W<br>(41.426150&deg;, &minus;73.678817&deg;)</div>
+      </div>
+    </div>
+
+    <div id="detail-map"></div>
+
+    <a class="google-maps-link"
+       href="https://www.google.com/maps/search/?api=1&query=41.426150,-73.678817"
+       target="_blank" rel="noopener">
+      View on Google Maps &nearr;
+    </a>
+  </div>
+
+  <!-- ── RELATED ─────────────────────────────────────────────────────── -->
+  <div class="related-section">
+    <div class="related-label">Related &amp; Further Reading</div>
+    <ul class="related-list">
+      <li><a href="ludingtons-march.html">Col. H. Ludington</a> &mdash; the marker at the New York&ndash;Connecticut state line in Patterson, with the main narrative of Crosby&rsquo;s collaborator Col. Henry Ludington and of John Jay&rsquo;s wartime intelligence operation in the lower Hudson Valley.</li>
+      <li><a href="https://archive.org/details/spyunmaskedormem00barn" target="_blank" rel="noopener">H. L. Barnum, <em>The Spy Unmasked; or, Memoirs of Enoch Crosby</em> (1828; reprinted 1886)</a> &mdash; the principal nineteenth-century source for the popular Crosby legend. Internet Archive.</li>
+      <li><a href="https://en.wikipedia.org/wiki/Enoch_Crosby" target="_blank" rel="noopener">Enoch Crosby</a> &mdash; Wikipedia.</li>
+      <li><a href="https://en.wikipedia.org/wiki/The_Spy_(Cooper_novel)" target="_blank" rel="noopener">The Spy: A Tale of the Neutral Ground</a> &mdash; Wikipedia, on James Fenimore Cooper&rsquo;s 1821 novel.</li>
+      <li><a href="https://allthingsliberty.com/2019/10/enoch-crosby-a-hudson-valley-spy-in-fact-and-fiction/" target="_blank" rel="noopener">&ldquo;Enoch Crosby: A Hudson Valley Spy in Fact and Fiction&rdquo;</a> &mdash; <em>Journal of the American Revolution</em>, October 2019.</li>
+      <li><a href="https://www.timesunion.com/history/article/enoch-crosby-spy-revolutionary-war-18578301.php" target="_blank" rel="noopener">David Levine, &ldquo;The shoemaker who became America&rsquo;s first spy&rdquo;</a> &mdash; <em>Times Union</em> / Hudson Valley Magazine, December 31, 2023. Useful for biographical detail, the locations of the other Crosby markers, and the popular tradition of Jay&rsquo;s recruitment language.</li>
+      <li><a href="https://jfcoopersociety.org/articles/NYHISTORY/1966NYHISTORY-PICKERING.HTML" target="_blank" rel="noopener">James H. Pickering, &ldquo;Enoch Crosby, Secret Agent of the Neutral Ground: His Own Story&rdquo;</a> &mdash; <em>New York History</em> 47 (1966), publishing the 1832 pension deposition verbatim. The James Fenimore Cooper Society reprint.</li>
+      <li><a href="https://nysm.nysed.gov/research-collections/state-history/notes/enoch-crosby-revolutionary-war-spy-and-southeast-town" target="_blank" rel="noopener">&ldquo;Enoch Crosby: Revolutionary War Spy &mdash; and Southeast Town Supervisor&rdquo;</a> &mdash; New York State Museum, on Crosby&rsquo;s 1812&ndash;13 term as Southeast town supervisor.</li>
+    </ul>
+  </div>
+
+  <!-- ── SOURCES ─────────────────────────────────────────────────────── -->
+  <div class="sources-block">
+    <h3>Sources</h3>
+    <ul>
+      <li>On-site photograph of the New York State Education Department marker (1932).</li>
+      <li>Portrait of Enoch Crosby by William Jewett, 1830, oil on wood. National Portrait Gallery, Smithsonian Institution, accession number NPG.77.23 (public domain).</li>
+      <li>Enoch Crosby Pension File No. S.10505, Collection M-804, Pension and Bounty Land Application Files, New York, National Archives and Records Administration &mdash; primary source for Crosby&rsquo;s Revolutionary service. The October 15, 1832 deposition is reprinted verbatim in James H. Pickering, &ldquo;Enoch Crosby, Secret Agent of the Neutral Ground: His Own Story,&rdquo; <em>New York History</em> 47 (January 1966): 61&ndash;73.</li>
+      <li>H. L. Barnum, <em>The Spy Unmasked; or, Memoirs of Enoch Crosby, alias Harvey Birch, the Hero of Mr. Cooper&rsquo;s Tale of the Neutral Ground &mdash; Being an Authentic Account of the Secret Services Which He Rendered His Country During the Revolutionary War. (Taken from His Own Lips, in Short-Hand.)</em> (New York: J. &amp; J. Harper, 1828; reprinted with additional appendix and illustrations by the <em>Fishkill Weekly Times</em>, 1886). Internet Archive.</li>
+      <li><em>Enoch Crosby</em>, <em>The Spy (Cooper novel)</em>, <em>Putnam County, New York</em>, and <em>List of New York State Historic Markers in Putnam County, New York</em> &mdash; Wikipedia articles.</li>
+      <li>&ldquo;Enoch Crosby: Revolutionary War Spy &mdash; and Southeast Town Supervisor,&rdquo; New York State Museum, NYSED &mdash; primary source for Crosby&rsquo;s 1812&ndash;13 term as Southeast town supervisor.</li>
+      <li>&ldquo;Revolutionary History,&rdquo; Putnam County Revolutionary New York 250 (putnamcountyny.gov/rev250) &mdash; primary source for the marker location at the historic Putnam County Courthouse, 40 Gleneida Avenue, and Crosby&rsquo;s burial site at Gilead Cemetery, 29 Mechanic Street, Carmel.</li>
+      <li>Daniel J. Demarest, &ldquo;Enoch Crosby: A Hudson Valley Spy in Fact and Fiction,&rdquo; <em>Journal of the American Revolution</em>, October 24, 2019 &mdash; secondary source for the chronology of Crosby&rsquo;s 1775 Canadian campaign service under Col. David Waterbury.</li>
+      <li>David Levine, &ldquo;The shoemaker who became America&rsquo;s first spy: Enoch Crosby helped win the war for independence by spying on the British in the Hudson Valley,&rdquo; <em>Times Union</em> / Hudson Valley Magazine, December 31, 2023 &mdash; secondary source for the 276-acre Commission of Forfeiture purchase with his brother Benjamin; the marriages to Sarah Kniffen (1785) and Margaret Green; the deathbed-letter quotation; the burial next to Sarah in the Old Gilead Cemetery; and the popular nineteenth-century tradition of John Jay&rsquo;s recruitment language (which the Levine article presents without sourcing to a contemporary 1776 document).</li>
+      <li>Historical Marker Database (hmdb.org), markers m=37292 (1932 NYSED marker) and m=37556 (1914 Hopkins monument), Carmel, NY &mdash; consulted for the location, inscription, and provenance of the related Crosby memorials at the courthouse.</li>
+    </ul>
+  </div>
+
+  <div class="back-link">
+    <a href="./">All Historic Markers</a>
+  </div>
+
+</article>
+
+<div style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Enoch Crosby marker — in front of the Putnam County Courthouse, 40 Gleneida Avenue, Carmel.
+// 41° 25.569′ N, 73° 40.729′ W → 41.426150, -73.678817
+const lat = 41.426150, lng = -73.678817;
+const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 17);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
+const pinIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#8B6914;border:2px solid #FAF8F3;border-radius:50% 50% 50% 0;width:26px;height:26px;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
+  iconSize: [26, 26],
+  iconAnchor: [13, 26]
+});
+
+L.marker([lat, lng], { icon: pinIcon }).addTo(map);
+</script>
+
+</body>
+</html>
