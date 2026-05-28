@@ -529,7 +529,8 @@ var researchPieces = [
     title: 'Old Brewster Heights',
     desc: 'The early 20th-century residential neighborhood at the edge of Brewster village &mdash; in research.',
     image: 'images/brewster-heights/postcard-brewster-heights.jpg',
-    isDraft: true
+    isDraft: true,
+    hidden: true
   },
   {
     slug: 'gage-home',
@@ -570,9 +571,21 @@ var researchPieces = [
   }
 ];
 
-// Sort alphabetically by title (case-insensitive, locale-aware)
+// Explicit display order (by slug). Tiles not listed here fall to the end,
+// in their array order. To rearrange, just reorder this list.
+var tileOrder = [
+  'gage-home',
+  'gay-nineties',
+  'hammarskjold-house',
+  'losee-family',
+  'markers'
+];
 researchPieces.sort(function(a, b) {
-  return a.title.localeCompare(b.title);
+  var ia = tileOrder.indexOf(a.slug);
+  var ib = tileOrder.indexOf(b.slug);
+  if (ia === -1) ia = tileOrder.length;
+  if (ib === -1) ib = tileOrder.length;
+  return ia - ib;
 });
 
 function renderResearchTiles() {
@@ -580,6 +593,7 @@ function renderResearchTiles() {
   if (!container) return;
   var html = '';
   researchPieces.forEach(function(p) {
+    if (p.hidden) return;
     var draftTag = p.isDraft
       ? '<span class="tile-draft-tag">Coming Soon</span>'
       : '';
