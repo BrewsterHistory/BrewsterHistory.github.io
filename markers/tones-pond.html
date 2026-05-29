@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Tone's Pond historic marker in the Town of Southeast, New York. The story of Anthony Waring, an enslaved Black man who enlisted in General Washington's Corps of Sappers and Miners, fought at the Siege of Yorktown in 1781, won his freedom, and gave his name (with his wife Etta) to what is now Tonetta Lake.">
+<title>Tone&rsquo;s Pond &mdash; Historic Markers &mdash; Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.detail-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+.detail-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.detail-title { font-family: var(--serif); font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+                font-weight: 400; line-height: 1.15; color: var(--ink);
+                margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.detail-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                   font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.detail-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+               text-transform: uppercase; color: var(--ink-muted);
+               padding-bottom: 1.75rem; margin-bottom: 0;
+               border-bottom: 1px solid var(--border); line-height: 1.8; }
+.detail-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.marker-photo { margin: 2rem 0 0.5rem; }
+.marker-photo img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.marker-photo figcaption { font-family: var(--mono); font-size: 11px;
+                           color: var(--ink-muted); line-height: 1.65; margin-top: 0.7rem;
+                           padding: 0 0.4rem; font-style: italic; }
+
+.inscription { background: var(--warm-white);
+               border: 1px solid var(--border-strong);
+               border-left: 3px solid var(--gold);
+               padding: 1.3rem 1.6rem; margin: 2rem 0;
+               border-radius: 3px; }
+.inscription-label { font-family: var(--mono); font-size: 10px;
+                     letter-spacing: 0.16em; text-transform: uppercase;
+                     color: var(--gold); font-weight: 600;
+                     margin-bottom: 0.85rem; padding-bottom: 0.65rem;
+                     border-bottom: 1px solid var(--border); }
+.inscription-text { font-family: var(--serif); font-size: 1rem;
+                    color: var(--ink); line-height: 1.85;
+                    text-align: center; letter-spacing: 0.005em; }
+.inscription-text p { margin-bottom: 0.7rem; }
+.inscription-text p:last-child { margin-bottom: 0; }
+.inscription-text strong { font-weight: 600; letter-spacing: 0.04em; }
+.inscription-attribution { font-family: var(--mono); font-size: 10px;
+                           letter-spacing: 0.08em; color: var(--ink-muted);
+                           text-align: center; margin-top: 1rem;
+                           padding-top: 0.7rem; border-top: 1px solid var(--border);
+                           font-style: italic; }
+
+.detail-narrative { margin: 2.5rem 0; }
+.detail-narrative h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+                       color: var(--ink); margin: 2rem 0 0.75rem;
+                       padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.detail-narrative h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.detail-narrative p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                      line-height: 1.9; margin-bottom: 1.25rem; }
+.detail-narrative p em, .detail-narrative em { color: var(--ink); font-style: italic; }
+.detail-narrative p strong { color: var(--ink); font-weight: 600; }
+
+.detail-narrative blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                               padding: 0.4rem 0 0.4rem 1.35rem; }
+.detail-narrative blockquote p { color: var(--ink); font-style: italic; }
+.detail-narrative blockquote cite { font-family: var(--mono); font-size: 11px;
+                                    letter-spacing: 0.04em; color: var(--ink-muted);
+                                    font-style: normal; display: block; margin-top: 0.6rem; }
+
+.location-section { background: var(--warm-white); border: 1px solid var(--border-strong);
+                    padding: 1.5rem; margin: 2rem 0; border-radius: 3px; }
+.location-label { font-family: var(--mono); font-size: 10px;
+                  letter-spacing: 0.16em; text-transform: uppercase;
+                  color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+                 margin-bottom: 1rem; }
+@media (max-width: 600px) { .location-grid { grid-template-columns: 1fr; } }
+.location-field-label { font-family: var(--mono); font-size: 9.5px;
+                        letter-spacing: 0.14em; text-transform: uppercase;
+                        color: var(--ink-muted); margin-bottom: 0.25rem; }
+.location-field-value { font-family: var(--body); font-size: 14.5px;
+                        color: var(--ink); line-height: 1.5; }
+.location-field-value.mono { font-family: var(--mono); font-size: 12px; }
+
+#detail-map { width: 100%; height: 280px; border: 1px solid var(--border);
+              border-radius: 3px; margin-bottom: 0.8rem; background: var(--cream); }
+
+.google-maps-link { display: inline-flex; align-items: center; gap: 0.4rem;
+                    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+                    text-transform: uppercase; color: var(--gold); text-decoration: none;
+                    padding: 0.5rem 0.85rem; border: 1px solid var(--gold);
+                    border-radius: 2px; font-weight: 500;
+                    transition: background 0.15s, color 0.15s; }
+.google-maps-link:hover { background: var(--gold); color: var(--warm-white); }
+
+.open-research { background: var(--warm-white); border: 1px solid var(--border-strong);
+                 border-left: 3px solid var(--rust); padding: 1.2rem 1.4rem;
+                 margin: 2rem 0; border-radius: 3px; }
+.open-research-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+                       text-transform: uppercase; color: var(--rust); font-weight: 600;
+                       margin-bottom: 0.6rem; }
+.open-research p { font-family: var(--body); font-size: 15px;
+                   color: var(--ink-light); line-height: 1.75; margin-bottom: 0.85rem; }
+.open-research p:last-child { margin-bottom: 0; }
+.open-research em { color: var(--ink); font-style: italic; }
+.open-research strong { color: var(--ink); font-weight: 600; }
+.open-research blockquote { border-left: 2px solid var(--rust); margin: 0.85rem 0;
+                            padding: 0.3rem 0 0.3rem 1.1rem; }
+.open-research blockquote p { color: var(--ink); font-style: italic;
+                              font-size: 14.5px; line-height: 1.7; }
+.open-research blockquote cite { font-family: var(--mono); font-size: 10.5px;
+                                 color: var(--ink-muted); font-style: normal;
+                                 display: block; margin-top: 0.45rem; letter-spacing: 0.04em; }
+
+.related-section { margin: 2.5rem 0; padding-top: 2rem;
+                   border-top: 1px solid var(--border); }
+.related-label { font-family: var(--mono); font-size: 10px;
+                 letter-spacing: 0.18em; text-transform: uppercase;
+                 color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+.related-list { list-style: none; padding-left: 0; }
+.related-list li { padding-left: 1rem; position: relative; margin-bottom: 0.5rem; }
+.related-list li::before { content: '·'; color: var(--gold); position: absolute;
+                           left: 0; font-weight: 700; }
+.related-list a { font-family: var(--body); font-size: 14.5px; color: var(--ink);
+                  text-decoration: none; border-bottom: 1px solid var(--border-strong);
+                  transition: color 0.15s, border-color 0.15s; }
+.related-list a:hover { color: var(--gold); border-color: var(--gold); }
+
+.sources-block { margin-top: 2.5rem; padding-top: 1.5rem;
+                 border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 0.8rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.65; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.45rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block a { color: var(--gold); text-decoration: none;
+                   border-bottom: 1px solid var(--border-strong); }
+.sources-block a:hover { color: var(--rust); border-color: var(--rust); }
+
+.back-link { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.back-link a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+               text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+               display: inline-flex; align-items: center; gap: 0.4rem; }
+.back-link a::before { content: '←'; }
+.back-link a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Historic Marker</strong> &nbsp;·&nbsp; Putnam County, NY</div>
+</header>
+
+<article class="detail-wrap">
+
+  <div class="detail-eyebrow">Town of Southeast &nbsp;·&nbsp; Tonetta Lake</div>
+  <h1 class="detail-title">Tone&rsquo;s Pond</h1>
+  <p class="detail-subtitle">The story of Anthony Waring &mdash; enslaved Black man, soldier in General Washington&rsquo;s Corps of Sappers and Miners at the Siege of Yorktown, freed veteran, fisherman&rsquo;s tavern keeper &mdash; and of his wife Etta, whose joined names became the place-name of one of Southeast&rsquo;s landmark lakes.</p>
+  <p class="detail-meta">
+    <span>Brewster Central School District</span>
+    <span>Tonetta Lake &middot; formerly Tone&rsquo;s Pond, formerly Waring&rsquo;s Pond</span>
+  </p>
+
+  <!-- ── MARKER PHOTO ────────────────────────────────────────────────── -->
+  <figure class="marker-photo">
+    <img src="../images/markers/tones-pond.jpg" alt="Blue and yellow New York State-style historic marker reading TONE'S POND. Now Tonetta Lake, named for Tone, a former enslaved Black Revolutionary War veteran who ran a fisherman's tavern near here, and his African-Native American wife, Etta. Brewster Central School District. The marker stands on a rise above the lake with autumn foliage in the background.">
+    <figcaption>The Tone&rsquo;s Pond marker, in the standard New York State blue-and-yellow form, near Tonetta Lake in the Town of Southeast. It is the only marker in the Putnam County catalog erected by the <strong>Brewster Central School District</strong> &mdash; the direct result of original archival research by a Brewster High School student, Roderick Cassidy Jr., whose 2023&ndash;2024 work with the National Archives Citizen Archivist Mission identified the historical figure behind two centuries of local tradition.</figcaption>
+  </figure>
+
+  <!-- ── MARKER INSCRIPTION ──────────────────────────────────────────── -->
+  <div class="inscription">
+    <div class="inscription-label">Marker Inscription</div>
+    <div class="inscription-text">
+      <p><strong>TONE&rsquo;S POND</strong></p>
+      <p>Now Tonetta Lake, named for Tone, a former enslaved Black Revolutionary War veteran who ran a fisherman&rsquo;s tavern near here, and his African-Native American wife, Etta</p>
+    </div>
+    <div class="inscription-attribution">Brewster Central School District</div>
+  </div>
+
+  <!-- ── NARRATIVE ───────────────────────────────────────────────────── -->
+  <div class="detail-narrative">
+    <h2>About this Marker</h2>
+
+    <p>For two centuries, residents of the Town of Southeast had a story about how their largest lake got its name. The lake had been called <strong>Waring&rsquo;s Pond</strong> in the eighteenth century and <strong>Tone&rsquo;s Pond</strong> in the nineteenth, and was known by the early twentieth century as <strong>Tonetta Lake</strong>. The local tradition held that &ldquo;Tonetta&rdquo; was a contraction of two names &mdash; <em>Tone</em> and <em>Etta</em> &mdash; the husband and wife who had lived at the edge of the water running a fisherman&rsquo;s tavern after the Revolution. Tone, the story went, had been an enslaved Black man freed for his service in the Revolutionary War; Etta, his wife, was sometimes described as &ldquo;half Indian, half Negro&rdquo; in the language of nineteenth-century sources. The earliest published record of the story is in William J. Blake&rsquo;s <em>History of Putnam County, N. Y.</em> in 1849 &mdash; written within living memory of Anthony and Mahettable Waring, who had died in 1821 and (probably) the mid-1830s &mdash; and the broad outlines appear again, in much briefer form, in W.&nbsp;S.&nbsp;Pelletreau&rsquo;s standard 1886 county history. But the story ran into a documentary wall: no manumission record had ever surfaced, and no person named &ldquo;Tone Waring&rdquo; appeared in any post-Revolutionary census of the Town of Southeast.</p>
+
+    <p>In 2023 and 2024, a Brewster High School student named <strong>Roderick Cassidy Jr.</strong>, working as a volunteer transcriber on the National Archives&rsquo; Citizen Archivist Mission, opened the question. He proceeded on a hunch: that &ldquo;Tone&rdquo; was a nickname, perhaps for <em>Tony</em>, or for the full name <em>Anthony</em>. (The hunch was a sound one: the 1876 Centennial address by H.&nbsp;H.&nbsp;Roberts, published in the <em>Putnam County Standard</em>, had recorded the name as &ldquo;Tony&rdquo; outright &mdash; though no later county history preserved that detail.) Cassidy searched the federal Revolutionary War pension files for an <strong>Anthony Waring</strong> from the Town of Southeast. The file came up &mdash; twenty-two pages, applications, supporting affidavits, an inventory of household goods, sworn testimony of neighbors, signatures (or &ldquo;marks&rdquo;) of an illiterate veteran and his ninety-seven-year-old widow. The local tradition turned out to be substantially true, and the man at its center turned out to have a more remarkable Revolutionary record than the local fragments had ever suggested.</p>
+
+    <h2>Anthony Waring</h2>
+
+    <p><strong>Anthony Waring</strong> appears in the documentary record as an enslaved man in the household of John Waring of the Town of Southeast, in the years leading up to the American Revolution. The Waring family had moved from Smithtown, on Long Island, to the upland farms of southern Dutchess County (today Putnam County) by the 1770s &mdash; Anthony and Mahettable, his wife, had come with them, having married in Smithtown in or about 1773. By 1777 they were living together as husband and wife in the Town of Southeast, in a tenant household near the lake that would later carry their joined name.</p>
+
+    <p>On <strong>June 1, 1781</strong>, Anthony Waring enlisted in the Continental Army. The local tradition that John Waring had promised him his freedom in exchange for that enlistment is consistent with the broader pattern of late-war Black recruitment in New York and Connecticut &mdash; the New York Legislature&rsquo;s 1781 act offered formal manumission to enslaved men who enlisted, and many Northern slaveholders made the same trade privately. Whatever the precise arrangement, Anthony enlisted under the Connecticut quota, traveled to Danbury, was assigned briefly to Captain Comstock&rsquo;s Company, and was then transferred to <strong>Captain David Bushnell&rsquo;s Company</strong> &mdash; the same Bushnell who is remembered as the inventor of the Revolution&rsquo;s submarine, the <em>Turtle</em>.</p>
+
+    <p>Bushnell&rsquo;s company belonged to General Washington&rsquo;s <strong>Corps of Sappers and Miners</strong>, a small, technically demanding, and deliberately racially integrated engineering unit. Sappers and miners did the dangerous work of trench-digging, fortification, and assaulting fortified positions under enemy fire &mdash; cutting away the wooden picket defenses (the <em>abatis</em>) that protected enemy redoubts, so the storming infantry could pass. By the autumn of 1781 Anthony was in Virginia, and on the night of <strong>October 14, 1781</strong>, the Sappers and Miners went in at the Siege of Yorktown.</p>
+
+    <p>The action is one of the decisive moments of the American Revolution. Two British redoubts &mdash; numbered 9 and 10 &mdash; anchored the British defensive line. Their capture would put the American artillery in range to break the British position. Light infantry under <strong>Alexander Hamilton</strong> and French troops under <strong>Comte de Deux-Ponts</strong> made the assault; the Sappers and Miners went in first to cut away the picket defenses with axes. In his own 1818 pension testimony, Anthony Waring described his role at Yorktown as having &ldquo;been engaged in cutting away the pickets at the storming of one of the redoubts near Little York.&rdquo; (&ldquo;Little York&rdquo; was the eighteenth-century name for Yorktown.) Five days later, on October 19, 1781, Lord Cornwallis surrendered the British army. The war was effectively over.</p>
+
+    <p>Anthony Waring served until the end of the war, was honorably discharged at <strong>West Point</strong>, and received his certificate signed by Major General Henry Knox &mdash; the same Knox who would become Washington&rsquo;s first Secretary of War. He returned to the Town of Southeast a free man.</p>
+
+    <h2>Tone and Etta</h2>
+
+    <p>The marriage of Anthony and Mahettable Waring predated the Revolution by some years &mdash; her 1836 widow&rsquo;s pension testimony, given when she was ninety-seven years old, places their wedding at Smithtown, Long Island, around 1773. They had six children together. After Anthony&rsquo;s return from the war, they settled near the edge of the lake that local maps still showed as <strong>Waring&rsquo;s Pond</strong> &mdash; the body of water owned (under the Philipse Patent leasehold system) by Anthony&rsquo;s former enslaver John Waring &mdash; and ran a small fisherman&rsquo;s tavern there. The lake&rsquo;s name slowly shifted in local speech: Waring&rsquo;s Pond became <strong>Tone&rsquo;s Pond</strong>, and the joined names of the couple eventually became <strong>Tonetta</strong>.</p>
+
+    <p>Mahettable was called by several names in the surviving documents &mdash; <em>Mahettable</em> on legal papers, <em>Hetty</em> in family use, and remembered in local tradition as <em>Etta</em>. Her heritage was African and Native American, in the description of nineteenth-century sources that gave us most of what we know about her; the marker at the lake preserves that description in modernized form. She outlived Anthony by at least fifteen years, and her own testimony, given in her ninety-seventh year for the widow&rsquo;s pension she was finally entitled to, is one of the principal documentary sources for both their lives.</p>
+
+    <p>Of Anthony and Mahettable&rsquo;s six children, two were still living at the time of Anthony&rsquo;s death in 1821. One was a daughter, <strong>Jane</strong>, who married Charles Hutchinson and was the mother of <strong>Orrin Hutchinson</strong>. In 1836 &mdash; the same year Mahettable was finally awarded her husband&rsquo;s pension in arrears &mdash; Charles Hutchinson and his son Orrin purchased a farm at the base of Turk Hill Road, just outside the Village of Brewster. They were among the earliest free Black families known to have owned property in the Town of Southeast.</p>
+
+    <h2>The pension files</h2>
+
+    <p>Anthony Waring&rsquo;s pension application is dated <strong>April 6, 1818</strong>, filed under the Revolutionary War Pension Act passed by Congress on March 18 of that year. He signed it with an <strong>&ldquo;X&rdquo;</strong> &mdash; identified in the file as &ldquo;his mark&rdquo; &mdash; the standard notation for a man who could not write. In his sworn declaration, he was recorded as &ldquo;Anthony Waring, aged eighty-four years, a man of color &amp; resident in the town of Southeast.&rdquo; The phrase &ldquo;a man of color&rdquo; appears only once in the entire file; it is the document by which his identity as a Black Revolutionary veteran is preserved.</p>
+
+    <p>The application granted him a soldier&rsquo;s pension of <strong>$8 per month</strong>. The required inventory of his personal estate is preserved with the file, and it is worth seeing in full, because it is the entire material life of a free Black household in 1818: <em>one old table, four chairs, one chest, one cupboard, one stand, one looking glass, five plates, one platter, one tea pot, three tea cups and saucers, three bowls, three spoons, a few pots and pans, a fire shovel and tongs, four baskets, one dog, one cat, and two hens.</em> Anthony described himself as suffering from old age, lameness in his leg from the war, and partial deafness, &ldquo;utterly unable to earn my subsistence by labor.&rdquo; His most recent trade had been making brooms and baskets.</p>
+
+    <p>He died on <strong>July 15, 1821</strong>. Mahettable was left destitute, and lived with her daughter Jane Hutchinson&rsquo;s family. It would take fifteen years for the Revolutionary widows&rsquo; pension acts to extend coverage to her. In <strong>1836</strong>, when she filed her own application at the age of ninety-seven (with the assistance of Putnam County judge Ebenezer Foster), supporting testimony came from her daughter Jane, from her elderly neighbor Mary Waring (then eighty-four, the second wife of John Waring), and from Isaac Paddock, a longtime Southeast resident who had known Anthony and Mahettable as husband and wife in the town as early as 1777. The 1836 pension award included roughly $400 in arrears &mdash; arrears that, the year she received them, helped enable her grandson&rsquo;s purchase of the Turk Hill farm.</p>
+
+    <h2>How the story was preserved &mdash; and how it was lost</h2>
+
+    <p>The earliest published account of Tone&rsquo;s Pond is in <strong>William J. Blake&rsquo;s <em>The History of Putnam County, N. Y.</em> (1849)</strong>, the foundational nineteenth-century history of the county. Blake was writing twenty-eight years after Anthony&rsquo;s death and within living memory of Mahettable&rsquo;s. He set down what local people still knew:</p>
+
+    <blockquote>
+      <p>This handsome body of water lies in the westerly part of the town, is one mile long, half a mile wide; and is named in honor of an old negro of the name of Tone, who settled beside it. He was the slave of John Warring, deceased, enlisted and served in the Revolutionary war, on condition that he should have his freedom at its close. Having received his freedom after peace was declared, he married a woman half Indian and half negro; settled down beside this pond which soon became a great resort for fishing sportsmen. He kept boats for their accommodation, and furnished them with whatever was called for in the form of victuals and drink; a sort of fisherman&rsquo;s tavern, where everything appertaining to the sport is to be had at the shortest notice, for which liberal payment is made, and no credit expected by either party. He left quite a numerous and respectable number of descendants.</p>
+      <cite>&mdash; William J. Blake, <em>The History of Putnam County, N. Y.</em> (1849), pp. 296&ndash;297</cite>
+    </blockquote>
+
+    <p>Blake preserved the substance of what the modern marker says, with one painful addendum that the marker omits and that we include here as part of what Blake actually recorded. Immediately after the &ldquo;numerous and respectable&rdquo; descendants line, Blake adds: <em>&ldquo;It is said that one of his grandsons married a beautiful young white girl who shortly afterwards induced him to go south with her, where she sold him as a slave.&rdquo;</em> The story is presented as local rumor (&ldquo;It is said that&rdquo;), and no corroborating record has surfaced; the kidnapping and southward trafficking of free Black northerners was a documented practice in the antebellum decades, but specific stories of the kind Blake records also circulated as moralizing folk-tales attached to Black families in nineteenth-century county histories. The grandson is not named. What can be said is that several of Anthony and Mahettable&rsquo;s known descendants &mdash; including their daughter Jane&rsquo;s family, the Hutchinsons of Turk Hill &mdash; lived openly and respectably in the Town of Southeast for generations after Blake wrote.</p>
+
+    <p>What happened to the Tone story <em>after</em> Blake is itself part of what this marker commemorates. The standard later sources thinned the record progressively:</p>
+
+    <ul style="list-style:none; padding-left:0; margin: 0.5rem 0 1.25rem">
+      <li style="font-family:var(--body); font-size:15px; color:var(--ink-light); padding:0.4rem 0 0.4rem 1.2rem; position:relative; line-height:1.7">
+        <span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span>
+        <strong>1876 &mdash; H. H. Roberts, &ldquo;Historical Sketch&rdquo; (Putnam County Standard, Centennial address, July 14).</strong> Records the lake&rsquo;s name with a key detail no later source preserved: <em>&ldquo;Tone&rsquo;s Pond takes its name from an old negro by the name of Tony, who settled beside it.&rdquo;</em> The freedom-for-service deal, the military service, and the fisherman&rsquo;s tavern &mdash; all of which Blake had recorded 27 years earlier &mdash; are dropped. The most striking absence is contextual: a Centennial address delivered on the 100th anniversary of the Declaration of Independence makes no mention of a Continental Army veteran of Yorktown who had lived in the speaker&rsquo;s own town.
+      </li>
+      <li style="font-family:var(--body); font-size:15px; color:var(--ink-light); padding:0.4rem 0 0.4rem 1.2rem; position:relative; line-height:1.7">
+        <span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span>
+        <strong>1886 &mdash; W. S. Pelletreau, <em>History of Putnam County</em>.</strong> Reduces Blake&rsquo;s account to a single dependent clause: the lake is &ldquo;more generally known as &lsquo;Tone&rsquo;s Pond,&rsquo; from a negro who lived near it.&rdquo; The Revolutionary service, the freedom-for-service deal, the fisherman&rsquo;s tavern, the wife, and the descendants are all dropped.
+      </li>
+      <li style="font-family:var(--body); font-size:15px; color:var(--ink-light); padding:0.4rem 0 0.4rem 1.2rem; position:relative; line-height:1.7">
+        <span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span>
+        <strong>1912 &mdash; Oxford Publishing Co. (Haight et al.), <em>Historical and Genealogical Record, Dutchess and Putnam Counties</em>.</strong> Copies Pelletreau&rsquo;s Lake Tonetta paragraph nearly verbatim, but <em>deletes</em> Pelletreau&rsquo;s &ldquo;negro who lived near it&rdquo; sentence. The deletion is not editorial accident; it is the only sentence removed from an otherwise word-for-word transcription.
+      </li>
+      <li style="font-family:var(--body); font-size:15px; color:var(--ink-light); padding:0.4rem 0 0.4rem 1.2rem; position:relative; line-height:1.7">
+        <span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span>
+        <strong>1944 &mdash; Laura Voris Bailey, &ldquo;Historical Sketch of Brewster&rdquo; (Brewster Standard).</strong> An eight-page local history article in the village newspaper. No mention of Tone, the lake&rsquo;s etymology, or any Black resident of Southeast.
+      </li>
+      <li style="font-family:var(--body); font-size:15px; color:var(--ink-light); padding:0.4rem 0 0.4rem 1.2rem; position:relative; line-height:1.7">
+        <span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span>
+        <strong>1946 &mdash; L. H. Zimm (ed.), <em>Southeastern New York</em>.</strong> Treats Lake Tonetta as infrastructure: a 1880&ndash;81 drought-period New York City water-supply source and a 1925 real-estate development. The etymology is not mentioned.
+      </li>
+    </ul>
+
+    <p>By the middle of the twentieth century, all of this had thinned to almost nothing. Even Roberts&rsquo; 1876 preservation of the nickname &ldquo;Tony&rdquo; had dropped out of the published record; Pelletreau&rsquo;s 1886 reference to &ldquo;a negro who lived near it&rdquo; was the last surviving fragment in print. Nobody &mdash; not Blake, not Roberts, not Pelletreau, and none of their twentieth-century successors &mdash; had ever consulted the twenty-two-page federal pension file in Washington. The story survived in local conversation as a conviction that &ldquo;Tone&rdquo; had been a real freed slave who had lived at the lake, but the man himself &mdash; his given name, his Continental service, his battlefield record, his household, his descendants &mdash; was for practical purposes lost to anyone who hadn&rsquo;t physically opened the federal record.</p>
+
+    <p>The work that closed that gap was done by a Brewster High School student, <strong>Roderick Cassidy Jr.</strong>, in 2023 and 2024, as part of the National Archives&rsquo; <strong>Citizen Archivist Mission</strong> &mdash; a volunteer program in which members of the public help transcribe digitized federal records, making them text-searchable for the first time. The methodological move was the consequential one: while every prior local-history compiler had worked only from earlier local-history compilers, Cassidy went to the federal record directly. Hypothesizing that &ldquo;Tone&rdquo; might be a nickname for Tony or Anthony, he searched the federal Revolutionary War pension files for an Anthony Waring from the Town of Southeast. The hit was immediate, and the file contained the entire documentary chain &mdash; the 1818 application, the 1821 death, the 1836 widow&rsquo;s pension, the affidavits of neighbors, Mahettable&rsquo;s own ninety-seven-year-old testimony &mdash; that confirmed and substantially expanded what Blake had recorded 175 years earlier. Cassidy published his findings in the <em>Brewster Bear Facts</em>, the student newspaper of Brewster High School, in February 2024.</p>
+
+    <p>The Brewster Central School District placed the marker at the lake shortly thereafter. It is, as far as we know, the only historic marker in Putnam County to have been initiated by original student research.</p>
+
+    <h2>The lake after Tone</h2>
+
+    <p>Anthony and Mahettable Waring&rsquo;s tavern by the lake did not survive them, and by the late nineteenth century the lake had passed into the ownership of <strong>George Hine</strong> (1834&ndash;1914), a Brewster Hill farmer who served as Town of Southeast supervisor, town assessor, commissioner of highways, and director of the Putnam County Savings Bank. Hine and his son operated an ice house on the west shore of the lake; Hine was also the founding president of the <strong>Tonetta Outing Club</strong>, a social club with its own building on the western shoreline. The lake passed eventually to the Mengel estate, and in 1963 the Town of Southeast purchased it for use as the public beach and park that residents know today. The northern wetlands &mdash; a rare inland <strong>Atlantic White Cedar Swamp</strong>, one of the northernmost of its kind in New York State &mdash; were added to town protection in 1991 as the Cedar Swamp Conservation Area.</p>
+
+    <!-- ── OPEN RESEARCH ──────────────────────────────────────────── -->
+    <div class="open-research">
+      <div class="open-research-label">Open Research</div>
+
+      <p>A late-nineteenth-century <em>Brewster Standard</em> obituary for <strong>Orrin Hutchinson</strong> &mdash; the man Cassidy&rsquo;s 2024 research identifies as Anthony and Mahettable Waring&rsquo;s grandson &mdash; gives a different account of the lake&rsquo;s namesake:</p>
+
+      <blockquote>
+        <p>His mother was a daughter of Tone Seeley whose residence a century ago occupied a commanding eminence on the west shore of the lake that bears his name Tone&rsquo;s pond. &hellip; (As far as we can learn this beautiful lake was first known as Waring&rsquo;s Pond then Tone&rsquo;s Pond and now Tonetta Lake.)</p>
+        <cite>&mdash; Orrin Hutchinson obituary, <em>Brewster Standard</em> (reported c.&thinsp;1886)</cite>
+      </blockquote>
+
+      <p>The obituary calls Orrin&rsquo;s grandfather <strong>&ldquo;Tone Seeley,&rdquo;</strong> not Anthony Waring, and gives no mention of enslavement, Revolutionary War service, or the John Waring household. The parenthetical at the end &mdash; written in the editor&rsquo;s voice, hedged with &ldquo;as far as we can learn&rdquo; &mdash; appears to register some uncertainty about reconciling the family&rsquo;s &ldquo;Tone Seeley&rdquo; account with the better-known &ldquo;Waring&rsquo;s Pond&rdquo; tradition.</p>
+
+      <p>A systematic search of the five standard county histories (Blake 1849, Pelletreau 1886, Beers 1897, Haight 1912, Zimm 1946) and the four available local newspaper articles produces a clear pattern. Pelletreau&rsquo;s 1886 history contains <strong>thirty-six references to the Seeley family</strong> &mdash; including Abijah Seeley, Dr. Jonathan F. Seeley, William Seeley, James Seeley, Isaac Seeley, Nathan W. Seeley, and Francis A. Seeley &mdash; but <em>not one</em> is named Tone, Tony, or Anthony, and all are placed in the Town of Patterson around Doansburg, not in the Town of Southeast around Lake Tonetta. The 1876 Roberts Centennial address, which preserved the nickname &ldquo;Tony&rdquo; in print, says nothing of any Seeley. Across all nine sources reviewed, the phrase &ldquo;Tone Seeley&rdquo; appears nowhere.</p>
+
+      <p>On the evidence as it stands, the most likely reading is that the obituary records a family-memory garble two generations after the events: a real Seeley family connection somewhere up the Hutchinson line (the Patterson Seeleys are well-documented in Pelletreau, and intermarriage with Southeast families was common) may have been confused with the name of the lake itself. A second possibility &mdash; that Cassidy&rsquo;s Anthony-Waring-to-Hutchinson lineage is partially misattributed &mdash; cannot be ruled out without re-examining the underlying genealogical chain. A third possibility &mdash; that two unrelated local figures named &ldquo;Tone&rdquo; have been conflated &mdash; finds little support: a substantial west-shore landowner of the post-Revolutionary period would normally appear in Pelletreau&rsquo;s property records, and no such figure does.</p>
+
+      <p>Lines of inquiry worth pursuing: Pelletreau&rsquo;s Seeley genealogy on pp. 265&ndash;267 (does any line of Abijah or Jonathan F. Seeley intermarry with the Hutchinson family of Southeast?); census records for the Hutchinson household at Turk Hill in the 1810s through the 1830s; Charles and Jennie / Jane Hutchinson&rsquo;s marriage record and the maternal surname recorded there; and the deed record for the 1836 Hutchinson farm purchase. It is worth being precise about what the obituary actually puts in question. The existence of Anthony Waring as a Continental Army veteran enslaved by John Waring is established by the federal pension file in Washington. The attribution of the lake&rsquo;s name to that enslaved man is independently established by three published sources before any modern reconstruction: Blake (1849), Roberts (1876), and Pelletreau (1886), all of which connect the lake&rsquo;s name to a freed slave of the John Waring household. The obituary leaves both of those findings intact. What it cleanly puts in question is the further genealogical claim that Orrin Hutchinson was Anthony&rsquo;s grandson by way of his daughter Jane &mdash; a piece of the chain that, on present evidence, is supported only by the modern Cassidy identification and is now contradicted by Orrin&rsquo;s own family&rsquo;s memorial record.</p>
+    </div>
+  </div>
+
+  <!-- ── LOCATION ────────────────────────────────────────────────────── -->
+  <div class="location-section">
+    <div class="location-label">Location</div>
+
+    <div class="location-grid">
+      <div>
+        <div class="location-field-label">Address</div>
+        <div class="location-field-value">Tonetta Lake<br>Town of Southeast, NY</div>
+      </div>
+      <div>
+        <div class="location-field-label">GPS Coordinates</div>
+        <div class="location-field-value mono">41.421582&deg; N, &minus;73.613805&deg; W</div>
+      </div>
+    </div>
+
+    <div id="detail-map"></div>
+
+    <a class="google-maps-link"
+       href="https://www.google.com/maps/search/?api=1&query=41.421582,-73.613805"
+       target="_blank" rel="noopener">
+      View on Google Maps &nearr;
+    </a>
+  </div>
+
+  <!-- ── RELATED ─────────────────────────────────────────────────────── -->
+  <div class="related-section">
+    <div class="related-label">Related &amp; Further Reading</div>
+    <ul class="related-list">
+      <li><a href="enoch-crosby.html">Enoch Crosby &mdash; Patriot Spy</a> &mdash; the other Revolutionary War marker in the Putnam County catalog whose documentary base rests on a federal pension application.</li>
+      <li><a href="ludingtons-march.html">Col. H. Ludington</a> &mdash; the Town of Patterson marker for the Dutchess County militia commander whose 1777 march to Danbury preceded Anthony Waring&rsquo;s 1781 enlistment by four years.</li>
+      <li><a href="https://www.brewsterbearfacts.com/news/community-news/the-hidden-history-of-tones-pond-discovered-the-namesake-of-a-revolutionary-war-hero/" target="_blank" rel="noopener">Roderick Cassidy Jr., &ldquo;The Hidden History of Tone&rsquo;s Pond Discovered: The Namesake of a Revolutionary War Hero&rdquo;</a> &mdash; <em>Brewster Bear Facts</em>, February 6, 2024. The primary published account of the 2023&ndash;2024 archival research.</li>
+      <li><a href="https://www.newyorkalmanack.com/2024/02/lake-tonetta-black-history/" target="_blank" rel="noopener">&ldquo;Lake Tonetta: Black History&rdquo;</a> &mdash; <em>New York Almanack</em>, February 2024.</li>
+      <li><a href="https://www.adventuresaroundputnam.com/places-to-go/tonetta-lake/" target="_blank" rel="noopener">Tonetta Lake</a> &mdash; <em>Adventures Around Putnam</em>, for the post-Revolutionary lake history (Hine family, Tonetta Outing Club, 1963 town purchase).</li>
+      <li><a href="https://www.archives.gov/citizen-archivist" target="_blank" rel="noopener">National Archives Citizen Archivist Mission</a> &mdash; the volunteer transcription program through which the Anthony Waring pension file was made searchable.</li>
+      <li><a href="https://en.wikipedia.org/wiki/Siege_of_Yorktown" target="_blank" rel="noopener">Siege of Yorktown</a> &mdash; Wikipedia, including the October 14, 1781 assault on Redoubts 9 and 10.</li>
+      <li><a href="https://en.wikipedia.org/wiki/Corps_of_Sappers_and_Miners_(American_Revolution)" target="_blank" rel="noopener">Corps of Sappers and Miners</a> &mdash; Wikipedia.</li>
+    </ul>
+  </div>
+
+  <!-- ── SOURCES ─────────────────────────────────────────────────────── -->
+  <div class="sources-block">
+    <h3>Sources</h3>
+    <ul>
+      <li>On-site photograph of the Brewster Central School District marker at Tonetta Lake.</li>
+      <li>Anthony Waring Pension File, Revolutionary War Pension and Bounty-Land Warrant Application Files, National Archives and Records Administration, Record Group 15 &mdash; the primary documentary source for Anthony Waring&rsquo;s service, household, death, and Mahettable&rsquo;s 1836 widow&rsquo;s pension. Twenty-two pages, transcribed through the National Archives Citizen Archivist Mission.</li>
+      <li>Roderick Cassidy Jr., &ldquo;The Hidden History of Tone&rsquo;s Pond Discovered: The Namesake of a Revolutionary War Hero,&rdquo; <em>Brewster Bear Facts</em>, February 6, 2024 &mdash; primary published account of the pension-file identification of &ldquo;Tone&rdquo; as Anthony Waring, including direct quotations from and reproductions of the National Archives pension documents. The principal source for this page&rsquo;s biographical narrative.</li>
+      <li><strong>William J. Blake, <em>The History of Putnam County, N. Y.</em> (New York: Baker &amp; Scribner, 1849), pp. 296&ndash;297 &mdash; the earliest published source for the Tone&rsquo;s Pond story.</strong> Blake&rsquo;s paragraph, written within living memory of Anthony Waring, records the freedom-for-service deal (&ldquo;He was the slave of John Warring, deceased, enlisted and served in the Revolutionary war, on condition that he should have his freedom at its close&rdquo;), the fisherman&rsquo;s tavern, Etta as &ldquo;a woman half Indian and half negro,&rdquo; the &ldquo;numerous and respectable&rdquo; descendants, and the grandson-trafficking rumor (presented as &ldquo;It is said that&rdquo;). Blake names only &ldquo;Tone,&rdquo; not Anthony. The substance of the modern marker text traces directly to this 1849 passage.</li>
+      <li>William S. Pelletreau, <em>History of Putnam County, New York</em> (Philadelphia: W. W. Preston &amp; Co., 1886), pp. 431&ndash;432. The verified passage reads: &ldquo;North of Southeast Center, and adjoining the north part of Lot 9, was in former times the farm of John Waring &hellip;&hellip; John Waring came to this place from Norwich, Conn., before the Revolution and was tenant of a large farm, which ran west to what was then called Waring&rsquo;s Pond, and now known as Lake Tonetta. It was more generally known as &lsquo;Tone&rsquo;s Pond,&rsquo; from a negro who lived near it.&rdquo; Pelletreau also gives John Waring&rsquo;s death date (Feb. 17, 1809, aged 73) and the names of his nine children &mdash; none of them Anthony &mdash; corroborating Cassidy&rsquo;s observation that &ldquo;Anthony&rdquo; was not a name in John Waring&rsquo;s family.</li>
+      <li>H. H. Roberts, &ldquo;Historical Sketch,&rdquo; <em>Putnam County Standard</em>, July 14, 1876 &mdash; the Centennial address delivered at Brewsters on the 100th anniversary of American independence. Roberts records: &ldquo;Tone&rsquo;s Pond takes its name from an old negro by the name of Tony, who settled beside it.&rdquo; This is the earliest known publication to preserve the actual nickname &ldquo;Tony&rdquo; &mdash; a detail no later county history preserved &mdash; and the bridge between Blake&rsquo;s anonymous &ldquo;Tone&rdquo; and the &ldquo;Anthony&rdquo; of the federal pension file. Roberts gives no further biographical information; the Continental service is not mentioned.</li>
+      <li>Oxford Publishing Co. (Haight et al.), <em>Historical and Genealogical Record, Dutchess and Putnam Counties, New York</em> (Poughkeepsie, c. 1912) &mdash; copies Pelletreau&rsquo;s Lake Tonetta paragraph nearly verbatim but <em>deletes</em> Pelletreau&rsquo;s &ldquo;negro who lived near it&rdquo; sentence. The deletion is documented in the direct comparison of the two texts. Also lists John Waring among the financial benefactors of the 1794 Doansburg Presbyterian church construction (&pound;745).</li>
+      <li>Laura Voris Bailey, &ldquo;Historical Sketch of Brewster&rdquo; (<em>Brewster Standard</em>, March 23, 1944) &mdash; cited here for the documented absence of any Tone or Anthony Waring mention in the major mid-twentieth-century Brewster local-history newspaper article (eight pages, signed, on the front).</li>
+      <li>Louise Hasbrouck Zimm (ed.), <em>Southeastern New York: A History of the Counties of Ulster, Dutchess, Orange, Rockland and Putnam</em> (1946) &mdash; for the 1880&ndash;1881 New York City drought-period water-purchase contract on Lake Tonetta, and for the 1925 Tonetta Lake Corporation purchase of the George Hine farm and subdivision of 110 acres into approximately 80 summer homes. Zimm does not mention the lake&rsquo;s etymology.</li>
+      <li>Esther Lobdell Addis, &ldquo;Social Reminiscences&rdquo; (<em>Brewster Standard</em>, June 17, 1948) &mdash; for the Tonetta Outing Clubhouse social history (George Hine birthday clambakes, fish-fry suppers).</li>
+      <li>&ldquo;Lake Tonetta: Black History,&rdquo; <em>New York Almanack</em>, February 2024 &mdash; regional coverage of the Cassidy research and the marker installation.</li>
+      <li>&ldquo;Tonetta Lake, Then and Now,&rdquo; <em>Adventures Around Putnam</em> (Steven Mattson, ed.) &mdash; for the post-Revolutionary lake history, including the George Hine ownership, the Tonetta Outing Club, the 1963 Mengel-to-town sale, the 1991 Cedar Swamp Conservation Area addition, and the lake&rsquo;s measured dimensions.</li>
+      <li>The 1781 enlistment date, the assignment to Captain David Bushnell&rsquo;s Company in the Corps of Sappers and Miners, the October 14, 1781 assault on the Yorktown redoubts (Redoubts 9 and 10), and the broader military context of the Siege of Yorktown are drawn from Cassidy 2024 and corroborated by the standard Wikipedia entries on the <em>Siege of Yorktown</em> and the <em>Corps of Sappers and Miners</em>.</li>
+    </ul>
+  </div>
+
+  <div class="back-link">
+    <a href="./">All Historic Markers</a>
+  </div>
+
+</article>
+
+<div style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Tone's Pond marker — at Tonetta Lake, Town of Southeast.
+const lat = 41.421582, lng = -73.613805;
+const map = L.map('detail-map', { scrollWheelZoom: true, zoomControl: true }).setView([lat, lng], 16);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
+const pinIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#8B6914;border:2px solid #FAF8F3;border-radius:50% 50% 50% 0;width:26px;height:26px;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
+  iconSize: [26, 26],
+  iconAnchor: [13, 26]
+});
+
+L.marker([lat, lng], { icon: pinIcon }).addTo(map);
+</script>
+
+</body>
+</html>
