@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Morehouse sash and blind factory at the south end of Eastview Avenue, Brewster, New York. Property and business history of the Hubbell–Morehouse plant, 1893 to its mid-twentieth-century decline, including the long tenure of John D. Morehouse as Brewster Volunteer Fire Department chief.">
+<title>The Morehouse Factory — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── HEADER ─────────────────────────────────────────────────────────────── */
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+/* ── NARRATIVE WRAP ─────────────────────────────────────────────────────── */
+.narrative-wrap { max-width: 760px; margin: 0 auto;
+                  padding: clamp(2rem, 4vw, 3rem) 1.5rem clamp(2.5rem, 5vw, 4rem); }
+.narrative-cover { margin: 0 0 2rem; }
+.narrative-cover img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.narrative-cover figcaption { font-family: var(--mono); font-size: 11px;
+                              color: var(--ink-muted); line-height: 1.65; margin-top: 0.7rem;
+                              padding: 0 0.4rem; font-style: italic; }
+.narrative-eyebrow { font-family: var(--mono); font-size: 10.5px;
+                     letter-spacing: 0.18em; text-transform: uppercase;
+                     color: var(--gold); margin-bottom: 1rem; }
+.narrative-title { font-family: var(--serif); font-weight: 400;
+                   font-size: clamp(2rem, 5vw, 2.85rem);
+                   line-height: 1.1; letter-spacing: -0.015em;
+                   margin-bottom: 1rem; color: var(--ink); }
+.narrative-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+.narrative-subtitle { font-family: var(--body); font-size: 1.05rem; font-weight: 300;
+                      font-style: italic; line-height: 1.6; color: var(--ink-light);
+                      margin-bottom: 1.4rem; }
+.narrative-meta { font-family: var(--mono); font-size: 11px;
+                  letter-spacing: 0.1em; text-transform: uppercase;
+                  color: var(--ink-muted); padding-bottom: 1.6rem;
+                  border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.narrative-meta span { display: inline-block; margin-right: 1rem; }
+
+/* ── BODY ────────────────────────────────────────────────────────────────── */
+.narrative-body h2 { font-family: var(--serif); font-weight: 400;
+                     font-size: clamp(1.45rem, 2.8vw, 1.8rem);
+                     line-height: 1.2; letter-spacing: -0.005em;
+                     color: var(--ink); margin: 2.5rem 0 1rem;
+                     display: flex; align-items: baseline; gap: 0.8rem; }
+.narrative-body h2:first-of-type { margin-top: 0; }
+.narrative-body .h2-roman { font-family: var(--mono); font-size: 0.7em;
+                            letter-spacing: 0.08em; color: var(--gold);
+                            font-weight: 500; }
+.narrative-body p { font-family: var(--body); font-size: 1rem; font-weight: 300;
+                    line-height: 1.85; color: var(--ink-light); margin-bottom: 1.1rem; }
+.narrative-body p strong { color: var(--ink); font-weight: 500; }
+.narrative-body p em { color: var(--ink); }
+.narrative-body p:last-child { margin-bottom: 0; }
+
+/* ── INLINE FIGURES ────────────────────────────────────────────────────── */
+.figure-small { margin: 1.6rem 0 1.6rem; }
+.figure-small img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.figure-small figcaption { font-family: var(--mono); font-size: 11px;
+                           color: var(--ink-muted); line-height: 1.65;
+                           margin-top: 0.6rem; padding: 0 0.4rem; font-style: italic; }
+
+/* ── QUOTE BLOCK ───────────────────────────────────────────────────────── */
+.quote-block { background: var(--warm-white); border-left: 3px solid var(--gold);
+               padding: 1.2rem 1.4rem; margin: 1.6rem 0; border-radius: 3px; }
+.quote-block p { font-style: italic; font-size: 0.97rem; color: var(--ink);
+                 line-height: 1.8; margin-bottom: 0.6rem; }
+.quote-block p:last-child { margin-bottom: 0; }
+.quote-block .cite { font-family: var(--mono); font-size: 10.5px;
+                     color: var(--ink-muted); font-style: normal;
+                     display: block; margin-top: 0.5rem; letter-spacing: 0.04em; }
+
+/* ── OPEN RESEARCH ─────────────────────────────────────────────────────── */
+.open-research { background: var(--warm-white); border: 1px solid var(--border-strong);
+                 border-left: 3px solid var(--rust); padding: 1.3rem 1.5rem;
+                 margin: 2rem 0; border-radius: 3px; }
+.open-research-label { font-family: var(--mono); font-size: 10px;
+                       letter-spacing: 0.16em; text-transform: uppercase;
+                       color: var(--rust); font-weight: 600; margin-bottom: 0.7rem; }
+.open-research p { font-family: var(--body); font-size: 0.95rem; font-weight: 300;
+                   color: var(--ink-light); line-height: 1.75; margin-bottom: 0.85rem; }
+.open-research p:last-child { margin-bottom: 0; }
+.open-research strong { color: var(--ink); font-weight: 500; }
+
+/* ── SOURCES BLOCK ─────────────────────────────────────────────────────── */
+.sources-block { margin-top: 3rem; padding-top: 2rem;
+                 border-top: 1px solid var(--border-strong); }
+.sources-block h3 { font-family: var(--serif); font-weight: 400;
+                    font-size: 1.4rem; color: var(--ink);
+                    margin-bottom: 1.4rem; }
+.src-cat { margin-bottom: 1.6rem; }
+.src-cat-label { font-family: var(--mono); font-size: 10px;
+                 letter-spacing: 0.16em; text-transform: uppercase;
+                 color: var(--gold); margin-bottom: 0.5rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 0.93rem; font-weight: 300;
+                    line-height: 1.7; color: var(--ink-light);
+                    padding: 0.5rem 0 0.5rem 1.1rem; position: relative; }
+.sources-block li::before { content: '·'; position: absolute;
+                            left: 0.3rem; color: var(--gold);
+                            font-weight: 700; }
+.sources-block li .src-ref { font-family: var(--mono); font-size: 11px;
+                             color: var(--ink-muted); }
+
+/* ── METHODOLOGY NOTE ──────────────────────────────────────────────────── */
+.method-note { background: rgba(139,105,20,0.04); border: 1px solid var(--border);
+               border-left: 2px solid var(--gold-light);
+               padding: 1rem 1.2rem; margin: 1.6rem 0;
+               font-family: var(--body); font-size: 0.9rem; font-style: italic;
+               color: var(--ink-muted); line-height: 1.7; border-radius: 3px; }
+
+.source-note { font-family: var(--mono); font-size: 10.5px;
+               letter-spacing: 0.1em; text-transform: uppercase;
+               color: var(--ink-muted); }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Eastview Avenue</strong> &nbsp;·&nbsp; Research</div>
+</header>
+
+<article class="narrative-wrap">
+
+  <div class="narrative-eyebrow">Village of Brewster &nbsp;·&nbsp; Eastview Avenue</div>
+  <h1 class="narrative-title">The Morehouse <em>Factory</em></h1>
+  <p class="narrative-subtitle">A sash and blind plant at the southern end of Eastview Avenue, the carpenter&rsquo;s apprentice who became its second owner, and the thirty-six-year volunteer fire chief who ran both.</p>
+  <p class="narrative-meta">
+    <span>Hubbell shop est. c.&thinsp;1889</span><span>Morehouse purchase, Oct. 26, 1914</span><span>BVFD Chief, 1911&ndash;1947</span>
+  </p>
+
+  <div class="narrative-body">
+
+    <div class="method-note">
+      Draft narrative &mdash; revised after primary-source review. Built on the obituaries of <strong>George B. Hubbell</strong> (<em>Brewster Standard</em>, September 11, 1914) and <strong>John D. Morehouse</strong> (<em>Brewster Standard</em>, May 1, 1947), the <em>Brewster Standard</em> memorial-dedication issue of May 6, 1948 (carrying the full Wells memorial address), nine named-date <em>Brewster Standard</em> clippings dated between November 1920 and July 1928, and Sanborn fire-insurance evidence for the Eastview Avenue site. <em>The Town of Southeast 1788&ndash;1988</em> (Truran, ed., 1990) supplies corroborating institutional history of the Brewster Volunteer Fire Department. All clipping dates given below are confirmed against the original printed issues. Corrections welcome &mdash; see <a href="../about.html#contact" style="color:var(--gold)">Contact</a>.
+    </div>
+
+    <!-- ── I. AT A GLANCE ──────────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">I.</span>
+      At a glance
+    </h2>
+
+    <p>From roughly 1889 until 1924, a <strong>sash and blind factory</strong> stood at the southern end of Eastview Avenue, on what was then the eastern edge of the Village of Brewster. For its first quarter-century the plant was the establishment of <strong>George B. Hubbell</strong>. On October&nbsp;26, 1914 &mdash; six weeks after Hubbell&rsquo;s death, and on his own fortieth birthday &mdash; one of Hubbell&rsquo;s former workers, <strong>John D. Morehouse</strong>, bought the shop from the estate&rsquo;s interim owner and ran it for the next decade. In 1924 Morehouse relocated his expanding business to a larger building near the New Haven railroad station on the north side of the village. He died in office on April&nbsp;24, 1947, age seventy-two, having served thirty-six consecutive years as chief of the Brewster Volunteer Fire Department. His son <strong>J. Willard Morehouse</strong>, who had been associated with the business since about 1929, was in the shop at the time of his father&rsquo;s death; the date at which the operation ceased entirely is not yet established.</p>
+
+    <p>The plant&rsquo;s thirty-five-year presence on Eastview Avenue, c.&nbsp;1889&ndash;1924, is the industrial spine of the street&rsquo;s development. It predated nearly every residence on the avenue, gave the southern end its working character through the 1910s and 1920s, supplied finished millwork to many of the houses going up on the same street, and trained or employed several of the working men whose names appear elsewhere in the Eastview research. Throughout the same decades, Morehouse served simultaneously as <strong>chief of the Brewster Volunteer Fire Department</strong> &mdash; a position he held for thirty-six years, from 1911 to 1947.</p>
+
+    <!-- ── II. THE HUBBELL ERA ─────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">II.</span>
+      Hubbell&rsquo;s twenty-five years, c.&nbsp;1889&ndash;1914
+    </h2>
+
+    <p><strong>George B. Hubbell</strong> was born in the Town of Southeast in or about 1849, son of Henry Hubbell and Caroline Roberts. His shop &mdash; the sash and blind plant on Eastview Avenue &mdash; is documented on the Sanborn fire-insurance map of Brewster by 1893, and his 1914 obituary establishes that he had been engaged in the manufacture of doors, sash, and trim &ldquo;for the past 25 years,&rdquo; which would set the shop&rsquo;s founding to approximately 1889. He lived on Prospect Street, a short walk north and west of the factory yard; the obituary noted that he &ldquo;was rarely seen outside of his establishment.&rdquo;</p>
+
+    <p>Hubbell died early on the morning of Saturday, September&nbsp;5, 1914, age sixty-four (in his sixty-fifth year), of chronic nephritis. His funeral was held at the family house on Prospect Street the following Tuesday afternoon. The <em>Brewster Standard</em> obituary published that week is the principal documentary source for what kind of proprietor he had been, and for the small-town directness with which the village remembered him:</p>
+
+    <div class="quote-block">
+      <p>For the past 25 years he has been engaged in the manufacture of doors, sash and trim and was rarely seen outside of his establishment. He enjoyed the confidence of all people. If he erred in any way it was in estimating the value of his material and services far too modestly. A very kind neighbor and a conscientious, christian gentleman was Mr. Hubbell.</p>
+      <p class="cite">&mdash; George B. Hubbell obituary, <em>Brewster Standard</em>, September 11, 1914</p>
+    </div>
+
+    <p>Six pallbearers carried Hubbell&rsquo;s coffin from the Prospect Street house to interment at Milltown Rural Cemetery. The obituary names them: <strong>John D. Morehouse</strong>, Frank Barrett, Frank Fowler, Oscar Reed, <strong>John Hancock</strong>, and Alfred Vores. Two of those names matter for what came next. John D. Morehouse, age thirty-nine in September 1914, was the man who would buy the shop six weeks later. John Hancock was almost certainly the father (or close relative) of the Clarence Hancock who would later work alongside Morehouse in the shop and lose the tip of his right index finger to a planer in June 1922.</p>
+
+    <p>The choice of Morehouse as a pallbearer is the kind of small documentary fact that overturns a simpler reading of what happened next. Morehouse did not arrive at the shop in 1914 as an outside buyer with capital. He had worked there, under Hubbell, as a young carpenter. He had then left to take a position with a Patterson millwork firm. When Hubbell died, the workers and friends closest to him carried him to his grave &mdash; and one of them, within weeks, was back to take over the shop.</p>
+
+    <!-- ── III. THE SUCCESSION ─────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">III.</span>
+      The succession, October&nbsp;26, 1914
+    </h2>
+
+    <p>John D. Morehouse was born in Brookfield, Connecticut, on October&nbsp;26, 1874, the son of John&nbsp;L. and Charlotte Elsenboss Morehouse. He learned the carpenter&rsquo;s trade from his father. As a young man he came to Brewster to work at the Hubbell sash and blind shop on Eastview Avenue, and remained there long enough to be present as a worker for some portion of Hubbell&rsquo;s last years. He left at some point to take a position with <strong>Pendleton and Townsend</strong>, a millwork firm in Patterson, commuting up the Harlem rail line from Brewster.</p>
+
+    <p>Hubbell&rsquo;s death in September 1914 set in motion a brief two-step transfer of the shop. The proprietor&rsquo;s estate sold the business to one <strong>John McQuay</strong>, who held it only briefly. Then, on October&nbsp;26, 1914 &mdash; John D. Morehouse&rsquo;s fortieth birthday &mdash; Morehouse purchased the shop from McQuay. He continued the work at the Eastview Avenue site under his own name. His 1947 obituary states the sequence simply: he &ldquo;purchased of the late John McQuay the former Hubbel shop&rdquo; on his fortieth birthday.</p>
+
+    <p>By February 1904 Morehouse had already married Nellie Shove, daughter of Zelous and Mary Lane Shove of Kent, Connecticut. Nellie&rsquo;s father Zelous Shove was the first rural free delivery mail carrier to serve patrons of the Brewster Post Office; her cousin Levi Shove was Brewster&rsquo;s postmaster in later decades. The couple lived first at the former Lyon place on East Main Street (where their son J. Willard was born), then in a cottage on Oak Street (where their daughter Ruth was born), and eventually settled in a house on Prospect Street purchased from <strong>Charles Losee</strong>. The Losee house on Prospect would later serve as the Brewster Volunteer Fire Department&rsquo;s alarm center: the fire signal system was installed there, and Nellie Morehouse and other family members assisted the chief in operating it.</p>
+
+    <p>The shop Morehouse bought from McQuay in October 1914 he ran &mdash; under his own name, at the same Eastview Avenue address &mdash; through 1924.</p>
+
+    <!-- ── IV. THE EASTVIEW SHOP UNDER MOREHOUSE ───────────────────────── -->
+    <h2>
+      <span class="h2-roman">IV.</span>
+      The Eastview shop under Morehouse, 1914&ndash;1924
+    </h2>
+
+    <p>The newspaper record of the plant under Morehouse is unusually thick for a small village millwork operation, because the <em>Brewster Standard</em> reported its personnel news, its accidents, and its product introductions as ordinary local-business items. A representative snapshot is the November&nbsp;19, 1920 column on the shop&rsquo;s work in hand:</p>
+
+    <div class="quote-block">
+      <p>Morehouse&rsquo;s sash and blind factory is turning out a number of rush orders for all kinds of interior trim. On the upper floor under the supervision of Robert Hall with his helper, Harry Townsend, orders for storm windows are receiving immediate and careful attention. On the ground floor Mr. Morehouse and Clarence Hancock are doing some fine cabinet work on an order for eight large book cases.</p>
+      <p class="cite">&mdash; <em>Brewster Standard</em>, November 19, 1920</p>
+    </div>
+
+    <p>The November 1920 column tells us several things at once. The shop occupied a <strong>two-story building</strong> with distinct workstations on each floor. <strong>Robert Hall</strong> supervised the upper floor; his helper <strong>Harry Townsend</strong> handled storm windows. On the ground floor, Morehouse himself worked alongside <strong>Clarence Hancock</strong> on custom cabinet work &mdash; eight large book cases on order for an unnamed customer. The shop&rsquo;s output was no longer just sashes and blinds: by 1920 it was producing interior trim, storm windows, and finished cabinetry.</p>
+
+    <p>Harry Townsend&rsquo;s name in the November 1920 column matters for the Eastview Avenue series. He was a son of <strong>Alvah&nbsp;D. Townsend</strong> of 14 Eastview Avenue, the lumber-and-paint dealer covered in a separate piece in this series. By <strong>May&nbsp;6, 1921</strong>, the <em>Standard</em> reported that Harry had left the Morehouse shop to enter the lumber business with his father:</p>
+
+    <div class="quote-block">
+      <p>Walter Austin is now employed at [the] Morehouse sash and blind factory. [He] is filling the position left vacant [by] Harry Townsend who is now in [par]tnership with his father.</p>
+      <p class="cite">&mdash; <em>Brewster Standard</em>, May 6, 1921</p>
+    </div>
+
+    <p>The Townsend movement &mdash; from Morehouse&rsquo;s shop to his father&rsquo;s lumber business &mdash; is one of the small structural facts that document how tightly the building trades on Eastview Avenue were knit together. The man who bought sashes and the man who made sashes were not just neighbors; they were father and son in the same trade across two firms on the same short street.</p>
+
+    <p>The shop was a dangerous workplace, by the standards of any small village millworks of the period. Two industrial injuries are documented in the four years 1922&ndash;1924. On Thursday, June&nbsp;22, 1922, Clarence Hancock (the cabinetmaker named in the 1920 column) lost the tip of his right index finger to a planer:</p>
+
+    <div class="quote-block">
+      <p>Thursday morning Clarence Hancock had the misfortune to lose the tip of the fore finger on his right hand while working at a planer in the Morehoose [sic] sash and blind factory. Clarence and his family are on the eve of departure to enjoy the summer at Peach Lake where he has recently taken a bungalow in Vail&rsquo;s Grove. While the moving is in progress his finger is expected to mend.</p>
+      <p class="cite">&mdash; <em>Brewster Standard</em>, June 23, 1922</p>
+    </div>
+
+    <p>Hancock&rsquo;s injury was the lesser of the two. The second, far worse, occurred on Monday, June&nbsp;9, 1924, when <strong>Carl Ekstrom</strong>&rsquo;s left hand caught in a buzz saw at the same plant. The headline on the <em>Standard</em> column &mdash; &ldquo;Finger Losing Week For Brewster&rdquo; &mdash; suggests Ekstrom&rsquo;s accident was part of a wider local-industry pattern that week, not an outlier:</p>
+
+    <div class="quote-block">
+      <p>Carl Ekstrom employed at the Morehouse Sash and Blind Factory, was severely injured Monday afternoon when his left hand was caught in a buzz saw. The saw struck the middle finger, chewing it to ragged bits, then cut the forefinger completely off at the joint near the hand and finished by tearing the top joint of his thumb off.</p>
+      <p class="cite">&mdash; <em>Brewster Standard</em>, June 13, 1924</p>
+    </div>
+
+    <p>Ekstrom lost three fingers in the accident. Four months later, the same paper announced that a new and presumably safer Morehouse factory was under construction at a different site &mdash; a sequence covered in Section VI below.</p>
+
+    <p>The documented workforce of the Eastview shop in the years 1920&ndash;1924 includes, at a minimum: John D. Morehouse (proprietor), Robert Hall (upper floor supervisor), Harry Townsend (storm windows, departed 1921), Walter Austin (replaced Townsend, 1921), Clarence Hancock (cabinet work; injured 1922), and Carl Ekstrom (severely injured 1924). The roster preserved in the newspaper is not exhaustive &mdash; these are simply the workers the <em>Standard</em> happened to name in surviving columns &mdash; but it documents a working-class millshop labor force of named individuals, several of whom can be cross-referenced to other households in the village.</p>
+
+    <!-- ── V. OCTAGON CHICKEN HOUSE ────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">V.</span>
+      The octagon chicken house, 1923
+    </h2>
+
+    <p>In February 1923 the <em>Brewster Standard</em> ran a substantial feature on a product the Morehouse shop had just begun manufacturing under contract: an eight-sided combination chicken-and-greenhouse, designed by an inventor in Ridgefield, Connecticut, whose name the article does not give.</p>
+
+    <figure class="figure-small" style="max-width:520px;margin-left:auto;margin-right:auto">
+      <img src="../images/eastview/morehouse/octagon_chicken_house_1923.jpg" alt="Newspaper clipping headlined 'OCTAGAN CHICKEN HOUSE / Now Being Built at J. D. Morehouse Sash and Blind Factory' from the Brewster Standard, February 2, 1923. Twelve dense paragraphs of body text describe the eight-sided design, central brooder, plant racks, hen-trapping partition, fifteen-foot interior, and the Ridgefield inventor who held the patent.">
+      <figcaption>The 1923 <em>Brewster Standard</em> feature on the &ldquo;Octagan&rdquo; chicken house, headlined &ldquo;Now Being Built at J. D. Morehouse Sash and Blind Factory.&rdquo; The patent originated in Ridgefield, Connecticut; the Morehouse shop held the manufacturing contract. (<em>Brewster Standard</em>, February 2, 1923, page 1.)</figcaption>
+    </figure>
+
+    <div class="quote-block">
+      <p>A combination chicken and green house is perhaps one of the most interesting pieces of mill work now being done at John D. Morehouse&rsquo;s sash and blind factory on East View avenue. Unlike most any other dwelling known to man it has eight sides, in other words an octagon house. There are seven windows with a small trap door below each one and one door which takes up nearly the entire space of one side.</p>
+      <p>The interior arrangement is done in the most compact and complete way. In the center is a brooder, along the sides shallow shelves are built for the purpose of planting oats, corn, rye, etc., to be used as green food for the growing chicks. Above these shelves larger racks are built directly on to the window casings and in these racks or boxes small plants can be grown from seed as tomatoes, early lettuce, cauliflower and all kinds of flowers that require hot house planting before they can be started in the out of doors.</p>
+      <p>There is still another important feature about this popular little combination. During the heavy laying season when the farmer wishes to trap his best laying stock in order to secure the right kind of eggs for setting, he can, by making a small partition, change the interior into a system for trapping hens.</p>
+      <p>Over a year ago a model of one of these buildings was made at the Morehouse shop and it was so perfect in every detail that it took the eye of many chicken house critics who chanced to see the model at the recent poultry show.</p>
+      <p>The inventor of this wonderful combination resides in Ridgefield and has given Morehouse the contract to put out the finished product.</p>
+      <p class="cite">&mdash; &ldquo;Octagan [sic] Chicken House,&rdquo; <em>Brewster Standard</em>, February 2, 1923</p>
+    </div>
+
+    <p>Several things in this article are worth noticing. The structure was not a chicken house in the ordinary sense &mdash; it was a <strong>combination chicken-house and greenhouse</strong>, fifteen feet across, with a central brooder, shelves for raising green feed for the chicks, upper racks for starting hot-house vegetable and flower seedlings, and a removable internal partition that converted the interior to a hen-trapping station during peak laying season. It was, in effect, a self-contained year-round small-farm production unit in an octagonal wooden shell.</p>
+
+    <p>Morehouse did not invent it. The patent or design originated with an unnamed Ridgefield, Connecticut inventor, who licensed the manufacturing contract to the Morehouse shop. The model had been prototyped at the Eastview shop more than a year before this article ran &mdash; meaning since roughly the end of 1921 &mdash; and had been exhibited at a regional poultry show to favorable reception. By February 1923 the shop was producing finished units for sale.</p>
+
+    <p>The article is also worth noticing for what it reveals about the Morehouse business model. The Eastview shop in the early 1920s was not just a sash and trim manufacturer for the local building trade. It was a <strong>contract millwork operation</strong> taking specialized commissions, including patented agricultural-building designs licensed from outside inventors. The same shop that was making bookcases and storm windows for village residents in 1920 was, two years later, manufacturing patented combination chicken-greenhouses for sale to farmers in the surrounding region.</p>
+
+    <!-- ── VI. THE 1924 RELOCATION ─────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">VI.</span>
+      The 1924 relocation
+    </h2>
+
+    <p>In late October 1924 &mdash; four months after the Ekstrom buzz-saw accident &mdash; the <em>Brewster Standard</em> reported that construction was under way on a new sash and blind factory for Morehouse at a different site:</p>
+
+    <div class="quote-block">
+      <p>Work on the new sash and blind factory of John D. Morehouse, which contractor Roberts, of Ridgefield, is putting up near the New England railroad station, is progressing rapidly.</p>
+      <p class="cite">&mdash; <em>Brewster Standard</em>, October 24, 1924</p>
+    </div>
+
+    <p>The new site was on property of the <strong>New York &amp; New England Railroad</strong> (later the New Haven), at the north end of the village &mdash; about a mile from the Eastview Avenue building, on the opposite side of the village center, near where Brady-Stannard Motor Company would later stand on North Main Street. The contractor building the new factory was named <strong>Roberts, of Ridgefield, Connecticut</strong> &mdash; the same town from which the octagon chicken-house design had come the previous year. Whether these two Ridgefield connections involved the same person is not established from the records to hand.</p>
+
+    <p>The Morehouse 1947 obituary confirms the relocation:</p>
+
+    <div class="quote-block">
+      <p>About 1924 the Morehouse Woodworking Shop was established at its present location on property of the New Haven railroad near the Brady-Stannard Motor Company.</p>
+      <p class="cite">&mdash; John D. Morehouse obituary, <em>Brewster Standard</em>, May 1, 1947</p>
+    </div>
+
+    <p>The 1924 move was an <strong>expansion</strong>, not a contraction. The shop&rsquo;s departure from Eastview Avenue marked the end of the industrial era on the southern end of the street, but it did not mark the end of Morehouse&rsquo;s business. The new building, larger and presumably better-equipped, would house the operation for the next three decades. By the time the new plant was three years old, the <em>Standard</em>&rsquo;s industrial-roundup column for November&nbsp;4, 1927 was reporting that &ldquo;all hands at the Morehouse Sash and Blind Factory are gaing [sic] at top speed,&rdquo; part of an industrial boom in the village that was &ldquo;never before witnessed by any of its oldest inhabitants.&rdquo; A July&nbsp;13, 1928 personnel note records Thomas Durkin leaving a twelve-year position at the Brewster Garage to take a job at the Morehouse shop &mdash; a useful indicator that the plant in the late 1920s was a desirable employer drawing experienced labor from other village firms.</p>
+
+    <p>The old Eastview Avenue building did not stand idle for long after the move. A <em>Brewster Standard</em> auction notice dated August&nbsp;21, 1925 announced a multi-day household-goods sale &ldquo;at the old Sash and Blind Factory, Eastview Ave., Brewster, N. Y.,&rdquo; beginning Thursday, August&nbsp;27 and continuing &ldquo;each day until goods are sold.&rdquo; The advertised inventory &mdash; carved dining suites, mahogany furniture, beds, rugs, pianos, sewing machines, cook stoves, a Hoosier kitchen cabinet, a Victor phonograph &mdash; was extensive, suggesting either a large estate sale or a consolidation of multiple households. The vacated mill building, in other words, was already by mid-1925 functioning as a flexible commercial space, exactly the kind of building re-use that often accompanied the relocation of small village industries during this period.</p>
+
+    <!-- ── VII. THE VOLUNTEER FIRE CHIEF ───────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">VII.</span>
+      The volunteer fire chief
+    </h2>
+
+    <figure class="figure-small" style="max-width:440px;margin-left:auto;margin-right:auto">
+      <img src="../images/eastview/morehouse/morehouse_portrait.jpg" alt="Formal studio portrait of John D. Morehouse in fire-chief regalia: white leather chief's helmet lettered 'CHIEF' above and 'BFD' below a wheel-shaped front shield; light-colored full-length canvas fire coat with metal clasps; holding a silver speaking trumpet across his chest. He has a brushed-up mustache and looks directly at the camera, mid-thirties to forties.">
+      <figcaption><strong>Chief John D. Morehouse</strong>, in white helmet, fire coat, and silver speaking trumpet. Studio portrait, undated; the youthful appearance is consistent with an early-tenure photograph, probably the 1910s. Source: <em>The Town of Southeast 1788&ndash;1988</em>.</figcaption>
+    </figure>
+
+    <p>Throughout his ownership of the shop &mdash; and for several years before &mdash; John D. Morehouse served as <strong>chief of the Brewster Volunteer Fire Department</strong>. His own obituary establishes the tenure as <strong>thirty-six consecutive years, 1911 to 1947</strong>, terminated by his death in office. He took the position at age thirty-seven, three years before he owned the shop. He held it through every year of his Eastview-era ownership (1914&ndash;1924), through the relocation, and through twenty-three further years at the New Haven-station plant. He was elected to his thirty-sixth term in 1946 and died the following April.</p>
+
+    <p>Morehouse was the fourth man to lead the department since its 1880 founding as Protector Fire Company No. 1; a note in the obituary issue, attributed to Ed Hancock, records that the three chiefs before Morehouse were <strong>Howard Truran, Edwin Cole, and William Losee</strong>. (The William Losee here is almost certainly the same man who served as 1st Engineer in the company&rsquo;s 1886 reorganization as Protection Fire Company No. 1 &mdash; a generational link to the Losee family covered separately in the Brewster History research record.)</p>
+
+    <figure class="figure-small">
+      <img src="../images/eastview/morehouse/firehouse_1880.jpg" alt="The original 1880 Brewster Firehouse: a two-story yellow clapboard building with a steeply pitched roof and a tall hose-drying tower with a brick chimney. The front of the building has wide blue double doors with diagonal bracing under a small signboard. Five men in dark suits and hats stand by the doors. To the right, a single firefighter sits on a horse-drawn fire engine pulled by two white horses, with the apparatus visible in red and brass. Telegraph poles and trees in the background; this is an early-20th-century photograph, AI-colorized.">
+      <figcaption>The original Brewster firehouse, built in 1880 on Railroad Avenue (now North Main Street) opposite the Baptist Church. The horse-drawn steam pumper at right is &ldquo;Protector,&rdquo; the company&rsquo;s namesake engine; the building&rsquo;s hose tower carried the alarm bell. This is the firehouse Morehouse inherited from his three predecessors when he became chief in 1911. (Source: <em>The Town of Southeast 1788&ndash;1988</em>; AI-colorized from the original black-and-white photograph.)</figcaption>
+    </figure>
+
+    <p>The fire-signal system that summoned the volunteer department to alarms was installed in the Morehouse home on Prospect Street. Nellie Morehouse and other members of the family assisted the chief in operating it &mdash; meaning that in addition to running a manufacturing plant and holding office in a regional fire-chiefs association, Morehouse ran the village&rsquo;s emergency-alert infrastructure out of his own front room, with his wife as on-call operator.</p>
+
+    <p>The structural concentration of roles deserves to be named plainly. For ten years (1914&ndash;1924), one man <strong>owned the largest commercial industrial building on Eastview Avenue, produced the finished construction materials going into the residential and institutional buildings on the same street, ran the emergency response that protected those buildings from fire, and operated the alarm system out of his own home</strong>. The arrangement is unusual enough that any account of the development of Eastview Avenue, or of small-village civic infrastructure in this period more generally, ought to register it.</p>
+
+    <figure class="figure-small">
+      <img src="../images/eastview/morehouse/bvfd_firemen_c1920.jpg" alt="A wide group portrait of the Brewster Volunteer Fire Department, c.1920. Roughly forty men in double-breasted dark uniform coats with rows of bright buttons and peaked caps stand in two rows in a grassy clearing with trees behind them. Chief Morehouse stands in the front row, slightly left of center, in a chief's uniform and holding a brass speaking trumpet. A young boy in a matching child-sized fireman's uniform stands beside him, and a small girl in a sailor-style hat stands next to the boy. Another senior officer with a speaking trumpet stands on the far right. Sepia-toned photograph.">
+      <figcaption>The Brewster Volunteer Fire Department, c.&nbsp;1920. Chief Morehouse stands at the front row left of center, holding the chief&rsquo;s speaking trumpet. Roughly forty men appear in dress uniform; the child in the front row is in a matching child-sized uniform. (Source: <em>The Town of Southeast 1788&ndash;1988</em>.)</figcaption>
+    </figure>
+
+    <p>The most consequential fight of his chiefship was institutional, not operational. For most of Morehouse&rsquo;s tenure the BVFD was funded by the incorporated Village alone, but Brewster&rsquo;s natural service area extended well beyond the Village limits into the surrounding rural reaches of the Town of Southeast. The question of whether the department should answer calls from outside the Village &mdash; over long distances and rough roads, for residents who were not paying toward its costs &mdash; was a recurring matter for the Village Board. Henry H. Wells, who served as Village Mayor from 1935 to 1947 and who delivered the principal address at the May 1948 unveiling of the memorial plaque to Morehouse, recalled the chief&rsquo;s position on that question in plain terms:</p>
+
+    <div class="quote-block">
+      <p>Before the people outside the incorporated Village but in the Town of Southeast began paying toward the cost of the Department and when the question came up in the Board of answering outside calls over long distances and rough roads Chief Morehouse gave us to understand a fire was a fire and if people were in trouble he was going to help them and that was that.</p>
+      <p class="cite">&mdash; Henry H. Wells, principal address at the dedication of the Morehouse memorial plaque, May 2, 1948 (printed in <em>Brewster Standard</em>, May 6, 1948)</p>
+    </div>
+
+    <p>Wells&rsquo;s memorial address also preserved the operational anecdote that captures Morehouse&rsquo;s manner at Board meetings:</p>
+
+    <div class="quote-block">
+      <p>I well recall his presence at our Board meetings. After he had handed in the monthly bills and the list of newly elected candidates for membership for our approval, and his request for new equipment, and his request was seldom modest, out would come &ldquo;There&rsquo;s just one more thing, gentlemen,&rdquo; and that one more thing was a new firehouse, and I am glad today that Chief lived to see his dream come true and to enjoy this building, a debt long overdue to the firemen and the Chief from the Village Board and people.</p>
+      <p class="cite">&mdash; Henry H. Wells, May 2, 1948 memorial address</p>
+    </div>
+
+    <p>The &ldquo;new firehouse&rdquo; Wells refers to was opened in 1941 on Railroad Avenue, just north of where Route&nbsp;6 crosses the railroad tracks; Wells (as Mayor) and Morehouse (as Chief) jointly issued the public invitation to its dedication, at which Morehouse was praised for thirty-one years of devoted service. The department also added ambulance service in September 1935 under his chiefship, and the Ladies Auxiliary was formed in 1943.</p>
+
+    <figure class="figure-small">
+      <img src="../images/eastview/morehouse/bfd_chief_car.jpg" alt="The Brewster Fire Department chief's car, a 1920s open-top touring automobile. The hood reads 'FIRE DEPT.'; the front bumper plate reads 'BFD'; the driver's-side body panel reads 'CHIEF'. A polished siren is mounted on the cowl ahead of the steering wheel. Two brass-bound fire extinguishers and a small metal toolbox sit on the running board. The car has white-wall tires and wood-spoked wheels, and is parked outside what appears to be a firehouse bay.">
+      <figcaption>The Brewster Fire Department chief&rsquo;s car &mdash; an early-twentieth-century open touring automobile with siren, extinguishers, toolbox, and &ldquo;CHIEF&rdquo; lettering on the door. The car was a familiar village sight under Morehouse&rsquo;s chiefship. (Source: <em>The Town of Southeast 1788&ndash;1988</em>.)</figcaption>
+    </figure>
+
+    <p>The 1947 obituary closes with what reads, in its small-town directness, as the closest the <em>Brewster Standard</em> would come to elegy:</p>
+
+    <div class="quote-block">
+      <p>There are many happy memories of Chief Morehouse; parades at home and in cities and villages within forty miles about; banquets with brother chiefs; carnivals; plans for a building which came to fruition in the new firehouse; now and then some improvement in apparatus.</p>
+      <p class="cite">&mdash; John D. Morehouse obituary, <em>Brewster Standard</em>, May 1, 1947</p>
+    </div>
+
+    <figure class="figure-small" style="max-width:520px;margin-left:auto;margin-right:auto">
+      <img src="../images/eastview/morehouse/obit_19470501_column.jpg" alt="The front-page lead of the Brewster Standard, May 1, 1947, showing the masthead and the obituary of John D. Morehouse. The masthead reads 'Brewster Standard' in Gothic type with the slogan 'Brewster, the Hub of the Harlem Valley.' Volume LXXVIII, No. 2. The obituary headline reads 'John D. Morehouse / Fire Chief Dies' with subhead 'Proprietor of Morehouse Woodworking Shop, for 36 Years Head of Brewster Volunteer Firemen, Was Well Known To Contractors and Builders and to Fire Departments In This Area.' A small portrait photograph of Morehouse in uniform appears at lower right, captioned 'Chief John D. Morehouse'. The opening paragraphs describe his death the previous Thursday night, his hospitalization since Sunday April 20, the blood-donation response, and the funeral service.">
+      <figcaption>The <em>Brewster Standard</em> of May 1, 1947, page 1 (Volume LXXVIII, No. 2): masthead, obituary headline, portrait, and opening paragraphs. The same issue carried Ed Hancock&rsquo;s note naming the three pre-Morehouse chiefs (Truran, Cole, Losee) and Acting Chief Barney Foster&rsquo;s North Salem fire response within the week. This is the primary documentary source for almost all biographical and chronological detail in this section.</figcaption>
+    </figure>
+
+    <p>Morehouse died on Thursday night, April&nbsp;24, 1947 at Northern Westchester Hospital, age seventy-two, after a four-day admission for &ldquo;serious internal disorders which resulted in severe hemorrhages.&rdquo; The obituary notes that several firemen and others had responded to a call for blood donations. His death was announced to the village by the signal of the fire siren &mdash; the same siren whose operating system had been installed in his own home. His funeral was held at the Oelker and Cox Funeral Home; the six pallbearers were all current Brewster firemen, including <strong>Thomas&nbsp;J. Durkin</strong>, the man who had left the Brewster Garage nineteen years earlier to work at the Morehouse plant. Acting chief in the immediate aftermath was Barney Foster, who was leading the BVFD&rsquo;s response to a barn fire at the David Vail estate in North Salem within a week of Morehouse&rsquo;s death.</p>
+
+    <p>The memorial plaque was unveiled on Sunday, May&nbsp;2, 1948 at the firehouse, with delegations attending from Pawling, Croton Falls, and Mill Plains, and with Mrs. Morehouse performing the unveiling and J. Willard Morehouse expressing the family&rsquo;s appreciation. Wells&rsquo;s address closed with a paraphrase of Proverbs 22:1: &ldquo;A good name is rather to be chosen then great riches and loving favour rather than silver and gold.&rdquo;</p>
+
+    <!-- ── VIII. AFTER MOREHOUSE ───────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">VIII.</span>
+      After Morehouse
+    </h2>
+
+    <p>The question of what happened to the Morehouse Woodworking Shop after April 1947 is the thinnest part of the documentary record. The 1947 obituary refers to the business in the present tense as the &ldquo;Morehouse Woodworking Shop&rdquo; and records that the founder&rsquo;s son, <strong>J. Willard Morehouse</strong>, had &ldquo;been associated with his father for eighteen years&rdquo; &mdash; placing his entry into the business at roughly 1929 and his tenure at the time of his father&rsquo;s death at nearly two decades. The continuity at the moment of succession is therefore documented. What is not yet established is whether J. Willard kept the shop running for a long stretch under his sole management, sold it to outside proprietors, or wound it down within a short period of his father&rsquo;s death. The closure date and circumstances of the second Morehouse plant remain an open research question.</p>
+
+    <p>What is established is that by some point in the second half of the twentieth century, neither building still functioned as a sash and blind factory, and Brewster as a whole had completed its transition away from local small-scale industrial manufacture. The southern end of Eastview Avenue, where the Hubbell shop had stood from 1889 to 1924, became fully residential and institutional. The northern village site near the railroad station, where the second Morehouse plant had stood from 1924, has been overbuilt by later development.</p>
+
+    <!-- ── IX. LEGACY ──────────────────────────────────────────────────── -->
+    <h2>
+      <span class="h2-roman">IX.</span>
+      Legacy
+    </h2>
+
+    <p>The Hubbell-Morehouse shop on Eastview Avenue is, in a structural sense, the reason the rest of the street developed the way it did. The earliest substantial structure on what was then called New Street was a working industrial plant; the residential development of the avenue happened around it, not in opposition to it, with employees and tradesmen building homes within walking distance of the workshop. The street&rsquo;s eventual reputation as a quiet tree-lined residential corridor is a product of the late twentieth century; for its first sixty years, Eastview was an industrial street with houses on it.</p>
+
+    <p>John D. Morehouse&rsquo;s thirty-six years as BVFD chief, his ten years as the Eastview shop&rsquo;s second proprietor, his twenty-three years as the new shop&rsquo;s sole proprietor, and his concurrent stewardship of the village fire-alarm system out of his own home together describe an unusual concentration of civic and economic role in a single small-town life. A separate research piece on the Brewster Volunteer Fire Department under Morehouse, drawing on the BVFD&rsquo;s own institutional records, would be a natural companion to this one.</p>
+
+    <!-- ── OPEN RESEARCH ───────────────────────────────────────────────── -->
+    <div class="open-research">
+      <div class="open-research-label">Open Research</div>
+
+      <p>The following questions remain open and would substantially sharpen the picture:</p>
+
+      <p><strong>The exact Eastview footprint.</strong> The plant is documented on the Sanborn fire-insurance maps for Brewster from 1893 onward, but the precise tax-parcel correspondence to the modern lot, the surviving above-ground evidence (foundations, retaining walls, the modern structure occupying the lot, if any), and the building&rsquo;s footprint history across successive Sanborn revisions are not yet documented at the level the rest of this narrative requires.</p>
+
+      <p><strong>The 1914 succession in the deed record.</strong> The two-step transfer from Hubbell&rsquo;s estate to John McQuay and from McQuay to Morehouse on October&nbsp;26, 1914 is established in the 1947 obituary. The corresponding deed records at the Putnam County Clerk&rsquo;s office have not yet been pulled. A confirmed liber-and-page citation for each leg of the transfer would close that gap.</p>
+
+      <p><strong>John McQuay.</strong> The interim owner&rsquo;s identity, his role in the village, and his reason for acquiring and quickly reselling the shop are not addressed by any of the sources to hand.</p>
+
+      <p><strong>The Ridgefield inventor.</strong> The unnamed Ridgefield, Connecticut inventor who designed the octagon chicken-and-greenhouse and licensed its manufacture to Morehouse is not identified in the 1923 article. A patent search or a search of Ridgefield agricultural-supply ephemera might recover the name.</p>
+
+      <p><strong>The two Ridgefields.</strong> Whether the contractor &ldquo;Roberts, of Ridgefield&rdquo; who built the 1924 Morehouse factory was the same person as, or related to, the unnamed Ridgefield inventor of the octagon chicken house is not established.</p>
+
+      <p><strong>The 1924 building&rsquo;s site, in detail.</strong> The new shop&rsquo;s location is described as &ldquo;property of the New Haven railroad near the Brady-Stannard Motor Company&rdquo; on North Main Street. The exact parcel and its modern correspondence (somewhere in the vicinity of the former Kobacker&rsquo;s Market site) remain to be pinned down.</p>
+
+      <p><strong>The closure of the second plant.</strong> The 1947 obituary establishes that J. Willard Morehouse had been associated with the business for eighteen years at the time of his father&rsquo;s death. Whether he continued the operation for a long stretch under his sole management, or sold to outside proprietors, or wound the business down within a few years of 1947, remains unestablished.</p>
+
+      <p><strong>The Brewster Volunteer Fire Department record.</strong> The 1947 obituary and the 1948 Wells memorial address would be substantially deepened by parallel review of the BVFD&rsquo;s own institutional archive, if it survives. The Hubbell pallbearer detail (John D. Morehouse himself, along with John Hancock) raises the further question of how thickly the BVFD&rsquo;s early-twentieth-century leadership overlapped with the village&rsquo;s small-industry proprietors and workers in general &mdash; a thread the bicentennial volume&rsquo;s 1880-founding roster (which includes John Hancock, Mills Reynolds, and a number of other names that recur in the Eastview research) supports preliminarily.</p>
+    </div>
+
+    <!-- ── SOURCES ─────────────────────────────────────────────────────── -->
+    <div class="sources-block">
+      <h3>Sources Consulted</h3>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Obituaries &mdash; Brewster Standard</div>
+        <ul>
+          <li><strong>George B. Hubbell</strong>, <em>Brewster Standard</em>, September&nbsp;11, 1914. Establishes Hubbell&rsquo;s birth in Southeast, age in 65th year, the 25-year tenure at the shop, the Prospect Street residence, the cause of death (chronic nephritis), and the six pallbearers (including Morehouse and Hancock). Source of the &ldquo;very kind neighbor and a conscientious, christian gentleman&rdquo; phrasing.</li>
+          <li><strong>John D. Morehouse</strong>, <em>Brewster Standard</em>, May&nbsp;1, 1947 (Volume LXXVIII, No. 2). The principal biographical source for Morehouse: birth October&nbsp;26, 1874 in Brookfield, Conn.; his father John&nbsp;L. Morehouse; the carpenter&rsquo;s apprenticeship; the early position at Hubbell&rsquo;s shop; the Patterson interval at Pendleton and Townsend; the McQuay purchase on his fortieth birthday; the 1924 relocation to New Haven railroad property; the 1911&ndash;1947 BVFD chiefship; J. Willard Morehouse&rsquo;s eighteen-year tenure in the business; the home on Prospect Street purchased from Charles Losee; the in-home fire signal system; marriage to Nellie Shove; children J. Willard and Ruth; death April&nbsp;24, 1947 at Northern Westchester Hospital, age 72; six firemen pallbearers (including Thomas&nbsp;J. Durkin); burial at Milltown Rural Cemetery. The same issue carries the side notice attributed to Ed Hancock naming the three pre-Morehouse chiefs as Howard Truran, Edwin Cole, and William Losee.</li>
+          <li>&ldquo;Firemen Dedicate Morehouse Memorial,&rdquo; <em>Brewster Standard</em>, May&nbsp;6, 1948 (Volume LXXVIII, No. 3). The memorial-dedication issue, reporting on the Sunday, May&nbsp;2, 1948 unveiling of the Morehouse plaque at the firehouse. Carries the full text of Henry H. Wells&rsquo;s principal address &mdash; the source for the &ldquo;fire is a fire&rdquo; quotation in its Village-Board context, the &ldquo;just one more thing, gentlemen&rdquo; firehouse-campaign anecdote, the closing Proverbs 22:1 paraphrase, and the list of delegations attending (Pawling, Croton Falls, Mill Plains).</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Newspaper coverage &mdash; Brewster Standard, 1920&ndash;1928</div>
+        <ul>
+          <li><span class="src-ref">November 19, 1920</span> &mdash; &ldquo;Morehouse&rsquo;s sash and blind factory is turning out a number of rush orders for all kinds of interior trim&hellip;&rdquo; Two-story shop; names Robert Hall, Harry Townsend, Clarence Hancock at work.</li>
+          <li><span class="src-ref">May 6, 1921</span> &mdash; Walter Austin replaces Harry Townsend; Townsend leaves for partnership with his father (Alvah&nbsp;D. Townsend of 14 Eastview).</li>
+          <li><span class="src-ref">June 23, 1922</span> &mdash; Clarence Hancock loses tip of right index finger to a planer at the shop.</li>
+          <li><span class="src-ref">February 2, 1923</span> &mdash; &ldquo;Octagan [sic] Chicken House Now Being Built at J.&nbsp;D. Morehouse Sash and Blind Factory.&rdquo; Full feature on the combination chicken-greenhouse; identifies the inventor as a Ridgefield, Conn. resident; describes the structure&rsquo;s eight-sided design, brooder, plant racks, hen-trapping partition; notes a prototype model exhibited at a regional poultry show ~1922.</li>
+          <li><span class="src-ref">June 13, 1924</span> &mdash; &ldquo;Finger Losing Week For Brewster.&rdquo; Carl Ekstrom loses three fingers to a buzz saw at the Morehouse shop.</li>
+          <li><span class="src-ref">October 24, 1924</span> &mdash; New Morehouse sash and blind factory under construction near the New England railroad station; contractor named as &ldquo;Roberts, of Ridgefield.&rdquo;</li>
+          <li><span class="src-ref">August 21, 1925</span> &mdash; Auction notice: multi-day household-goods sale &ldquo;at the old Sash and Blind Factory, Eastview Ave.,&rdquo; beginning Thursday, August&nbsp;27.</li>
+          <li><span class="src-ref">November 4, 1927</span> &mdash; Industrial-boom roundup: &ldquo;all hands at the Morehouse Sash and Blind Factory are gaing [sic] at top speed.&rdquo;</li>
+          <li><span class="src-ref">July 13, 1928</span> &mdash; Thomas Durkin leaves a twelve-year position at the Brewster Garage to take a job at the Morehouse shop.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Sanborn fire-insurance maps</div>
+        <ul>
+          <li>Sanborn Map Company, Brewster, Putnam County, NY sheets covering the south end of Eastview Avenue, 1893 forward. Establishes the factory&rsquo;s footprint and its first dated cartographic appearance. Specific sheets cited: 1893 (first appearance); later sheets through the 1924 relocation and after, pending further review.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Secondary corroborating history</div>
+        <ul>
+          <li><em>The Town of Southeast 1788&ndash;1988</em>, ed. Suzanne F. Truran, asst. eds. John J. Dunford and Priscilla A. Truran (Town of Southeast Bicentennial Commission, 1990; LCCN 89-052003). The Town&rsquo;s own bicentennial volume; contains a dedicated portrait of Morehouse as fire chief, the institutional history of the Brewster Fire Department from its 1880 founding through the late twentieth century (with the 1880 founding roster, the 1886 reorganization as Protection Fire Company No. 1, the 1894 renaming to Brewster Volunteer Fire Department, the 1935 first ambulance, the 1941 firehouse, the 1943 Ladies Auxiliary), and a photograph of Chief Morehouse in full regalia and of the Fire Chief&rsquo;s car. Used here for institutional corroboration; specific dates are taken from primary sources where they exist.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Deeds &amp; property records</div>
+        <ul>
+          <li>Putnam County Clerk&rsquo;s Office, Carmel, NY &mdash; deed liber records for the southern Eastview Avenue parcel(s) housing the Hubbell &amp; Morehouse plant. Specific liber and page references for the 1914 Hubbell&ndash;estate&ndash;McQuay and McQuay&ndash;Morehouse transfers are pending physical review.</li>
+          <li>Putnam County Tax Map and GIS, for the modern parcel correspondence to the historical factory footprint.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Cross-references within the Eastview Avenue series</div>
+        <ul>
+          <li>14 Eastview Avenue (Townsend) &mdash; Alvah&nbsp;D. Townsend, lumber and paint dealer; father of Harry Townsend, employed at the Morehouse shop until May 1921, when he left to enter the lumber business with his father. The cross-link is documented in the May 6, 1921 <em>Standard</em> notice.</li>
+          <li>Charles Losee &mdash; sold the Prospect Street home to John D. and Nellie Morehouse; cross-reference to the Losee family research piece on this site.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Methodological note</div>
+        <ul>
+          <li>This piece is one of a planned set on Eastview Avenue, Village of Brewster. The newspaper clippings cited above were obtained from the project&rsquo;s working files; specific image plates are not reproduced in this draft but are held in the underlying research record. See the <a href="../about.html#methodology" style="color:var(--gold)">project methodology</a> for the disciplines that govern publication.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="source-note" style="margin-top:2.5rem;text-align:center">Research by Rob G. &nbsp;&middot;&nbsp; Eastview Avenue Series</p>
+
+  </div>
+
+</article>
+
+
+<div class="page-copyright" style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved. &nbsp;&middot;&nbsp; <a href="../about.html" style="color:var(--ink-muted);border-bottom:1px solid transparent;text-decoration:none">About &amp; Sources</a></p>
+</div>
+
+<script src="../assets/js/shared.js"></script>
+
+</body>
+</html>
