@@ -180,6 +180,13 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--border-strong);
 }
 .section-tag:first-of-type { margin-top: 0; }
+.series-intro {
+  max-width: 60ch;
+  margin: 0.25rem 0 1.9rem;
+  color: var(--ink-light);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
 
 /* ── FEATURED CARD (Southeast Centre) ───────────────────────────────────── */
 .featured {
@@ -495,11 +502,19 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
   </a>
 
+  <!-- Eastview Avenue series -->
+  <div class="section-tag">Eastview Avenue</div>
+  <p class="series-intro">Four connected stories from a single Brewster block &mdash; the parish at its heart, the immigrant family it grew from, the factory that stood at its south end, and the house that was moved to make room for the school. They share people, parcels, and one stretch of street; start with the parish and follow the cross-links.</p>
+
+  <div class="tiles" id="eastview-tiles">
+    <!-- Eastview series tiles rendered by JS -->
+  </div>
+
   <!-- Additional Research tiles -->
   <div class="section-tag">Additional Research</div>
 
   <div class="tiles" id="research-tiles">
-    <!-- Tiles rendered by JS, alphabetical, with graceful image fallback -->
+    <!-- Tiles rendered by JS, with graceful image fallback -->
   </div>
 
   <!-- About -->
@@ -576,7 +591,8 @@ var researchPieces = [
     desc: 'The Eastview Ave sash and blind plant, the carpenter who succeeded its founder, his 36 years as Brewster&rsquo;s fire chief &mdash; and an Octagon Chicken House?',
     image: 'images/eastview/morehouse/morehouse_portrait.jpg',
     href: 'eastview/morehouse-factory.html',
-    eyebrow: 'Eastview Avenue',
+    eyebrow: 'The factory',
+    group: 'eastview',
     isDraft: false
   },
   {
@@ -585,7 +601,8 @@ var researchPieces = [
     desc: 'An Irish immigrant couple whose family memory records them as donors of the land on which Brewster&rsquo;s first Catholic chapel was built &mdash; and whose names appear in none of the five standard published histories of the county.',
     image: 'images/eastview/gilroy/stlawrence_first_church.jpg',
     href: 'eastview/gilroy-house.html',
-    eyebrow: 'Eastview Avenue',
+    eyebrow: 'The family',
+    group: 'eastview',
     isDraft: false
   },
   {
@@ -594,7 +611,8 @@ var researchPieces = [
     desc: 'The parish at the heart of Eastview Avenue &mdash; its 1871 founding on the lot the Gilroys conveyed, the 1914 church move, the 1915 stone church, and the school expansions that reshaped the south end of the street. The hub of the Eastview series.',
     image: 'images/eastview/stlawrence/brewster_aerial.jpg',
     href: 'eastview/stlawrence-otoole.html',
-    eyebrow: 'Eastview Avenue',
+    eyebrow: 'The parish',
+    group: 'eastview',
     isDraft: false
   },
   {
@@ -603,7 +621,8 @@ var researchPieces = [
     desc: 'In 1959 a Dutch Colonial house was lifted off its foundation and rolled down Eastview Avenue to clear ground for the parish school &mdash; the same lot that had held the Morehouse factory a generation earlier. One parcel, three lives.',
     image: 'images/eastview/ganong/ganong_move_1959.jpg',
     href: 'eastview/ganong-house.html',
-    eyebrow: 'Eastview Avenue',
+    eyebrow: 'The house move',
+    group: 'eastview',
     isDraft: false
   }
 ];
@@ -629,36 +648,39 @@ researchPieces.sort(function(a, b) {
   return ia - ib;
 });
 
+function tileHtml(p) {
+  var draftTag = p.isDraft
+    ? '<span class="tile-draft-tag">Coming Soon</span>'
+    : '';
+  var imageHtml =
+    '<img src="' + p.image + '" alt="" class="tile-img" loading="lazy" ' +
+    'onerror="this.onerror=null;this.replaceWith(makeTilePlaceholder())">';
+  var href = p.href || ('research/' + p.slug + '.html');
+  var eyebrow = p.eyebrow || 'Research piece';
+  return '<a class="tile" href="' + href + '">' +
+      '<div class="tile-img-wrap">' +
+        draftTag +
+        imageHtml +
+      '</div>' +
+      '<div class="tile-body">' +
+        '<div class="tile-eyebrow">' + eyebrow + '</div>' +
+        '<div class="tile-title">' + p.title + '</div>' +
+        '<div class="tile-desc">' + p.desc + '</div>' +
+      '</div>' +
+    '</a>';
+}
+
 function renderResearchTiles() {
-  var container = document.getElementById('research-tiles');
-  if (!container) return;
-  var html = '';
+  var general = document.getElementById('research-tiles');
+  var eastview = document.getElementById('eastview-tiles');
+  var gHtml = '', eHtml = '';
   researchPieces.forEach(function(p) {
     if (p.hidden) return;
-    var draftTag = p.isDraft
-      ? '<span class="tile-draft-tag">Coming Soon</span>'
-      : '';
-    // Image: real <img> with onerror that swaps in the styled placeholder.
-    var imageHtml =
-      '<img src="' + p.image + '" alt="" class="tile-img" loading="lazy" ' +
-      'onerror="this.onerror=null;this.replaceWith(makeTilePlaceholder())">';
-    // Per-tile href and eyebrow (defaults for backward compatibility)
-    var href = p.href || ('research/' + p.slug + '.html');
-    var eyebrow = p.eyebrow || 'Research piece';
-    html +=
-      '<a class="tile" href="' + href + '">' +
-        '<div class="tile-img-wrap">' +
-          draftTag +
-          imageHtml +
-        '</div>' +
-        '<div class="tile-body">' +
-          '<div class="tile-eyebrow">' + eyebrow + '</div>' +
-          '<div class="tile-title">' + p.title + '</div>' +
-          '<div class="tile-desc">' + p.desc + '</div>' +
-        '</div>' +
-      '</a>';
+    if (p.group === 'eastview') { eHtml += tileHtml(p); }
+    else { gHtml += tileHtml(p); }
   });
-  container.innerHTML = html;
+  if (general) general.innerHTML = gHtml;
+  if (eastview) eastview.innerHTML = eHtml;
 }
 
 function makeTilePlaceholder() {
@@ -670,7 +692,33 @@ function makeTilePlaceholder() {
   return ph;
 }
 
-document.addEventListener('DOMContentLoaded', renderResearchTiles);
+// ── TILE CLICK TRACKING ────────────────────────────────────────────────────
+// Delegated listeners on both tile containers. Fires a GA4 'tile_click'
+// event naming which research piece was opened. gtag sends via sendBeacon, so
+// the event survives the navigation that the click triggers. Silently does
+// nothing if analytics is blocked or absent. To see the per-tile breakdown in
+// GA4 reports, register 'tile_title' and 'tile_href' as event-scoped custom
+// dimensions (Admin → Custom definitions) — a one-time step.
+function attachTileTracking() {
+  ['research-tiles', 'eastview-tiles'].forEach(function(id) {
+    var container = document.getElementById(id);
+    if (!container) return;
+    container.addEventListener('click', function(e) {
+      var a = e.target.closest('a.tile');
+      if (!a || typeof gtag !== 'function') return;
+      var titleEl = a.querySelector('.tile-title');
+      gtag('event', 'tile_click', {
+        tile_title: titleEl ? titleEl.textContent : '',
+        tile_href: a.getAttribute('href')
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderResearchTiles();
+  attachTileTracking();
+});
 </script>
 
 </body>
