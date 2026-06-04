@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="County and regional maps of Putnam County and the Town of Southeast, New York, including the O'Connor 1854 map, from the Library of Congress and other public collections.">
+<title>Maps of Putnam County — Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.page-wrap { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+.page-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.page-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.9rem);
+              font-weight: 400; line-height: 1.1; color: var(--ink);
+              margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.page-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                 font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem;
+                 max-width: 640px; }
+.page-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+             text-transform: uppercase; color: var(--ink-muted);
+             padding-bottom: 1.75rem; margin-bottom: 0;
+             border-bottom: 1px solid var(--border); line-height: 1.8; }
+.page-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.intro-text { margin: 2rem 0 2rem; max-width: 720px; }
+.intro-text p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                line-height: 1.85; margin-bottom: 1rem; }
+
+.section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                 text-transform: uppercase; color: var(--gold);
+                 margin-bottom: 1rem; font-weight: 500; }
+
+/* ── SANBORN MAP SETS ────────────────────────────────────────────── */
+.sanborn-set { margin: 0 0 2.75rem; }
+.sanborn-set-head { display: flex; align-items: baseline; gap: 0.8rem;
+                    flex-wrap: wrap; margin-bottom: 0.35rem; }
+.sanborn-set-year { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em;
+                    color: var(--gold); font-weight: 600; }
+.sanborn-set-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600;
+                     color: var(--ink); line-height: 1.2; }
+.sanborn-set-note { font-family: var(--body); font-size: 14px; color: var(--ink-light);
+                    line-height: 1.65; max-width: 720px; margin-bottom: 1rem; }
+.sanborn-sheets { display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                  gap: 1.25rem; }
+.sanborn-sheet { background: var(--warm-white); border: 1px solid var(--border-strong);
+                 border-radius: 3px; overflow: hidden; }
+.sanborn-sheet img { width: 100%; aspect-ratio: 4/3; object-fit: cover;
+                     cursor: zoom-in; display: block; background: var(--cream);
+                     transition: opacity 0.15s; }
+.sanborn-sheet img:hover { opacity: 0.9; }
+.sanborn-sheet-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+                     text-transform: uppercase; color: var(--ink-muted);
+                     padding: 0.55rem 0.7rem; border-top: 1px solid var(--border); }
+.sanborn-set-source { font-family: var(--body); font-size: 12.5px; color: var(--ink-muted);
+                      line-height: 1.6; margin-top: 0.85rem; max-width: 760px; }
+.sanborn-set-source a { color: var(--gold); }
+
+.maps-empty { font-family: var(--body); font-style: italic; color: var(--ink-muted);
+              background: var(--warm-white); border: 1px dashed var(--border-strong);
+              border-radius: 3px; padding: 1.5rem; text-align: center; }
+
+/* ── SOURCE / RIGHTS BLOCK ───────────────────────────────────────── */
+.rights-block { margin: 2.5rem 0 0; padding: 1.4rem 1.5rem;
+                background: var(--warm-white); border: 1px solid var(--border);
+                border-left: 3px solid var(--gold); border-radius: 3px;
+                max-width: 760px; }
+.rights-block h2 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                   text-transform: uppercase; color: var(--gold); font-weight: 500;
+                   margin-bottom: 0.7rem; }
+.rights-block p { font-family: var(--body); font-size: 13.5px; color: var(--ink-light);
+                  line-height: 1.7; margin-bottom: 0.5rem; }
+.rights-block p:last-child { margin-bottom: 0; }
+.rights-block a { color: var(--gold); }
+.rights-block .credit-line { font-family: var(--mono); font-size: 11px;
+                             color: var(--ink); letter-spacing: 0.02em; }
+
+/* ── LIGHTBOX (pan + zoom) ───────────────────────────────────────── */
+.lightbox { position: fixed; inset: 0; z-index: 1000;
+            background: rgba(20,18,12,0.94); display: none; }
+.lightbox.open { display: block; }
+.lightbox-stage { position: absolute; inset: 0; overflow: auto;
+                  display: flex; align-items: center; justify-content: center;
+                  -webkit-overflow-scrolling: touch; }
+.lightbox-img { box-shadow: 0 8px 40px rgba(0,0,0,0.5); border-radius: 2px;
+                max-width: 96vw; max-height: 88vh; width: auto; height: auto;
+                cursor: zoom-in; user-select: none; -webkit-user-drag: none; flex: 0 0 auto; }
+.lightbox.zoomed .lightbox-stage { align-items: flex-start; justify-content: flex-start; }
+.lightbox.zoomed .lightbox-img { max-width: none; max-height: none;
+                                  width: auto; height: auto; cursor: grab; margin: auto; }
+.lightbox.zoomed.grabbing .lightbox-img { cursor: grabbing; }
+.lightbox-close { position: fixed; top: 0.75rem; right: 1.1rem; z-index: 1002;
+                  font-family: var(--mono); font-size: 28px; line-height: 1; color: var(--cream);
+                  background: rgba(20,18,12,0.5); border: none; cursor: pointer;
+                  padding: 0.15rem 0.65rem; border-radius: 3px; }
+.lightbox-cap { position: fixed; bottom: 1rem; left: 0; right: 0; text-align: center;
+                font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+                color: var(--cream); opacity: 0.9; padding: 0 1rem;
+                pointer-events: none; z-index: 1001; }
+.lightbox-hint { position: fixed; top: 0.85rem; left: 1.1rem; z-index: 1001;
+                 font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+                 text-transform: uppercase; color: var(--cream); opacity: 0.65;
+                 pointer-events: none; }
+
+.page-copyright { max-width: 1080px; margin: 3rem auto 2rem; padding: 1.5rem;
+                  border-top: 1px solid var(--border); font-family: var(--mono);
+                  font-size: 10px; color: var(--ink-muted); line-height: 1.8;
+                  letter-spacing: 0.04em; text-align: center; }
+.page-copyright p { margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="./">Maps</a>
+  <div class="bh-header-mark"><strong>Maps of Putnam County</strong> &nbsp;·&nbsp; Putnam County, NY</div>
+</header>
+
+<main class="page-wrap">
+
+  <div class="page-eyebrow">Map Collection</div>
+  <h1 class="page-title">Maps <em>of</em> Putnam County</h1>
+  <p class="page-subtitle">County and regional maps of Putnam County and the Town of Southeast &mdash; from the Library of Congress and other public collections.</p>
+  <p class="page-meta">
+    <span>Putnam County, NY</span><span>Library of Congress</span><span>Public domain</span>
+  </p>
+
+  <div class="intro-text">
+    <p>County and regional maps show how the towns, roads, lakes, and landholdings of Putnam County fit together &mdash; the broad view that complements the building-by-building detail of the Sanborn sheets. The earliest of them name the rural householders, which makes them a primary source for who lived where generations ago.</p>
+    <p>The maps below are reproduced from the Library of Congress and other public collections. Where a map records people or places that figure in research published on this site, a link to the relevant narrative is included.</p>
+  </div>
+
+  <!-- ── MAP SETS ──────────────────────────────────────────────────
+       Each map is one entry in the countyMaps array below.
+       Images live in images/maps/putnam-county/.
+  -->
+  <section>
+    <div class="section-label">Maps in this collection</div>
+    <div id="sanborn-sets"></div>
+  </section>
+
+  <!-- ── SOURCE & RIGHTS ───────────────────────────────────────────── -->
+  <div class="rights-block">
+    <h2>Source &amp; Rights</h2>
+    <p>This 1854 map is in the public domain; the digital image is provided by the Library of Congress.</p>
+    <p class="credit-line">Credit line: Library of Congress, Geography and Map Division.</p>
+    <p>More about <a href="https://www.loc.gov/legal/" target="_blank" rel="noopener">copyright and other restrictions</a>. For guidance on compiling full citations, consult the Library of Congress on <a href="https://www.loc.gov/programs/teachers/getting-started-with-primary-sources/citing/" target="_blank" rel="noopener">citing primary sources</a>.</p>
+  </div>
+
+</main>
+
+<div class="page-copyright">
+  <p>&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <div class="lightbox-hint" id="lightbox-hint">Click to zoom &middot; drag to pan &middot; Esc to close</div>
+  <div class="lightbox-stage" id="lightbox-stage">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" draggable="false">
+  </div>
+  <div class="lightbox-cap" id="lightbox-cap"></div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+// COUNTY MAP ENTRIES
+// One object per map. Images live in images/maps/putnam-county/.
+// Example shape:
+//   {
+//     year: '1887',
+//     title: 'Brewster Village',
+//     note: 'Two sheets covering the village center along Main Street.',
+//     sheets: [
+//       { thumb: 'images/maps/sanborn/1887-sheet1-thumb.jpg', full: 'images/maps/sanborn/1887-sheet1.jpg', caption: 'Sheet 1' },
+//       { thumb: 'images/maps/sanborn/1887-sheet2-thumb.jpg', full: 'images/maps/sanborn/1887-sheet2.jpg', caption: 'Sheet 2' }
+//     ]
+//   }
+// ─────────────────────────────────────────────────────────────────
+const countyMaps = [
+  {
+    year: '1854',
+    title: 'Map of Putnam County, by R. F. O\u2019Connor',
+    note: 'Surveyed and published by R. F. O\u2019Connor in 1854 and lithographed by M. H. Traubel &amp; Co. of Philadelphia, this is the earliest detailed map of the county &mdash; hand-colored by township, with hachured relief, the names of rural householders, a population table and business directory, engraved building vignettes, and village insets of Cold Spring, Brewster, and Carmel. Its householder names make it a primary source for who lived where in the Town of Southeast in 1854.',
+    sheets: [
+      { thumb: 'images/maps/putnam-county/oconnor-1854-thumb.jpg', full: 'images/maps/putnam-county/oconnor-1854.jpg', caption: 'The full county map &mdash; click to zoom to the townships, village insets &amp; householder names' }
+    ],
+    locUrl: 'http://hdl.loc.gov/loc.gmd/g3803p.la000543',
+    citation: 'R. F. O\u2019Connor, <em>Map of Putnam County, New-York</em> (New York: R. F. O\u2019Connor; Philadelphia: Lith. Inst. of M. H. Traubel &amp; Co., 1854). Library of Congress, Geography and Map Division.'
+  }
+];
+
+// ─────────────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────────────
+const setsEl = document.getElementById('sanborn-sets');
+
+if (countyMaps.length === 0) {
+  setsEl.innerHTML = '<div class="maps-empty">Maps are being added to this collection.</div>';
+} else {
+  countyMaps.forEach(function(m) {
+    const sheets = m.sheets.map(function(s) {
+      return '<figure class="sanborn-sheet">' +
+               '<img src="../' + s.thumb + '" loading="lazy" alt="Sanborn map ' + m.year + ' &mdash; ' + s.caption + '" ' +
+                    'data-full="../' + s.full + '" data-cap="Sanborn ' + m.year + ' &mdash; ' + s.caption + '">' +
+               '<figcaption class="sanborn-sheet-cap">' + s.caption + '</figcaption>' +
+             '</figure>';
+    }).join('');
+    const noteHTML = m.note ? '<p class="sanborn-set-note">' + m.note + '</p>' : '';
+    const sourceHTML = m.locUrl
+      ? '<p class="sanborn-set-source">' + (m.citation || '') +
+        ' <a href="' + m.locUrl + '" target="_blank" rel="noopener">View the full-resolution scan at the Library of Congress &rarr;</a></p>'
+      : '';
+    const sec = document.createElement('div');
+    sec.className = 'sanborn-set';
+    sec.innerHTML =
+      '<div class="sanborn-set-head">' +
+        '<span class="sanborn-set-year">' + m.year + '</span>' +
+        '<span class="sanborn-set-title">' + (m.title || '') + '</span>' +
+      '</div>' +
+      noteHTML +
+      '<div class="sanborn-sheets">' + sheets + '</div>' +
+      sourceHTML;
+    setsEl.appendChild(sec);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// LIGHTBOX (pan + zoom)
+// ─────────────────────────────────────────────────────────────────
+const lb = document.getElementById('lightbox');
+const lbStage = document.getElementById('lightbox-stage');
+const lbImg = document.getElementById('lightbox-img');
+const lbCap = document.getElementById('lightbox-cap');
+
+function openLightbox(src, cap) {
+  setZoom(false);
+  lbImg.src = src;
+  lbImg.alt = cap || '';
+  lbCap.textContent = cap || '';
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden', 'false');
+}
+function closeLightbox() {
+  lb.classList.remove('open', 'zoomed', 'grabbing');
+  lb.setAttribute('aria-hidden', 'true');
+  lbImg.src = '';
+}
+function setZoom(on) {
+  lb.classList.toggle('zoomed', on);
+  if (on) {
+    requestAnimationFrame(function() {           // centre the enlarged view
+      lbStage.scrollLeft = (lbStage.scrollWidth - lbStage.clientWidth) / 2;
+      lbStage.scrollTop  = (lbStage.scrollHeight - lbStage.clientHeight) / 2;
+    });
+  }
+}
+
+// Open from a thumbnail (loads the high-res sheet on demand)
+setsEl.addEventListener('click', function(e) {
+  const img = e.target.closest('.sanborn-sheet img');
+  if (!img) return;
+  openLightbox(img.getAttribute('data-full'), img.getAttribute('data-cap'));
+  if (typeof gtag === 'function') {
+    gtag('event', 'sanborn_sheet_view', { sheet: img.getAttribute('data-cap') || '' });
+  }
+});
+
+// Drag-to-pan when zoomed; also lets us tell a click from a drag
+let down = false, moved = false, sx = 0, sy = 0, ox = 0, oy = 0;
+lbStage.addEventListener('mousedown', function(e) {
+  if (!lb.classList.contains('zoomed')) return;
+  down = true; moved = false;
+  sx = e.clientX; sy = e.clientY;
+  ox = lbStage.scrollLeft; oy = lbStage.scrollTop;
+  lb.classList.add('grabbing');
+  e.preventDefault();
+});
+window.addEventListener('mousemove', function(e) {
+  if (!down) return;
+  const dx = e.clientX - sx, dy = e.clientY - sy;
+  if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved = true;
+  lbStage.scrollLeft = ox - dx;
+  lbStage.scrollTop  = oy - dy;
+});
+window.addEventListener('mouseup', function() {
+  down = false; lb.classList.remove('grabbing');
+});
+
+// Click image toggles zoom (ignored right after a drag)
+lbImg.addEventListener('click', function() {
+  if (moved) { moved = false; return; }
+  setZoom(!lb.classList.contains('zoomed'));
+});
+// Click the dark backdrop closes
+lbStage.addEventListener('click', function(e) {
+  if (e.target === lbImg) return;
+  if (moved) { moved = false; return; }
+  closeLightbox();
+});
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>
