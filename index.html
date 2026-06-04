@@ -580,6 +580,15 @@ var researchPieces = [
     isDraft: false
   },
   {
+    slug: 'maps',
+    title: 'Historic Maps of the Brewster Area',
+    desc: 'A library of historic maps &mdash; Sanborn fire-insurance plats, county maps, and more, drawn from the Library of Congress and other public collections.',
+    image: 'images/maps/cover.jpg',
+    href: 'maps/',
+    eyebrow: 'Reference catalog',
+    isDraft: false
+  },
+  {
     slug: 'losee-family',
     title: 'The Losee Homestead',
     desc: '110&ndash;114 Oak Street &mdash; the Brewster boyhood home of William A. Losee, a 7th Cavalry trooper killed at the Little Bighorn in 1876.',
@@ -639,7 +648,8 @@ var tileOrder = [
   'gilroy-house',
   'morehouse-factory',
   'ganong-house',
-  'markers'
+  'markers',
+  'maps'
 ];
 researchPieces.sort(function(a, b) {
   var ia = tileOrder.indexOf(a.slug);
