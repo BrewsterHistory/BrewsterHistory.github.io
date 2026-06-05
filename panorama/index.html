@@ -32,7 +32,7 @@
     border:1px solid var(--line);border-radius:6px;background:#0d0b08;
     box-shadow:inset 0 0 60px rgba(0,0,0,.6);cursor:grab;user-select:none;touch-action:pan-y}
   .stage.dragging{cursor:grabbing}
-  .stage img{position:absolute;top:50%;left:0;transform:translateY(-50%);
+  .stage img{position:absolute;top:0;left:0;
     height:100%;width:auto;max-width:none;display:block;pointer-events:none;
     transition:filter .35s ease}
   .stage.bw img{filter:grayscale(1) contrast(1.06) brightness(1.02) sepia(.12)}
@@ -86,7 +86,7 @@
     <button class="btn" id="bwBtn" aria-pressed="false">Black &amp; White</button>
     <button class="btn" id="zoomBtn" aria-pressed="false">Zoom in</button>
     <button class="btn" id="resetBtn">Recenter</button>
-    <span class="tool-hint">Drag the image &mdash; or scroll &mdash; to pan across the village</span>
+    <span class="tool-hint">Drag to pan &mdash; zoom in, then drag any direction for detail</span>
   </div>
 
   <div class="stage" id="stage">
@@ -138,64 +138,70 @@
       hint=document.getElementById('hint'), bar=document.getElementById('bar'),
       bwBtn=document.getElementById('bwBtn'), zoomBtn=document.getElementById('zoomBtn'),
       resetBtn=document.getElementById('resetBtn');
-  var panX=0, maxX=0, zoom=1, dragging=false, startX=0, startPan=0, moved=false;
+  var panX=0, panY=0, maxX=0, maxY=0, zoom=1, dragging=false, sx=0, sy=0, spx=0, spy=0;
 
   function metrics(){
     img.style.height=(stage.clientHeight*zoom)+'px';
     maxX=Math.max(0, img.offsetWidth - stage.clientWidth);
-    clampAndApply();
+    maxY=Math.max(0, img.offsetHeight - stage.clientHeight);
+    stage.style.touchAction = (zoom>1) ? 'none' : 'pan-y';
+    apply();
   }
-  function clampAndApply(){
+  function apply(){
     panX=Math.min(maxX, Math.max(0, panX));
+    panY=Math.min(maxY, Math.max(0, panY));
     img.style.left=(-panX)+'px';
+    img.style.top=(-panY)+'px';
     var frac=maxX>0?panX/maxX:0;
-    var bw=Math.max(12, (stage.clientWidth/Math.max(img.offsetWidth,1))*100);
-    bar.style.width=bw+'%';
-    bar.parentNode.style.position='relative';
-    bar.style.marginLeft=(frac*(100-bw))+'%';
+    var bw=Math.max(12,(stage.clientWidth/Math.max(img.offsetWidth,1))*100);
+    bar.style.width=bw+'%'; bar.style.marginLeft=(frac*(100-bw))+'%';
   }
-  function center(){ panX=maxX/2; clampAndApply(); }
+  function hideHint(){ hint.classList.add('gone'); }
 
-  // pointer drag
   stage.addEventListener('pointerdown',function(e){
-    dragging=true; moved=false; startX=e.clientX; startPan=panX;
+    dragging=true; sx=e.clientX; sy=e.clientY; spx=panX; spy=panY;
     stage.classList.add('dragging'); stage.setPointerCapture(e.pointerId);
   });
   stage.addEventListener('pointermove',function(e){
     if(!dragging)return;
-    var dx=e.clientX-startX;
-    if(Math.abs(dx)>3){moved=true; hideHint();}
-    panX=startPan-dx; clampAndApply();
+    var dx=e.clientX-sx, dy=e.clientY-sy;
+    if(Math.abs(dx)>3||Math.abs(dy)>3) hideHint();
+    panX=spx-dx; panY=spy-dy; apply();
   });
   function endDrag(){ dragging=false; stage.classList.remove('dragging'); }
   stage.addEventListener('pointerup',endDrag);
   stage.addEventListener('pointercancel',endDrag);
   stage.addEventListener('pointerleave',function(){ if(dragging)endDrag(); });
 
-  // wheel to pan horizontally
   stage.addEventListener('wheel',function(e){
-    if(maxX<=0)return;
+    if(maxX<=0 && maxY<=0)return;
     e.preventDefault();
-    panX += (Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY);
-    hideHint(); clampAndApply();
+    if(e.shiftKey || Math.abs(e.deltaX)>Math.abs(e.deltaY)){ panX += (e.deltaX||e.deltaY); }
+    else if(maxY>0){ panY += e.deltaY; } else { panX += e.deltaY; }
+    hideHint(); apply();
   },{passive:false});
-
-  function hideHint(){ hint.classList.add('gone'); }
 
   bwBtn.addEventListener('click',function(){
     var on=stage.classList.toggle('bw');
     bwBtn.setAttribute('aria-pressed',on); bwBtn.textContent=on?'Color':'Black & White';
   });
   zoomBtn.addEventListener('click',function(){
-    var ratio=maxX>0?panX/maxX:0.5;
+    var rx=maxX>0?panX/maxX:0.5, ry=maxY>0?panY/maxY:0.5;
     zoom=(zoom===1)?1.85:1;
     zoomBtn.setAttribute('aria-pressed',zoom!==1); zoomBtn.textContent=zoom===1?'Zoom in':'Zoom out';
-    metrics(); panX=ratio*maxX; clampAndApply();
+    metrics(); panX=rx*maxX; panY=ry*maxY; apply();
   });
-  resetBtn.addEventListener('click',function(){ zoom=1; zoomBtn.setAttribute('aria-pressed',false); zoomBtn.textContent='Zoom in'; metrics(); center(); });
+  resetBtn.addEventListener('click',function(){
+    zoom=1; zoomBtn.setAttribute('aria-pressed',false); zoomBtn.textContent='Zoom in';
+    metrics(); panX=maxX/2; panY=maxY/2; apply();
+  });
 
-  window.addEventListener('resize',function(){ var r=maxX>0?panX/maxX:0.5; metrics(); panX=r*maxX; clampAndApply(); });
-  if(img.complete) {metrics(); center();} else img.addEventListener('load',function(){ metrics(); center(); });
+  window.addEventListener('resize',function(){
+    var rx=maxX>0?panX/maxX:0.5, ry=maxY>0?panY/maxY:0.5;
+    metrics(); panX=rx*maxX; panY=ry*maxY; apply();
+  });
+  function init(){ metrics(); panX=maxX/2; panY=maxY/2; apply(); }
+  if(img.complete) init(); else img.addEventListener('load',init);
 })();
 </script>
 </body>
