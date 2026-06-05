@@ -63,12 +63,15 @@
   .credit h2{border:0;padding:0;margin:0 0 8px;font-size:1rem}
   .credit a{color:var(--gold)}
   .muted{color:var(--muted)}
+  .backlink{display:inline-block;margin:0 0 20px;color:var(--gold);text-decoration:none;
+    font-family:system-ui,sans-serif;font-size:.85rem;letter-spacing:.04em}
+  .backlink:hover{color:#dab560;text-decoration:underline}
   .reprint{display:grid;grid-template-columns:1.4fr .9fr;gap:26px;align-items:start}
   @media(max-width:680px){.reprint{grid-template-columns:1fr}}
-  .museum-link{display:inline-block;margin-top:6px;background:var(--gold);color:#1a1409;
-    text-decoration:none;font-family:system-ui,sans-serif;font-size:.85rem;font-weight:600;
-    padding:9px 16px;border-radius:999px}
-  .museum-link:hover{background:#dab560}
+  .credit a.museum-link{display:inline-block;margin-top:6px;background:var(--gold);color:#1a1409;
+    text-decoration:none;font-family:system-ui,sans-serif;font-size:.9rem;font-weight:700;
+    padding:10px 18px;border-radius:999px}
+  .credit a.museum-link:hover{background:#dab560;color:#140f06}
   .orderform{display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;
     background:#fff;text-decoration:none}
   .orderform img{display:block;width:100%;height:auto}
@@ -78,6 +81,7 @@
 </head>
 <body>
 <div class="wrap">
+  <a class="backlink" href="../">&larr; Back to Brewster History</a>
   <p class="kicker">Southeast Museum &middot; Brewster History</p>
   <h1>Brewster, from Marvin Mountain</h1>
   <p class="byline">Panoramic photograph by <b>Louis Alman</b> &middot; taken <b>December&nbsp;12,&nbsp;1870</b>, looking east toward Main Street</p>
