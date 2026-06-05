@@ -222,6 +222,15 @@ img { max-width: 100%; height: auto; display: block; }
 // ─────────────────────────────────────────────────────────────────
 const countyMaps = [
   {
+    year: '1829',
+    title: 'Map of Dutchess &amp; Putnam Counties, by David H. Burr',
+    note: 'The earliest map in this collection. David H. Burr&rsquo;s map of Dutchess and Putnam, published by the New York Surveyor General &mdash; entered under the Act of Congress in 1829, this edition republished by Stone &amp; Clark of Ithaca in 1839 with &ldquo;A Statistical View According to the Latest Census&rdquo; (1838) tabulating each town&rsquo;s acreage, valuation, population, militia, electors, schools, live stock, household manufactures, and mills. Putnam fills the lower sheet: the Town of Southeast appears with Sodom Corners, the South East and Milltown post offices, Carmel, Red Mills, and Cold Spring. Town lines are distinguished by color, with symbols for villages, post offices, flouring mills, manufactories, forges, saw mills, and churches.',
+    sheets: [
+      { thumb: 'images/maps/putnam-county/burr-1829-thumb.jpg', full: 'images/maps/putnam-county/burr-1829.jpg', caption: 'The full two-county sheet &mdash; click to zoom to the Putnam towns, village detail &amp; the census table' }
+    ],
+    citation: 'David H. Burr, <em>Map of the Counties of Dutchess and Putnam</em> (published by the Surveyor General of New York; entered 1829; this edition Stone &amp; Clark, Ithaca, N.Y., 1839). Public domain; digital image by The Highland Studio, courtesy of the Putnam County Historian&rsquo;s Office.'
+  },
+  {
     year: '1854',
     title: 'Map of Putnam County, by R. F. O\u2019Connor',
     note: 'Surveyed and published by R. F. O\u2019Connor in 1854 and lithographed by M. H. Traubel &amp; Co. of Philadelphia, this is the earliest detailed map of the county &mdash; hand-colored by township, with hachured relief, the names of rural householders, a population table and business directory, engraved building vignettes, and village insets of Cold Spring, Brewster, and Carmel. Its householder names make it a primary source for who lived where in the Town of Southeast in 1854.',
@@ -230,6 +239,33 @@ const countyMaps = [
     ],
     locUrl: 'http://hdl.loc.gov/loc.gmd/g3803p.la000543',
     citation: 'R. F. O\u2019Connor, <em>Map of Putnam County, New-York</em> (New York: R. F. O\u2019Connor; Philadelphia: Lith. Inst. of M. H. Traubel &amp; Co., 1854). Library of Congress, Geography and Map Division.'
+  },
+  {
+    year: '1867',
+    title: 'Town of South East, from the F. W. Beers Atlas',
+    note: 'The complete Town of South East page from the F. W. Beers <em>Atlas of New York and Vicinity</em> (1867), scale 2 inches to the mile. Shows the township in full &mdash; Brewster&rsquo;s Station, Dykmans P.O., Gayville, Doanesburg, Crains Corners, Sodom, South East Centre, Milltown, and the surrounding district &mdash; with every road, school, church, mill, and property owner labeled. &ldquo;Kishewanna Lake&rdquo; (Mud Pond) is labeled at center.',
+    sheets: [
+      { thumb: 'images/maps/putnam-county/beers-south-east-1867-thumb.jpg', full: 'images/maps/putnam-county/beers-south-east-1867.jpg', caption: 'The full township page &mdash; click to zoom to the roads, hamlets &amp; property owners' }
+    ],
+    citation: 'F. W. Beers, A. D. Ellis &amp; C. G. Soule, <em>Atlas of New York and Vicinity</em> (1867), Town of South East, p. 69. Public domain; digital image courtesy of the Putnam County Historian&rsquo;s Office.'
+  },
+  {
+    year: '1867',
+    title: 'Patterson &amp; Brewster\u2019s Station, from the F. W. Beers Atlas',
+    note: 'The Patterson and Brewster&rsquo;s Station village pages from the F. W. Beers atlas (1867, p. 70), each with its Business Advertising Directory. Brewster&rsquo;s Station (Town of South East) is mapped building by building &mdash; Smith&rsquo;s Corner, Peaceable Hill, Maple Hill, the Iron Mine, and the East Branch of the Croton &mdash; with a directory naming its banks, hotels, and businesses, among them Gail, Borden &amp; Son&rsquo;s Condensed Milk Factory and the Phenix Wool Hat Factory.',
+    sheets: [
+      { thumb: 'images/maps/putnam-county/beers-patterson-brewsters-1867-thumb.jpg', full: 'images/maps/putnam-county/beers-patterson-brewsters-1867.jpg', caption: 'Patterson (top) and Brewster\u2019s Station (bottom) with their business directories &mdash; click to zoom' }
+    ],
+    citation: 'F. W. Beers, A. D. Ellis &amp; C. G. Soule, <em>Atlas of New York and Vicinity</em> (1867), Patterson &amp; Brewster\u2019s Station, p. 70. Public domain; digital image courtesy of the Putnam County Historian&rsquo;s Office.'
+  },
+  {
+    year: '1876',
+    title: 'Map of Putnam County, by Thomas H. Reed',
+    note: 'The complete Thomas H. Reed <em>Map of Putnam County</em> (1876), the whole county in one sheet with border insets of Lake Mahopac, Garrison&rsquo;s, Cold Spring, Nelsonville, Brewster&rsquo;s, Carmel, Patterson, and Southeast Centre. Compiled, surveyed, and published by Reed of Brewster and lithographed by J. L. Smith; sold for $5 in the centennial year, it shows &ldquo;the location of every highway and every occupied house.&rdquo; The Southeast Centre inset at upper right carries faint pencil annotations that appear to mark additional residences.',
+    sheets: [
+      { thumb: 'images/maps/putnam-county/reed-1876-thumb.jpg', full: 'images/maps/putnam-county/reed-1876.jpg', caption: 'The full county sheet with eight town insets &mdash; click to zoom' }
+    ],
+    citation: 'Thomas H. Reed, <em>Map of Putnam County, New York</em> (Brewster, N.Y.: Thos. H. Reed; lith. J. L. Smith, 1876). Public domain; digital image by The Highland Studio, courtesy of the Putnam County Historian&rsquo;s Office.'
   }
 ];
 
@@ -250,9 +286,9 @@ if (countyMaps.length === 0) {
              '</figure>';
     }).join('');
     const noteHTML = m.note ? '<p class="sanborn-set-note">' + m.note + '</p>' : '';
-    const sourceHTML = m.locUrl
+    const sourceHTML = (m.citation || m.locUrl)
       ? '<p class="sanborn-set-source">' + (m.citation || '') +
-        ' <a href="' + m.locUrl + '" target="_blank" rel="noopener">View the full-resolution scan at the Library of Congress &rarr;</a></p>'
+        (m.locUrl ? ' <a href="' + m.locUrl + '" target="_blank" rel="noopener">View the full-resolution scan at the Library of Congress &rarr;</a>' : '') + '</p>'
       : '';
     const sec = document.createElement('div');
     sec.className = 'sanborn-set';
