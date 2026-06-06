@@ -1,0 +1,10 @@
+# Server-side only — never commit to the public site
+southeast-centre/worker.js
+
+# Secrets / local config
+.env
+.env.*
+*.key
+*.pem
+wrangler.toml
+.dev.vars
