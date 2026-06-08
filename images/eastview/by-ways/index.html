@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://*.workers.dev https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Primary-source historical research on Brewster and the Town of Southeast, Putnam County, New York. Independent work by Rob Griffin.">
+<title>Brewster History — Primary-Source Local Research</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/shared.css">
+
+<style>
+/* ─────────────────────────────────────────────────────────────────────────
+   INLINED BASE TOKENS
+   Duplicated from assets/css/shared.css so this page renders correctly even
+   when previewed standalone (e.g., double-clicked locally without the
+   assets/ folder beside it). When deployed, shared.css loads first and
+   these definitions are simply redundant — no conflict.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --cream: #F5F0E8;
+  --warm-white: #FAF8F3;
+  --ink: #1C1A14;
+  --ink-light: #4A4538;
+  --ink-muted: #8C8070;
+  --gold: #8B6914;
+  --gold-light: #C9A84C;
+  --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12);
+  --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────
+   Simple dark title page. No background image. Just confident typography
+   on a solid ink field. */
+.hero {
+  position: relative;
+  background: var(--ink);
+  color: var(--warm-white);
+  padding: clamp(5rem, 11vw, 8rem) 1.5rem clamp(4rem, 8vw, 6rem);
+  overflow: hidden;
+  text-align: center;
+}
+/* Subtle vertical ruled "page" lines, very faint, evokes letterpress paper */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 39px,
+    rgba(255,255,255,0.020) 39px, rgba(255,255,255,0.020) 40px
+  );
+  pointer-events: none;
+}
+/* Hairline gold rule, glowing softly at the bottom */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translateX(-50%);
+  width: clamp(120px, 25vw, 220px);
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent, rgba(201,168,76,0.45), transparent);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: heroFade 1.2s ease-out 0.15s forwards;
+}
+@keyframes heroFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.6rem;
+  color: var(--warm-white);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 400;
+}
+
+/* Tiny ornamental rule between title and subtitle */
+.hero-divider {
+  width: 36px;
+  height: 1px;
+  background: rgba(201,168,76,0.5);
+  margin: 0 auto 1.6rem;
+}
+
+.hero-sub {
+  font-family: var(--body);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.02rem, 1.7vw, 1.18rem);
+  line-height: 1.7;
+  color: rgba(245,240,232,0.72);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+  margin-top: 2rem;
+}
+.hero-meta span {
+  display: inline-block;
+  padding: 0 0.75rem;
+}
+.hero-meta span + span {
+  border-left: 1px solid rgba(245,240,232,0.18);
+}
+
+
+/* ── MAIN CONTENT ─────────────────────────────────────────────────────── */
+.main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2rem;
+}
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem 0 1.5rem;
+}
+.section-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-strong);
+}
+.section-tag:first-of-type { margin-top: 0; }
+.series-intro {
+  max-width: 60ch;
+  margin: 0.25rem 0 1.9rem;
+  color: var(--ink-light);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* ── FEATURED CARD (Southeast Centre) ───────────────────────────────────── */
+.featured {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 0;
+  background: var(--warm-white);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+.featured:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(28,26,20,0.12);
+  border-color: var(--gold);
+}
+.featured-img {
+  position: relative;
+  background: var(--ink);
+  min-height: 320px;
+  overflow: hidden;
+}
+/* The image fills the panel, sized to cover. Slight desaturation pulls
+   the high-contrast line drawing toward the warm ink/cream palette. */
+.featured-img-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/index/index_01.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.2) sepia(0.12) contrast(0.96) brightness(0.96);
+  transition: transform 0.6s ease;
+}
+.featured:hover .featured-img-bg {
+  transform: scale(1.03);
+}
+/* A soft dark wash at the right edge so the image transitions cleanly
+   into the cream-colored card body next to it, instead of butting hard. */
+.featured-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 75%,
+    rgba(28,26,20,0.18) 100%
+  );
+  pointer-events: none;
+}
+.featured-img-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold-light);
+  padding: 0.4rem 0.7rem;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.featured-body {
+  padding: 2.25rem 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.featured-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+.featured-title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.featured-subtitle {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.2rem;
+}
+.featured-desc {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+.featured-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.featured-meta-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.featured-meta-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.featured-arrow {
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+.featured:hover .featured-arrow { transform: translateX(4px); }
+
+@media (max-width: 720px) {
+  .featured { grid-template-columns: 1fr; }
+  .featured-img { min-height: 220px; }
+  .featured-body { padding: 1.75rem 1.5rem 1.5rem; }
+}
+
+/* ── RESEARCH TILES (museum-card style, 2x2) ───────────────────────────── */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.tile {
+  background: var(--warm-white);
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(28,26,20,0.10);
+  border-color: var(--gold);
+}
+.tile-img-wrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: var(--cream);
+  overflow: hidden;
+}
+.tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.tile:hover .tile-img { transform: scale(1.03); }
+.tile-img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--cream) 0px, var(--cream) 12px,
+      var(--warm-white) 12px, var(--warm-white) 24px);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.tile-img-placeholder span {
+  background: var(--warm-white);
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border);
+}
+.tile-draft-tag {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  background: var(--warm-white);
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+  border: 1px solid rgba(139,58,30,0.3);
+  font-weight: 600;
+}
+.tile-body {
+  padding: 1.2rem 1.3rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tile-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.45rem;
+}
+.tile-title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.005em;
+}
+.tile-desc {
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ── ABOUT BLOCK ─────────────────────────────────────────────────────── */
+.about {
+  max-width: 720px;
+  margin: 4.5rem auto 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+.about-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+.about-text {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+}
+.about-text:last-child { margin-bottom: 0; }
+.about-text strong { color: var(--ink); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- ════ HERO ════════════════════════════════════════════════════════════ -->
+<section class="hero" aria-label="Site introduction">
+  <div class="hero-inner">
+    <h1 class="hero-title">Brewster <em>History</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Primary-source historical research on Brewster and the Town of Southeast, Putnam County, New York. Independent work, grounded in deed records, period newspapers, and the things that can still be physically held.</p>
+    <div class="hero-meta">
+      <span>Putnam County</span><span>New York</span><span>Est. 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MAIN ════════════════════════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- Featured: Southeast Centre -->
+  <div class="section-tag">The Featured Project</div>
+
+  <a class="featured" href="southeast-centre/">
+    <div class="featured-img">
+      <div class="featured-img-bg" aria-hidden="true"></div>
+      <div class="featured-img-tag">Featured</div>
+    </div>
+    <div class="featured-body">
+      <div class="featured-eyebrow">Multi-section research site</div>
+      <h2 class="featured-title">Southeast Centre</h2>
+      <div class="featured-subtitle">A Village That (Almost) Disappeared</div>
+      <p class="featured-desc">A primary-source study of Southeast Centre — also known as Sodom or Sodom Corners — the Putnam County neighborhood largely obliterated by New York City's late nineteenth-century East Branch Reservoir watershed acquisition. Documents the deed chains, family histories, and displacement of eleven surviving lots and numerous lost properties.</p>
+      <div class="featured-meta">
+        <span class="featured-meta-status">Active research · 2025&ndash;2026</span>
+        <span class="featured-arrow">Enter →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Additional Research tiles -->
+  <div class="section-tag">Additional Research</div>
+
+  <div class="tiles" id="research-tiles">
+    <!-- Tiles rendered by JS, with graceful image fallback -->
+  </div>
+
+  <!-- Eastview Avenue series -->
+  <div class="section-tag">Eastview Avenue</div>
+  <p class="series-intro">Five connected stories from a single Brewster block &mdash; the parish at its heart, the immigrant family it grew from, the factory that stood at its south end, the house that was moved to make room for the school, and the Wells family&rsquo;s &ldquo;By Ways&rdquo; at the head of the block. They share people, parcels, and one stretch of street; start with the parish and follow the cross-links.</p>
+
+  <div class="tiles" id="eastview-tiles">
+    <!-- Eastview series tiles rendered by JS -->
+  </div>
+
+  <!-- About -->
+  <div class="about">
+    <div class="about-eyebrow">About this work</div>
+    <p class="about-text"><strong>Brewster History</strong> is the independent work of <strong>Rob Griffin</strong>, a Brewster resident researching deed chains, period maps, and primary-source documentation of properties and people in the Town of Southeast and the surrounding area. The project is not affiliated with the Town of Southeast, the Village of Brewster, or any town, county, or municipal historian&rsquo;s office.</p>
+    <p class="about-text">Every claim is traced to a physically reviewed source &mdash; a deed, a census, a period newspaper, a map, a federal record, or a verified secondary work. Where the record runs out, the site says so plainly. This is slow work, and it is meant to be read slowly.</p>
+    <p class="about-text" style="margin-top:1.4rem;font-size:0.95rem"><a href="about.html" style="color:var(--gold);border-bottom:1px solid rgba(139,105,20,0.4);text-decoration:none">Full bibliography, methodology, and contact &rarr;</a></p>
+  </div>
+
+</main>
+
+<!-- ════ FOOTER ══════════════════════════════════════════════════════════
+     Matches the Southeast Centre site's single-line copyright footer. -->
+<div class="page-copyright" style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved. &nbsp;&middot;&nbsp; <a href="about.html" style="color:var(--ink-muted);border-bottom:1px solid transparent;text-decoration:none">About &amp; Sources</a></p>
+</div>
+
+<script src="assets/js/shared.js"></script>
+<script>
+// ── RESEARCH TILES ────────────────────────────────────────────────────────
+// Single source of truth for what appears under "Additional Research."
+// Add a new piece: one object here + one HTML file in research/ + an image
+// in images/{slug}/. Order is alphabetical by title, automatically.
+var researchPieces = [
+  {
+    slug: 'panorama',
+    title: 'Brewster from Marvin Mountain, 1870',
+    desc: 'Louis Alman&rsquo;s panoramic photograph of the entire village &mdash; the depot, Main Street, the Methodist church, the Borden factory, and the fields that would become the East Branch and Bog Brook reservoirs. An interactive, drag-to-explore view.',
+    image: 'panorama/panorama-tile.jpg',
+    href: 'panorama/',
+    eyebrow: '1870 panorama',
+    isDraft: false
+  },
+  {
+    slug: 'brewster-heights',
+    title: 'Old Brewster Heights',
+    desc: 'The early 20th-century residential neighborhood at the edge of Brewster village &mdash; in research.',
+    image: 'images/brewster-heights/postcard-brewster-heights.jpg',
+    isDraft: true,
+    hidden: true
+  },
+  {
+    slug: 'gage-home',
+    title: 'The Gage House',
+    desc: '483 Milltown Road &mdash; built c.&thinsp;1719, likely the oldest house in Putnam County. From a 1783 Revolutionary attainder sale through the present.',
+    image: 'images/gage-home/postcard-oldest-house.png',
+    isDraft: false
+  },
+  {
+    slug: 'gay-nineties',
+    title: 'The Gay Nineties Inn',
+    desc: '2360 Route 6 &mdash; 240 years of ownership, from a 1782 Revolutionary forfeiture sale to a politician&rsquo;s estate, a 1930s roadside inn, and today.',
+    image: 'images/gay-nineties/postcard-entrance.png',
+    isDraft: false
+  },
+  {
+    slug: 'hammarskjold-house',
+    title: 'The Hammarskj\u00f6ld House',
+    desc: 'The Foggintown Road farmhouse that the United Nations rented for Secretary-General Dag Hammarskj\u00f6ld, 1953&ndash;1961 &mdash; from Lot 8 of the Philipse Patent to a 1973 plaque on a stone wall.',
+    image: 'images/hammarskjold-house/house-front.jpg',
+    isDraft: false
+  },
+  {
+    slug: 'markers',
+    title: 'Historic Markers of Putnam County',
+    desc: 'A reference catalog of roadside historic markers throughout the Brewster area &mdash; photos, marker text, locations, and context.',
+    image: 'images/markers/cover.jpg',
+    href: 'markers/',
+    eyebrow: 'Reference catalog',
+    isDraft: false
+  },
+  {
+    slug: 'maps',
+    title: 'Historic Maps of the Brewster Area',
+    desc: 'A library of historic maps &mdash; Sanborn fire-insurance plats, county maps, and more, drawn from the Library of Congress and other public collections.',
+    image: 'images/maps/cover.jpg',
+    href: 'maps/',
+    eyebrow: 'Reference catalog',
+    isDraft: false
+  },
+  {
+    slug: 'losee-family',
+    title: 'The Losee Homestead',
+    desc: '110&ndash;114 Oak Street &mdash; the Brewster boyhood home of William A. Losee, a 7th Cavalry trooper killed at the Little Bighorn in 1876.',
+    image: 'images/losee-family/brewster-boy-headline.png',
+    isDraft: false
+  },
+  {
+    slug: 'morehouse-factory',
+    title: 'The Morehouse Factory',
+    desc: 'The Eastview Ave sash and blind plant, the carpenter who succeeded its founder, his 36 years as Brewster&rsquo;s fire chief &mdash; and an Octagon Chicken House?',
+    image: 'images/eastview/morehouse/morehouse_portrait_tile.jpg',
+    href: 'eastview/morehouse-factory.html',
+    eyebrow: 'The factory',
+    group: 'eastview',
+    isDraft: false
+  },
+  {
+    slug: 'gilroy-house',
+    title: 'The Gilroys at 2 Eastview',
+    desc: 'An Irish immigrant couple whose family memory records them as donors of the land on which Brewster&rsquo;s first Catholic chapel was built &mdash; and whose names appear in none of the five standard published histories of the county.',
+    image: 'images/eastview/stlawrence/eastview_postcard_colorized.jpg',
+    href: 'eastview/gilroy-house.html',
+    eyebrow: 'The family',
+    group: 'eastview',
+    isDraft: false
+  },
+  {
+    slug: 'stlawrence-otoole',
+    title: 'St. Lawrence O&rsquo;Toole',
+    desc: 'The parish at the heart of Eastview Avenue &mdash; its 1871 founding on the lot the Gilroys conveyed, the 1914 church move, the 1915 stone church, and the school expansions that reshaped the south end of the street. The hub of the Eastview series.',
+    image: 'images/eastview/stlawrence/stlawrence_tile.jpg',
+    href: 'eastview/stlawrence-otoole.html',
+    eyebrow: 'The parish',
+    group: 'eastview',
+    isDraft: false
+  },
+  {
+    slug: 'ganong-house',
+    title: 'The Ganong House Move',
+    desc: 'In 1959 a Dutch Colonial house was lifted off its foundation and rolled down Eastview Avenue to clear ground for the parish school &mdash; the same lot that had held the Morehouse factory a generation earlier. One parcel, three lives.',
+    image: 'images/eastview/ganong/ganong_move_1959.jpg',
+    href: 'eastview/ganong-house.html',
+    eyebrow: 'The house move',
+    group: 'eastview',
+    isDraft: false
+  },
+  {
+    slug: 'by-ways',
+    title: '&ldquo;By Ways&rdquo; &amp; the Wells Family',
+    desc: 'Henry H. Wells&rsquo;s Eastview Avenue home &mdash; its 1913 sun parlor, its $7,000 listing, and four owners in four years &mdash; and the family behind Brewster&rsquo;s bank, its newspaper, and &ldquo;Mr. Brewster.&rdquo;',
+    image: 'images/eastview/by-ways/byways_tile.jpg',
+    href: 'eastview/by-ways.html',
+    eyebrow: 'The Wells house',
+    group: 'eastview',
+    isDraft: false
+  }
+];
+
+// Explicit display order (by slug). Tiles not listed here fall to the end,
+// in their array order. To rearrange, just reorder this list.
+var tileOrder = [
+  'gage-home',
+  'gay-nineties',
+  'panorama',
+  'hammarskjold-house',
+  'losee-family',
+  'stlawrence-otoole',
+  'gilroy-house',
+  'morehouse-factory',
+  'ganong-house',
+  'by-ways',
+  'markers',
+  'maps'
+];
+researchPieces.sort(function(a, b) {
+  var ia = tileOrder.indexOf(a.slug);
+  var ib = tileOrder.indexOf(b.slug);
+  if (ia === -1) ia = tileOrder.length;
+  if (ib === -1) ib = tileOrder.length;
+  return ia - ib;
+});
+
+function tileHtml(p) {
+  var draftTag = p.isDraft
+    ? '<span class="tile-draft-tag">Coming Soon</span>'
+    : '';
+  var imageHtml =
+    '<img src="' + p.image + '" alt="" class="tile-img" loading="lazy" ' +
+    'onerror="this.onerror=null;this.replaceWith(makeTilePlaceholder())">';
+  var href = p.href || ('research/' + p.slug + '.html');
+  var eyebrow = p.eyebrow || 'Research piece';
+  return '<a class="tile" href="' + href + '">' +
+      '<div class="tile-img-wrap">' +
+        draftTag +
+        imageHtml +
+      '</div>' +
+      '<div class="tile-body">' +
+        '<div class="tile-eyebrow">' + eyebrow + '</div>' +
+        '<div class="tile-title">' + p.title + '</div>' +
+        '<div class="tile-desc">' + p.desc + '</div>' +
+      '</div>' +
+    '</a>';
+}
+
+function renderResearchTiles() {
+  var general = document.getElementById('research-tiles');
+  var eastview = document.getElementById('eastview-tiles');
+  var gHtml = '', eHtml = '';
+  researchPieces.forEach(function(p) {
+    if (p.hidden) return;
+    if (p.group === 'eastview') { eHtml += tileHtml(p); }
+    else { gHtml += tileHtml(p); }
+  });
+  if (general) general.innerHTML = gHtml;
+  if (eastview) eastview.innerHTML = eHtml;
+}
+
+function makeTilePlaceholder() {
+  var ph = document.createElement('div');
+  ph.className = 'tile-img-placeholder';
+  var span = document.createElement('span');
+  span.textContent = 'Image forthcoming';
+  ph.appendChild(span);
+  return ph;
+}
+
+// ── TILE CLICK TRACKING ────────────────────────────────────────────────────
+// Delegated listeners on both tile containers. Fires a GA4 'tile_click'
+// event naming which research piece was opened. gtag sends via sendBeacon, so
+// the event survives the navigation that the click triggers. Silently does
+// nothing if analytics is blocked or absent. To see the per-tile breakdown in
+// GA4 reports, register 'tile_title' and 'tile_href' as event-scoped custom
+// dimensions (Admin → Custom definitions) — a one-time step.
+function attachTileTracking() {
+  ['research-tiles', 'eastview-tiles'].forEach(function(id) {
+    var container = document.getElementById(id);
+    if (!container) return;
+    container.addEventListener('click', function(e) {
+      var a = e.target.closest('a.tile');
+      if (!a || typeof gtag !== 'function') return;
+      var titleEl = a.querySelector('.tile-title');
+      gtag('event', 'tile_click', {
+        tile_title: titleEl ? titleEl.textContent : '',
+        tile_href: a.getAttribute('href')
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderResearchTiles();
+  attachTileTracking();
+});
+</script>
+
+</body>
+</html>
