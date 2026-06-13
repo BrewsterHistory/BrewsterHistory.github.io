@@ -200,7 +200,7 @@ img { max-width: 100%; height: auto; display: block; }
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-  <div class="lightbox-hint" id="lightbox-hint">Click to zoom &middot; drag to pan &middot; Esc to close</div>
+  <div class="lightbox-hint" id="lightbox-hint">Scroll to zoom &middot; click to toggle &middot; drag to pan &middot; Esc to close</div>
   <div class="lightbox-stage" id="lightbox-stage">
     <img class="lightbox-img" id="lightbox-img" src="" alt="" draggable="false">
   </div>
@@ -410,6 +410,67 @@ document.getElementById('lightbox-close').addEventListener('click', closeLightbo
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
+</script>
+
+<script>
+// ── Continuous zoom for the map lightbox (wheel = zoom, click = toggle, drag = pan)
+(function () {
+  var lbEl  = document.getElementById('lightbox');
+  var stage = document.getElementById('lightbox-stage');
+  var img   = document.getElementById('lightbox-img');
+  if (!lbEl || !stage || !img) return;
+  var natW = 0, natH = 0, fit = 1, scale = 1;
+
+  function computeFit() {
+    var sw = stage.clientWidth, sh = stage.clientHeight;
+    fit = (natW && natH && sw && sh)
+      ? Math.min(1, (sw * 0.96) / natW, (sh * 0.88) / natH) : 1;
+  }
+  function apply() {
+    img.style.maxWidth = 'none'; img.style.maxHeight = 'none'; img.style.margin = '0';
+    img.style.width = Math.round(natW * scale) + 'px'; img.style.height = 'auto';
+    lbEl.classList.toggle('zoomed', scale > fit * 1.001);
+  }
+  function clampScale(s) { return Math.min(Math.max(fit * 4, 1), Math.max(fit, s)); }
+  // Zoom to a target scale, keeping the point under (cx,cy) fixed on screen
+  function zoomTo(target, cx, cy) {
+    var b = img.getBoundingClientRect();
+    var fx = b.width ? (cx - b.left) / b.width : 0.5;
+    var fy = b.height ? (cy - b.top) / b.height : 0.5;
+    scale = clampScale(target); apply();
+    var a = img.getBoundingClientRect();          // forced reflow: reflects new size
+    stage.scrollLeft += a.left - (cx - fx * a.width);
+    stage.scrollTop  += a.top  - (cy - fy * a.height);
+  }
+  function fitNow() { scale = fit; apply(); }
+  function initForImage() {
+    if (!img.naturalWidth) return;
+    natW = img.naturalWidth; natH = img.naturalHeight;
+    computeFit(); stage.scrollLeft = 0; stage.scrollTop = 0; fitNow();
+  }
+  img.addEventListener('load', initForImage);
+
+  // Override the original binary toggle so a click still zooms in/out
+  window.setZoom = function (on) {
+    if (!natW) return;
+    if (on) { zoomTo(Math.max(1, fit * 2.5), window.innerWidth / 2, window.innerHeight / 2); }
+    else { fitNow(); }
+  };
+
+  // Mouse-wheel / trackpad zoom, anchored on the cursor
+  stage.addEventListener('wheel', function (e) {
+    if (!lbEl.classList.contains('open') || !natW) return;
+    e.preventDefault();
+    zoomTo(scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12), e.clientX, e.clientY);
+  }, { passive: false });
+
+  // Keep the image sensibly fitted if the window is resized while open
+  window.addEventListener('resize', function () {
+    if (lbEl.classList.contains('open') && natW) {
+      computeFit(); if (scale < fit) scale = fit; apply();
+    }
+  });
+})();
 </script>
 
 </body>

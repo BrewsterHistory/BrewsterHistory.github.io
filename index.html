@@ -600,6 +600,16 @@ var researchPieces = [
     isDraft: false
   },
   {
+    slug: 'schools',
+    title: 'Schools of Southeast',
+    desc: 'The common school districts of the Town of Southeast and the schools of the Village of Brewster &mdash; mapped where they stood, whether they still stand or not. Anchored by the Milltown schoolhouse that New York City&rsquo;s reservoir displaced.',
+    image: 'images/schools/milltown/milltown_tile.jpg',
+    href: 'schools/',
+    eyebrow: 'Reference catalog',
+    isDraft: false,
+    hidden: true
+  },
+  {
     slug: 'losee-family',
     title: 'The Losee Homestead',
     desc: '110&ndash;114 Oak Street &mdash; the Brewster boyhood home of William A. Losee, a 7th Cavalry trooper killed at the Little Bighorn in 1876.',
@@ -672,7 +682,8 @@ var tileOrder = [
   'ganong-house',
   'by-ways',
   'markers',
-  'maps'
+  'maps',
+  'schools'
 ];
 researchPieces.sort(function(a, b) {
   var ia = tileOrder.indexOf(a.slug);
