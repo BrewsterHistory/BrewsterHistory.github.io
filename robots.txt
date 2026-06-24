@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /southeast-centre/lots/
+
+Sitemap: https://brewsterhistory.com/sitemap.xml
