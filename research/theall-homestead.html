@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://*.workers.dev https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Old Theall Homestead Farm on the road from Croton Falls to Brewster, Town of Southeast, Putnam County — the Iron Works Farm of 1811, Croton Valley Farm of the Beers atlas, the Pine Tree Lodge that headquartered D. W. Griffith’s America company in 1923, now the Jaipore restaurant on Route 22. A property history from 1811 to the present, with the local legends tested against the record.">
+<title>The Theall Homestead &mdash; Brewster History</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM3RQLSZPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CM3RQLSZPM');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/shared.css">
+
+<style>
+:root {
+  --cream: #F5F0E8; --warm-white: #FAF8F3; --ink: #1C1A14;
+  --ink-light: #4A4538; --ink-muted: #8C8070; --gold: #8B6914;
+  --gold-light: #C9A84C; --rust: #8B3A1E;
+  --border: rgba(28,26,20,0.12); --border-strong: rgba(28,26,20,0.25);
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink);
+       min-height: 100vh; font-size: 16px; line-height: 1.7;
+       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+img { max-width: 100%; height: auto; display: block; }
+
+.bh-header { background: var(--warm-white); border-bottom: 1px solid var(--border-strong);
+             padding: 0.9rem 1.5rem; display: flex; align-items: center;
+             justify-content: space-between; gap: 1rem;
+             position: sticky; top: 0; z-index: 100; }
+.bh-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+           text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+           transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.bh-back:hover { color: var(--gold); }
+.bh-back::before { content: '←'; font-size: 14px; }
+.bh-header-mark { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                  text-transform: uppercase; color: var(--ink-muted); }
+.bh-header-mark strong { color: var(--ink); font-weight: 500; }
+
+.narrative-wrap { max-width: 740px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.narrative-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+                     text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.narrative-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.9rem);
+                   font-weight: 400; line-height: 1.1; color: var(--ink);
+                   margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.narrative-subtitle { font-family: var(--body); font-weight: 300; font-style: italic;
+                      font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 1.25rem; }
+.narrative-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+                  text-transform: uppercase; color: var(--ink-muted);
+                  padding-bottom: 1.75rem; margin-bottom: 0;
+                  border-bottom: 1px solid var(--border); line-height: 1.8; }
+.narrative-meta span + span::before { content: ' · '; color: var(--gold); padding: 0 0.4rem; }
+
+.narrative-cover { margin: 0 0 2rem; }
+.narrative-cover img { width: 100%; border: 1px solid var(--border-strong); border-radius: 3px; }
+.narrative-cover figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                              line-height: 1.65; margin-top: 0.7rem; padding: 0 0.4rem;
+                              font-style: italic; }
+
+.narrative-body { margin-top: 2rem; }
+.narrative-body p { font-family: var(--body); font-size: 16px; color: var(--ink-light);
+                    line-height: 1.9; margin-bottom: 1.25rem; }
+.narrative-body p em, .narrative-body em { color: var(--ink); font-style: italic; }
+.narrative-body p strong { color: var(--ink); font-weight: 600; }
+.narrative-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+                     color: var(--ink); margin: 3rem 0 0.85rem;
+                     padding-top: 2rem; border-top: 1px solid var(--border);
+                     letter-spacing: -0.005em; }
+.narrative-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.narrative-body h2 .h2-roman { display: block; font-family: var(--mono); font-size: 11px;
+                               letter-spacing: 0.14em; text-transform: uppercase;
+                               color: var(--gold); font-style: normal; font-weight: 500;
+                               margin-bottom: 0.4rem; }
+.narrative-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+                     color: var(--ink); margin: 1.75rem 0 0.6rem; }
+
+.narrative-body figure { margin: 2rem 0; }
+.narrative-body figure img { border: 1px solid var(--border); border-radius: 3px; }
+.narrative-body figure.figure-small { max-width: 420px; }
+.narrative-body figure.figure-portrait { max-width: 320px; margin-left: auto; margin-right: auto; }
+.narrative-body figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                             letter-spacing: 0.02em; line-height: 1.65;
+                             margin-top: 0.65rem; padding: 0 0.5rem; font-style: italic; }
+
+/* Two-image pair side-by-side */
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+.figure-pair figure { margin: 0; }
+@media (max-width: 600px) {
+  .figure-pair { grid-template-columns: 1fr; }
+}
+
+.narrative-body blockquote { border-left: 3px solid var(--gold); margin: 1.5rem 0;
+                             padding: 0.4rem 0 0.4rem 1.35rem; }
+.narrative-body blockquote p { color: var(--ink); font-style: italic; }
+.narrative-body blockquote cite { font-family: var(--mono); font-size: 11px;
+                                  letter-spacing: 0.04em; color: var(--ink-muted);
+                                  font-style: normal; display: block; margin-top: 0.6rem; }
+
+.narrative-body .deed-ref { font-family: var(--mono); font-size: 12px; color: var(--ink-muted);
+                            background: var(--warm-white); padding: 1px 5px; border-radius: 2px;
+                            white-space: nowrap; border: 1px solid var(--border); }
+.narrative-body .source-note { font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+                               letter-spacing: 0.04em; line-height: 1.65;
+                               margin-top: -0.5rem; margin-bottom: 1.25rem; }
+
+.narrative-body .summary-block { background: var(--warm-white);
+                                 border: 1px solid var(--border-strong);
+                                 border-left: 3px solid var(--gold);
+                                 padding: 1rem 1.2rem; margin: 1.5rem 0;
+                                 border-radius: 3px; }
+.narrative-body .summary-block-label { font-family: var(--mono); font-size: 10px;
+                                       letter-spacing: 0.14em; text-transform: uppercase;
+                                       color: var(--gold); font-weight: 600;
+                                       margin-bottom: 0.4rem; }
+.narrative-body .summary-block p { font-family: var(--body); font-size: 0.95rem;
+                                   color: var(--ink-light); margin: 0; line-height: 1.7; }
+
+.deed-table-wrap { margin: 2rem -1.5rem; overflow-x: auto; }
+.deed-table { width: 100%; min-width: 720px; border-collapse: collapse;
+              font-family: var(--body); font-size: 13px;
+              background: var(--warm-white); }
+.deed-table th { background: var(--ink); color: var(--cream);
+                 font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+                 text-transform: uppercase; font-weight: 500;
+                 padding: 0.7rem 0.8rem; text-align: left;
+                 border-bottom: 1px solid rgba(255,255,255,0.1); }
+.deed-table td { padding: 0.6rem 0.8rem; vertical-align: top;
+                 border-bottom: 1px solid var(--border); color: var(--ink-light);
+                 line-height: 1.55; }
+.deed-table tr:last-child td { border-bottom: none; }
+.deed-table tr:hover td { background: rgba(201,168,76,0.05); }
+.deed-table td.dt-date { font-family: var(--mono); font-size: 11px;
+                         color: var(--ink); white-space: nowrap; }
+.deed-table td.dt-ref { font-family: var(--mono); font-size: 11px;
+                        color: var(--ink-muted); white-space: nowrap; }
+.deed-table td.dt-parties strong { color: var(--ink); }
+.deed-table td.dt-notes { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+@media (max-width: 700px) {
+  .deed-table-wrap { margin: 2rem -1rem; }
+}
+
+.sources-block { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.sources-block h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+                    text-transform: uppercase; color: var(--gold); font-weight: 500;
+                    margin-bottom: 1rem; }
+.sources-block .src-cat { margin-bottom: 1.5rem; }
+.sources-block .src-cat-label { font-family: var(--mono); font-size: 10px;
+                                letter-spacing: 0.12em; text-transform: uppercase;
+                                color: var(--ink-muted); font-weight: 500;
+                                margin-bottom: 0.5rem; }
+.sources-block ul { list-style: none; padding-left: 0; }
+.sources-block li { font-family: var(--body); font-size: 13px; color: var(--ink-light);
+                    line-height: 1.7; padding-left: 1rem; position: relative;
+                    margin-bottom: 0.55rem; }
+.sources-block li::before { content: '·'; color: var(--gold); position: absolute;
+                            left: 0; font-weight: 700; }
+.sources-block li .src-ref { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
+
+.open-research { background: var(--warm-white); border: 1px solid var(--border-strong);
+                 border-left: 3px solid var(--rust); padding: 1.2rem 1.4rem;
+                 margin: 2.5rem 0; border-radius: 3px; }
+.open-research-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+                       text-transform: uppercase; color: var(--rust); font-weight: 600;
+                       margin-bottom: 0.6rem; }
+.open-research ul { list-style: none; padding-left: 0; margin-top: 0.5rem; }
+.open-research li { font-family: var(--body); font-size: 0.92rem;
+                    color: var(--ink-light); line-height: 1.7; padding-left: 1.1rem;
+                    position: relative; margin-bottom: 0.55rem; }
+.open-research li::before { content: '◇'; color: var(--rust); position: absolute;
+                            left: 0; font-size: 10px; top: 4px; }
+</style>
+</head>
+<body>
+
+<header class="bh-header">
+  <a class="bh-back" href="../">Brewster History</a>
+  <div class="bh-header-mark"><strong>Research</strong> &nbsp;·&nbsp; Shakedown Productions</div>
+</header>
+
+<article class="narrative-wrap">
+
+  <!--
+  IMAGE INVENTORY — place in images/theall-homestead/ before deploy:
+    jaipore-today.png                    cover: the restaurant photograph (border-cropped)
+    griffith-on-location-1923.jpg        Sec. VIII: LOC National Photo Co. negative, America production
+    america-1924-poster.jpg              Sec. X: 1924 theatrical poster (M. C. Miner Litho. Co.)
+  Recommended later figures: Beers 1867 "Croton Valley Farm" crop; O'Connor 1854 crop;
+  Reed 1876 crop; the Pine Tree Lodge postcard and brochure; the Sept. 14 and Sept. 21,
+  1923 clippings; the July 2, 1920 Colonial Coffee House item; the Mar. 9, 1928 Beecher
+  Lodge sale report; the Riverhouse menu; the 1811 Bailey deed passage; Arvah's will
+  p.126; the 1919 lease; the 1928 severance deed; the modern tax map.
+-->
+
+<figure class="narrative-cover">
+    <img src="../images/theall-homestead/jaipore-today.png" alt="Large white three-story gable-front house with black shutters, boxed cornice, corner pilasters, awninged porch windows and a tall brick chimney, standing among trees — the former Theall homestead, now the Jaipore Royal Indian Cuisine restaurant on Route 22.">
+    <figcaption>The former Theall homestead on Route&nbsp;22 &mdash; now the Jaipore Royal Indian Cuisine building. Gable-front main block with boxed cornice and corner pilasters; the porch, awnings, and ramp are later commercial alterations.</figcaption>
+  </figure>
+
+  <div class="narrative-eyebrow">Town of Southeast, New York</div>
+  <h1 class="narrative-title">The Theall <em>Homestead</em></h1>
+  <p class="narrative-subtitle">The Iron Works Farm, Croton Valley Farm, the Pine Tree Lodge &mdash; the house on the road from Croton Falls to Brewster.</p>
+  <p class="narrative-meta">
+    <span>Putnam County, NY</span><span>From an 1811 deed</span><span>To present-day owners</span>
+  </p>
+
+  <div class="narrative-body">
+
+    <p class="source-note">Draft narrative &mdash; the chain of title is documented continuously from 1811 to 2022, and the building&rsquo;s hospitality era of the 1920s is now documented from contemporary newspapers. Map checks, probate files, and the pre-1811 Dutchess County chain remain open; unresolved questions are listed at the end.</p>
+
+    <h2><span class="h2-roman">I.</span> The Farm and the Building</h2>
+
+    <p>The white building on the east side of Route&nbsp;22 between Croton Falls and Brewster &mdash; for the past quarter-century the Jaipore Royal Indian Cuisine restaurant &mdash; is the surviving homestead of a farm that one extended family held for a hundred and seven years. From Hachaliah Theall&rsquo;s purchase of 142&frac14; acres in 1821 <span class="deed-ref">PC M/16</span>, through his widow&rsquo;s additions, his sons&rsquo; consolidation, the half-century stewardship of two brothers, and the Connecticut nieces and nephews who inherited it, the land passed by blood and by will &mdash; never once, in all that time, by an ordinary sale between strangers &mdash; until a Mount Kisco corporation bought it in 1928 and cut the house corner off for resale.</p>
+
+    <p>The property carries a remarkable sequence of names across the record. Before the Thealls it was <strong>&ldquo;the Hallett or Iron Works Farm&rdquo;</strong> <span class="deed-ref">PC A/262</span>; under the brothers it appears on the 1867 county atlas as <strong>&ldquo;Croton Valley Farm&rdquo;</strong>; in 1895 and 1898 it is the <strong>&ldquo;Arvah Theall Homestead Farm&rdquo;</strong> <span class="deed-ref">PC 80/155</span> <span class="deed-ref">PC 81/562</span>, weathering by 1910 into the <strong>&ldquo;Old Theall Homestead Farm&rdquo;</strong> <span class="deed-ref">PC 101/42</span>. Its hospitality era then produced four trade names in a decade: the <strong>Colonial Coffee House</strong> (by 1920), the <strong>Pine Tree Lodge</strong> (from May 1922), and the <strong>Beecher Lodge</strong> (by 1928) &mdash; the middle name fixed to this property beyond doubt by a 1924 notice describing the lodge as &ldquo;the property of Mrs. M.&thinsp;W. Jennings,&rdquo; whose only Brewster holding of record was this farm. Beneath the trade names ran a constant: the pine grove, and the colloquial name it gave the place &mdash; <strong>&ldquo;The Pines,&rdquo;</strong> the style Mary Jennings used of her own residence in the 1919 lease <span class="deed-ref">PC 117/365</span>, and the name a local family still used for the house in 1954.</p>
+
+    <h3>When was the house built?</h3>
+
+    <p>No instrument in the chain dates the building, and the phrase every twentieth-century deed carries &mdash; &ldquo;with the buildings and improvements thereon erected&rdquo; &mdash; is boilerplate that attests existence and never age. What the record supports is a bracket, and it has tightened from both ends.</p>
+
+    <p><strong>The land had no house of consequence in 1821.</strong> The evidence is arithmetic. Benjamin Lent assembled roughly 194 acres here in six purchases between 1811 and 1818, paying an average of about $23 an acre and as much as $37.50 for the best of it. He then sold Hachaliah Theall 142&frac14; acres at <strong>$18.63 an acre</strong> &mdash; the bottom of his own range. Lent kept the expensive ground and sold the plain; a working farm with a good dwelling commands a premium, and this did not. Nine consecutive instruments from 1811 through 1837 convey &ldquo;Land&rdquo; and never once mention buildings.</p>
+
+    <p><strong>Nothing could have been built between 1821 and 1842.</strong> Hachaliah died within ten years of buying, leaving a life interest to his widow and <strong>seven heirs holding undivided shares</strong> <span class="deed-ref">PC Q/150</span>; the last release came in November 1844. No one builds a substantial house on land in which he owns an undivided seventh.</p>
+
+    <p><strong>The window opens on December 28, 1842</strong>, when Thatcher and Arvah Theall took the homestead into clear title between them, and <strong>a Theall farmstead is on the county maps by 1854</strong>: R.&thinsp;F. O&rsquo;Connor&rsquo;s county map of that year marks structures at &ldquo;T.H. &amp; A. Theall&rdquo; on this road, the Beers atlas of 1867 labels the property <em>&ldquo;T.H. &amp; A. Theall &mdash; Croton Valley Farm&rdquo;</em> with the house symbol in place, and Reed&rsquo;s 1876 map repeats the label. One candor about the earliest sheet: at O&rsquo;Connor&rsquo;s small scale the structure symbols crowd the west side of the road while the surviving house stands east of it &mdash; which may be nothing more than an engraver&rsquo;s convention, or may mean the 1854 farmstead buildings stood across the road from the present dwelling. The maps prove continuous Theall occupation of this site from 1854; they cannot, at that scale, date the surviving house.</p>
+
+    <p>The building&rsquo;s visible form &mdash; gable-front main block, boxed cornice with returns, wide frieze, corner pilasters &mdash; is Greek Revival of roughly 1835&ndash;1865, and it is plainly not one campaign: a main block and a lower dormered wing. The family&rsquo;s finances offer two moments &mdash; the years just after consolidation, c.&thinsp;1843&ndash;48, and the flush years around the railroad settlement of 1850 <span class="deed-ref">PC W/270</span> and the mineral sales of 1857 <span class="deed-ref">PC 31/392</span> <span class="deed-ref">PC 32/2</span> <span class="deed-ref">PC 32/98</span>. The traditions of &ldquo;1850&rdquo; and &ldquo;1856&rdquo; both fall inside that span, and the honest present state of the question is a choice the paper record has not yet made: an 1840s house enlarged with iron money in the mid-1850s, or a new mid-1850s house replacing (or facing, across the road) an earlier farmstead. The assessment rolls, the 1855 state census &mdash; which recorded each dwelling&rsquo;s material and value &mdash; and the building&rsquo;s own fabric are the arbiters. Whichever way they rule, the arithmetic of ownership admits only one conclusion about authorship: <strong>the Thealls built it.</strong></p>
+
+    <h2><span class="h2-roman">II.</span> Before the Thealls: The Iron Works Farm</h2>
+
+    <p>The ground has a history before the family that gave it its lasting name. In August 1811 &mdash; seven months before Putnam County was carved out of Dutchess &mdash; <strong>Hackaliah Bailey of the Town of Somers</strong> and Mary R. his wife conveyed to <strong>Benjamin Lent</strong> an undivided third of a parcel described as</p>
+
+    <blockquote>
+      <p>part of a Farm commonly called the <strong>Hallett or Iron Works Farm</strong> &hellip; Beginning at the Southwesterly Corner of the hereby granted Premises by the Southeasterly Corner of <strong>David Crosby&rsquo;s Paper Mill Lot</strong> &amp; on the line between the Counties of West Chester &amp; Dutchess&hellip;</p>
+      <cite>Hackaliah Bailey to Benjamin Lent, August 5, 1811 &mdash; Putnam County Liber A of Deeds, p. 262</cite>
+    </blockquote>
+
+    <p>The name is the find. <em>The Hallett or Iron Works Farm</em> was what this tract was already called locally in 1811, and it points at iron working on the Croton at or beside this spot well before the Thealls arrived &mdash; which sets the family&rsquo;s 1857 sale of mineral rights in a far longer tradition than the mid-century mining boom alone would suggest. The paper mill named in the same breath is no less durable: <strong>David Crosby&rsquo;s Paper Mill</strong>, and its pond, appear as a boundary monument in nearly every description of this land for the next thirty-five years.</p>
+
+    <p>Benjamin Lent was an assembler, not a farmer buying a farm. Between 1811 and 1818 he made six purchases here &mdash; four from Bailey, one from Aaron Brown, one from James Phillips &mdash; and recorded all six in a single week at the end of August 1818:</p>
+
+    <div class="deed-table-wrap">
+      <table class="deed-table">
+        <thead>
+          <tr><th>Deed</th><th>Date</th><th>Grantor</th><th>Extent</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="dt-ref">A/262</td><td class="dt-date">Aug. 5, 1811</td><td class="dt-parties">Hackaliah Bailey</td><td class="dt-notes">7 ac. 2 r. 34 rods</td><td class="dt-notes">$115.68</td></tr>
+          <tr><td class="dt-ref">A/264</td><td class="dt-date">May 10, 1814</td><td class="dt-parties">Aaron Brown</td><td class="dt-notes">1 ac. 2 r. 14 rods</td><td class="dt-notes">$105</td></tr>
+          <tr><td class="dt-ref">A/267</td><td class="dt-date">Mar. 25, 1815</td><td class="dt-parties">Hackaliah Bailey</td><td class="dt-notes">19 ac. 1 r. 13 rods</td><td class="dt-notes">$583</td></tr>
+          <tr><td class="dt-ref">A/265</td><td class="dt-date">Dec. 9, 1816</td><td class="dt-parties">Hackaliah Bailey</td><td class="dt-notes">40 ac.</td><td class="dt-notes">$1,500</td></tr>
+          <tr><td class="dt-ref">A/269</td><td class="dt-date">Dec. 1817</td><td class="dt-parties">Hackaliah Bailey</td><td class="dt-notes">108 ac. in three pieces</td><td class="dt-notes">$2,000</td></tr>
+          <tr><td class="dt-ref">A/271</td><td class="dt-date">Apr. 4, 1818</td><td class="dt-parties">James Phillips</td><td class="dt-notes">17 ac. 2 r. 20 perches</td><td class="dt-notes">$200</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Three years later he sold 142&frac14; acres of it to Hachaliah Theall and kept the rest &mdash; which is why the Phillips lot appears in every subsequent description of the homestead as an <em>adjoining</em> monument rather than as part of it. The 40-acre and 108-acre Bailey purchases together make 148 acres, and are the most likely core of what became the Theall farm.</p>
+
+    <p>Hackaliah Bailey requires a word. He was of Somers, in Westchester County, and he was not an obscure man: the Bailey who bought the elephant Old Bet, launched the American traveling menagerie business, and built the Elephant Hotel that still stands on the Somers green. Four of the six deeds that assembled this property came from his hand. The coincidence of his given name with <strong>Hachaliah Theall</strong>&rsquo;s &mdash; a rare name, in two neighboring families, in the same decade and the same small orbit &mdash; is the sort of thing that usually indicates kinship or naming across families rather than accident, and the association persisted: Thatcher and Arvah Theall were still trading with a Bailey in 1860 and 1862.</p>
+
+    <p class="source-note"><strong>Source note:</strong> the identification of the grantor as the menagerie proprietor rests on the name, the residence recited in the deeds (Town of Somers, Westchester County), and the dates. It has not been confirmed from Bailey family papers.</p>
+
+    <h2><span class="h2-roman">III.</span> Hachaliah and Huldah</h2>
+
+    <p>On <strong>June 25, 1821</strong>, Benjamin and Belinda Lent of Somers conveyed to <strong>&ldquo;Huckaliah Theal&rdquo; of North Salem</strong>, Westchester County, for <strong>$2,650</strong>, a tract &ldquo;Containing One hundred and forty two acres and one rood&rdquo; <span class="deed-ref">PC M/16</span>. The deed was not recorded for some eighteen years &mdash; the first and largest instance of a habit that runs through this family&rsquo;s paper, which recorded promptly when a transaction needed to be public and sat on it otherwise.</p>
+
+    <p>The description is a period piece. It begins &ldquo;at a stake by a stone wall the northwest side of the <strong>Croton Turnpike road</strong>&rdquo; &mdash; the road&rsquo;s proper name, two identities before it became the State Road and three before Route&nbsp;22 &mdash; and the tract straddles the turnpike from the outset, crossing the river &ldquo;at the head of the <strong>paper Mill pond</strong>&rdquo; and running to within fifty links of the Croton&rsquo;s west bank. The western pieces of every later description of this property, down to the small triangle whose title was still doubtful in 1946, descend from that ground west of the road. The adjoining owners named &mdash; James Gregory at the river, Nathan Mead north, Samuel T. and Zebediah Brown east, and <strong>David Adams</strong> south at a black oak tree &mdash; recur for the better part of a century; the Adams family still bounds the farm on the south in a deed of 1910.</p>
+
+    <p>Hachaliah Theall did not hold it long. On <strong>April 2, 1831</strong>, Aaron and Letty Brown of Somers sold twenty-six acres and twelve perches to <strong>Huldah Theall, of the town of Southeast</strong>, for about $217 <span class="deed-ref">PC H/486</span> &mdash; and the bounds of that parcel run twice against &ldquo;the lands of <strong>the heirs of Hachaliah Theal Dec&rsquo;d</strong>.&rdquo; He was dead by the spring of 1831, having owned his farm for at most ten years. His widow was buying land in her own name, and living on the place.</p>
+
+    <p>The composition of the homestead was set out fifty-five years later by a man who had grown up on it. Arvah Theall&rsquo;s will of 1886 describes his farm as containing about one hundred and eighty acres,</p>
+
+    <blockquote>
+      <p>which includes the farm of land purchased by my father Hachaliah Theall of Benjamin Lent containing about one hundred and forty acres, and twenty six acres which my mother Huldah Theall purchased of Aaron Brown, and it also includes a strip of land of about fifteen acres of the Travis farm, left after the sale to John H. Cheever&hellip;</p>
+      <cite>Will of Arvah Theall, January 22, 1886 &mdash; Putnam County Liber 68 of Deeds, p. 126</cite>
+    </blockquote>
+
+    <p>Both purchases check to the perch against the deeds themselves, and the acreages sum &mdash; 142&frac14; plus 26 plus about 15 &mdash; to the &ldquo;about one hundred and eighty&rdquo; he recalled. It is a striking piece of accuracy at that distance.</p>
+
+    <p>A fourth acquisition belongs to the next generation. On <strong>April 17, 1837</strong>, Daniel S. Judd, Betsey Deck(?), and Ann Dean of Patterson sold <strong>thirty-five acres</strong> west of the turnpike &mdash; river to road, Elijah Dean north, David Adams south &mdash; to three of Hachaliah&rsquo;s sons: <strong>Hopkins, Arva, and Orrin Theall</strong>, for $2,000 <span class="deed-ref">PC L/83</span>. At roughly $57 an acre that is three times the rate the family paid for the homestead, on ground that included river frontage and a bridge; what made it worth the money is an open question, and a mill privilege is the obvious thing to test.</p>
+
+    <p class="source-note"><strong>Source note:</strong> Hopkins Theall appears in this deed and in no other Putnam instrument. His undivided third of the 35 acres was never released of record, so far as the index shows &mdash; a loose end noted below.</p>
+
+    <h2><span class="h2-roman">IV.</span> The Consolidation, 1841&ndash;1845</h2>
+
+    <p>Hachaliah Theall left a will. Two deeds recite it, and between them they describe its architecture: a life estate to his widow in her thirds, with the remainder at her death <em>&ldquo;equally to be divided between the heirs of the said Hachaliah Theall deceased&rdquo;</em> &mdash; and one of those heirs, quit-claiming in 1842, reserves to himself <strong>&ldquo;the equal undivided one Seventh part&rdquo;</strong> of it <span class="deed-ref">PC Q/150</span>. Seven heirs. The will itself has not been located.</p>
+
+    <p>Gathering seven undivided shares into working hands took four years and six instruments:</p>
+
+    <p><strong>January 2, 1841</strong> &mdash; <strong>Lydia L. Theall</strong> releases her share of the 142 acres to <em>three</em> brothers, Thacher, Arva, and Orwin, for $500 <span class="deed-ref">PC S/32</span>. Orwin is then living in New York City. The deed is held four years before recording.</p>
+
+    <p><strong>April 1, 1842</strong> &mdash; Orwin conveys his inherited interest in both parcels to his mother, for $1,200 and $1,000 <span class="deed-ref">PC P/428</span> <span class="deed-ref">PC P/429</span>.</p>
+
+    <p><strong>December 26, 1842</strong> &mdash; Huldah conveys it all back to him for <strong>$2,200</strong>, the April sums reversed to the dollar <span class="deed-ref">PC Q/154</span>. The round trip was procedural: title had to be gathered in one pair of hands and passed on in a form that preserved the widow&rsquo;s life estate, which Huldah could not have done by conveying directly.</p>
+
+    <p><strong>December 28, 1842</strong> &mdash; Orwin and Ann Maria his wife convey the homestead to <strong>Thacher H. and Arvah Theall</strong> for $1,200, expressly reserving his one-seventh of the widow&rsquo;s thirds <span class="deed-ref">PC Q/150</span>; and by a second deed the same day, his undivided third of the 35 acres for $700 <span class="deed-ref">PC Q/153</span>. Orwin took his money and left; four decades later his brother&rsquo;s will would find him at Tamarack in Danbury, Connecticut.</p>
+
+    <p><strong>November 19, 1844</strong> &mdash; <strong>Susan Theall</strong> releases her share for $300 <span class="deed-ref">PC S/34</span>. She executes alone, with no husband joining and no private examination &mdash; the procedure applied to every married woman in these instruments. Susan Theall was unmarried in the autumn of 1844. She married a Jennings afterward, and that marriage is the hinge on which the second half of this history turns.</p>
+
+    <p>Two of the acknowledgments were taken by <strong>Thacher H. Theall, &ldquo;one of the Justices of the Peace of said County of Putnam&rdquo;</strong> &mdash; a detail that will matter when we come to the legends. He was serving as a magistrate from at least May 1842, seven months before he took title to his father&rsquo;s farm.</p>
+
+    <h2><span class="h2-roman">V.</span> Thatcher and Arvah: The Brothers&rsquo; Half-Century</h2>
+
+    <p>From December 1842 until his death in the winter of 1885&ndash;86, the Old Theall Homestead belonged to two brothers. The deed indexes record &ldquo;Thatcher H. &amp; Arvah&rdquo; buying and selling together for forty-four years, and Thatcher&rsquo;s will removes any doubt about the relationship: he leaves everything to <strong>&ldquo;my brother, Arvah Theall.&rdquo;</strong> Neither will mentions a wife or a child. The Theall homestead of the mid-nineteenth century was a brothers&rsquo; household, kept in Arvah&rsquo;s later years by a housekeeper, <strong>Antionette Turner</strong>, whom he remembered with a $3,000 life trust.</p>
+
+    <p>Their tenure left three marks on the property that outlasted them.</p>
+
+    <p><strong>The railroad, 1850.</strong> The New York and Harlem Rail Road, extending through Putnam County, <em>&ldquo;did take by appraisement a certain strip or piece of land running through the farm of Thacher H. Theal and others&hellip; extending from the lands of James Gregory on the southerly side thereof to the lands of Stebbins B. Quick on the north.&rdquo;</em> The instrument recorded at <span class="deed-ref">PC W/270</span> is not a conveyance but the settlement that followed the taking: the brothers accepted <strong>$496.50</strong> and bound themselves and their heirs <em>&ldquo;to make and forever maintain the fences on both sides of said strip.&rdquo;</em> The fee stayed with the Thealls; the covenant was drawn to run with the land forever, and no deed in this chain after 1895 mentions it. The three-piece shape that every twentieth-century description of the farm inherited &mdash; the main tract east of the highway, a small parcel between the City of New York&rsquo;s watershed lands and the railroad, and acreage west of the tracks &mdash; dates from this crossing.</p>
+
+    <p><strong>The iron, 1857&ndash;1861.</strong> By 1854 the O&rsquo;Connor map shows the <strong>&ldquo;Harvey Steel &amp; Iron Comp&rsquo;y&rdquo;</strong> holding the ground immediately west of the railroad &mdash; an organized works next door, on a tract that had carried the name Iron Works Farm since at least 1811. Three years later, selling to that market, the brothers sold the mineral rights beneath it to <strong>Holman J. Hale</strong> of Patterson in three deeds <span class="deed-ref">PC 31/392</span> <span class="deed-ref">PC 32/2</span> <span class="deed-ref">PC 32/98</span>. They sold the ore and kept the farm. Four years later the index records a sheriff&rsquo;s sale of Hale&rsquo;s property <em>to Thatcher Theall</em> <span class="deed-ref">PC 37/87</span> &mdash; which, if it covered Hale&rsquo;s interest here, means the severance came home in 1861. Yet the 1857 deeds were recited as a live exception in every conveyance of the house parcel from 1928 through 1963: a title exception surviving as a fossil, copied forward by five successive drafters, possibly a century after the thing it described had been extinguished.</p>
+
+    <p><strong>The neighbors, fixed.</strong> Arvah&rsquo;s will bounds the homestead &ldquo;on the north by lands of <strong>Stebbins B. Quick</strong> and the farm known as the <strong>David Adams</strong> farm; on the east by the public highway and lands late of David Adams&nbsp;Jr., deceased, and lands of Augustus Adams; on the south by lands of <strong>Julia Chamberlain</strong> and the public highway; and on the west by lands of <strong>John H. Cheever</strong>&rdquo; &mdash; Cheever having bought the family&rsquo;s mine-side land west of the railroad in 1880 <span class="deed-ref">PC 61/15</span>. Quick is the &ldquo;one Quick&rdquo; whose name survives, first-name-less, in surveys made eighty years later.</p>
+
+    <p><strong>The farm, mapped and named.</strong> Three county maps carry the brothers&rsquo; tenure. O&rsquo;Connor&rsquo;s map of 1854 marks &ldquo;T.H. &amp; A. Theall&rdquo; at the homestead with the Adams farms in position north and south; the Beers atlas of 1867 labels the property <strong>&ldquo;CROTON VALLEY FARM&rdquo;</strong> &mdash; the name the brothers themselves used, at the height of their proprietorship &mdash; with the railroad strip drawn from Gregory&rsquo;s land to Quick&rsquo;s exactly as the 1850 agreement describes it; and Reed&rsquo;s map of 1876 repeats the label a decade before Thatcher&rsquo;s death. All three also mark a second improved Theall parcel up the road toward Dean&rsquo;s Corners &mdash; a structure on the 35-acre western lot of 1837, which may bear on what three brothers paid $57 an acre for. Reed adds one more connection: the farm sits in common school <strong>District No.&thinsp;8</strong>, the Dean&rsquo;s Corners district, whose schoolhouse story is told elsewhere on this site.</p>
+
+    <h3>Two wills, two winters</h3>
+
+    <p>Thatcher H. Theall drew a two-clause will on February 27, 1868 &mdash; debts paid, everything to Arvah &mdash; and never revised it. It was admitted to probate on March 15, 1886 and recorded the next day <span class="deed-ref">PC 66/331</span>. Everything the brothers had built vested in Arvah alone.</p>
+
+    <p>Arvah outlived him by two years. His own will, drawn <strong>January 22, 1886</strong> &mdash; within weeks of his brother&rsquo;s death &mdash; is a far more elaborate document: a life estate in the homestead to his sister <strong>Susan Jennings</strong>, then to her son <strong>Charles H. Jennings</strong> for life, charged with $200 a year for Charles&rsquo;s brother <strong>Franklin</strong>, the remainder in fee to Charles&rsquo;s heirs and Franklin&rsquo;s children; his farms at Hayestown and Tamarack in Danbury, Connecticut to his nephew <strong>Eugene T. Jennings</strong> for life; $8,000 to his niece <strong>Nancy E. Reynolds</strong>; trusts for his housekeeper and for his surviving brother <strong>Orwin</strong>; the residue to his sister <strong>Eleanor Ann Noble</strong> and the Noble nieces and nephews. His executors were given a power of sale over all his real estate <em>&ldquo;except the said homestead farm.&rdquo;</em> The will was proved February 21, 1888 <span class="deed-ref">PC 68/125</span>; the executors&rsquo; sales of the outlying land followed the next year <span class="deed-ref">PC 69/73</span> <span class="deed-ref">PC 69/102</span>.</p>
+
+    <p>That exception is the hinge of the whole history. The homestead could not be sold. It could only descend.</p>
+
+    <h2><span class="h2-roman">VI.</span> The Jennings Inheritance</h2>
+
+    <p>The connection was older than the will. When Thatcher and Arvah signed their agreement with the Harlem Railroad in July 1850, the subscribing witness was <strong>&ldquo;Aaron Jennings&hellip; that he resides at Croton Falls, in the county of Westchester&rdquo;</strong> <span class="deed-ref">PC W/270</span> &mdash; a Jennings standing in the room with the Theall brothers, a few miles down the same road, at just the period when Susan Theall, unmarried in 1844, would have been marrying into the family. Whether that man is the Aaron Jennings who conveys this farm forty-five years later, or his father, the record does not say. What it establishes is that the Jenningses were neighbors long before they were heirs.</p>
+
+    <p>Susan Jennings took her life estate in February 1888. The record then falls almost silent &mdash; the natural silence of title moving by death rather than by deed &mdash; until two quitclaims from <strong>Aaron Jennings of Southport, Connecticut</strong> to <strong>Mary Wells Jennings, of the same place</strong>, carry the farm into the twentieth century.</p>
+
+    <p>The first, dated July 26, 1895 and recorded eighteen months later <span class="deed-ref">PC 80/155</span>, releases for one dollar all Aaron&rsquo;s interest in &ldquo;all that tract or farm of land&hellip; known as the &lsquo;Arvah Theall Homestead Farm,&rsquo;&rdquo; reciting it as &ldquo;a portion of the property of which Arvah Theall died seized.&rdquo; The second, dated April 2, 1898 <span class="deed-ref">PC 81/562</span>, states his capacity outright:</p>
+
+    <blockquote>
+      <p>It being intended by this Instrument to convey and assign to the party of the second part, all the right, title and interest which the party of the first part has or may have <strong>by reason of being an heir of Charles&nbsp;H. Jennings, deceased</strong>, in and to the farm above described, and any award made therefor&hellip;</p>
+      <cite>Aaron Jennings to Mary Wells Jennings, April 2, 1898 &mdash; Putnam County Liber 81 of Deeds, p. 564</cite>
+    </blockquote>
+
+    <p>Arvah&rsquo;s machinery had executed as drawn: the life estates ran their course and the remainder fell to the heirs of Charles H. Jennings, Aaron among them. The 1895 deed does not mention Charles; the 1898 deed names him dead. Charles H. Jennings therefore died between July 1895 and April 1898.</p>
+
+    <p>The later deed preserves something else. It assigns Aaron&rsquo;s interest in a fund on deposit at the Knickerbocker Trust Company of New York &mdash; &ldquo;part of an award for a portion of the above described farm known as <strong>parcel No.&nbsp;143</strong>, in a certain proceeding to condemn land for the New York City Water Supply, known as the <strong>First Brewster Supplemental Proceeding</strong>.&rdquo; Part of the Theall farm had gone under the Croton system, which accounts in some measure for the shrinkage from the will&rsquo;s &ldquo;about one hundred and eighty acres&rdquo; to the 145 conveyed in the twentieth century.</p>
+
+    <p class="source-note"><strong>Source note:</strong> Mary Wells Jennings&rsquo;s exact relation to Aaron is not stated in any instrument. The deeds support &ldquo;kinswoman of the same Southport household&rdquo; and no more. Susan Jennings&rsquo;s death date has not been established.</p>
+
+    <h2><span class="h2-roman">VII.</span> Mary Jennings, Abel Byers, and the Nolan Sisters</h2>
+
+    <p>On March 5, 1910, Mary Wells Jennings &mdash; then &ldquo;of the Village of Brewster&rdquo; &mdash; conveyed the whole farm to <strong>Abel H. Byers of Hamburg, Berks County, Pennsylvania</strong>, with full covenants, for a stated $1,000 <span class="deed-ref">PC 101/42</span>. The price is a fraction of any plausible value for 145 acres with buildings, and the sequel shows the sale was never what it appeared. Eleven years later Byers reconveyed to Mary for one dollar, subject to $2,500 of mortgages held by Fannie A. Brundage and to a sitting tenancy <span class="deed-ref">PC 131/51</span> &mdash; and that deed sat unrecorded until 1925. In between comes the decisive document.</p>
+
+    <p>On October 18, 1919, <strong>&ldquo;Mrs. Mary W. Jennings, of &lsquo;The Pines,&rsquo; Town of Southeast&rdquo;</strong> and Abel H. Byers jointly let the farm &mdash; 137 acres in round figures, with the buildings, improvements, <em>and the owner&rsquo;s furniture in the house</em> &mdash; to <strong>Adeline Nolan and Marie Nolan of Pawling</strong>, for five years from November 1, 1919 at $900 the first year and $1,000 thereafter, with a five-year renewal option and a first privilege of purchase <span class="deed-ref">PC 117/365</span>. The tenants were to install electric lights in the dwelling, repaint it, put the plumbing &ldquo;in perfect order,&rdquo; repair the roofs and &ldquo;all balconies,&rdquo; build a new stoop off the back kitchen, and place chemical fire extinguishers in the main building by August 1, 1920; the fire clause suspends rent if damage should &ldquo;prevent the transaction of business therein.&rdquo; The lease never says &ldquo;boarding house.&rdquo; It describes one being fitted out &mdash; and in passing gives the house its condition report for 1919: no electricity yet, plumbing in, tin roof, multiple balconies, a back kitchen, a &ldquo;main building&rdquo; distinguished from others.</p>
+
+    <p>And one clause lays the Byers arrangement bare:</p>
+
+    <blockquote>
+      <p>Mary&nbsp;W. Jennings&hellip; nominates the tenants herein, Adeline and Marie Nolan, as her sole agents in the management of the estate herein <strong>for Abel&nbsp;H. Byers</strong>, that is, to pay the taxes, the interest on a mortgage on said premises, and to see about the insurance, and all disbursements are to be charged against the rent, plus four per cent interest, the said Tenants to render the said Abel&nbsp;H. Byers <strong>a yearly statement of account</strong>.</p>
+      <cite>Lease, Jennings &amp; Byers to Nolan, October 18, 1919 &mdash; Putnam County Liber 117 of Deeds, p. 368</cite>
+    </blockquote>
+
+    <p>Byers holds record title and receives an annual accounting; Mary remains the principal, resident on the place and letting it in her own name. Whatever the 1910 transaction secured, beneficial ownership never really left her &mdash; and in 1924, with Byers&rsquo;s reconveyance still sitting unrecorded, the local press would describe the lodge simply as &ldquo;the property of Mrs. M. W. Jennings.&rdquo;</p>
+
+    <p>And the Nolans&rsquo; establishment now has its name. In July 1920 the <em>Brewster Standard</em> noted that <strong>&ldquo;the Colonial Coffee House opened last Sunday for the season. It is ideally situated about midway between Brewster and Croton Falls and hundreds of autos pass each week. The house is surrounded by large pine trees and looks very inviting to the tired travelers to stop for refreshments.&rdquo;</strong> Midway between the villages, ringed by the pines &mdash; this is the farm, in the second season of the sisters&rsquo; lease, trading as the <strong>Colonial Coffee House</strong>. The pine grove that would name everything afterward was already the landmark.</p>
+
+    <h2><span class="h2-roman">VIII.</span> The Pine Tree Lodge</h2>
+
+    <p>In May 1922 the establishment changed hands and names. The local press announced that the house &mdash; &ldquo;the successor of the Colonial Coffee House&rdquo; &mdash; would open on May 30 as the <strong>Pine Tree Lodge</strong>, under &ldquo;the personal directorship of <strong>F.&nbsp;D. Van&nbsp;Vechten</strong>,&rdquo; with fifteen mechanics then at work on alterations and everything &ldquo;from a bite to a banquet&rdquo; promised to motorists on the state road from the Bronx to the Berkshires. Two advertisements that same month say plainly what the opening notice implied &mdash; the lodge was <em>&ldquo;formerly the Colonial Coffee House&rdquo;</em> at the same Croton Falls 10-M telephone &mdash; and a third shows Van&nbsp;Vechten renting out the farm&rsquo;s pasture land, running the agricultural side alongside the hospitality. A picture postcard &mdash; &ldquo;Pine Tree Lodge, Brewster, N.Y., F.&nbsp;D. Van&nbsp;Vechten, Managing Director&rdquo; &mdash; and a brochure (&ldquo;45 Miles from New York &mdash; Between Croton Falls and Brewster&rdquo;) document the operation, and the postcard&rsquo;s image is identifiable as this building: the same pedimented gable with its paired tympanum windows, the same lower wing, and the same stone retaining wall that still runs along Route&nbsp;22, with the grove beside the house. How Van&nbsp;Vechten&rsquo;s directorship meshed with the Nolan sisters&rsquo; still-running lease is undocumented; the sisters drop from the record after 1921.</p>
+
+    <p>Then, in the lodge&rsquo;s second season, the movies arrived &mdash; and the local press covered it week by week. On September 14, 1923, under <strong>&ldquo;Pine Tree Lodge to House Stars&rdquo;</strong>:</p>
+
+    <blockquote>
+      <p>On Monday morning, Sept. 24, F.&nbsp;D. VanVechten will welcome a cluster of twenty-five Griffith stars at the Pine Tree Lodge, which has been chosen as <strong>headquarters for 300 members of the most famous cast in filmdom</strong> during the time they are engaged on location at Somers, N.Y., where certain episodes of the American Revolution are being staged.</p>
+      <cite>Local press, September 14, 1923</cite>
+    </blockquote>
+
+    <p>The production was D.&nbsp;W. Griffith&rsquo;s <em>America</em>, his Revolutionary War epic for the sesquicentennial. A week later the papers reported U.S. Army Regulars arriving to <strong>&ldquo;encamp near the Pine Tree Lodge&rdquo;</strong> for the battle scenes &mdash; &ldquo;the VanVechten camp&rdquo; &mdash; and that <strong>&ldquo;this morning 347 ate breakfast served by the Pine Tree Lodge hostelry,&rdquo;</strong> with a hundred more extras expected the next day. The Independent Market took the contract to feed &ldquo;the D.&nbsp;W. Griffith force of movie actors now housed and boarded at Pine Tree Lodge, Brewster,&rdquo; butchering an entire steer for a single day&rsquo;s feeding, with the count expected to swell to five hundred; Griffith borrowed the Cameo Theatre in Brewster from its managers, Marasco and O&rsquo;Neil, to screen the day&rsquo;s footage; his motorcar drew a crowd of admirers on Main Street; and the papers speculated that Dorothy and Lillian Gish would star &mdash; a guess the finished film did not bear out, the lead going to Carol Dempster. The coverage was not all festive: in early October a soldier reloading a cannon near Somers had his hand blown off &mdash; &ldquo;the first accident that has happened since the moving pictures have been here at the Pine Tree Lodge, and we hope the last.&rdquo; The film premiered at the Forty-fourth Street Theatre in New York on February 21, 1924, with Dempster, Neil Hamilton, and Lionel Barrymore leading the cast. The old tradition that Griffith&rsquo;s people stayed here turns out to have been, if anything, too modest: for the autumn of 1923 this farm was the production&rsquo;s headquarters, hotel, and commissary.</p>
+
+    <figure>
+      <img src="../images/theall-homestead/griffith-on-location-1923.jpg" alt="Black-and-white photograph in an open field: two men in tricorne hats, wigs, and Revolutionary-era coats and capes stand at left; a mounted rider waits behind them; a man in a business suit and bowler hat holds a flintlock musket at center; a young woman in an eighteenth-century gown with a parasol stands at right; a line of costumed extras and horses is drawn up in the distance.">
+      <figcaption>D.&nbsp;W. Griffith &mdash; the man in the bowler hat and business suit, holding the musket &mdash; with costumed players and mounted extras during the making of <em>America</em>. The Library of Congress record titles the negative simply as Griffith during filming and does not say where it was made; the date carried with it in the collection falls after the weeks the company boarded on this farm. It stands here as a picture of the production, not of this place. <em>National Photo Company Collection, Prints &amp; Photographs Division, Library of Congress (catalog record 2016836079).</em></figcaption>
+    </figure>
+
+    <p class="source-note"><strong>Source note:</strong> a 1961 retrospective recalled the cast at a &ldquo;Colonial Pines Inn,&rdquo; with the soldiers &ldquo;encamped on the Colonial Pines acres where the Motel is now located.&rdquo; With the Colonial Coffee House now documented at this property and the 1923 press placing the Army camp <em>near</em> the lodge, that name is best read as a later blending of this establishment&rsquo;s own successive names &mdash; <em>Colonial</em> Coffee House, the <em>Pines</em> &mdash; rather than as a separate house; the camp fields plausibly correspond to the later motor-court parcel up the road.</p>
+
+    <p>One more name completes the era. A 1924 notice records that <strong>&ldquo;Mrs. Henry Ward Beecher of New York City has leased the property of Mrs. M.&nbsp;W. Jennings at Brewster, known as the Pine Tree Lodge&rdquo;</strong> &mdash; and by March 1928 the press could call the house <strong>&ldquo;the famous Beecher Lodge, also known as Pine Tree Lodge.&rdquo;</strong> The tenancy did not merely occupy the house; it renamed it. Who she was is a genuine question &mdash; the abolitionist&rsquo;s widow, Eunice White Beecher, died in 1897, so the lessee of 1924 was the wife or widow of a namesake descendant, and her identification is an open item &mdash; but her establishment evidently ran to the end of the family&rsquo;s ownership. Van&nbsp;Vechten had moved on: by January 1926 he was &ldquo;formerly proprietor of Pine Tree Lodge,&rdquo; lately of a Miami hotel season and newly the purchaser of the Henshaw Inn at Mount Kisco. A retrospective reprinting of that item decades later appended three words that certify the whole identification: Pine Tree Lodge, Brewster &mdash; <em>&ldquo;(now Cunningham&rsquo;s).&rdquo;</em></p>
+
+    <p>The end came as a real-estate story. On March 9, 1928 the press reported that &ldquo;the famous Beecher Lodge&hellip; and the adjoining 140 acre estate of Mary [W.] Jennings has been sold to a <strong>Mount Kisco Syndicate headed by William J. Towey</strong>,&rdquo; James F. Greene brokering &mdash; a property &ldquo;with about one mile of frontage on two highways.&rdquo; The syndicate&rsquo;s vehicle was the <strong>Elwoody Tire Co. Inc.</strong>, and the deed followed on April 2, 1928 <span class="deed-ref">PC 144/401</span>, reciting J. Albert Schaefer&rsquo;s survey of February 1926. A hundred and seven years of family ownership ended in a subdivider&rsquo;s purchase.</p>
+
+<h2><span class="h2-roman">IX.</span> The Severance and the Ten Acres</h2>
+
+    <p>Elwoody Tire held the homestead corner for four months. On August 21, 1928 the corporation, by its president <strong>Barney H. Elman</strong>, conveyed a newly drawn parcel of <strong>10.036 acres</strong> &mdash; the house, its road frontage, and the ground behind it, carved from the northwest corner of the old farm on Schaefer&rsquo;s survey courses &mdash; to <strong>Eugene M. and Josephine S. Michel</strong> of Grant City, Staten Island <span class="deed-ref">PC 146/398</span>. The company kept and subdivided the rest, which is why &ldquo;land now or formerly of Elwoody Tire Company&rdquo; bounds the parcel in every deed for thirty-five years &mdash; and why the boundary figures on the modern tax map around the restaurant are, segment for segment, Schaefer&rsquo;s 1926 wall courses added together.</p>
+
+    <p>The Michels invested at once. That October the press reported P.&nbsp;F. Beal and Sons&rsquo; completion of <strong>a ninety-foot flowing artesian well</strong> for &ldquo;Eugene Michel, the new owner of the Pine Tree Lodge property on the Croton Falls&ndash;Brewster road&rdquo; &mdash; &ldquo;said to be the finest in Putnam county,&rdquo; the driller marveling that when he struck water &ldquo;he thought the Atlantic and Pacific had met in a storm.&rdquo; The lodge name still attached to the place, and the new owners were fitting it for a working future.</p>
+
+    <p>From the severance forward the ten acres has its own unbroken chain. Eugene Michel died within five years; his widow sold on June 23, 1933 &mdash; ten weeks after legal beer returned and five months before Repeal &mdash; to <strong>George and Alfred E. Muller</strong> of the Bronx as joint tenants, at a price the documentary stamps and assumed mortgage put near $18,000 <span class="deed-ref">PC 186/227</span>. Alfred died; George survived to the whole; an intra-family deed of 1945 put the property in George and Elizabeth Muller <span class="deed-ref">PC 300/396</span>, excepting a sliver taken for the reconstruction of the Croton Falls&ndash;Brewster state highway; and in April 1946 the Mullers sold to <strong>David B. and Lillian M. Griffin</strong> of Brewster <span class="deed-ref">PC 306/497</span>. Griffin, widowed, sold in 1959 to <strong>Henry Van Pala</strong> <span class="deed-ref">PC 520/222</span>; Van Pala, removed to Ridgefield, sold in November 1963 to <strong>William F. Cunningham</strong> for about $30,000, financed by a $25,000 purchase-money mortgage to the Putnam County Savings Bank <span class="deed-ref">PC 584/381</span>.</p>
+
+    <p>The commercial era the town remembers unfolds within the next two ownerships. Cunningham&rsquo;s restaurant occupied his own tenure, 1963&ndash;1975. <strong>Vincent Ficarra</strong> bought in September 1975 <span class="deed-ref">PC 730/475</span>, and both the Inner Circle club of local memory and the later Riverhouse restaurant fall within his ownership &mdash; a sequence worth stating precisely, because popular retellings shuffle it. In 1993 the Jaipore restaurant opened in the building as a tenant; <strong>Prime India Enterprises Inc.</strong> took title in August 1999 <span class="deed-ref">PC 1480/470</span>, and conveyances in 2015 <span class="deed-ref">PC 1990/270</span> and 2022 <span class="deed-ref">PC 2273/117</span> brought the property to its present corporate owner, with the restaurant operating throughout.</p>
+
+    <p class="source-note"><strong>Source note:</strong> the instruments from 1975 forward are cited from the assessor&rsquo;s ownership card and the county index and have not yet been individually read. Whether Cunningham operated in the building as a tenant before purchasing in 1963 remains an open occupancy question, as does the precise sequence of club and restaurant operations within the 1975&ndash;1999 ownership.</p>
+
+    <h2><span class="h2-roman">X.</span> The Legends, Tested</h2>
+
+    <p>A building this visible, with a commercial life this long, accumulates stories. The chain of title, the contemporary newspapers, and the settled chronologies of the famous names involved are the instruments for testing them. Taken in turn:</p>
+
+    <h3>&ldquo;Lucky Luciano once owned it&rdquo;</h3>
+
+    <p>The claim circulates locally as a secondhand report that an earlier owner saw the name &ldquo;in the history of the deeds.&rdquo; That is a testable assertion, and it fails. The chain is complete and fully named from 1811 to the present: Bailey, Brown, and Phillips to Lent; Lent to the Thealls; four generations of Thealls; the Jennings family by devise and descent, with the Byers interlude of 1910&ndash;1921 documented as a title-parking arrangement in which Mary Jennings remained the principal; then Elwoody Tire, Michel, Muller, Griffin, Van Pala, Cunningham, Ficarra, Prime India, and two successor companies. No Luciano, no Lucania, no known alias, and no corporation without an independent documented existence appears anywhere in it. The arithmetic forecloses even the gaps: Salvatore Lucania was born in November 1897 and arrived in New York as a child around 1906&ndash;07 &mdash; he was twelve when the 1910 conveyance opened the century, and the property was held by the same family throughout his infancy. His own residences are documented continuously &mdash; East Tenth Street to 1927, then the Barbizon Plaza, then the Waldorf Towers, all in Manhattan &mdash; and the extensive literature on his properties places nothing in Putnam County. No document supporting the claim has ever been produced.</p>
+
+    <p>What a deed chain cannot test is patronage. Whether anyone of that world ever dined at a roadhouse on the state highway is a question no surviving record is likely to answer, and on that narrower point the file is simply silent.</p>
+
+    <h3>&ldquo;An early Charlie Chaplin studio&rdquo;</h3>
+
+    <p>Refuted by the settled chronology of Chaplin&rsquo;s career. He toured America with the Karno company until signing with Keystone in September 1913, arrived in Los Angeles that December, and made his first film there in early 1914; his subsequent studios were in California, with a Chicago interlude. There was never a Chaplin studio in the East, and nothing connects him to this building. The claim has already softened in local retellings &mdash; from &ldquo;occupied by the Charlie Chaplin Studios&rdquo; to &ldquo;productions associated with&rdquo; them &mdash; which is what happens to a story with nothing beneath it.</p>
+
+    <h3>The Griffith tradition &mdash; confirmed, and then some</h3>
+
+    <p>The tradition held that D.&nbsp;W. Griffith&rsquo;s people used or were housed in this building during the 1923 filming of <em>America</em>. The contemporary record, recovered in the course of this research, says far more: the Pine Tree Lodge &mdash; this house &mdash; was reported on September 14, 1923 as <strong>&ldquo;chosen as headquarters for 300 members of the most famous cast in filmdom&rdquo;</strong>; a week later <strong>347 people ate breakfast served by &ldquo;the Pine Tree Lodge hostelry&rdquo;</strong> while Army Regulars encamped beside the farm for the battle scenes; the local butcher cut up a steer a day to feed a count expected to reach five hundred; the day&rsquo;s footage was screened at the Cameo Theatre in Brewster; and in October a soldier lost his hand to a cannon misfire &mdash; &ldquo;the first accident&hellip; since the moving pictures have been here at the Pine Tree Lodge.&rdquo; The overflow filled the neighborhood &mdash; Lake Mahopac Lodge and the Titicus Inn among them &mdash; and the film premiered in New York on February 21, 1924. This is the rare local legend that contemporary evidence enlarges rather than deflates: the claim was &ldquo;housed cast members&rdquo;; the fact was headquarters, hotel, and commissary for an army.</p>
+
+    <figure class="figure-portrait">
+      <img src="../images/theall-homestead/america-1924-poster.jpg" alt="Colour lithographed film poster in green, black, and yellow: a rider in a tricorne hat rears his horse before a stone cottage at night, one arm raised toward a lit doorway where a woman holds a musket and a man starts forward. Lettering reads &lsquo;The Midnight Ride of Paul Revere&rsquo; and &lsquo;D. W. Griffith presents America &mdash; a thrilling story of love and romance &mdash; by Robert W. Chambers.&rsquo;">
+      <figcaption>The picture that autumn&rsquo;s work produced: a theatrical poster for <em>America</em>, released 1924 from Robert W. Chambers&rsquo;s story, five months after the company broke camp on this road. Copyright 1924 by the M.&thinsp;C. Miner Litho. Co.; now in the public domain.</figcaption>
+    </figure>
+
+    <h3>&ldquo;Mrs. Henry Ward Beecher moved into the house in 1887&rdquo;</h3>
+
+    <p>The published version cannot be right as written &mdash; and the truth behind it turns out to be better documented and stranger. The restaurant&rsquo;s account has the widow of the great abolitionist moving in on his death in 1887, with Harriet Beecher Stowe visiting from Litchfield. Every checkable element fails: Stowe lived in Hartford, not Litchfield, from 1873 until her death there in 1896; Eunice White Beecher, the abolitionist&rsquo;s widow, died in Stamford in 1897; and in 1887 this house was no empty mansion but the home of Arvah Theall, then in the last year of his life, with his housekeeper.</p>
+
+    <p>And yet a Mrs. Henry Ward Beecher did lease this house &mdash; and gave it her name. A 1924 notice records that <strong>&ldquo;Mrs. Henry Ward Beecher of New York City has leased the property of Mrs. M.&nbsp;W. Jennings at Brewster, known as the Pine Tree Lodge,&rdquo;</strong> and by March 1928 the press was calling the house <strong>&ldquo;the famous Beecher Lodge.&rdquo;</strong> She was necessarily the wife or widow of a namesake descendant &mdash; the abolitionist was survived by three sons of the New York area, and a junior Henry Ward belongs to their generation&rsquo;s children &mdash; and her exact identity is an open research item. The legend, then, is a compression: a real and locally famous Beecher tenancy of the 1920s, promoted in retelling to the great man&rsquo;s widow and slid back thirty-seven years to meet his death. The house&rsquo;s Beecher story is true; the restaurant&rsquo;s version of it is not.</p>
+
+    <h3>&ldquo;Built in 1856 for a local county judge&rdquo;</h3>
+
+    <p>This one has moved, over the course of the research, from unsupported to substantially recoverable. There was no judge in the chain in the sense the claim implies &mdash; but there was a magistrate living on the farm. <strong>Thacher H. Theall was serving as a Justice of the Peace of Putnam County from at least May 1842</strong>, taking acknowledgments in that capacity, and he owned this land until his death in 1886. If the house went up or was substantially enlarged in the mid-1850s, as the building&rsquo;s two-part massing and the family&rsquo;s 1857 mineral income both allow, then he built it &mdash; for himself, not on commission. A Justice of the Peace is not a County Judge, though under the 1846 constitution two Justices in each county sat as Justices of Sessions alongside the County Judge in the Court of Sessions, so the elevation in local memory is a short one. The legend is best read not as invention but as compression: <em>the judge&rsquo;s place</em>, worn down over a century and a half.</p>
+
+    <h3>&ldquo;A speakeasy in the 1920s&rdquo;</h3>
+
+    <p>Untested, and now with a documented context to test it against: through the Prohibition years this building was a going public house under three successive names &mdash; the Colonial Coffee House from 1920, the Pine Tree Lodge from 1922, the Beecher Lodge by 1928 &mdash; serving &ldquo;refreshments for the multitude&rdquo; on the main road to the Berkshires and, in one documented week of 1923, breakfasting 347 people at a sitting. What was in the glasses is exactly the sort of thing the license records and the newspaper&rsquo;s raid reports would show, and neither has yet been searched to conclusion.</p>
+
+    <h2><span class="h2-roman">XI.</span> Chain of Title</h2>
+
+    <p>PC = Putnam County Clerk&rsquo;s Office, liber/page of Deeds. Instruments marked <em>indexed</em> have been located in the grantor/grantee indexes but not yet read; those marked <em>card</em> are cited from the assessor&rsquo;s ownership record. All others have been read in full from the record copies. Dates are of execution; recording dates differ, sometimes by years.</p>
+
+    <div class="deed-table-wrap">
+      <table class="deed-table">
+        <thead>
+          <tr><th>Date</th><th>Grantor &rarr; Grantee</th><th>Liber/Page</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="dt-date">Aug. 5, 1811</td><td class="dt-parties">Hackaliah &amp; Mary R. Bailey (Somers) &rarr; Benjamin Lent</td><td class="dt-ref">PC A/262</td><td class="dt-notes">$115.68; 7 ac. 2 r. 34 rods. &ldquo;Part of a Farm commonly called the <strong>Hallett or Iron Works Farm</strong>&rdquo;; David Crosby&rsquo;s Paper Mill Lot. Dutchess County at date.</td></tr>
+          <tr><td class="dt-date">May 10, 1814</td><td class="dt-parties">Aaron &amp; Letty Brown &rarr; Benjamin Lent</td><td class="dt-ref">PC A/264</td><td class="dt-notes">$105; 1 ac. 2 r. 14 rods &ldquo;near the Paper Mill on Croton River.&rdquo;</td></tr>
+          <tr><td class="dt-date">Mar. 25, 1815</td><td class="dt-parties">Hackaliah Bailey &rarr; Benjamin Lent</td><td class="dt-ref">PC A/267</td><td class="dt-notes">$583; 19 ac. 1 r. 13 rods.</td></tr>
+          <tr><td class="dt-date">Dec. 9, 1816</td><td class="dt-parties">Hackaliah Bailey &rarr; Benjamin Lent</td><td class="dt-ref">PC A/265</td><td class="dt-notes">$1,500; 40 ac.</td></tr>
+          <tr><td class="dt-date">Dec. 1817</td><td class="dt-parties">Hackaliah Bailey &rarr; Benjamin Lent</td><td class="dt-ref">PC A/269</td><td class="dt-notes">$2,000; 108 ac. in three pieces.</td></tr>
+          <tr><td class="dt-date">Apr. 4, 1818</td><td class="dt-parties">James Phillips &rarr; Benjamin Lent</td><td class="dt-ref">PC A/271</td><td class="dt-notes">$200; 17 ac. 2 r. 20 perches. Retained by Lent; the adjoining lot in later descriptions.</td></tr>
+          <tr><td class="dt-date">Jun. 25, 1821</td><td class="dt-parties">Benjamin &amp; Belinda Lent &rarr; <strong>Hachaliah Theall</strong> (North Salem)</td><td class="dt-ref">PC M/16</td><td class="dt-notes">$2,650; <strong>142 ac. 1 rood</strong> &mdash; the founding purchase. Recorded c. 1839. No buildings clause.</td></tr>
+          <tr><td class="dt-date">1821 &times; 1831</td><td class="dt-parties"><em>Hachaliah Theall dies</em></td><td class="dt-ref">not located</td><td class="dt-notes">Will recited in Q/150 and Q/154: widow&rsquo;s thirds for life, remainder equally to <strong>seven heirs</strong>.</td></tr>
+          <tr><td class="dt-date">Apr. 2, 1831</td><td class="dt-parties">Aaron &amp; Letty Brown &rarr; <strong>Huldah Theall</strong>, widow</td><td class="dt-ref">PC H/486</td><td class="dt-notes">~$217; 26 ac. 12 perches. Bounds name &ldquo;the heirs of Hachaliah Theal Dec&rsquo;d.&rdquo;</td></tr>
+          <tr><td class="dt-date">Apr. 17, 1837</td><td class="dt-parties">Daniel S. Judd et al. (Patterson) &rarr; <strong>Hopkins, Arva &amp; Orrin Theall</strong></td><td class="dt-ref">PC L/83</td><td class="dt-notes">$2,000; <strong>35 ac.</strong> west of the turnpike. ~$57/ac. Origin of the undivided thirds.</td></tr>
+          <tr><td class="dt-date">Jan. 2, 1841</td><td class="dt-parties">Lydia L. Theall &rarr; Thacher H., Arva &amp; Orwin Theall</td><td class="dt-ref">PC S/32</td><td class="dt-notes">$500; her share of the 142 ac. Held 4 yrs. unrecorded.</td></tr>
+          <tr><td class="dt-date">Apr. 1, 1842</td><td class="dt-parties">Orwin Theall (New York City) &rarr; Huldah Theall</td><td class="dt-ref">PC P/428, P/429</td><td class="dt-notes">$1,200 + $1,000. Temporary; reversed in December.</td></tr>
+          <tr><td class="dt-date">Dec. 26, 1842</td><td class="dt-parties">Huldah Theall &rarr; Orwin Theall</td><td class="dt-ref">PC Q/154</td><td class="dt-notes">$2,200 &mdash; the April sums exactly reversed. Ack. before <strong>Thacher H. Theall, J.P.</strong></td></tr>
+          <tr><td class="dt-date">Dec. 28, 1842</td><td class="dt-parties">Orwin &amp; Ann Maria Theall &rarr; <strong>Thacher H. &amp; Arvah Theall</strong></td><td class="dt-ref">PC Q/150</td><td class="dt-notes">$1,200; 142 ac., <strong>reserving 1/7 of the widow&rsquo;s thirds</strong> under Hachaliah&rsquo;s will. The brothers&rsquo; partnership begins.</td></tr>
+          <tr><td class="dt-date">Dec. 28, 1842</td><td class="dt-parties">Orwin &amp; Ann Maria Theall &rarr; Thacher H. &amp; Arvah Theall</td><td class="dt-ref">PC Q/153</td><td class="dt-notes">$700; undivided &frac13; of the 35 ac.</td></tr>
+          <tr><td class="dt-date">Nov. 19, 1844</td><td class="dt-parties"><strong>Susan Theall</strong> &rarr; Thacher H. &amp; Arva Theall</td><td class="dt-ref">PC S/34</td><td class="dt-notes">$300. Executes alone &mdash; <strong>unmarried at this date</strong>.</td></tr>
+          <tr><td class="dt-date">Jul. 24, 1850</td><td class="dt-parties">Thacher H. &amp; Arvah Theal &harr; <strong>New York &amp; Harlem Rail Road Co.</strong></td><td class="dt-ref">PC W/270</td><td class="dt-notes"><strong>Not a conveyance.</strong> Strip taken by appraisement; $496.50 settlement + perpetual fence covenant. Witness <strong>Aaron Jennings of Croton Falls</strong>.</td></tr>
+          <tr><td class="dt-date">1857</td><td class="dt-parties">Thatcher H. &amp; Arvah Theall &rarr; Holman J. Hale</td><td class="dt-ref">PC 31/392, 32/2, 32/98</td><td class="dt-notes"><em>indexed</em> &mdash; mineral rights, three deeds. Recited as live 1928&ndash;1963.</td></tr>
+          <tr><td class="dt-date">1861</td><td class="dt-parties">Holman J. Hale, by Sheriff &rarr; Thatcher Theall</td><td class="dt-ref">PC 37/87</td><td class="dt-notes"><em>indexed</em> &mdash; may extinguish the 1857 severance.</td></tr>
+          <tr><td class="dt-date">1880</td><td class="dt-parties">Thatcher H. &amp; Arvah Theall &rarr; John H. Cheever</td><td class="dt-ref">PC 61/15</td><td class="dt-notes"><em>indexed</em> &mdash; mine-side land; creates the western bound.</td></tr>
+          <tr><td class="dt-date">d. 1885&times;86; pr. Mar. 15, 1886</td><td class="dt-parties"><em>Thatcher H. Theall</em> &rarr; <strong>Arvah Theall</strong>, by will</td><td class="dt-ref">PC 66/331</td><td class="dt-notes">Will of Feb. 27, 1868; two clauses; entire estate to &ldquo;my brother, Arvah Theall.&rdquo;</td></tr>
+          <tr><td class="dt-date">d. 1887&times;88; pr. Feb. 21, 1888</td><td class="dt-parties"><em>Arvah Theall</em> &rarr; <strong>Susan Jennings</strong>, life estate</td><td class="dt-ref">PC 68/125</td><td class="dt-notes">Homestead ~180 ac. <strong>excepted from the executors&rsquo; power of sale</strong>; then Charles H. Jennings for life; remainder to his heirs and Franklin&rsquo;s children.</td></tr>
+          <tr><td class="dt-date">1889</td><td class="dt-parties">Executors of Arvah Theall &rarr; E. J. W&mdash;&mdash;(?); Geo. Cole</td><td class="dt-ref">PC 69/73, 69/102</td><td class="dt-notes"><em>indexed</em> &mdash; outlying land only, not the homestead.</td></tr>
+          <tr><td class="dt-date">1895 &times; 1898</td><td class="dt-parties"><em>Charles H. Jennings dies</em>; remainder vests</td><td class="dt-ref">&mdash;</td><td class="dt-notes">Bracketed by the two quitclaims below.</td></tr>
+          <tr><td class="dt-date">Jul. 26, 1895</td><td class="dt-parties">Aaron Jennings (Southport, Conn.) &rarr; <strong>Mary Wells Jennings</strong></td><td class="dt-ref">PC 80/155</td><td class="dt-notes">$1 quitclaim; &ldquo;<strong>Arvah Theall Homestead Farm</strong>,&rdquo; ~180 ac. Rec. Feb. 10, 1897.</td></tr>
+          <tr><td class="dt-date">Apr. 2, 1898</td><td class="dt-parties">Aaron Jennings &rarr; Mary Wells Jennings</td><td class="dt-ref">PC 81/562</td><td class="dt-notes">Confirmatory; <strong>&ldquo;as heir of Charles H. Jennings, deceased&rdquo;</strong>; Parcel 143, First Brewster Supplemental Proceeding. Rec. Oct. 7, 1898.</td></tr>
+          <tr><td class="dt-date">Mar. 5, 1910</td><td class="dt-parties">Mary Wells Jennings &rarr; Abel H. Byers (Hamburg, Pa.)</td><td class="dt-ref">PC 101/42</td><td class="dt-notes">Full covenants; stated $1,000; &ldquo;<strong>Old Theall Homestead Farm</strong>.&rdquo;</td></tr>
+          <tr><td class="dt-date">Oct. 18, 1919</td><td class="dt-parties">Jennings &amp; Byers &rarr; <strong>Adeline &amp; Marie Nolan</strong> (Pawling)</td><td class="dt-ref">PC 117/365</td><td class="dt-notes"><strong>Lease</strong>, 5 yrs. + option; 137 ac.; lessor &ldquo;of <strong>The Pines</strong>.&rdquo; Premises traded as the <strong>Colonial Coffee House</strong> (1920), then from May 30, 1922 as the <strong>Pine Tree Lodge</strong> (F. D. Van Vechten); Griffith headquarters, Sept. 1923; leased to Mrs. Henry Ward Beecher, 1924; &ldquo;the famous <strong>Beecher Lodge</strong>&rdquo; by 1928.</td></tr>
+          <tr><td class="dt-date">May 10, 1921</td><td class="dt-parties">Abel H. &amp; Bertha Byers &rarr; Mary Wells Jennings (White Plains)</td><td class="dt-ref">PC 131/51</td><td class="dt-notes">$1; Brundage mortgages; subject to the Nolan lease. Rec. Jan. 23, 1925.</td></tr>
+          <tr><td class="dt-date">Apr. 2, 1928</td><td class="dt-parties">Mary Wells Jennings &rarr; <strong>Elwoody Tire Co. Inc.</strong></td><td class="dt-ref">PC 144/401</td><td class="dt-notes">~145 ac. in 4 parcels; <strong>Schaefer survey, Feb. 1926</strong>. Reported Mar. 9, 1928 as the sale of &ldquo;the famous Beecher Lodge&rdquo; to a Mount Kisco syndicate headed by <strong>William J. Towey</strong>; James F. Greene, broker. End of family ownership.</td></tr>
+          <tr><td class="dt-date">Aug. 21, 1928</td><td class="dt-parties">Elwoody Tire Co., Inc. &rarr; <strong>Eugene M. &amp; Josephine S. Michel</strong></td><td class="dt-ref">PC 146/398</td><td class="dt-notes"><strong>SEVERANCE &mdash; the 10.036-acre house parcel created.</strong> Ninety-foot artesian well drilled for Michel that October.</td></tr>
+          <tr><td class="dt-date">Jun. 23, 1933</td><td class="dt-parties">Josephine S. Michel &rarr; George &amp; Alfred E. Muller (Bronx)</td><td class="dt-ref">PC 186/227</td><td class="dt-notes">&asymp;$18,000 (inference); joint tenants. Ten weeks after legal beer.</td></tr>
+          <tr><td class="dt-date">Oct. 25, 1945</td><td class="dt-parties">George Muller &rarr; George &amp; Elizabeth Muller</td><td class="dt-ref">PC 300/396</td><td class="dt-notes">Intra-family; excepts Parcel 16.5, State Highway 5006.</td></tr>
+          <tr><td class="dt-date">Apr. 18, 1946</td><td class="dt-parties">George &amp; Elizabeth Muller &rarr; <strong>David B. &amp; Lillian M. Griffin</strong></td><td class="dt-ref">PC 306/497</td><td class="dt-notes">Ten acres only.</td></tr>
+          <tr><td class="dt-date">Aug. 1959</td><td class="dt-parties">David B. Griffin &rarr; Henry Van Pala</td><td class="dt-ref">PC 520/222</td><td class="dt-notes">Day of month uncertain in the record copy.</td></tr>
+          <tr><td class="dt-date">Nov. 18, 1963</td><td class="dt-parties">Henry Van Pala &rarr; <strong>William F. Cunningham</strong></td><td class="dt-ref">PC 584/381</td><td class="dt-notes">&asymp;$30,000; $25,000 PMM, Putnam County Savings Bank.</td></tr>
+          <tr><td class="dt-date">Sep. 24, 1975</td><td class="dt-parties">William F. Cunningham &rarr; <strong>Vincent Ficarra</strong></td><td class="dt-ref">PC 730/475</td><td class="dt-notes"><em>card</em> &mdash; $80,500.</td></tr>
+          <tr><td class="dt-date">Aug. 5, 1999</td><td class="dt-parties">Vincent Ficarra &rarr; <strong>Prime India Enterprises Inc.</strong></td><td class="dt-ref">PC 1480/470</td><td class="dt-notes"><em>card</em> &mdash; Jaipore (in the building since 1993) takes title-side ownership.</td></tr>
+          <tr><td class="dt-date">Jul. 17, 2015</td><td class="dt-parties">Prime India Enterprises &rarr; 280 Brewstery LLC</td><td class="dt-ref">PC 1990/270</td><td class="dt-notes"><em>card</em></td></tr>
+          <tr><td class="dt-date">Mar. 10, 2022</td><td class="dt-parties">280 Brewstery LLC &rarr; Whitehouse Brewster LLC</td><td class="dt-ref">PC 2273/117</td><td class="dt-notes"><em>card</em> &mdash; present owner of record.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="open-research">
+      <div class="open-research-label">Open research questions</div>
+      <ul>
+        <li><strong>The 1924 Mrs. Henry Ward Beecher</strong> &mdash; her identity within the Beecher family (the namesake line runs through the abolitionist&rsquo;s surviving sons), and the running of &ldquo;the famous Beecher Lodge&rdquo; to 1928.</li>
+        <li><strong>The 1923 Army camp fields</strong> &mdash; whether &ldquo;the VanVechten camp&rdquo; lay on the farm&rsquo;s own ground or the neighboring parcel that later held a motor court; and the identity of the soldier maimed in the October cannon accident.</li>
+        <li><strong>The Nolan&ndash;Van Vechten transition</strong> &mdash; how management passed mid-lease, and what became of the sisters after 1921.</li>
+        <li><strong>The will of Hachaliah Theall</strong>, 1821&nbsp;&times;&nbsp;1831 &mdash; recited twice but not located. Putnam County Surrogate&rsquo;s Court; Westchester if he died still resident at North Salem.</li>
+        <li><strong>Construction date</strong> &mdash; Town of Southeast assessment rolls, 1840&ndash;1860; the 1854 O&rsquo;Connor and 1867 Beers map labels at this site; federal agricultural schedules; the building&rsquo;s own fabric.</li>
+        <li><strong>The pre-1811 chain</strong> &mdash; Hackaliah Bailey as grantee, and behind him the Hallett family and the iron works itself, in the Dutchess County records.</li>
+        <li><strong>Hopkins Theall</strong> &mdash; co-purchaser of the 35 acres in 1837; his undivided third was never released of record.</li>
+        <li><strong>Susan Jennings&rsquo;s death</strong>, and whether heirs of Charles H. Jennings besides Aaron released their shares. Surrogate&rsquo;s files, Putnam and Fairfield County, Connecticut.</li>
+        <li><strong>Parcel No. 143, First Brewster Supplemental Proceeding</strong> &mdash; taking map and award schedule.</li>
+        <li><strong>The 1861 sheriff&rsquo;s deed</strong> <span class="deed-ref">PC 37/87</span> &mdash; whether it returned the mineral rights, making the exception recited from 1928 to 1963 a dead letter.</li>
+        <li><strong>Prohibition-era license and enforcement records</strong> for the Pine Tree Lodge, and the club-and-restaurant sequence of 1975&ndash;1999.</li>
+        <li><strong>The modern instruments</strong> &mdash; the 1975, 1999, 2015, and 2022 deeds, cited from the ownership card and not yet read.</li>
+        <li><strong>Newspaper citation pass</strong> &mdash; publication names for the press items of 1922&ndash;1926 and 1961, currently cited by date.</li>
+      </ul>
+    </div>
+
+    <div class="sources-block">
+      <h3>Sources Consulted</h3>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Putnam County Deeds, Wills &amp; Lease (read in full)</div>
+        <ul>
+          <li><span class="src-ref">PC A/262, A/264, A/265, A/267, A/269, A/271</span> &mdash; the six Lent assembly deeds, 1811&ndash;1818. Source of the &ldquo;Hallett or Iron Works Farm&rdquo; name and the Crosby paper mill.</li>
+          <li><span class="src-ref">PC M/16</span> &mdash; Lent to Hachaliah Theall, June 25, 1821. The founding purchase.</li>
+          <li><span class="src-ref">PC H/486</span> &mdash; Brown to Huldah Theall, April 2, 1831. Evidence for Hachaliah&rsquo;s death.</li>
+          <li><span class="src-ref">PC L/83</span> &mdash; Judd et al. to three Theall sons, April 17, 1837. The 35-acre western parcel.</li>
+          <li><span class="src-ref">PC S/32</span>, <span class="src-ref">PC P/428</span>, <span class="src-ref">PC P/429</span>, <span class="src-ref">PC Q/154</span>, <span class="src-ref">PC Q/150</span>, <span class="src-ref">PC Q/153</span>, <span class="src-ref">PC S/34</span> &mdash; the consolidation sequence, 1841&ndash;1844.</li>
+          <li><span class="src-ref">PC W/270</span> &mdash; Theall and the New York &amp; Harlem Rail Road, July 24, 1850.</li>
+          <li><span class="src-ref">PC 66/331</span> &mdash; Will of Thatcher H. Theall (1868; probated 1886).</li>
+          <li><span class="src-ref">PC 68/125</span> &mdash; Will of Arvah Theall (1886; probated 1888). The homestead&rsquo;s composition, bounds, and devise scheme.</li>
+          <li><span class="src-ref">PC 80/155</span>, <span class="src-ref">PC 81/562</span> &mdash; the Jennings quitclaims, 1895 and 1898.</li>
+          <li><span class="src-ref">PC 101/42</span>, <span class="src-ref">PC 117/365</span>, <span class="src-ref">PC 131/51</span>, <span class="src-ref">PC 144/401</span> &mdash; the Byers arrangement, the Nolan lease, and the 1928 sale.</li>
+          <li><span class="src-ref">PC 146/398</span>, <span class="src-ref">PC 186/227</span>, <span class="src-ref">PC 300/396</span>, <span class="src-ref">PC 306/497</span>, <span class="src-ref">PC 520/222</span>, <span class="src-ref">PC 584/381</span> &mdash; the severance and the ten acres, 1928&ndash;1963.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Contemporary Press &amp; Ephemera</div>
+        <ul>
+          <li><em>Brewster Standard</em>, July 2, 1920 &mdash; &ldquo;The Colonial Coffee House opened last Sunday for the season&hellip; midway between Brewster and Croton Falls&hellip; surrounded by large pine trees.&rdquo; The Nolan-era operation, at this property.</li>
+          <li>&ldquo;Pine Tree Lodge&rdquo; opening notice and advertisements, May 5, 12, and 26, 1922 &mdash; the succession from the Colonial Coffee House (&ldquo;formerly the Colonial Coffee House&rdquo;); F. D. Van Vechten&rsquo;s management; the May 30 opening; pasture to rent.</li>
+          <li>&ldquo;Pine Tree Lodge to House Stars,&rdquo; September 14, 1923; &ldquo;Somers Town Stars in Movies,&rdquo; September 21, 1923 (the 347 breakfasts; the Army camp; the Cameo Theatre screenings); &ldquo;Soldier in Movies Has Hand Blown Off,&rdquo; October 5, 1923; and the <em>Brewster Standard</em>&rsquo;s &ldquo;Fifty Years Ago&rdquo; reprint of September 27, 1973 (the Independent Market commissary contract).</li>
+          <li>&ldquo;Well Known Actors Join Cast of &lsquo;America,&rsquo;&rdquo; February 8, 1924 &mdash; the cast roster and the February 21 New York premiere.</li>
+          <li>Lease notice, 1924 &mdash; &ldquo;Mrs. Henry Ward Beecher of New York City has leased the property of Mrs. M. W. Jennings at Brewster, known as the Pine Tree Lodge.&rdquo;</li>
+          <li>Van Vechten item, January 29, 1926 &mdash; &ldquo;formerly proprietor of Pine Tree Lodge&rdquo;; purchase of the Henshaw Inn, Mount Kisco &mdash; with a later retrospective reprint appending &ldquo;(now Cunningham&rsquo;s).&rdquo;</li>
+          <li>Sale report, March 9, 1928 &mdash; &ldquo;the famous Beecher Lodge, also known as Pine Tree Lodge&rdquo; sold to the Towey syndicate of Mount Kisco.</li>
+          <li>Well item, October 5, 1928 &mdash; the ninety-foot artesian well drilled for Eugene Michel, &ldquo;new owner of the Pine Tree Lodge property.&rdquo;</li>
+          <li>&ldquo;Griffith&rsquo;s &lsquo;America&rsquo; Premieres at Empress,&rdquo; May 11, 1961 &mdash; retrospective; the &ldquo;Colonial Pines Inn&rdquo; recollection, treated as noted in Section VIII.</li>
+          <li>Pine Tree Lodge picture postcard and brochure, c. 1920s &mdash; &ldquo;F. D. Van Vechten, Managing Director&rdquo;; the building identified by its gable fenestration, wing, and surviving roadside stone wall.</li>
+          <li><em>Publication names for the press items are pending a citation pass; items are cited by date.</em></li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Primary &mdash; Indexes &amp; Assessment Records</div>
+        <ul>
+          <li>Hall &amp; McChesney consolidated Index to Deeds, Putnam County &mdash; Grantor and Grantee volumes for Theall/Theill (p. 1648), Jennings (pp. 824&ndash;825), and Lent (p. 968), read in full.</li>
+          <li>Putnam County Real Property ownership record card for the subject parcels &mdash; source for the 1975&ndash;2022 conveyances pending individual reads.</li>
+          <li>Current Putnam County tax maps &mdash; whose boundary figures for the house parcel reproduce, segment for segment, the aggregated courses of the February 1926 Schaefer survey.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Maps &amp; Surveys (as recited in the instruments)</div>
+        <ul>
+          <li>Survey of the Jennings (Theall) farm by J. Albert Schaefer, C.E., Mount Kisco, N.Y., February 1926 &mdash; recited in PC 144/401.</li>
+          <li>State Highway No. 5006 (Croton Falls&ndash;Brewster, Part 1) appropriation, Parcel 16.5 &mdash; recited in PC 300/396.</li>
+          <li>First Brewster Supplemental Proceeding, Parcel No. 143 &mdash; recited in PC 81/562.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Illustrations</div>
+        <ul>
+          <li>D. W. Griffith during filming &mdash; National Photo Company Collection, Prints &amp; Photographs Division, Library of Congress, catalog record 2016836079 (digital id npcc.09805). No known restrictions on publication. The Library&rsquo;s record gives no location for the exposure; it is reproduced here as a view of the <em>America</em> company, not of this property.</li>
+          <li><em>America</em> theatrical poster (&ldquo;The Midnight Ride of Paul Revere&rdquo;), copyright 1924 by the M. C. Miner Litho. Co., New York &mdash; public domain by expiration of the 1924 term.</li>
+          <li>Photographs of the building and of documents in the writer&rsquo;s possession, and scans of the writer&rsquo;s own copies of the Pine Tree Lodge postcard and brochure.</li>
+        </ul>
+      </div>
+
+      <div class="src-cat">
+        <div class="src-cat-label">Secondary &amp; Published Claims (treated as claims, not evidence)</div>
+        <ul>
+          <li>Jaipore Royal Indian Cuisine, published property history &mdash; source of the Beecher, Chaplin, and &ldquo;county judge&rdquo; claims tested in Section X; contains a demonstrable error in placing Harriet Beecher Stowe in Litchfield in the late 1880s.</li>
+          <li>Local recollections circulated on social media, 2026 &mdash; source of the Luciano ownership claim and the restaurant-era sequence corrected in Section IX.</li>
+          <li>Standard published chronologies of Charles Chaplin&rsquo;s career, D. W. Griffith&rsquo;s <em>America</em> (1924), the Beecher family, and Salvatore Lucania&rsquo;s documented residences &mdash; public-tier context for Section X.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="source-note" style="margin-top:2.5rem;text-align:center">Research by R. Griffin &nbsp;&middot;&nbsp; July 2026 &nbsp;&middot;&nbsp; A Property History</p>
+
+
+  </div>
+
+</article>
+
+<div class="page-copyright" style="max-width:1080px;margin:3rem auto 2rem;padding:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--ink-muted);line-height:1.8;letter-spacing:0.04em;text-align:center">
+  <p style="margin:0">&copy; 2026 Shakedown Productions. All rights reserved.</p>
+</div>
+
+<script src="../assets/js/shared.js"></script>
+
+</body>
+</html>

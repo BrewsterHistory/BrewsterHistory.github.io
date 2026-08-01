@@ -541,7 +541,9 @@ img { max-width: 100%; height: auto; display: block; }
 // ── RESEARCH TILES ────────────────────────────────────────────────────────
 // Single source of truth for what appears under "Additional Research."
 // Add a new piece: one object here + one HTML file in research/ + an image
-// in images/{slug}/. Order is alphabetical by title, automatically.
+// in images/{slug}/, AND add the slug to tileOrder below — display order is
+// set by tileOrder, not by position in this array. Unlisted slugs fall to
+// the end of the grid.
 var researchPieces = [
   {
     slug: 'panorama',
@@ -559,6 +561,13 @@ var researchPieces = [
     image: 'images/brewster-heights/postcard-brewster-heights.jpg',
     isDraft: true,
     hidden: true
+  },
+  {
+    slug: 'theall-homestead',
+    title: 'The Theall Homestead',
+    desc: '280 Route 22 &mdash; the Iron Works Farm of 1811, one family&rsquo;s homestead for a century, and the 1920s Pine Tree Lodge that headquartered D.&thinsp;W. Griffith&rsquo;s film company &mdash; now the Jaipore restaurant.',
+    image: 'images/theall-homestead/jaipore-today.png',
+    isDraft: true
   },
   {
     slug: 'gage-home',
@@ -671,6 +680,7 @@ var researchPieces = [
 // Explicit display order (by slug). Tiles not listed here fall to the end,
 // in their array order. To rearrange, just reorder this list.
 var tileOrder = [
+  'theall-homestead',
   'gage-home',
   'gay-nineties',
   'panorama',
