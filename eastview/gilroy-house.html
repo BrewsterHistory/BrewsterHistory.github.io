@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://*.workers.dev https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="John and Mary Gilroy of Eastview Avenue, Brewster, New York: Irish immigrants whose home was the village's first Catholic worship site and who conveyed the Prospect Street lot on which St. Lawrence O'Toole was founded in 1871. A property and family history built on physically reviewed Putnam County deeds and period Brewster Standard sources.">
+<meta name="description" content="John and Mary Gilroy of Eastview Avenue, Brewster, New York: Irish immigrants whose home was the village's first Catholic worship site and who conveyed the Prospect Street lot on which St. Lawrence O'Toole was founded in 1871. A property and family history built on Putnam County deeds read in full and period Brewster Standard sources.">
 <title>The Gilroy House — Brewster History</title>
 
 <!-- Google tag (gtag.js) -->
@@ -113,7 +113,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="narrative-body">
 
     <div class="method-note">
-      Draft narrative &mdash; built on eight physically reviewed Putnam County deeds (Liber 38/417, 44/543, 50/455, 50/492, 65/567, 66/402, and the downstream 410/182 and 911/166), a grantor/grantee index search, Mary Gilroy&rsquo;s January 1914 <em>Brewster Standard</em> funeral notice, and the Rev. Michael&nbsp;J. Henry obituary of October&nbsp;6, 1922 (which prints St. Lawrence O&rsquo;Toole&rsquo;s early history from the parish&rsquo;s baptismal records). Secondary histories &mdash; Roberts 1876, the <em>Town of Southeast 1788&ndash;1988</em> (1990), and the parish&rsquo;s 2021 anniversary bulletin &mdash; supply the family&rsquo;s origin story and are graded as such. <strong>The central land claim is now resolved on primary evidence:</strong> the Gilroys did convey the church lot, but by a recorded <em>sale</em> &mdash; not the gift of parish tradition. The parish&rsquo;s broader institutional history is treated in the companion <a href="stlawrence-otoole.html" style="color:var(--gold)">St. Lawrence O&rsquo;Toole</a> piece. Corrections welcome &mdash; see <a href="../about.html#contact" style="color:var(--gold)">Contact</a>.
+      Draft narrative &mdash; built on eight Putnam County deeds, each read in full (Liber 38/417, 44/543, 50/455, 50/492, 65/567, 66/402, and the downstream 410/182 and 911/166), a grantor/grantee index search, Mary Gilroy&rsquo;s January 1914 <em>Brewster Standard</em> funeral notice, and the Rev. Michael&nbsp;J. Henry obituary of October&nbsp;6, 1922 (which prints St. Lawrence O&rsquo;Toole&rsquo;s early history from the parish&rsquo;s baptismal records). Secondary histories &mdash; Roberts 1876, the <em>Town of Southeast 1788&ndash;1988</em> (1990), and the parish&rsquo;s 2021 anniversary bulletin &mdash; supply the family&rsquo;s origin story and are graded as such. <strong>The central land claim is now resolved on primary evidence:</strong> the Gilroys did convey the church lot, but by a recorded <em>sale</em> &mdash; not the gift of parish tradition. The parish&rsquo;s broader institutional history is treated in the companion <a href="stlawrence-otoole.html" style="color:var(--gold)">St. Lawrence O&rsquo;Toole</a> piece. Corrections welcome &mdash; see <a href="../about.html#contact" style="color:var(--gold)">Contact</a>.
     </div>
 
     <!-- I -->
@@ -250,7 +250,7 @@ img { max-width: 100%; height: auto; display: block; }
       <h3>Sources Consulted</h3>
 
       <div class="src-cat">
-        <div class="src-cat-label">Deeds &amp; property records &mdash; Putnam County Clerk (physically reviewed)</div>
+        <div class="src-cat-label">Deeds &amp; property records &mdash; Putnam County Clerk (read in full)</div>
         <ul>
           <li><span class="src-ref">Liber 38/417</span> &mdash; Samuel &amp; Eliza Brewster &rarr; James C. Gulick, quit-claim, March 14, 1863, $50. The home lot (~12,000 sq ft), &ldquo;on which is a dwelling house&rdquo; &mdash; establishing a house on the lot by 1863.</li>
           <li><span class="src-ref">Liber 44/543</span> &mdash; Gulick &rarr; John Gilroy, warranty, September 13, 1867, $1,000. Gilroy&rsquo;s acquisition of the Eastview home lot.</li>
@@ -317,5 +317,45 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <script src="../assets/js/shared.js"></script>
+<!-- page copy-link: appends a Copy link button to the site header -->
+<script>
+(function(){
+  if (window.__pageCopyLink) return; window.__pageCopyLink = true;
+  var css = '.page-copylink{font-family:"DM Mono",monospace;font-size:10px;' +
+    'letter-spacing:.08em;text-transform:uppercase;background:transparent;' +
+    'color:#8C8070;border:1px solid rgba(28,26,20,.25);border-radius:3px;' +
+    'padding:4px 9px;cursor:pointer;line-height:1.4;white-space:nowrap;' +
+    'transition:color .15s,border-color .15s}' +
+    '.page-copylink:hover{color:#8B6914;border-color:#8B6914}';
+  var st = document.createElement('style'); st.textContent = css;
+  document.head.appendChild(st);
+  function copyPageLink(btn){
+    var url = location.origin + location.pathname;
+    var done = function(){
+      var prev = btn.innerHTML; btn.innerHTML = '\u2713 Copied';
+      setTimeout(function(){ btn.innerHTML = prev; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, function(){ window.prompt('Copy this link:', url); });
+    } else { window.prompt('Copy this link:', url); }
+    if (typeof gtag === 'function') gtag('event','page_copy_link',{link_url:url});
+  }
+  function mount(){
+    var btn = document.createElement('button');
+    btn.className = 'page-copylink'; btn.type = 'button';
+    btn.title = 'Copy a direct link to this page';
+    btn.innerHTML = '\uD83D\uDD17 Copy link';
+    btn.addEventListener('click', function(){ copyPageLink(btn); });
+    var hdr = document.querySelector('.bh-header');
+    if (hdr) { hdr.appendChild(btn); }
+    else {
+      btn.style.cssText += 'position:fixed;right:14px;bottom:14px;z-index:200;background:#FAF8F3';
+      document.body.appendChild(btn);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
+})();
+</script>
 </body>
 </html>

@@ -214,7 +214,7 @@ img { max-width: 100%; height: auto; display: block; }
 
     <p>During the Revolutionary War, Putnam County was bitterly contested terrain. The county sits just north of the Neutral Ground between British-held New York City and Patriot-held territory, and loyalties were sharply divided. After American independence, New York State moved aggressively to confiscate and sell lands owned by Loyalists who had supported the Crown. The Commissioners of Forfeiture were established by state law to manage these sales, and their transactions form some of the oldest deed records in Putnam County.</p>
 
-    <p>In 1782, the Commissioners of Forfeiture &mdash; S. Dodge and others &mdash; conveyed this land to <strong>Herman King</strong> of the Town of Southeast (<span class="deed-ref">Book 8, Page 139</span>). This deed has not yet been physically examined; its existence in the index confirms that the property chain begins with a post-Revolutionary War forfeiture sale. The land was literally born into American hands through the dispossession of its Loyalist owner. The identity of that original Loyalist landowner remains to be established.</p>
+    <p>In 1782, the Commissioners of Forfeiture &mdash; S. Dodge and others &mdash; conveyed this land to <strong>Herman King</strong> of the Town of Southeast (<span class="deed-ref">Book 8, Page 139</span>). This deed has not yet been read; its existence in the index confirms that the property chain begins with a post-Revolutionary War forfeiture sale. The land was literally born into American hands through the dispossession of its Loyalist owner. The identity of that original Loyalist landowner remains to be established.</p>
 
     <figure class="figure-small">
       <img src="../images/gay-nineties/deed-index-1782.jpg" alt="Index of Deeds, Dutchess County, N.Y. — Grantees, showing the 1782 entry for grantee Herman King, grantor S. Dodge & ors. Com's., Book 8 Page 139.">
@@ -461,7 +461,7 @@ img { max-width: 100%; height: auto; display: block; }
       <h3>Sources Consulted</h3>
 
       <div class="src-cat">
-        <div class="src-cat-label">Primary &mdash; Putnam County Deed Records (physically examined)</div>
+        <div class="src-cat-label">Primary &mdash; Putnam County Deed Records (read in full)</div>
         <ul>
           <li><span class="src-ref">Bk.&nbsp;B, p.&nbsp;191&ndash;192</span> &mdash; Herman King &amp; Susanna to George Beal (1815/1824)</li>
           <li><span class="src-ref">Bk.&nbsp;B, p.&nbsp;215&ndash;216</span> &mdash; Stephen King to George Beal, quitclaim (1824)</li>
@@ -530,5 +530,45 @@ img { max-width: 100%; height: auto; display: block; }
 
 <script src="../assets/js/shared.js"></script>
 
+<!-- page copy-link: appends a Copy link button to the site header -->
+<script>
+(function(){
+  if (window.__pageCopyLink) return; window.__pageCopyLink = true;
+  var css = '.page-copylink{font-family:"DM Mono",monospace;font-size:10px;' +
+    'letter-spacing:.08em;text-transform:uppercase;background:transparent;' +
+    'color:#8C8070;border:1px solid rgba(28,26,20,.25);border-radius:3px;' +
+    'padding:4px 9px;cursor:pointer;line-height:1.4;white-space:nowrap;' +
+    'transition:color .15s,border-color .15s}' +
+    '.page-copylink:hover{color:#8B6914;border-color:#8B6914}';
+  var st = document.createElement('style'); st.textContent = css;
+  document.head.appendChild(st);
+  function copyPageLink(btn){
+    var url = location.origin + location.pathname;
+    var done = function(){
+      var prev = btn.innerHTML; btn.innerHTML = '\u2713 Copied';
+      setTimeout(function(){ btn.innerHTML = prev; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, function(){ window.prompt('Copy this link:', url); });
+    } else { window.prompt('Copy this link:', url); }
+    if (typeof gtag === 'function') gtag('event','page_copy_link',{link_url:url});
+  }
+  function mount(){
+    var btn = document.createElement('button');
+    btn.className = 'page-copylink'; btn.type = 'button';
+    btn.title = 'Copy a direct link to this page';
+    btn.innerHTML = '\uD83D\uDD17 Copy link';
+    btn.addEventListener('click', function(){ copyPageLink(btn); });
+    var hdr = document.querySelector('.bh-header');
+    if (hdr) { hdr.appendChild(btn); }
+    else {
+      btn.style.cssText += 'position:fixed;right:14px;bottom:14px;z-index:200;background:#FAF8F3';
+      document.body.appendChild(btn);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
+})();
+</script>
 </body>
 </html>

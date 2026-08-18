@@ -290,7 +290,7 @@ img { max-width: 100%; height: auto; display: block; }
 
     <p>The Gage family&rsquo;s transition from tenants to owners was a direct consequence of the American Revolution. Sir Henry Clinton, the British Commander-in-Chief in North America, owned the land the Gages farmed. New York State seized and sold the estates of Loyalists under the <strong>Act for the Forfeiture of Estates (1779)</strong>. A board of Commissioners of Forfeiture &mdash; led by Samuel Dodge and others &mdash; conducted the sales.</p>
 
-    <p>On October 30 &ndash; November 24, 1783, in a series of transactions, four Gage brothers purchased their respective parcels from the Commissioners. All five deeds have been physically reviewed from Dutchess County records:</p>
+    <p>On October 30 &ndash; November 24, 1783, in a series of transactions, four Gage brothers purchased their respective parcels from the Commissioners. All five deeds have been read in full from Dutchess County records:</p>
 
     <div class="summary-block">
       <div class="summary-block-label">The Gage brothers&rsquo; purchases, October&ndash;November 1783</div>
@@ -428,7 +428,7 @@ img { max-width: 100%; height: auto; display: block; }
       The Putnam County Chain of Title (1878 to Present)
     </h2>
 
-    <p>From 1878 forward, the chain of title is complete and unbroken. Every instrument has been physically reviewed from the Putnam County Clerk&rsquo;s Office.</p>
+    <p>From 1878 forward, the chain of title is complete and unbroken. Every instrument has been read in full from the Putnam County Clerk&rsquo;s online records.</p>
 
     <h3>Peter Foster (1878&ndash;1920)</h3>
 
@@ -459,7 +459,7 @@ img { max-width: 100%; height: auto; display: block; }
       Complete Chain of Title
     </h2>
 
-    <p class="source-note">PC = Putnam County Clerk&rsquo;s Office. DC = Dutchess County Clerk&rsquo;s Office. All Putnam County deeds have been physically reviewed. Dutchess County deed images at DC 8/423, 425, 426, and 442 have been reviewed and transcribed.</p>
+    <p class="source-note">PC = Putnam County Clerk&rsquo;s Office. DC = Dutchess County Clerk&rsquo;s Office. All Putnam County deeds have been read in full from the Clerk&rsquo;s online records (complete from 1812). Dutchess County deed images at DC 8/423, 425, 426, and 442 have been reviewed and transcribed.</p>
 
     <div class="deed-table-wrap">
       <table class="deed-table">
@@ -588,5 +588,45 @@ img { max-width: 100%; height: auto; display: block; }
 
 <script src="../assets/js/shared.js"></script>
 
+<!-- page copy-link: appends a Copy link button to the site header -->
+<script>
+(function(){
+  if (window.__pageCopyLink) return; window.__pageCopyLink = true;
+  var css = '.page-copylink{font-family:"DM Mono",monospace;font-size:10px;' +
+    'letter-spacing:.08em;text-transform:uppercase;background:transparent;' +
+    'color:#8C8070;border:1px solid rgba(28,26,20,.25);border-radius:3px;' +
+    'padding:4px 9px;cursor:pointer;line-height:1.4;white-space:nowrap;' +
+    'transition:color .15s,border-color .15s}' +
+    '.page-copylink:hover{color:#8B6914;border-color:#8B6914}';
+  var st = document.createElement('style'); st.textContent = css;
+  document.head.appendChild(st);
+  function copyPageLink(btn){
+    var url = location.origin + location.pathname;
+    var done = function(){
+      var prev = btn.innerHTML; btn.innerHTML = '\u2713 Copied';
+      setTimeout(function(){ btn.innerHTML = prev; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, function(){ window.prompt('Copy this link:', url); });
+    } else { window.prompt('Copy this link:', url); }
+    if (typeof gtag === 'function') gtag('event','page_copy_link',{link_url:url});
+  }
+  function mount(){
+    var btn = document.createElement('button');
+    btn.className = 'page-copylink'; btn.type = 'button';
+    btn.title = 'Copy a direct link to this page';
+    btn.innerHTML = '\uD83D\uDD17 Copy link';
+    btn.addEventListener('click', function(){ copyPageLink(btn); });
+    var hdr = document.querySelector('.bh-header');
+    if (hdr) { hdr.appendChild(btn); }
+    else {
+      btn.style.cssText += 'position:fixed;right:14px;bottom:14px;z-index:200;background:#FAF8F3';
+      document.body.appendChild(btn);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
+})();
+</script>
 </body>
 </html>
