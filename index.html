@@ -391,6 +391,17 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0.4rem 0.7rem;
   border: 1px solid var(--border);
 }
+.tile-copylink {
+  position: absolute; right: 8px; bottom: 8px; z-index: 3;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+  background: rgba(28,26,20,0.72); color: #F5F0E8;
+  border: 1px solid rgba(245,240,232,0.25); border-radius: 3px;
+  padding: 3px 8px; cursor: pointer; line-height: 1.4;
+  opacity: 0; transition: opacity 0.15s ease, background 0.15s ease;
+}
+.tile:hover .tile-copylink, .tile:focus-within .tile-copylink { opacity: 1; }
+.tile-copylink:hover { background: rgba(139,105,20,0.9); }
+@media (hover: none) { .tile-copylink { opacity: 1; } }
 .tile-draft-tag {
   position: absolute;
   top: 0.7rem;
@@ -731,6 +742,23 @@ researchPieces.sort(function(a, b) {
   return ia - ib;
 });
 
+function copyTileLink(ev, btn, href) {
+  ev.preventDefault(); ev.stopPropagation();
+  var url = new URL(href, location.origin + location.pathname).href;
+  var done = function() {
+    var prev = btn.innerHTML; btn.innerHTML = '\u2713 Copied';
+    setTimeout(function(){ btn.innerHTML = prev; }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done, function(){ window.prompt('Copy this link:', url); });
+  } else {
+    window.prompt('Copy this link:', url);
+  }
+  if (typeof gtag === 'function') {
+    gtag('event', 'tile_copy_link', { link_url: url });
+  }
+}
+
 function tileHtml(p) {
   var draftTag = p.isDraft
     ? '<span class="tile-draft-tag">Draft</span>'
@@ -744,6 +772,9 @@ function tileHtml(p) {
       '<div class="tile-img-wrap">' +
         draftTag +
         imageHtml +
+        '<button class="tile-copylink" type="button" ' +
+          'onclick="copyTileLink(event, this, \'' + href + '\')" ' +
+          'title="Copy a direct link to this page">\uD83D\uDD17 Copy link</button>' +
       '</div>' +
       '<div class="tile-body">' +
         '<div class="tile-eyebrow">' + eyebrow + '</div>' +
