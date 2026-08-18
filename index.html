@@ -589,7 +589,8 @@ var researchPieces = [
     slug: 'theall-homestead',
     title: 'The Theall Homestead',
     desc: '280 Route 22 &mdash; the Iron Works Farm of 1811, one family&rsquo;s homestead for a century, and the 1920s Pine Tree Lodge that headquartered D.&thinsp;W. Griffith&rsquo;s film company &mdash; now the Jaipore restaurant.',
-    image: 'images/theall-homestead/pinetree-postcard-awnings.jpg'
+    image: 'images/theall-homestead/pinetree-postcard-awnings.jpg',
+    isDraft: true
   },
   {
     slug: 'gage-home',
@@ -647,7 +648,7 @@ var researchPieces = [
     slug: 'losee-family',
     title: 'The Losee Homestead',
     desc: '110&ndash;114 Oak Street &mdash; the Brewster boyhood home of William A. Losee, a 7th Cavalry trooper killed at the Little Bighorn in 1876.',
-    image: 'images/losee-family/brewster-boy-headline.png',
+    image: 'images/losee-family/monument-tile.jpg',
     isDraft: false
   },
   {
@@ -732,7 +733,7 @@ researchPieces.sort(function(a, b) {
 
 function tileHtml(p) {
   var draftTag = p.isDraft
-    ? '<span class="tile-draft-tag">Coming Soon</span>'
+    ? '<span class="tile-draft-tag">Draft</span>'
     : '';
   var imageHtml =
     '<img src="' + p.image + '" alt="" class="tile-img" loading="lazy" ' +

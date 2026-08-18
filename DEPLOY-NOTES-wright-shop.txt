@@ -1,0 +1,29 @@
+WRIGHT SHOP — DEPLOY PACKAGE (unzip at repo root)
+Target: C:\Users\PC_20251015\Documents\GitHub\BrewsterHistory.github.io\
+
+CONTENTS
+  index.html                      ← REPLACES live homepage (three-section
+                                    restructure built on the live file of
+                                    Aug 17 2026: adds wright-shop tile,
+                                    preserves Morningthorpe + de-drafted Theall)
+  research\wright-shop.html       ← new page (draft: noindex, not in sitemap)
+  images\wright-shop\  (14 files) ← all figures incl. homepage tile image
+
+AFTER UNZIP
+  1. GitHub Desktop → review diff: index.html should show section changes only;
+     everything else is new files.
+  2. Commit + push.
+  3. Delete this notes file (or add to .gitignore) — it need not deploy.
+
+PUBLISH FLIP (later, when ready)
+  - research\wright-shop.html: remove <meta name="robots" content="noindex, nofollow">
+  - index.html: wright-shop tile → remove isDraft: true
+  - sitemap.xml: add research/wright-shop.html entry
+  - Then post the Facebook piece.
+
+REMINDERS
+  - The three newspaper images (1913, 1915, Merrick 1921) carry green
+    search-highlighting from NYS Historic Newspapers; clean re-downloads
+    can replace them any time — filenames stay the same.
+  - site-today.jpg is Google Street View: keep the © Google line in its
+    figure caption when that figure is placed.
