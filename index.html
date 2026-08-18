@@ -505,7 +505,8 @@ img { max-width: 100%; height: auto; display: block; }
   </a>
 
   <!-- Additional Research tiles -->
-  <div class="section-tag">Additional Research</div>
+  <div class="section-tag">Property Histories</div>
+  <p class="series-intro">Deed-by-deed histories of individual buildings and the ground under them &mdash; farms, inns, homesteads, and shops of the Town of Southeast, each traced through the county record from its earliest instrument to the present.</p>
 
   <div class="tiles" id="research-tiles">
     <!-- Tiles rendered by JS, with graceful image fallback -->
@@ -517,6 +518,14 @@ img { max-width: 100%; height: auto; display: block; }
 
   <div class="tiles" id="eastview-tiles">
     <!-- Eastview series tiles rendered by JS -->
+  </div>
+
+  <!-- Collections & reference -->
+  <div class="section-tag">Collections &amp; Reference</div>
+  <p class="series-intro">The site&rsquo;s reference shelves &mdash; catalogs and interactive views the research pieces draw on: the marker inventory, the map library, the school districts, and the 1870 panorama of the village.</p>
+
+  <div class="tiles" id="collection-tiles">
+    <!-- Collection tiles rendered by JS -->
   </div>
 
   <!-- About -->
@@ -546,6 +555,7 @@ img { max-width: 100%; height: auto; display: block; }
 var researchPieces = [
   {
     slug: 'panorama',
+    group: 'collection',
     title: 'Brewster from Marvin Mountain, 1870',
     desc: 'Louis Alman&rsquo;s panoramic photograph of the entire village &mdash; the depot, Main Street, the Methodist church, the Borden factory, and the fields that would become the East Branch and Bog Brook reservoirs. An interactive, drag-to-explore view.',
     image: 'panorama/panorama-tile.jpg',
@@ -566,6 +576,13 @@ var researchPieces = [
     title: 'Morningthorpe',
     desc: 'The granite castle Seth B. Howes raised above Turk Hill in the 1890s &mdash; a circus fortune, a will that entailed the house to the family name, a hospital&rsquo;s contested bequest, and the 1980 sale that ended the Howes century.',
     image: 'images/morningthorpe/morningthorpe-tile.jpg',
+    isDraft: true
+  },
+  {
+    slug: 'wright-shop',
+    title: 'Edward Wright&rsquo;s Shop',
+    desc: 'A blacksmith shop at the foot of the Main Street bank, turned plumbing, tinsmithing, bicycle and vulcanizing works &mdash; photographed by its proprietor just before the street was paved, and traced through a chain of title he never appears in.',
+    image: 'images/wright-shop/shop-full.jpg',
     isDraft: true
   },
   {
@@ -597,6 +614,7 @@ var researchPieces = [
   },
   {
     slug: 'markers',
+    group: 'collection',
     title: 'Historic Markers of Putnam County',
     desc: 'A reference catalog of roadside historic markers throughout the Brewster area &mdash; photos, marker text, locations, and context.',
     image: 'images/markers/cover.jpg',
@@ -606,6 +624,7 @@ var researchPieces = [
   },
   {
     slug: 'maps',
+    group: 'collection',
     title: 'Historic Maps of the Brewster Area',
     desc: 'A library of historic maps &mdash; Sanborn fire-insurance plats, county maps, and more, drawn from the Library of Congress and other public collections.',
     image: 'images/maps/cover.jpg',
@@ -615,6 +634,7 @@ var researchPieces = [
   },
   {
     slug: 'schools',
+    group: 'collection',
     title: 'Schools of Southeast',
     desc: 'The common school districts of the Town of Southeast and the schools of the Village of Brewster &mdash; mapped where they stood, whether they still stand or not. Anchored by the Milltown schoolhouse that New York City&rsquo;s reservoir displaced.',
     image: 'images/schools/milltown/milltown_tile.jpg',
@@ -686,6 +706,7 @@ var researchPieces = [
 // in their array order. To rearrange, just reorder this list.
 var tileOrder = [
   'morningthorpe',
+  'wright-shop',
   'theall-homestead',
   'gage-home',
   'gay-nineties',
@@ -734,14 +755,17 @@ function tileHtml(p) {
 function renderResearchTiles() {
   var general = document.getElementById('research-tiles');
   var eastview = document.getElementById('eastview-tiles');
-  var gHtml = '', eHtml = '';
+  var collection = document.getElementById('collection-tiles');
+  var gHtml = '', eHtml = '', cHtml = '';
   researchPieces.forEach(function(p) {
     if (p.hidden) return;
     if (p.group === 'eastview') { eHtml += tileHtml(p); }
+    else if (p.group === 'collection') { cHtml += tileHtml(p); }
     else { gHtml += tileHtml(p); }
   });
   if (general) general.innerHTML = gHtml;
   if (eastview) eastview.innerHTML = eHtml;
+  if (collection) collection.innerHTML = cHtml;
 }
 
 function makeTilePlaceholder() {
@@ -761,7 +785,7 @@ function makeTilePlaceholder() {
 // GA4 reports, register 'tile_title' and 'tile_href' as event-scoped custom
 // dimensions (Admin → Custom definitions) — a one-time step.
 function attachTileTracking() {
-  ['research-tiles', 'eastview-tiles'].forEach(function(id) {
+  ['research-tiles', 'eastview-tiles', 'collection-tiles'].forEach(function(id) {
     var container = document.getElementById(id);
     if (!container) return;
     container.addEventListener('click', function(e) {
