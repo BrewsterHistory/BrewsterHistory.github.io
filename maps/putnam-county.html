@@ -282,8 +282,8 @@ if (countyMaps.length === 0) {
   countyMaps.forEach(function(m) {
     const sheets = m.sheets.map(function(s) {
       return '<figure class="sanborn-sheet">' +
-               '<img src="../' + s.thumb + '" loading="lazy" alt="Sanborn map ' + m.year + ' &mdash; ' + s.caption + '" ' +
-                    'data-full="../' + s.full + '" data-cap="Sanborn ' + m.year + ' &mdash; ' + s.caption + '">' +
+               '<img src="../' + s.thumb + '" loading="lazy" alt="' + (m.title || '').replace(/"/g,'&quot;') + ' (' + m.year + ') &mdash; ' + s.caption + '" ' +
+                    'data-full="../' + s.full + '" data-cap="' + (m.title || '').replace(/"/g,'&quot;') + ' (' + m.year + ') &mdash; ' + s.caption + '">' +
                '<figcaption class="sanborn-sheet-cap">' + s.caption + '</figcaption>' +
              '</figure>';
     }).join('');
@@ -404,7 +404,10 @@ document.addEventListener('keydown', function(e) {
     img.style.width = Math.round(natW * scale) + 'px'; img.style.height = 'auto';
     lbEl.classList.toggle('zoomed', scale > fit * 1.001);
   }
-  function clampScale(s) { return Math.min(Math.max(fit * 4, 1), Math.max(fit, s)); }
+  // Max zoom: 4x the image's native pixels (or 12x the fitted size, whichever is larger).
+  // The old cap of max(fit*4, 1) stopped at roughly native size, which on a big
+  // county sheet like O'Connor 1854 left the householder names unreadable.
+  function clampScale(s) { return Math.min(Math.max(fit * 12, 4), Math.max(fit, s)); }
   // Zoom to a target scale, keeping the point under (cx,cy) fixed on screen
   function zoomTo(target, cx, cy) {
     var b = img.getBoundingClientRect();
@@ -434,7 +437,7 @@ document.addEventListener('keydown', function(e) {
   stage.addEventListener('wheel', function (e) {
     if (!lbEl.classList.contains('open') || !natW) return;
     e.preventDefault();
-    zoomTo(scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12), e.clientX, e.clientY);
+    zoomTo(scale * (e.deltaY < 0 ? 1.2 : 1 / 1.2), e.clientX, e.clientY);
   }, { passive: false });
 
   // Keep the image sensibly fitted if the window is resized while open
